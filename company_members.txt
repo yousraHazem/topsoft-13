@@ -1,5 +1,4 @@
 TOPSOFT COMPANY MEMBERS
-=======================
 
 Yousra Hazem
 
@@ -10,11 +9,18 @@ One day you'll see the Arabic Pixar- or better.. and you'll remember me :)
 I in one word: Energy!
 Optimistic :)
 
+<<<<<<< HEAD
+Mariam Ismail
+
+3rd year business informatics, GUC
+I in one word: Hardworker
+=======
+>>>>>>> master
+
 Yasmin Mahmoud 
 
 3rd year business informatics, GUC
 I in one word: optimistic 
-
 
 Nayera Mohamed
 3rd year business informatics , GUC
@@ -29,6 +35,28 @@ Donia Shaarawy
 3rd year BI,GUC
 I in one word: cute ;)
 
+Toka Omar
+3rd year BI,GUC
+Intrested in art , music , software development (not great but i like it ;) )
+I in one word: Dreamer :) 
+<<<<<<< HEAD
+
+May Badr
+3rd Year BI GUC 
+awwwwwwwwwwwwwww 
+=======
+
+May Badr
+3rd Year BI GUC 
+awwwwwwwwwwwwwww
+
+Riham Gamal 
+3rd year BI GUC
+I in one word: Simple :D :D  
+>>>>>>> master
 
 
-
+Sama Akram Abdel-rahman
+3rd year BI
+JGKFDJLKMSD
+--------------------------
