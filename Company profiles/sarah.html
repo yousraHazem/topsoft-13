@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Sarah Ahmed</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("#about").click(function(){
+                $("#div2").toggle();
+		});
+	});
+
+		$(document).ready(function(){
+		$("#role").click(function(){
+                $("#div3").toggle();
+		});
+	});
+
+			$(document).ready(function(){
+		$("#program").click(function(){
+                $("#div4").toggle();
+		});
+	});
+
+	</script>
+</head>
+<body>
+<img id= "pic" src="sara.jpg" width="120" height="150">
+<h2 id="name"> Sarah Ahmed</h2>
+<div class="div1">
+	<dl class="info">
+	<dt id="about">About me</dt>
+	
+	<dd id="div2"> A 19 year Business Informatics Student, 6 <sup>th</sup> semester.I am interested in Computer Programing</dd>
+
+
+	<dt id="role">Role in the Company</dt>
+
+	<dd id="div3"> Developer </dd>
+	<dt id="program">Programming languages and Technologies i know</dt>
+	<dd>
+		<ul id="div4">
+			<li>Java</li>
+			<li>JQuery</li>
+			<li>JavaScript</li>
+			<li>CSS</li>
+			<li>HTML</li>
+		</ul>
+	</dd>
+</dl>
+</div>
+
+
+
+
+</body>
+</html>
