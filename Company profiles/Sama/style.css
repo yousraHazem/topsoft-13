@@ -1,0 +1,62 @@
+body {
+  font-family: fantasy;
+}
+div.logo h1{
+	color: #FA5882;
+	/**position: relative;
+  top: 18px;
+  left: 10px;**/
+}
+
+
+div.logo {
+	text-align: center;
+	/**float: left;
+  width: 100px;
+  height: 100px;**/
+  margin-bottom: 17px;
+
+}
+
+div.fonc h2{
+	color: #04B4AE;
+	text-decoration: underline;
+}
+ div.fonc h3{
+ 	color: black; /**#01A9DB**/
+ 	margin: auto;
+ }
+ ul.ull{
+ 	color: black; /**#01A9DB;**/
+ }
+div.fonc{
+	background-image: url("mmm.png");
+	background-size:750px 600px;
+	padding: 10px;
+	margin-right: 250px;
+	margin-left: 250px;
+}
+#b2{
+	font-size: 20px;
+	margin:15px;
+}
+
+#b1off{
+	display: none;
+	background: #BDBDBD;
+	color: #F781BE;
+	font-size: 25px;
+	padding: 10px;
+	margin:auto;
+
+}
+
+#b2off{
+	display: none;
+	background: #BDBDBD;
+	color: #F781BE;
+	font-size: 25px;
+	padding: 10px;
+	margin-right: 910px;
+	background:"fixed";
+}
