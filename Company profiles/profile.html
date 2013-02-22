@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nayera Mohamed</title>
+   <link rel="stylesheet" type="text/css" href="profilestyle.css">
+      <script src="jquery-1.9.1.min.js">
+</script>
+
+</head>
+<body>
+ 
+  <div >
+    <img src="561554_10150997857556971_1749429964_n.jpg" id="pic" /> <b class="myname"> Nayera Mohamed </b>
+  
+    <h2>Role in the company</h2>
+    <h3>a website programmer </h3>
+    <button id="prog">Programming Languages and Technologies I know </button>
+     <ul >
+    <li>Java</li>
+    <li>Jquery</li>
+    <li>Java script</li>
+    <li>SQL</li>
+    <li>HTML</li>
+    <li>CSS</li>
+  </ul>
+    <button id = "af">add as a friend</button>
+
+  </div>
+</body>
+<footer>
+  <script>
+  $(document).ready(function(){
+  $("#af").click(function(){
+   alert('your friend request has been sent.')
+  });
+});
+  </script>
+ <script>
+$(document).ready(function(){
+  $("#prog").click(function(){
+    $("ul").toggle();
+  });
+});
+</script>
+<script> 
+$(document).ready(function(){
+  $("#pic").click(function(){
+    var div=$("div");
+    div.animate({height:'300px',opacity:'0.4'},"slow");
+    div.animate({width:'300px',opacity:'0.8'},"slow");
+    div.animate({height:'100px',opacity:'0.4'},"slow");
+    div.animate({width:'1400px',opacity:'0.8'},"slow");
+  });
+});
+</script>
+</footer>
+</html>
