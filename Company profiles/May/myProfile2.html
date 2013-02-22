@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Profile</title>
+
+<link rel="stylesheet" type="text/css" href="styleProfile.css">
+
+
+<script src="jquery-1.9.1.min.js">
+</script>
+
+<script> 
+$(document).ready(function(){
+  $("#aboutMe").click(function(){
+    $("#aboutMeToggle").slideToggle("slow");      
+  });
+});
+</script>
+<script> 
+$(document).ready(function(){
+  $("#edu").click(function(){
+    $("#eduToggle").slideToggle("slow");      
+  });
+});
+</script>
+
+ <script> 
+$(document).ready(function(){
+  $("#role").click(function(){
+    $("#roleToggle").slideToggle("slow");      
+  });
+});
+</script>
+
+<script> 
+$(document).ready(function(){
+  $("#progSkills").click(function(){
+    $("#progSkillsToggle").slideToggle("slow");      
+  });
+});
+</script>
+
+</head>
+
+<body>
+
+<div class "profilePic"><img src="405722_10151093631050273_675145272_22193822_766373071_n.jpg" width="500" height="300" /></div>
+
+  <h3 class="Name">May Atef Badr</h3>
+
+  <ul class="points">
+
+  	 
+     <li  id="aboutMe">About me</li>
+     <ul class=" aboutMe">
+  	 <li class= "aboutMeToggle" id= "aboutMeToggle">Hello :D my name is May. I study Business Informatics at the GUC and it's not cool! </li>
+    </ul>
+
+     <li id="edu">Education</li>
+     <ul class ="eduToggle2" id="eduToggle" >
+      <li> 1998-2010 Deutsche Schule der Borromäerinnen Kairo </li>
+      <li> 2012 to present German University in Cairo </li>
+    </ul>
+
+    <li id="role">Role in the company</li> 
+    <ul class="role2">
+    <li class= "roleToggle" id= "roleToggle">A Component member</li>
+    </ul>
+
+
+     <li id="progSkills">Programming Skills</li> 
+     <ul class="progSkillsToggle2" id="progSkillsToggle">
+      <li> Java </li>
+      <li> HTML</li>
+      <li> SQL</li>
+      <li> ASP.NET</li>
+    </ul>   
+
+  </ul>
+</body>
+</html>
