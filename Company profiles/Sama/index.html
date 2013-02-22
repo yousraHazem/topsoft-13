@@ -4,9 +4,16 @@
 	<title>Sama Akram</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type='text/javascript' src='jquery-1.9.1.min.js'></script>
-<script type="text/javascript" src="my_jquery_functions.js">
+<script type="text/javascript" src="myjs.js">
 </script>
+
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+	document.querySelector("b2").addEventListener("click", function(){
+    document.querySelector("d2off").style.display = on;
+});
+	</script>
 
 	<style>
 body {background-image:url('bkg.jpg');}
@@ -37,13 +44,13 @@ body {background-image:url('bkg.jpg');}
 </div>
 
 	
-		<dt> <button id="b1" type="logo">  
+		<dt> <button id="b1" type="logo" onclick="javascript:showb1();">  
 			<img src="fcbk.jpg"></button> </dt>
 		
 		<dd id="b1off"> <a href="http://www.facebook.com/sama.akram.31">sama.akram.31</a></dd>
 	
 		
-		 <dt> <button id="b2" type="button"> E-mail Address </button> </dt>
+		 <dt> <button id="b2" type="button" onclick="javascript:showb2();"> E-mail Address </button> </dt>
 	
 	<dd id="b2off"><a href="mailto:samaakram92@gmail.com"> samaakram92@gmail.com </a></dd>
 
