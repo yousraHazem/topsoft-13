@@ -1,0 +1,9 @@
+<?php
+class GuestsController extends AppController {
+
+	public $helpers = array('Html', 'Form');
+
+
+
+}
+?>

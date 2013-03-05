@@ -6,6 +6,7 @@ class CommentsController extends AppController {
 
 	
 
+}
 
 
 	?>
