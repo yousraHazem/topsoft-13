@@ -1,24 +1,28 @@
-<h2>Search</h2>
+<h2>Hello</h2>
 
-<?php 
 
-echo $this->Form-> create('Guest' ,array('action'=>'index','type'=>'get'));
-echo $this->Form-> input('name');
-echo $this->form->end('search');
 
-?>
+
+	 <p style="text-align:left;">
+   	<?php if($logged_in): ?>
+         <?php echo $this->Html->link('Add new GuestBook', array('controller'=>'guests', 'action'=>'add')); ?>
+   <?php else: ?>
+         
+                 
+<?php  endif; ?>
+   </p> 
+
+
 <table>
-<tr>
-<th> Name</th>
-</tr>
-<?php foreach ($guests as $guest): ?> 
-<tr>
-<td>
-<?php echo $guest ['Guest'] ['name']; ?>
-</td>
-</tr>
-<?php endforeach; ?>
-
+    <tr>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    <?php foreach ($guests as $guest): ?>
+    <tr>
+    	<td><?php echo $this->Html->link($guest['Guest']['name'], array('controller'=>'comments', 'action'=>'view' , $guest['Guest']['id'])); ?></td>
+    	<td><?php echo $this->Html->link('comment', array('controller'=>'comments', 'action'=>'post' ,  $guest['Guest']['id'])); ?></td>
+    </tr>
+      <?php endforeach; ?>
+    <?php unset($guest); ?>
 </table>
-
-
