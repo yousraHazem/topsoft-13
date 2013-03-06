@@ -1,0 +1,41 @@
+
+body {
+	font-size: 20px;
+  background: #0489B1;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: sans-serif;
+  
+}
+
+h3.Name {
+  
+  text-align: left;
+  margin:10px 50px;
+   
+
+}
+
+ul.points {
+	text-align: left; 
+	margin:1px 50px; 	   
+}
+
+
+ul.aboutMe li {
+  display: none;
+}
+
+ul.eduToggle2 {
+  display: none;
+}
+
+ul.role2 li{
+  display: none;
+  
+}
+
+ul.progSkillsToggle2 {
+  display: none;
+}
+

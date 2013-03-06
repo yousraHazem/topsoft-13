@@ -1,0 +1,42 @@
+tag {
+color: pink
+}
+div.IMG_12 img{
+text-align: center;
+background: pink;
+padding: 20px;
+}
+ul li{
+	text-align: center;
+	color: blue;
+}
+body {
+  font-family: Helvetica;
+}
+ul.navigation {
+  list-style: none;
+  text-align: left;
+  background: pink;
+  padding: 20px;
+}
+ul.navigation li {
+  display: inline;
+}
+
+ul.navigation li  {
+  border-right: 20px solid pink;
+}
+h1{
+	text-align: center;
+	color: purple;
+  height: 30px;
+}
+body
+{
+background-color:#b0c4de;
+}
+div.img{
+text-align: center;
+padding: 100px;
+height: 90px;
+}
