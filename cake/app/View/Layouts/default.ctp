@@ -16,7 +16,7 @@
 <div id="container">
 	 <p style="text-align:right;">
    	<?php if($logged_in): ?>
-          Welcome! <?php $this->Html->link('logout', array('controller' => 'guests', 'action' => 'index')); ?>
+          Welcome! <?php echo $this->Html->link('logout', array('controller' => 'users', 'action' => 'logout')); ?>
    <?php else: ?>
           <?php echo $this->Html->link('login', array('controller' => 'users', 'action' => 'login')); ?>
                  

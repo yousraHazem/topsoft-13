@@ -4,10 +4,9 @@ class UsersController extends AppController {
 public $helpers = array('Html', 'Form');
 
 	public function beforeFilter(){
-		parent:: beforeFilter();
+		parent::beforeFilter();
 		$this->Auth->allow('add');
-
-			}
+	}
 
 	function add(){
 
@@ -27,9 +26,10 @@ public $helpers = array('Html', 'Form');
 
       public function login() {
 	    if ($this->request->is('post')) {
-	        if ($this->Auth->login()) {
-	            $this->redirect($this->Auth->redirect());   
+	        if ($this->Auth->login()) {    
+	            $this->redirect($this->Auth->redirect()); 
 	        } else {
+
 	            $this->Session->setFlash('Your username/password combination was incorrect');
 	        }
 	    }
@@ -38,6 +38,19 @@ public $helpers = array('Html', 'Form');
        
     }
 
+    public function logout(){
+    	$this->redirect($this->Auth->logout());
+    }
+
+
+    public function view($id = null) {
+    	$this->User->id = $id;
+    	if (! $this->User->exists()) {
+    		echo 'Not found'; die;
+    	}
+    	print_r($this->User->read(null, $id));
+        $this->set('user', $this->User->read(null, $id));
+    }
 
 
 }

@@ -1,0 +1,85 @@
+body {
+    font-family: Georgia, serif;
+    text-align: center;
+    background-color: gray;
+    text-align: center;
+}
+
+#header h1 {
+    font-size: 50px;
+    color: darkblue;
+    text-align: center;
+   margin: 0;
+    padding: 0;
+}
+
+
+
+#container {
+    background-color: white;
+    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+#flashMessage {
+    background-color: darkblue;
+    color: white;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.form-error {
+    border: 1px solid darkblue;
+}
+
+.error-message {
+    background-color: darkblue;
+    color: white;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+h2 {
+    color: darkblue;
+}
+
+
+label {
+    display: block;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+input[type=text] {
+    height: 20px;
+}
+
+input[type=submit] {
+    width: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
+
+a:link, a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: darkblue;
+}

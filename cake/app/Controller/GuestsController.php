@@ -3,15 +3,24 @@ class GuestsController extends AppController {
 
 	public $helpers = array('Html', 'Form');
 
-		    public function index() {
+	public function index() {
 	    $this->set('blog_title', 'index page!');
        $this->set('guests', $this->Guest->find('all'));
        
     }
 
        public function add() {
-      //  $this->set('posts', $this->Guest->find('all'));
-       // $this->set('blog_title', 'index page!');
+
+         if ($this->request->is('post')) {
+            $this->Guest->create();
+            if ($this->Guest->save($this->request->data)) {
+                $this->Session->setFlash('Your GuestBook has been Successfully added!');
+                $this->redirect(array('controller'=>'guests','action' => 'index'));
+            } 
+            else {
+                $this->Session->setFlash('Unable to add your GuestBook.');
+            }
+        }
        
     }
 

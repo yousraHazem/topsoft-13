@@ -1,4 +1,4 @@
-<h2> View My Guest Books</h2>
+<h2>My Guest Books</h2>
 
 <table>
 <tr>
@@ -6,9 +6,7 @@
 </tr>
 <?php foreach ($guests as $guest): ?> 
 <tr>
-<td>
-<?php echo $guest ['Guest'] ['name']; ?>
-</td>
+<td><?php echo $this->Html->link($guest['Guest']['name'], array('controller'=>'comments', 'action'=>'view' ,$guest['Guest']['id'] )); ?></td>
 </tr>
 <?php endforeach; ?>
 
