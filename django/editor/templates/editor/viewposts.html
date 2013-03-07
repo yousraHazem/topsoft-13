@@ -1,0 +1,21 @@
+{% if posts_list %}
+    <ul>
+    {% for post in posts_list %}
+        <li><a href="/editor/posts/{{ post.id }}/">{{ post.text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+
+
+<ul>
+{% for post in posts_list %}
+<h1>{{ post.text }}</h1>	
+{% for comment in post.comment_set.all %}
+    <li>{{ comment.content }}</li>
+{% endfor %}
+{% endfor %}
+</ul>
+
+

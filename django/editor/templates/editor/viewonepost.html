@@ -1,0 +1,12 @@
+<p>{{ onepost.text }}</p>
+
+{% for comment in onepost.comment_set.all %}
+    <li>{{ comment.content }}</li>
+{% endfor %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="/editor/posts/{{ onepost.id }}/comments/create" method="post">
+	<label for="content">Content: </label>
+	<input type="text" name="content" id="content" value="" />
+	<input type="submit" value="Comment" />
+</form>
