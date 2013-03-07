@@ -19,11 +19,22 @@
     <tr>
         <th>Name</th>
         <th>Action</th>
+  <?php if($logged_in): ?>
+         <th>Delete</th>
+          <th>Edit</th>
+   <?php else: ?>
+   <?php  endif; ?>
     </tr>
     <?php foreach ($guests as $guest): ?>
     <tr>
     	<td><?php echo $this->Html->link($guest['Guest']['name'], array('controller'=>'comments', 'action'=>'view' ,$guest['Guest']['id'] )); ?></td>
-    	<td><?php echo $this->Html->link('comment', array('controller'=>'comments', 'action'=>'post' ,  $guest['Guest']['id'])); ?></td>
+    	<td><?php echo $this->Html->link('comment', array('controller'=>'comments', 'action'=>'post' ,  $guest['Guest']['id'])); ?> </td>
+ <?php if($logged_in): ?>
+      <td>  <?php echo $this->Form->postLink('Delete',array('action' => 'delete', $guest['Guest']['id']),array('confirm' => 'Are you sure?')); ?> </td>
+      <td><?php echo $this->Html->link('Edit name', array('action' => 'edit', $guest['Guest']['id'])); ?></td>
+      <?php else: ?>
+                    
+<?php  endif; ?>
     </tr>
       <?php endforeach; ?>
     <?php unset($guest); ?>

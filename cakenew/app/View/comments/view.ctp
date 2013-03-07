@@ -6,7 +6,7 @@
         <th>email</th>
         <th>comment</th>
         <?php if($logged_in): ?>
-         <th>Action</th>
+         <th>Delete</th>
    <?php else: ?>
          
                  
@@ -21,13 +21,11 @@
         <td><?php echo $comment['Comment']['name']; ?></td>
         <td><?php echo $comment['Comment']['email']; ?></td>
         <td><?php echo $comment['Comment']['comment']; ?></td>
-            <?php if($logged_in): ?>
-         <td> <?php echo $this->HTML-> link('delete',array('action'=>'delete', $comment['Comment']['id']), NULL,'Are you sure you want to delete?');?></td>
-   <?php else: ?>
-         
-                 
+        <?php if($logged_in): ?>
+      <td>  <?php echo $this->Form->postLink('Delete',array('action' => 'delete', $comment['Comment']['id']),array('confirm' => 'Are you sure?')); ?> </td>>
+      <?php else: ?>
+                    
 <?php  endif; ?>
-     
     </tr>
     <?php endforeach; ?>
     <?php unset($comment); ?>
