@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    #@comment = @post.comments.build #ziada
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    #@comment = Comment.find(params[:id])
     @post = Post.find(params[:id])
   end
 

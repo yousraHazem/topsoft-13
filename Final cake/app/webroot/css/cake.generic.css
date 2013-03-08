@@ -75,6 +75,8 @@ p {
 /** Layout **/
 #container {
 	text-align: left;
+	background-color: #009966;
+
 }
 
 #header{
