@@ -1,12 +1,43 @@
-<p>{{ onepost.text }}</p>
+<head>
+<script type="text/javascript">
+    function showedit(comment_id)
+    {
+    	document.getElementById(comment_id).style.visibility = "hidden";
+    	document.getElementById("edittextfield"+comment_id).style.visibility = "visible"; 
+    }
+</script>
+</head>
+<body>
+	<p>{{ onepost.text }}</p>
 
-{% for comment in onepost.comment_set.all %}
-    <li>{{ comment.content }}</li>
-{% endfor %}
+	{% for comment in onepost.comment_set.all %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="/editor/posts/{{ onepost.id }}/comments/create" method="post">
-	<label for="content">Content: </label>
-	<input type="text" name="content" id="content" value="" />
-	<input type="submit" value="Comment" />
-</form>
+	{{ comment.content }}
+	<div id = "{{comment.id}}" style="visibility: visible">
+		
+		<button onclick = "showedit({{comment.id}})">Edit</button>
+	</div>
+	<div id = "edittextfield{{comment.id}}" style="visibility: hidden">
+		<form  method="put" action="/editor/posts/{{ onepost.id }}/comments/edit">
+			<input type="text" name="newcontent" value = "{{comment.content}}"/>
+			<input type="hidden" name="post_id" value = "{{onepost.id}}" />
+			<input type="submit" value="Save" />
+		</form>
+	</div>
+	 <form  method="post" action="/editor/posts/{{ onepost.id }}/comments/delete" >
+	    	<input type="hidden" type="text" name="text" value=""  />
+	    	<input type="hidden" name="newcontent" value = "{{comment.id}}"/>
+	     	<input type="submit" value="delete" />
+	   </form>
+
+	{% endfor %}
+	
+	   
+
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<form action="/editor/posts/{{ onepost.id }}/comments/create" method="post">
+		<label for="content">Content: </label>
+		<input type="text" name="content" id="content" value="" />
+		<input type="submit" value="Comment" />
+	</form>
+</body>
