@@ -1,0 +1,21 @@
+<div id="compent">
+<p>
+  <b>Commenter:</b>
+  <%= comment.commenter %>
+</p>
+ 
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
+</div>
+
+<p id="edco">
+
+<%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %>
+
+<%= link_to 'Destroy Comment', [comment.post, comment],
+               :confirm => 'Are you sure you want to delete this comment?',
+               :method => :delete %>
+</p>
+
