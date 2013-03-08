@@ -40,20 +40,28 @@ div.logs{
 #user_nav a{
 	color: #D8D8D8;
 }
-/**#conf a{
-	margin-bottom: 30 px;
+#conf{
+	color:#01DFA5;
 }
 
-#ps a{
-	margin-bottom: 30 px;
+#ps{
+	color:#01DFA5;
 }
-#eml a{
-	margin-bottom: 30 px;
-}**/
+#em{
+	color: #01DFA5;
+}
 
 div.field text_field{
 	font-size: 12px;
 	color: white;
+}
+
+#eml label{
+	color: #01DFA5;
+}
+
+#lgps label{
+	color: #01DFA5;
 }
 
 tr.ed a{
@@ -135,8 +143,11 @@ tr.ed a{
  	margin: 15px;
  }
 
- div.field text_field {
+ div.field {
 
+ 	margin: 15px;
+ }
+ div.actions {
  	margin: 15px;
  }
 
@@ -144,4 +155,14 @@ tr.ed a{
  	color: #FA5858;
  	padding: 8px;
  	margin: 5px;
+ }
+ 
+ div.error_messages {
+ 	color: red;
+ 	font-size: 16px;
+ }
+
+ #flash_alert{
+ 	color: red;
+ 	font-size: 16px;
  }
