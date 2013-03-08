@@ -1,9 +1,11 @@
 <ul>
-	{% for editor in editor_list %}
-<h1>{{ editor.editorName }}</h1>	
-{% for post in editor.post_set.all %}
-    <li>{{ post.text }}</li>
-{% endfor %}
+{% for editor in editor_list %}
+	<h1>{{ editor.editorName }}</h1>	
+		{% for post in editor.post_set.all %}
+		    <li>{{ post.text }} 
+		    	<a href="/editor/editpost/{{ post.id }}">edit</a>
+		    </li>
+	{% endfor %}
 {% endfor %}
 </ul>
 
