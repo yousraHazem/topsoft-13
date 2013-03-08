@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 def new
 end
 
+#match 'logout' => 'sessions#destroy', :as => :logout
+
 def create
   user = User.authenticate(params[:email], params[:password])
   if user
