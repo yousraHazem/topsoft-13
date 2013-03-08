@@ -2,7 +2,7 @@
 
 <?php 
 
-echo $this->Form-> create('Guest' ,array('action'=>'index','type'=>'get'));
+echo $this->Form-> create('Guest' ,array('action'=>'search','type'=>'get'));
 echo $this->Form-> input('name');
 echo $this->form->end('search');
 

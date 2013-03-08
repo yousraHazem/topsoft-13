@@ -1,7 +1,9 @@
 
 
- 
-<?php echo $this->Html->docType('xhtml-trans'); ?>
+ <?php 
+
+
+ /*<?php echo $this->Html->docType('xhtml-trans'); ?>
 <html>
 <head>
     <title><?php echo $blog_title; ?></title>
@@ -14,8 +16,8 @@
 </div>
 
 <div id="container">
-	 <p style="text-align:right;">
-   	<?php if($logged_in): ?>
+   <p style="text-align:right;">
+    <?php if($logged_in): ?>
           Welcome! <?php echo $this->Html->link('logout', array('controller' => 'users', 'action' => 'logout')); ?>
    <?php else: ?>
           <?php echo $this->Html->link('login', array('controller' => 'users', 'action' => 'login')); ?>
@@ -27,9 +29,7 @@
     <?php echo $content_for_layout; ?> 
 </div>
 </body>
-</html>
-
- <!-- <?php 
+</html>*/
 /**
  *
  * PHP 5
@@ -47,14 +47,14 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
- /* $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <?php echo $this->Html->charset(); ?>
 <title>
-<?php echo $cakeDescription ?>:
+  <?php echo $cakeDescription ?>:
 <?php echo $blog_title; ?>
 </title>
 <?php
@@ -69,8 +69,18 @@ echo $this->fetch('script');
 </head>
 <body>
 <div id="container">
+
+  <p style="text-align:right;">
+    <?php if($logged_in): ?>
+          Welcome! <?php echo $this->Html->link('logout', array('controller' => 'users', 'action' => 'logout')); ?>
+   <?php else: ?>
+          <?php echo $this->Html->link('login', array('controller' => 'users', 'action' => 'login')); ?>
+                 
+<?php  endif; ?>
+   </p> 
+
 <div id="header">
-<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+
 </div>
 <div id="content">
 
@@ -91,4 +101,4 @@ array('target' => '_blank', 'escape' => false)
 </body>
 </html>
 
- */
+

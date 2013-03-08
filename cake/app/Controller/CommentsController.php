@@ -18,16 +18,26 @@ class CommentsController extends AppController {
         }
        
     }
+
 public function delete($id) {
 if ($this->request->is('get')) {
 throw new MethodNotAllowedException();
 }
 if ($this->Comment->delete($id)) {
-$this->Session->setFlash('Comment ' . $id . '  has been deleted.');
+$this->Session->setFlash('Comment has been deleted.');
 $this->redirect(array('action' => 'view'));
 }
 }
+
+
     public function view($gid = null) { 
+
+      $comment = $this->Comment->find('all', array('conditions'=>array('Comment.guest_id'=>$gid)));
+      $this->set('comments', $comment);
+    
+    }
+
+    public function gview($gid = null) { 
 
       $comment = $this->Comment->find('all', array('conditions'=>array('Comment.guest_id'=>$gid)));
       $this->set('comments', $comment);

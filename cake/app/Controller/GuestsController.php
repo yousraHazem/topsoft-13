@@ -24,15 +24,16 @@ class GuestsController extends AppController {
        
     }
 
-public function delete($id) {
-if ($this->request->is('get')) {
-throw new MethodNotAllowedException();
-}
+
+    public function delete($id) {
+
 if ($this->Guest->delete($id)) {
-$this->Session->setFlash('The Guestbook ' . $id . '  has been deleted.');
+$this->Session->setFlash('The Guestbook has been deleted.');
 $this->redirect(array('action' => 'index'));
 }
 }
+
+
 public function edit($id = null) {
 if (!$id) {
 throw new NotFoundException(__('Invalid post'));
@@ -54,6 +55,7 @@ if (!$this->request->data) {
 $this->request->data = $guest;
 }
 }
+
 
 function search(){
 	
