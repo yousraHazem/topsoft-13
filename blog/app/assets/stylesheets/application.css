@@ -1,0 +1,141 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+div.lg{
+	color: Crimson;
+	margin: 20px;
+
+}
+
+div.logs{
+	color: Crimson;
+	margin: 20px;
+
+}
+
+
+#user_nav{
+	margin: 20px;
+	font-size: 14px;
+	color: #01DFA5;
+}
+
+#user_nav a{
+	color: #D8D8D8;
+}
+/**#conf a{
+	margin-bottom: 30 px;
+}
+
+#ps a{
+	margin-bottom: 30 px;
+}
+#eml a{
+	margin-bottom: 30 px;
+}**/
+
+div.field text_field{
+	font-size: 12px;
+	color: white;
+}
+
+tr.ed a{
+ color: white;
+ font-size: 12px;
+ }
+
+ tr.ed td{
+ color: orange;
+ font-size: 12px;
+ margin: 6px;
+ padding: 10px;
+
+ }
+
+#pn b{
+	color:#FA5858;
+	font-family: sans-serif;
+	margin: 12px;
+}
+
+#pc b{
+	color:#FA5858;
+	font-family: sans-serif;
+	margin: 12px;
+	}
+
+#pt b{
+	color:#FA5858;
+	font-family: sans-serif;
+	margin: 12px;
+}
+
+ #nm a{
+ 	margin:25px;
+ 	color: orange;
+ }
+
+ #cc a{
+ 	margin:25px;
+ 	color: orange;
+ }
+
+ #tt a{
+ 	margin:25px;
+ 	color: orange;
+ }
+
+ #myblog a{
+ 	color: white;
+ 	font-size: 20px; 
+ 	margin:20px;
+
+ }
+
+ #edco a{
+ 	color: white;
+ 	padding: 5px;
+ 	margin: 6px;
+ }
+
+ #comu {
+ 	font-size: 18px;
+ 	padding: 10px;
+ 	margin: 7px;
+ 	font-style: underline;
+ 	color:#FF0000;
+ }
+
+ #addcom {
+ 	font-size: 20px;
+ 	padding: 10px;
+ 	margin: 7px;
+ 	color: white;
+ }
+
+ div.field label {
+ 	color: #FA5858;
+ 	margin: 15px;
+ }
+
+ div.field text_field {
+
+ 	margin: 15px;
+ }
+
+ #compent b{
+ 	color: #FA5858;
+ 	padding: 8px;
+ 	margin: 5px;
+ }
