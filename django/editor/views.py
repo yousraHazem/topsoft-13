@@ -4,6 +4,12 @@ from django.template import Context, loader, RequestContext
 from editor.models import Editor, Post, Comment
 from django.shortcuts import render, get_object_or_404, render_to_response
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.comments.models import Comment
+from django.shortcuts import get_object_or_404
+from django.conf import settings
+from django.contrib import comments
+from django.core.urlresolvers import reverse
 
 def index(request):
     editor_list = Editor.objects.all()
@@ -25,6 +31,15 @@ def viewposts(request):
     })
     return HttpResponse(template.render(context))
 
+def vieweditors(request):
+    editor_list = Editor.objects.all()
+    output = ', '.join([p.editorName for p in editor_list])
+    template = loader.get_template('editor/vieweditors.html')
+    context = Context({
+        'editor_list': editor_list,
+    })
+    return HttpResponse(template.render(context))
+
 def viewcomments(request, post_id):
     comment_list = Comment.objects.all()
     output = ', '.join([p.content for p in comment_list])
@@ -43,6 +58,57 @@ def viewonepost(request, post_id):
     })
     return HttpResponse(template.render(context))
 
+def viewoneeditor(request, editor_id):
+    oneeditor = Editor.objects.get(id=editor_id)
+    template = loader.get_template('editor/viewoneedior.html')
+    context = Context({
+        'oneeditor': oneeditor,
+    })
+    return HttpResponse(template.render(context))
+
+def delete_own_comment(request, comment_id):
+    comment = Comment.objects.get(id = comment_id)
+    #comment = get_object_or_404(comment.get_model(), pk=comment_id, site__pk=settings.SITE_ID)
+    #if comment.user == request.user:
+    comment.is_removed = True
+    comment.save()
+    return render_to_response('editor/viewonepost.html', {'onepost': post}, context_instance=RequestContext(request))
+
+def delete_own_post(request, post_id):
+    post = Post.objects.get(id = post_id)
+    #comment = get_object_or_404(comment.get_model(), pk=comment_id, site__pk=settings.SITE_ID)
+    #if comment.user == request.user:
+    post.is_removed = True
+    post.save()
+    return render_to_response('editor/viewoneeditor.html', {'oneeditor': editor}, context_instance=RequestContext(request))
+
+def edit_comment(request, comment_id): 
+    comment = Comment.objects.get(id = comment_id)  
+    #print "post_id  ", request.PUT['post_id']
+    #postid= request.PUT['post_id']
+    #post = Post.objects.get(id=postid)
+    comment.content= request.PUT['newcontent']    
+    comment.save()
+
+    # comment = Comment.objects.for_model(Comment).filter(object_pk=comment_id)
+    #comment = comments[0]
+    #comment.content = new_comment
+    #print comments[0].comment
+    return render_to_response('editor/viewonepost.html', {'onepost': post}, context_instance=RequestContext(request))
+
+def edit_post(request, post_id): 
+    post = Post.objects.get(id = post_id)  
+    #print "post_id  ", request.PUT['post_id']
+    #postid= request.PUT['post_id']
+    #post = Post.objects.get(id=postid)
+    post.text= request.PUT['newpost']    
+    post.save()
+
+    # comment = Comment.objects.for_model(Comment).filter(object_pk=comment_id)
+    #comment = comments[0]
+    #comment.content = new_comment
+    #print comments[0].comment
+    return render_to_response('editor/viewoneeditor.html', {'oneeditor': oneeditor}, context_instance=RequestContext(request))
 
 def createcomment(request, post_id):
     content = request.POST['content']
@@ -51,6 +117,12 @@ def createcomment(request, post_id):
     comment.save()
     return render_to_response('editor/viewonepost.html', {'onepost': post}, context_instance=RequestContext(request))
 
+def createpost(request, editor_id):
+    text = request.POST['content']
+    editor = Editor.objects.get(id=editor_id)
+    post = editor.post_set.create(content=text)
+    post.save()
+    return render_to_response('editor/viewoneeditor.html', {'oneeditor': editor}, context_instance=RequestContext(request))
 
 def createeditor(request, editor_id):
     content = request.POST['content']
