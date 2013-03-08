@@ -1,0 +1,3 @@
+{% if user == post.user %}
+  <a href="{% url editor.views.deletepost post_id %} editor/index.html">delete comment</a> 
+{% endif %}

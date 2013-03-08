@@ -2,6 +2,9 @@
 
 {% for comment in onepost.comment_set.all %}
     <li>{{ comment.content }}</li>
+    {% if user == post.user %}
+  		<li><a href="{% url editor.views.deletepost post_id %}">delete comment</a> </li>
+	{% endif %}
 {% endfor %}
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

@@ -80,3 +80,11 @@ def login_user(request):
        
 
     return render_to_response('editor/signin.html',{'state':state, 'username': username})
+
+def deletePost(request,post_id):
+    if request.POST:
+        post=Post.objects.get(id=post_id)
+        post.delete()
+
+    return render_to_response('deletepost.html')
+        
