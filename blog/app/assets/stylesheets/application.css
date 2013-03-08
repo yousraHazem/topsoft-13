@@ -12,6 +12,12 @@
  *= require_tree .
 */
 
+#vb a{
+	font-size: 18px;
+	padding: 15px;
+	margin: 10px;
+}
+
 div.lg{
 	color: Crimson;
 	margin: 20px;
