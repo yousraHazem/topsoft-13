@@ -1,4 +1,5 @@
 <head>
+
 <title>Log in</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <style>
@@ -10,7 +11,7 @@ body{
 </head>
 <body>
 	{{ state }}
-	<form action="/login/" method="post">
+	<form action="/editor/login/" method="post">
 		{% if next %}
 		<input type="hidden" name="next" value="{{ next }}" />
 		{% endif %}
@@ -19,7 +20,7 @@ body{
 		password:
 		<input type="password" name="password" value="" /><br />
 
-		<input type="submit" value="Log In" />
+		<input type="submit" value="Log In"/>
 	</form>
 </body>
 </html>

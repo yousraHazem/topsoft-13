@@ -1,4 +1,10 @@
 <form>
-	<input type="text" name="text" id="text" value=""{{onepost.text}}/>
+	<input type="text" name="text" id="text" form= "Put" value="{{onepost.text}} "/>
 	<input type="submit" value="Save" />
+</form>
+
+<form action="/editor/viewcomments/{{ onepost.id }}/comments/edit" method="put">
+	<label for="content">Content: </label>
+	<input type="text" name="content" id="content" value="" />
+	<input type="submit" value="Comment" />
 </form>
