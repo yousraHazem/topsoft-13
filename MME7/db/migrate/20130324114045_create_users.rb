@@ -9,7 +9,8 @@ class CreateUsers < ActiveRecord::Migration
     t.string "username", :limit => 20
     t.string "password", :limit => 10
     t.boolean "isAdmin"
-   t.integer "user_id" #creators 
+    t.references :project  
+    t.references :task
       t.timestamps
     end
   end

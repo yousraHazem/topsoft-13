@@ -4,6 +4,7 @@ class CreateBudgetItemUsersJoin < ActiveRecord::Migration
   		t.integer "budget_item_id"
   		t.integer "user_id"
   end
+end
 
   def down
   end

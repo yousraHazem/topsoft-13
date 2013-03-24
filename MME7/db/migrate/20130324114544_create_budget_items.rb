@@ -4,7 +4,7 @@ class CreateBudgetItems < ActiveRecord::Migration
     	t.references :task
     	t.references :budget
     	t.string "name"
-    	t.intger "status"
+    	t.integer "status"
     	t.boolean "operational"
       t.timestamps
     end
