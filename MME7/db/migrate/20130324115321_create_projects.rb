@@ -7,6 +7,8 @@ class CreateProjects < ActiveRecord::Migration
   		t.text "description"
   		t.boolean "private_or_public"
   		t.boolean "admin_or_member" #whos the creator 
+      t.refrence :post
+      t.refrence :user
       t.timestamps
     end
   end

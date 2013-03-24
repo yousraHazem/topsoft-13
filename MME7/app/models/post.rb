@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 	
 	has_many :comments 
 	belongs_to :project
+	belongs_to :group 
 
   # attr_accessible :title, :body
 end

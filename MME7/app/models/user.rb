@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   belongs_to :task
+  belongs_to :group
   has_and_belongs_to_many :groups 
    has_and_belongs_to_many :projects
-  belongs_to :users #project creators 
+  belongs_to :project #project creators 
 end
