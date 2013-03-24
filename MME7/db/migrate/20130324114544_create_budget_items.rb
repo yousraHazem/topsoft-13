@@ -1,6 +1,8 @@
 class CreateBudgetItems < ActiveRecord::Migration
   def change
     create_table :budget_items do |t|
+    	t.references :task
+    	t.references :budget
     	t.string "name"
     	t.intger "status"
     	t.boolean "operational"

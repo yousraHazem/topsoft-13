@@ -1,0 +1,9 @@
+{% if comments_list %}
+    <ul>
+    {% for comment in comments_list %}
+        <li><a href="/editor/viewcomments/{{ Comment.content }}/">{{ Comment.content }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments are available.</p>
+{% endif %}

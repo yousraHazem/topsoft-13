@@ -1,6 +1,7 @@
 class CreateBudgets < ActiveRecord::Migration
   def change
     create_table :budgets do |t|
+      t.references :project
     	t.intger "amount"
     	t.intger "raised"
     	t.intger "noot_raised"
