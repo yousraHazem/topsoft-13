@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+   attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin
   has_many :posts
   has_many :comments
   belongs_to :task
