@@ -26,4 +26,18 @@ def create
 
 end
 
+
+ def edit
+    @community = Community.find(params[:id])
+  end
+  
+  def update
+    @community = Community.find(params[:id])
+    
+     @community.update_attributes(params[:community])
+      
+     
+   render ('update')
+  end
+
 end
