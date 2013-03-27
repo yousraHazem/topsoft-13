@@ -21,4 +21,11 @@ module GroupsHelper
 #this method is done to return the member of a specific 
 #group thats why we take in parameters group id and it returns the users in the group.
 
+ def addMembers (group_id, user_id)
+ 	GroupMember = GroupUsers.new(:group_id => group_id, :user_id => user_id, :is_creator => false)
+ 	GroupMember.save
+
+end
+#add a user to a group add it in the join table 
+
 end
