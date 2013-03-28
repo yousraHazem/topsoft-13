@@ -1,4 +1,5 @@
 MME7::Application.routes.draw do
+  get "posts/editPost"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
