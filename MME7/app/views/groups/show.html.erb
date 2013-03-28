@@ -1,0 +1,22 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Show Groups</h2>
+
+  <table>
+    <tr>
+      <th>name</th>
+      <td><%= @group.group_name %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @group.description %></td>
+    </tr>
+    <tr>
+      <th>levels</th>
+      <td><%= @group.levels  %></td>
+    </tr>
+    
+  </table>
+  
+</div>

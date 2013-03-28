@@ -1,0 +1,19 @@
+<div>
+  <h2>Groups</h2>
+  
+  <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+  <tr> </tr>
+  <%= link_to("Edit Group", {:action => 'edit'}, :class => 'action edit') %>
+ 
+    <% @group.each do |g| %>
+    <tr>
+      <td><%= g.group_name %></td>
+      <td><%= g.description %></td>
+      <td><%= g.levels %></td>
+     
+      
+      
+    </tr>
+    <% end %>
+  </table>
+</div>

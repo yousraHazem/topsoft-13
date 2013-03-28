@@ -1,0 +1,28 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Create group</h2>
+
+  <%= form_for(:group, :url => {:action => 'create'}) do |t| %>
+  
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= t.group_name(:group_name) %></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><%= t.description(:description) %></td>
+      </tr>
+      <tr>
+        <th>Level</th>
+        <td><%= t.levels(:levels) %></td>
+      </tr>
+    </table>
+    
+    <div>
+      <%= submit_tag("Create group") %>
+    </div>
+    
+  <% end %>
+</div>
