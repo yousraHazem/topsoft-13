@@ -12,6 +12,7 @@ class CommunitiesController < ApplicationController
 		
 	end
 def new
+	#creates a new community by taking inputs from admin an dding it into the database
 
 	@community= Community.new
 	
