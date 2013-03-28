@@ -5,7 +5,7 @@
 <% end %>
 <div >
  <h2>Projects</h2>
- <%= link_to("Add new project",{:action => 'new'}, :class =>'action new') %>
+ <%= link_to("Add new projectt",{:action => 'new'}, :class =>'action new') %>
  <table >
  	<tr >
  		<th>&nbsp;</th>
@@ -14,11 +14,10 @@
  		<th>end date</th>
  		<th>description</th>
  		<th>private</th>
-
  	</tr>
+ 	
  	<% @projects.each do |project| %>
  	<tr>
- 		<td> <%= project.id %></td>
  		<td> <%= project.project_name %></td>
  		<td > <%= project.start_date %></td>
  		<td > <%= project.end_date %></td>
@@ -29,3 +28,8 @@
  	<% end %>
  </table>
 </div>
+
+
+
+
+
