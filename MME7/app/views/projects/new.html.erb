@@ -1,14 +1,13 @@
-
 <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
 <div >
 
-    <h2>Create Subjects</h2>
-    <%= form_for(:project , :url => {:action => 'new'}) do |f| %>
+    <h2>Create Projects</h2>
+    <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
 
     <table >
   
- 	 <tr >
+ 	  <tr >
  		<th>name</th>
  		<td><%= f.text_field(:project_name) %></td>
  	 </tr>
@@ -34,8 +33,9 @@
  		<th>admin or member</th>
  		<td><%= f.text_field(:admin_or_member) %></td>
  	 </tr>
+
      </table>
- 	<div>
+ 	<div >
       <%= submit_tag("create project") %>
  	</div>
  	<% end %> 
