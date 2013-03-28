@@ -1,7 +1,8 @@
 MME7::Application.routes.draw do
     root :to => "public#index"
 
-    match 'show/:id', :to => 'public#show'
+      match 'admin', :to => 'access#menu'
+      match 'show/:id', :to => 'public#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

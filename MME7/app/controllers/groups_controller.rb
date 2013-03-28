@@ -8,13 +8,17 @@ class GroupsController < ApplicationController
     def destroy
         @group = Groups.find(params[:id])
         #if isGroupCreator(current_user.id) == 'true'
-            @group.destroy
-            flash[:notice] = "group successfully deleted!"
-            redirect_to(:action => 'index')
+        @group.destroy
+        flash[:notice] = "group successfully deleted!"
+        redirect_to(:action => 'index')
         #else
             #flash[:error] = "not allowed"
             #redirect_to(:action => 'new')
         #end
+    end
+
+    def delete
+    @group = Group.find(params[:id])
     end
 
     def show
