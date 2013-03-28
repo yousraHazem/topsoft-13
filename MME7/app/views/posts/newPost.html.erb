@@ -2,18 +2,14 @@
 	<h2>Create Post</h2>
 	
 
-	<%= form_for @post, :url => { :action => "newPost" } do |f| %>
+	<%= form_for(:post, :url => {:action => 'createPost'}) do |f| %>
 
 	<table summary = "The Post">
-		<tr>
-			<th>Post ID</th>
-			<td><%= f.text_field :id %></td>
-			
-		</tr>
+		
 
 		<tr>
 			<th>Post Content</th>
-			<td><%= f.text_field :content %></td>
+			<td><%= f.text_field (:content) %></td>
 		</tr>
 
 	</table>
