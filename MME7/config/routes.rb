@@ -1,4 +1,5 @@
 MME7::Application.routes.draw do
+  get "comments/newComment"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
