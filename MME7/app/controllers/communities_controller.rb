@@ -25,6 +25,7 @@ def create
 
 
 end
+#edits the community by updating the already existing fields with what the admin has entered
 
 
  def edit
