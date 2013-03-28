@@ -8,5 +8,5 @@ class CommunitiesController < ApplicationController
 		Community.find(params[:id].destroy
 		redirect_to (:action =>'application')
 	end
-	
+
 end
