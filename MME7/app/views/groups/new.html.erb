@@ -2,17 +2,6 @@
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
-  <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being created</h2>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <tr>
     <th>name</th>
     <td><%= f.text_field :group_name %></td>

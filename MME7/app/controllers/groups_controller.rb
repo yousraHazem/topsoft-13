@@ -1,46 +1,43 @@
 class GroupsController < ApplicationController
 
-  def index
-    @group = Group.order("groups.position ASC")
-  end
+    def index
+        @groups = Group.order("groups.group_name ASC")
+    end
 
-  # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
+    # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
     def destroy
-        @group = Groups.find(params[:id])
-        #if isGroupCreator(current_user.id) == 'true'
+        @group = Group.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
         @group.destroy
-        flash[:notice] = "group successfully deleted!"
-        redirect_to(:action => 'index')
-        #else
-            #flash[:error] = "not allowed"
-            #redirect_to(:action => 'new')
-        #end
+        respond_to do |format|
+        redirect_to :action => 'index'
+        end
     end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, delete method
     def delete
-    @group = Group.find(params[:id])
+        @group = Group.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
     end
 
     def show
-    @group = Group.find(params[:id])
+        @group = Group.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
     end
 
     # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
     def new
-    @group = Group.new
+        @group = Group.new
     end
 
     # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
     def create
-    @group = Group.new(params[:group])
-    respond_to do |format|
-      if @group.save
-        #@group.isGroupCreator(current_user.id) == 'true'
-        redirect_to ('index')
-      else
-        render ('new')
-      end
+        @group = Group.new(params[:group])
+        if @group.save
+            #@group.isGroupCreator(current_user.id) == 'true'
+            render ('create')
+        else
+            render ('new')
+        end
     end
-  end
 end
