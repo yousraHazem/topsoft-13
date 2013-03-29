@@ -1,0 +1,21 @@
+<h1>Groups</h1>
+
+<%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @groups do |group| %>
+  <tr>
+    <td><%= group.group_name %></td>
+    <td><%= link_to 'Show', group %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %>
