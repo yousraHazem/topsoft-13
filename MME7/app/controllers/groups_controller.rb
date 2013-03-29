@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
 
+<<<<<<< HEAD
     def index
         @groups = Group.order("groups.group_name ASC")
     end
@@ -44,4 +45,10 @@ class GroupsController < ApplicationController
             render ('new')
         end
     end
+=======
+	
+>>>>>>> 55f488d4b099d470c2a679f23f16d07524369907
 end
+
+  end 
+
