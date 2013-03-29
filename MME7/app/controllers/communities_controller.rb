@@ -11,6 +11,8 @@ class CommunitiesController < ApplicationController
 		@communities= Community.find(params[:id])
 		
 	end
+
+	 #creates a new communtity by matching what the admin has entered with the fields in the model
 def new
 
 	@community= Community.new
@@ -19,10 +21,12 @@ end
 
 def create
 	@community= Community.new(params[:community])
-	   @community.save
+	   if @community.save
 	render ('create')
+else 
+	render ('new')
 
-
+end
 
 end
 #edits the community by updating the already existing fields with what the admin has entered
@@ -35,10 +39,14 @@ end
   def update
     @community = Community.find(params[:id])
     
-     @community.update_attributes(params[:community])
+     if @community.update_attributes(params[:community])
       
-     
    render ('update')
+else 
+
+render ('edit')
+end
+
   end
 
 end
