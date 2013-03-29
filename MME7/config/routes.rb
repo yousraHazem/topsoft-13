@@ -1,5 +1,6 @@
 MME7::Application.routes.draw do
   # get "comments/newComment"
+  # get "posts/newPost"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
