@@ -1,0 +1,24 @@
+<div class="comment edit">
+	<h2>Edit Comment</h2>
+	
+
+	<%= form_for(:comment, :url=>{:action=>'updateComment', :id=> @comment.id}) do |f| %>
+	
+
+	<table summary = "The Comment">
+		
+		<tr>
+			<th><%= f.label(:comment, "Comment")%></th>
+			<td><%= f.text_field(:comment) %></td>
+       </tr>
+
+	</table>
+	
+
+	<div class="form-buttons">
+		<%= submit_tag("Update Comment") %>
+	</div>
+
+	<% end %>
+
+</div>
