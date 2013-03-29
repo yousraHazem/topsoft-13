@@ -1,44 +1,49 @@
 class GroupsController < ApplicationController
 
   def index
-    @group = Group.order("groups.position ASC")
-  end
+        @groups = Group.order("groups.group_name ASC")
+    end
 
-  # As a system I can delete a group
-    def destroy
-        @group = Groups.find(params[:id])
-        if isGroupCreator(current_user.id) == 'true'
-            @group.destroy
-            flash[:notice] = "group successfully deleted!"
-            redirect_to(:action => 'form')
+    # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
+    #def destroy
+        #@group = Group.destroy(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+        #@group.destroy
+        #respond_to do |format|
+            #format.html { redirect_to('index') }
+        #end
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+        #@group.destroy
+        #render 'index'
+    #end
+
+    # Author: Sama Akram 22-555 As a system I can delete a group, delete method
+    #def delete
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+    #end
+
+    def show
+        @group = Group.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+    end
+
+    # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
+    def new
+        @group = Group.new
+    end
+
+    # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
+    def create
+        @group = Group.new(params[:group])
+        if @group.save
+            #@group.isGroupCreator(current_user.id) == 'true'
+            render ('create')
         else
-            flash[:error] = "not allowed"
-            redirect_to(:action => 'form')
+            render ('new')
         end
     end
 
-    def show
-    @group = Group.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-
-    # As a system I can create a group
-    def new
-    @group = Group.new
-    respond_to do |format|
-      format.html # new.html.erb
-    end
-
-    # As a system I can create a group
-    def create
-    @group = Group.new(params[:group])
-    respond_to do |format|
-      if @group.save
-        @group.isGroupCreator(current_user.id) == 'true'
-        redirect_to (:action => 'index')
-      else
-        render ('new')
-      end
-    end
 end
+
