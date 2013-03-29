@@ -21,7 +21,7 @@ def create
 	  		redirect_to(:action => 'list')
 	  	else
 	   		 render('new')
-	    end
+	     end
 end
 
 	
