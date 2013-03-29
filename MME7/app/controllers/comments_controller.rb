@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
 
+
   def delete
     @comment = Comment.find(params[:id])
   end
@@ -13,8 +14,5 @@ class CommentsController < ApplicationController
     def list 
   @comment = Comment.all
     end
-
-
-
 
 end
