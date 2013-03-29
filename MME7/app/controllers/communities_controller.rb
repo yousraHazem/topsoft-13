@@ -12,7 +12,7 @@ class CommunitiesController < ApplicationController
 		
 	end
 def new
-	#creates a new community by taking inputs from admin an dding it into the database
+	#creates a new community by taking inputs from admin and adding it into the model
 
 	@community= Community.new
 	
@@ -20,9 +20,11 @@ end
 
 def create
 	@community= Community.new(params[:community])
-	   @community.save
+	   if @community.save
 	render ('create')
-
+else
+	render ('new')
+end
 
 
 end
