@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+	
+
 	# Riham Gamal 22-33871
 	# fimd the comment you want to edit
 	def editComment
@@ -19,6 +22,7 @@ class CommentsController < ApplicationController
 			render("editComment")
 		end
 	end
+
 end
 
 
@@ -49,4 +53,4 @@ end
 	end
 
 end
->>>>>>> master
+
