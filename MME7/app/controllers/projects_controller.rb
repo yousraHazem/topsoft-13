@@ -16,12 +16,12 @@ end
 # Author : Nayera Mohamed 22-3789 , this method creates a project
 def create
  @project=Project.new(params[:project])
- 	 if @project.save
- 	 	flash[:notice]= "project created"
-  		redirect_to(:action => 'list')
-  	else
-   		 render('new')
-    end
+	 	 if @project.save
+	 	 	flash[:notice]= "project created"
+	  		redirect_to(:action => 'list')
+	  	else
+	   		 render('new')
+	    end
 end
 
 	
