@@ -5,20 +5,24 @@ class GroupsController < ApplicationController
     end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
-    def destroy
-        @group = Group.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
-        @group.destroy
-        respond_to do |format|
-        redirect_to :action => 'index'
-        end
-    end
+    #def destroy
+        #@group = Group.destroy(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+        #@group.destroy
+        #respond_to do |format|
+            #format.html { redirect_to('index') }
+        #end
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+        #@group.destroy
+        #render 'index'
+    #end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, delete method
-    def delete
-        @group = Group.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
-    end
+    #def delete
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+    #end
 
     def show
         @group = Group.find(params[:id])
