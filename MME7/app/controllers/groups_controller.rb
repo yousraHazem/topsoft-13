@@ -10,34 +10,46 @@ class GroupsController < ApplicationController
 		@group= Group.find(params[:id])
 
 	end
-	def new
-
-		@group= Group.new
-
+	
+def edit
+		@group = Group.find(params[:id])
 	end
 
-	def create
-		@group= Group.new(params[:group])
-	 	  @group.save
-		render ('create')
-	end 
+	# 
+	# update the comment by finding its id and chnaging the fields
+	def update
+		@group = Group.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
 
+
+		if @group.update_attributes(params[:group])
+			flash[:notice] = "Group successfully updated"
+			render("edit")
+		else
+			flash[:notice] = "Group could not be updated"
+			render("edit")
+		end
+	end
+	
+############################################################################################################################
 	#finds the group to be edited 
 	#def edit 
 	#	@group = Group.find(params[:id])
 	#	rescue ActiveRecord::RecordNotFound
 	#end
-
+## RIGHT CODE
 	# updates the chosen group with the new values
 	#def update
-	#	@group = Group.find(params[:id])		
-	#	rescue ActiveRecord::RecordNotFound
+		#@group = Group.find(params[:id])		
+		#rescue ActiveRecord::RecordNotFound
 
-	#	if @group.update_attributes(params[:group]) 
-	#		redirect_to(:action=>'list')
-	#	else 
-	#	render('edit')
-	#	end
+		#if @group.update_attribute(params[:group]) 
+		#	redirect_to(:action=>'list')
+		#else 
+		#render('edit')
+		#end
+
+##RIGHT CODE
 
 #		#@group = Group.find(params[:id])
 #		#rescue ActiveRecord::RecordNotFound
@@ -48,29 +60,41 @@ class GroupsController < ApplicationController
   #		#	  render(:action=>'edit')
  	#	 #end
 
-	#end
-
-	def edit
-    @group = Group.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
- 	 end
-  
-  def update
-    # Find object using form parameters
-    @group = Group.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-
-    if @group.update_attributes(params[:group])
-   
-    		flash[:notice] = "Group successfully updated"
-			
-			render('edit')
- 	 		#redirect_to(:action => 'list', :id => @group.id)
-	else
-		flash[:notice] = "Project could not be updated"
-	end
-
 	
+
+	#def edit
+    #@group = Group.find(params[:id])
+    #rescue ActiveRecord::RecordNotFound
+ 	 #end
+  
+ #def update
+ #  		 # Find object using form parameters
+  # 			# @group = Group.find(params[:id])
+   #			# rescue ActiveRecord::RecordNotFound
+#
+  #		 if @groups
+  		 	#for @group do
+   # 					#if @group.update_attributes(params[:group])
+   # 				@group = Group.find(params[:id])
+   	#				rescue ActiveRecord::RecordNotFound
+   	#				if @group.update(@group.id,params[:group])
+   							#rescue ActiveRecord::RecordNotFound
+    #				flash[:notice] = "Group successfully updated"
+	#					redirect_to(:action => 'list')
+	#				#render('edit')
+ 	 #				#redirect_to(:action => 'list', :id => @group.id)
+	#					else
+	#				#flash[:notice] = "Project could not be updated"
+	#						render ('edit')
+	#					end
+	#		#end	end
+					
+	#	end end
+
+	#def update_attributes(attributes)
+    #    self.attributes = attributes
+     #   save
+     #end
 
 
 
@@ -82,7 +106,10 @@ class GroupsController < ApplicationController
       # If save fails, redisplay the form so user can fix problems
      # render('edit')
     #end
-  end
+  #def update
+	#	Group.find_by_id(params[:id]).update_attributes(params[:group])
+	#	redirect_to(:action=>'list')
+	#end
 
 	
 #end

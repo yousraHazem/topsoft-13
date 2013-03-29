@@ -2,6 +2,7 @@ MME7::Application.routes.draw do
   get "/groups/edit"
   root :to => "groups#edit"
   
+  
   #get "/edit"
   # The priority is based upon order of creation:
   # first created -> highest priority.
