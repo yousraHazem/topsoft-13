@@ -19,9 +19,15 @@ def create
  	 if @project.save
  	 	flash[:notice]= "project created"
   		redirect_to(:action => 'list')
+
+  	else
+   		 render('new')
+    end
+
   	 else
    		 render('new')
      end
+
 end
 
 	
