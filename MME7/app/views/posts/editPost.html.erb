@@ -2,20 +2,16 @@
 	<h2>Edit Post</h2>
 	
 
-	<%= form_for @post, :url => { :action => "updatePost" } do |f| %>
+	<%= form_for(:post, :url=>{:action=>'updatePost', :id=> @post.id}) do |f| %>
 	
 
 	<table summary = "The Post">
+		
 		<tr>
-			<th>Post ID</th>
-			<td><%= f.text_field :id %></td>
-			
-		</tr>
+			<th><%= f.label(:content, "Content")%></th>
+			<td><%= f.text_field(:content) %></td>
+       </tr>
 
-		<tr>
-			<th>Post Content</th>
-			<td><%= f.text_field :content %></td>
-		</tr>
 
 	</table>
 	
