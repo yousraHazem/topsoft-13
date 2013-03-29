@@ -8,7 +8,7 @@ module GroupUsersHelper
    #Author: Donia Amer Shaarawy 22-0270 
    #add a user to a group add it in the join table 
    def addMembers (group_id, user_id)
- 	m = GroupUser.new(:group_id => group_id, :user_id => user_id, isCreator => false)
+ 	m = GroupUser.new(:group_id => group_id, :user_id => user_id)
  	m.save
    end
 end
