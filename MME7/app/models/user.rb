@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
    attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin
+   
   has_many :posts
   has_many :comments
   belongs_to :task
@@ -9,4 +10,7 @@ class User < ActiveRecord::Base
   has_many :projects , :through => :project_users
    has_many :groups_users 
    has_many :groups , :through => :group_users 
+
+
+
 end
