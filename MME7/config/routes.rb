@@ -1,16 +1,16 @@
 MME7::Application.routes.draw do
-<<<<<<< HEAD
+
   #The priority is based upon order of creation:
-=======
-<<<<<<< HEAD
+
+
   get "comments/editComment"
-=======
+
   # get "posts/editPost"
   # get "comments/newComment"
   # get "posts/newPost"
->>>>>>> master
+
   # The priority is based upon order of creation:
->>>>>>> c7a670e4951483454326d4da664eb113ddf7c0eb
+
   # first created -> highest priority.
 
   # Sample of regular route:
@@ -65,5 +65,9 @@ MME7::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
+
+ 
+
   match ':controller(/:action(/:id))(.:format)'
+
 end
