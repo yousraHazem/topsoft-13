@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
 	
-	# fimd the post you want to edit
+	# Riham Gamal 22-3871
+	# find the post you want to edit
 	def editPost
 		@post = Post.find(params[:id])
 	end
 
-	# update the post by finding its id and chnaging the fields
+	# Riham Gamal 22-3871
+	# update the post by finding its id and changing the fields
 	def updatePost
 		@post = Post.find(params[:id])
 		
