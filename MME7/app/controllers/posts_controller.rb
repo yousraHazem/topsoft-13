@@ -1,5 +1,19 @@
 class PostsController < ApplicationController
 
+
+  def delete
+    @post = Post.find(params[:id])
+  end
+  
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to(:action => 'list')
+  end
+
+    def list 
+	@post = Post.all
+    end
+
 	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
