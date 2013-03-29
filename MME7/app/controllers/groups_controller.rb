@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
     @group = Group.order("groups.position ASC")
   end
 
-  # As a system I can delete a group
+  # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
     def destroy
         @group = Groups.find(params[:id])
         #if isGroupCreator(current_user.id) == 'true'
@@ -17,6 +17,7 @@ class GroupsController < ApplicationController
         #end
     end
 
+    # Author: Sama Akram 22-555 As a system I can delete a group, delete method
     def delete
     @group = Group.find(params[:id])
     end
@@ -25,12 +26,12 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     end
 
-    # As a system I can create a group
+    # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
     def new
     @group = Group.new
     end
 
-    # As a system I can create a group
+    # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
     def create
     @group = Group.new(params[:group])
     respond_to do |format|
