@@ -4,14 +4,7 @@ module ProjectsHelper
     #are not in this project we will subtrack the users in this project from all users this is done by calling on 
     #get_projectmembers(project_id) method. this is taken from nayera 
     def getMembersNotInProject (project_id)
-      b = Project.get_projectMembers(project_id)
+      b = Project.get_projectmembers(project_id)
       notProjectUser = User.find(:all, :conditions => :user_id != b)
     end 	
 end   				 
-   # authorized by sarah ahmed id:22-1278
-  #returns all the projects in the table
-	def get_all_projects
-		return Project.order("projects.id ASC")
-	end
-end
-
