@@ -1,0 +1,23 @@
+<div>
+  <h2>Communities</h2>
+  
+  <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
+
+ 
+    <% @communities.each do |community| %>
+    <tr>
+      <td><%= community.title %></td>
+      <td><%= community.social_profile_info %></td>
+      <td><%= community. contact_info %></td>
+     
+      
+      <td>
+        <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
+          <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+       
+       
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
