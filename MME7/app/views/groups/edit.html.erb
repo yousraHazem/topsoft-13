@@ -1,7 +1,7 @@
 
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
-<div>
+<div class="group edit">
   <h2>Edit Group</h2>
 
   <%= form_for(:group, :url => {:action => 'update', :id => @group.object_id}) do |t| %>
@@ -17,12 +17,12 @@
       </tr>
       <tr>
         <th>Levels</th>
-     <td><%= t.text_field(:Levels) %></td>
+     <td><%= t.text_field(:levels) %></td>
       </tr>
     </table>
     
-    <div>
-      <%= submit_tag("update community") %>
+     <div class="form-buttons">
+      <%= submit_tag("edit group") %>
     </div>
     
   <% end %>

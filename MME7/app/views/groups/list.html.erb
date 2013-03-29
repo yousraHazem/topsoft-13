@@ -1,18 +1,23 @@
-<div>
+<div class="group list">
   <h2>Groups</h2>
-  
-  <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
-  <tr> </tr>
-  <%= link_to("Edit Group", {:action => 'edit'}, :class => 'action edit') %>
- 
-    <% @group.each do |g| %>
+
+  <table class="listing" summary="Groups list">
+    <tr class="header">
+      
+      <th>Group Name</th>
+      <th>Description</th>
+      <th>Levels</th>
+      <th>Actions</th>
+    </tr>
+    <% @group.each do |group| %>
     <tr>
-      <td><%= g.group_name %></td>
-      <td><%= g.description %></td>
-      <td><%= g.levels %></td>
-     
-      
-      
+      <td><%= group.group_name %></td>
+      <td><%= group.description %></td>
+      <td><%= group.levels %></td>
+      <td>
+        <%= link_to("Edit", {:action => 'edit', :id => group.id}, :class => 'action edit') %>
+        
+      </td>
     </tr>
     <% end %>
   </table>
