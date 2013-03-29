@@ -1,4 +1,4 @@
-class CreateProjectsUsersJoin < ActiveRecord::Migration
+lass CreateProjectsUsersJoin < ActiveRecord::Migration
   def up
   	create_table :projects_users, :id => false do |t|
   		t.intger "project_id"
