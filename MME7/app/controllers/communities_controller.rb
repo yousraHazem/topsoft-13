@@ -21,9 +21,9 @@ def create
 	@community= Community.new(params[:community])
 	   if @community.save
 	render ('create')
-       else 
+    else 
 	render ('new')
-end
+    end
 end
 
 # Author Mariam, 22-3456
@@ -38,11 +38,11 @@ end
 
 def update
     @community = Community.find(params[:id])    
-     if @community.update_attributes(params[:community])
+    if @community.update_attributes(params[:community])
    render ('update')
-     else 
+    else 
 render ('edit')
-end
+    end
 end
 
 def list
