@@ -1,4 +1,10 @@
 MME7::Application.routes.draw do
+<<<<<<< HEAD
+    root :to => "public#index"
+
+      match 'admin', :to => 'access#menu'
+      match 'show/:id', :to => 'public#show'
+=======
 
   #The priority is based upon order of creation:
 
@@ -9,6 +15,7 @@ MME7::Application.routes.draw do
   # get "comments/newComment"
   # get "posts/newPost"
 
+>>>>>>> 55f488d4b099d470c2a679f23f16d07524369907
   # The priority is based upon order of creation:
 
   # first created -> highest priority.
@@ -65,6 +72,9 @@ MME7::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
+<<<<<<< HEAD
+    match ':controller(/:action(/:id(.:format)))'
+=======
 
 
   match ':controller(/:action(/:id))(.:format)'
@@ -82,5 +92,9 @@ MME7::Application.routes.draw do
 
   match ':controller(/:action(/:id))(.:format)'
 
+<<<<<<< HEAD
+>>>>>>> 55f488d4b099d470c2a679f23f16d07524369907
+=======
 
+>>>>>>> c38d1295348c66f6f76ed4bbf86317c637b58fb7
 end
