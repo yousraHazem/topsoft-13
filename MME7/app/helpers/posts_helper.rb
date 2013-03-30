@@ -7,4 +7,3 @@ module PostsHelper
 	return Post.find(:all, :conditions => {:group_id =>g_id})
     end
 end
-end
