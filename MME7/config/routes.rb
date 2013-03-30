@@ -1,6 +1,6 @@
 MME7::Application.routes.draw do
-  get "/groups/edit"
-  root :to => "groups#edit"
+  #get "/groups/edit"
+  #root :to => "groups#edit"
   
   
   #get "/edit"

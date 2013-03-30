@@ -2,9 +2,10 @@
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
 <div class="group edit">
+  <%= flash[:notice] %>
   <h2>Edit Group</h2>
 
-  <%= form_for(:group, :url => {:action => 'update', :id => @group.object_id}) do |t| %>
+  <%= form_for(:group, :url => {:action => 'update', :id => @group.id}) do |t| %>
   
     <table>
       <tr>

@@ -10,25 +10,28 @@ class GroupsController < ApplicationController
 		@group= Group.find(params[:id])
 
 	end
-	
+	#Author May Badr 22-0579
+	#finds the resord to be edited
 def edit
 		@group = Group.find(params[:id])
 	end
 
-	# 
-	# update the comment by finding its id and chnaging the fields
+	# Author May Badr 22-0579
+	# updates the chosen record and returns to the list if succeeded and flashes a msg
+	# and if not will flash a msg of failure and returns to edit page
 	def update
 		@group = Group.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
+		#rescue ActiveRecord::RecordNotFound
 
 
 		if @group.update_attributes(params[:group])
 			flash[:notice] = "Group successfully updated"
-			render("edit")
+			redirect_to(:action => 'list')
 		else
 			flash[:notice] = "Group could not be updated"
-			render("edit")
+			redirect_to(:action => 'edit')
 		end
+	end
 	end
 	
 ############################################################################################################################
@@ -113,5 +116,5 @@ def edit
 
 	
 #end
-end
+
 
