@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-<<<<<<< HEAD
 	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
@@ -20,7 +19,6 @@ class PostsController < ApplicationController
 			# render("editPost")
 		end
 	end
-=======
 	# add a new post 
 	def newPost
 		@post = Post.new
@@ -45,5 +43,4 @@ class PostsController < ApplicationController
 
 	end
 
->>>>>>> master
 end
