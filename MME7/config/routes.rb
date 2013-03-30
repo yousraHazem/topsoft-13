@@ -80,10 +80,21 @@ MME7::Application.routes.draw do
   match ':controller(/:action(/:id))(.:format)'
 
 
-   match ':controller(/:action(/:id))(.:format)'
+ 
 
 
   match ':controller(/:action(/:id))(.:format)'
 
+
+   match ':controller(/:action(/:id))(.:format)'
+
+
+
+  match ':controller(/:action(/:id))(.:format)'
+
+<<<<<<< HEAD
 >>>>>>> 55f488d4b099d470c2a679f23f16d07524369907
+=======
+
+>>>>>>> c38d1295348c66f6f76ed4bbf86317c637b58fb7
 end
