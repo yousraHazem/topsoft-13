@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-
-
  #  def delete
  #    @post = Post.find(params[:id])
  #  end
