@@ -1,12 +1,12 @@
 
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
-<div>
+<div> 
   <h2>Create community</h2>
+  <%= render(:partial => 'shared/error_messages') %>
+  <%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
 
-  <%= form_for(:community, :url => {:action => 'create'}) do |t| %>
-  
-    <table>
+    <table summary="Subject from fields">
       <tr>
         <th>Title</th>
         <td><%= t.text_field(:title) %></td>
@@ -20,9 +20,20 @@
         <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
-    
+
     <div>
-      <%= submit_tag("Create community") %>
+      <%= link_to("create group", {:controller => 'groups', :action => 'new'}, :class => 'action new') %>
+    </div>
+
+     <div>
+      <%= link_to("create project", {:controller => 'projects', :action => 'new'}, :class => 'action new') %>
+    </div>
+
+
+
+
+    <div>
+      <%= submit_tag("Submit") %>
     </div>
     
   <% end %>

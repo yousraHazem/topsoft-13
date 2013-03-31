@@ -23,12 +23,8 @@ def create
   	else
    		 render('new')
     end
-
-  	 else
-   		 render('new')
-     end
-
 end
+  
 
 	
 end
