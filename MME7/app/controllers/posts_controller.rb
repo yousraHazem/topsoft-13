@@ -51,16 +51,6 @@ class PostsController < ApplicationController
     redirect_to(:action => 'list')
   end
 
-def create
-        @post = Post.new(params[:post])
-        if @post.save
-            #@group.isGroupCreator(current_user.id) == 'true'
-            render ('create')
-        else
-            render ('new')
-        end
-    end
-
 
 
 # Salma El Ruby 22-4649
