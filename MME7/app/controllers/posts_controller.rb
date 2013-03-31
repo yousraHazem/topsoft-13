@@ -80,6 +80,8 @@ class PostsController < ApplicationController
 	    def list 
 		@post = Post.all
 	    end
+	    
+	   end
 
 		
 

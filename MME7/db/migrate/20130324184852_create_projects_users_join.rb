@@ -5,7 +5,7 @@ lass CreateProjectsUsersJoin < ActiveRecord::Migration
   		t.intger "user_id"
   		
   end
-add_index :groups_users, ["project_id","user_id"]
+    add_index :groups_users, ["project_id","user_id"]
   end
 
   def down
