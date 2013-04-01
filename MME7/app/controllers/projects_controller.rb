@@ -24,11 +24,23 @@ def create
    		 render('new')
     end
 
-  	 else
-   		 render('new')
-     end
-
 end
+
+def edit
+		@project = Project.find(params[:id])
+		
+	end
+
+	def update
+			@project = Project.find(params[:id])
+		if @project.update_attributes(params[:project])
+			flash[:notice] = "Project successfully updated"
+			redirect_to(:action=>'show', :id=> @project.id)
+		else
+		   flash[:notice] = "Project unsuccessfully updated"
+           render('edit')
+		end
+	end
 
 	
 end

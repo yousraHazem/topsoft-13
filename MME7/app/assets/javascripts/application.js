@@ -13,3 +13,39 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+    $("#price, #total").keyup(function() {
+        var p = $("#price").val();
+        var q = $("#total").val();
+        $("#amount").val(q * p);
+    });
+});
+
+$(function() {
+    $("#total, #qty").keyup(function() {
+        var p = $("#total").val();
+        var q = $("#qty").val();
+        if (p == q)
+        $("#status").val("Approved");
+        else
+        $("#status").val("Pending");
+    });
+});
+
+$(function() {
+    $("#price, #qty").keyup(function() {
+        var p = $("#price").val();
+        var q = $("#qty").val();
+        $("#spent").val(q * p);
+    });
+});
+
+
+
+
+
+
+
+
+
