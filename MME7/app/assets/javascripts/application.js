@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function(){
+    $('#check').change(function(){
+        if(this.checked)
+            $('#connect').show("slow");
+        else
+            $('#connect').hide();
+
+    });
+});

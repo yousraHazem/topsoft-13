@@ -3,8 +3,11 @@
 	<%= form_for(:budget_item, :url=>{:action=>'create'}) do |f| %>
 	
      <table summary = "subject form fields">
-
     <tr>
+     <th><%= f.check_box :check,{:id=>"check"}, "Yes", "No"%> </th> <td>Connect to a task</td>
+    </tr>
+
+    <tr id = "connect" style="display:none;">
 	  <th><%= f.label(:task_id, "Task:")%></th>
 	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] }) %></td>
     </tr>
@@ -16,18 +19,3 @@
 <% end %>
 
 </div>
-
-
-<table class=" table  " summary="Subject List">
-<tr class="header">
-	<th>&nbsp;</th>
-	<th>Task</th>
-</tr>
-<% @tasks.each do |task|%>
-<tr>
-	<td>Title: <%=task.title%></td>
-	<td>Project ID:<%=task.project_id%></td>
-	<td>ID:<%=task.id%></td>
-</tr>
-<%end%>
-	</table>

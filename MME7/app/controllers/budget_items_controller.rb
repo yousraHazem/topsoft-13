@@ -2,7 +2,10 @@ class BudgetItemsController < ApplicationController
 
 	def new
 		@item = BudgetItem.new
-		@tasks = Task.where(:project_id=> params[:id])
+		@tasks = Task.find(:all,:conditions=>{:project_id=>params[:id]})
+		"NOT EXISTS (SELECT * FROM budget_items WHERE cities_stores.store_type = stores.store_type)"
+		#@tasks = 
+		#@tasks = Task.where(:project_id=> params[:id])
 		#@tasks = Task.all
 	end
 
