@@ -71,17 +71,5 @@ MME7::Application.routes.draw do
   match ':controller(/:action(/:id))(.:format)'
 
 
- 
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
-
-   match ':controller(/:action(/:id))(.:format)'
-
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
 
 end

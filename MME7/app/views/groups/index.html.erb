@@ -1,6 +1,12 @@
-<h1>Groups</h1>
 
-<%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+ <div class="navbar navbar-fixed-top">
+
+      <div class="container">
+        <a class="brand">Groups List</a>
+    </div>
+ </div>
+
+<div><%= link_to("Add New Group", {:action => 'new'}, :class => 'container') %></div>
 
 
 <table>
@@ -11,12 +17,13 @@
   <% if @groups %>
   <% @groups.each do |group| %>
   <tr>
-    <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
+    <td class="gg"><%= group.group_name %></td>
+    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'span1') %></td>
+    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'span1') %></td>
   </tr>
 <% end %>
 </table>
+
 
 <br />
 
