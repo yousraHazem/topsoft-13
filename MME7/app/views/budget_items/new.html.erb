@@ -1,15 +1,15 @@
 <div class="subject new">
-	<h2>CREATE SUBJECT</h2>
+	<h2>New Item</h2>
 	<%= form_for(:budget_item, :url=>{:action=>'create'}) do |f| %>
 	
      <table summary = "subject form fields">
     <tr>
-     <th><%= f.check_box :check,{:id=>"check"}, "Yes", "No"%> </th> <td>Connect to a task</td>
+    <input type="checkbox" id="check" name="vehicle" value="Bike">Connect to a task<br>
     </tr>
 
     <tr id = "connect" style="display:none;">
 	  <th><%= f.label(:task_id, "Task:")%></th>
-	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] }) %></td>
+	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] } , {:include_blank=>true }) %></td>
     </tr>
 
 	</table>
