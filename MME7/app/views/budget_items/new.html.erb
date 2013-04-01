@@ -1,0 +1,21 @@
+<div class="subject new">
+	<h2>CREATE SUBJECT</h2>
+	<%= form_for(:budget_item, :url=>{:action=>'create'}) do |f| %>
+	
+     <table summary = "subject form fields">
+    <tr>
+     <th><%= f.check_box :check,{:id=>"check"}, "Yes", "No"%> </th> <td>Connect to a task</td>
+    </tr>
+
+    <tr id = "connect" style="display:none;">
+	  <th><%= f.label(:task_id, "Task:")%></th>
+	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] }) %></td>
+    </tr>
+
+	</table>
+
+
+	<div><%= submit_tag("Create Subject")%></div>
+<% end %>
+
+</div>
