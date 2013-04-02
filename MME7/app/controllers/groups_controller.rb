@@ -38,4 +38,9 @@ def index
             render ('new')
         end
     end
+    
+    def guest
+        @groups = Group.order("groups.id")
+    end
+
 end

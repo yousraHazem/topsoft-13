@@ -1,0 +1,24 @@
+<div class="guest list">
+ <%= link_to("<< Back to home page", {:action => 'home'}, :class => 'back-link') %>
+  <h2>Groups</h2>
+
+  <table class="listing" summary="Groups list">
+    <tr class="header">
+      
+      <th>Group Name</th>
+      <th></th>
+      <th>Description</th>
+     
+    </tr>
+    <% if @groups %>
+    <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.group_name %></td>
+      <td> </td>
+      <td><%= group.description %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+</div>
+ 
