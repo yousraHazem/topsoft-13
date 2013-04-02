@@ -64,4 +64,9 @@ def delete
 		redirect_to(:action => 'list')
 
 	end
+
+def guest
+		@communities = Community.order("communities.title ASC")
+end
+
 end
