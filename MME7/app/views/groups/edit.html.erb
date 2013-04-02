@@ -1,0 +1,30 @@
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="group edit">
+  <%= flash[:notice] %>
+  <h2>Edit Group</h2>
+
+  <%= form_for(:group, :url => {:action => 'update', :id => @group.id}) do |t| %>
+  
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= t.text_field(:group_name) %></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><%= t.text_field(:description) %></td>
+      </tr>
+      <tr>
+        <th>Levels</th>
+     <td><%= t.text_field(:levels) %></td>
+      </tr>
+    </table>
+    
+     <div class="form-buttons">
+      <%= submit_tag("edit group") %>
+    </div>
+    
+  <% end %>
+</div>
