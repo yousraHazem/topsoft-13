@@ -14,5 +14,11 @@ module ProjectsHelper
  def get_all_projects
    return Project.order("projects.id ASC")
  end	
+ #Authored by Toka Omar  id:22-1925
+  #this method takes input :user_id and outputs: list of projects that have the same user_id 
+  #for a user to be able to see their projects 
+  def get_myprojects(user_id)
+    return ProjectUser.find(:all, :conditions => {:user_id => user_id})
+    end 
 end   				 
 
