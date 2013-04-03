@@ -15,7 +15,10 @@
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
+       
+          <%if User.isAdmin == true %>
             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+          <%end%> `
         </td>
       </tr>
     <% end %>
