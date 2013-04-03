@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+    $("#p").click(function() {
+      $(".grp").toggle();
+      $("#icon").toggleClass("icon-chevron-up");
+      
+    });
+});
+
+
