@@ -1,8 +1,12 @@
 <div class="post new">
 	<h2>Create Post</h2>
-	
+	<h2> id <%= @group_id%>
 
 	<%= form_for(:post, :url => {:action => 'createPost'}) do |f| %>
+
+
+	<%= error_messages_for(@post) %>
+
 
 	<table summary = "The Post">
 		
@@ -11,6 +15,11 @@
 			<th>Post Content</th>
 			<td><%= f.text_field (:content) %></td>
 		</tr>
+
+		 <tr>
+    <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
+    
+  </tr>
 
 	</table>
 	

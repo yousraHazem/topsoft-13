@@ -1,0 +1,39 @@
+
+
+<%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
+
+
+<div>
+   
+  <table>
+   <tr >
+    <th>Group name</th>
+    <td><%= @group.group_name %></td>
+   </tr>
+
+   <tr >
+    <th>Description</th>
+    <td><%= @group.description %></td>
+   </tr>
+   
+  </table>
+
+
+<% if ifMember(params[:id],6)==false  %>
+        
+           <%= button_to("Join group" , {:action => 'show', :id =>@group_id}, :confirm => "Are you sure you want to join?", :helper => GroupUsersHelper, :action => addMembers(params[:id],6), :class => 'action new') %>
+
+ <% end %>
+
+
+       <% if ifMember(params[:id],6)==true %>
+
+           <%= button_to("create post", {:controller => 'posts', :action => 'newPost', :id =>@group_id}) %>
+ 
+             <% end %>
+
+           
+           
+            </div>
+ 
+         

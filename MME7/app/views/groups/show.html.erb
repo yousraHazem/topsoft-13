@@ -1,5 +1,6 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
 
+
 <div>
    
   <table>
@@ -12,17 +13,17 @@
     <th>Description</th>
     <td><%= @group.description %></td>
    </tr>
-  
-  
+   
   </table>
 
+     <div>
+ <% if ifMember(params[:id],6)==false %>
 
-    <div>
+ <%= button_to("join",{:action =>'join', :id => params[:id]}, :class => 'action show') %>
+                   
+ <% end %>
 
-           <% if ifMember(params[:id],6)==false %>
-        
-           <%= button_to("Join group", {:action => 'show', :id =>@group_id}, :confirm => "Are you sure you want to join?", :helper => GroupUsersHelper, :action => addMembers(params[:id],6), :class => 'action new') %>
- 
-            <% end %>
-
-    </div>
+    <% if ifMember(params[:id],6)==true %>
+ <%= link_to("create post", {:controller => 'posts', :action => 'new', :id =>@group_id}, :class => 'action new') %>      
+ <% end %>
+     </div>

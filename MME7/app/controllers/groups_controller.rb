@@ -20,12 +20,22 @@ def index
 
 
     def show
+
        @group_id = params[:id]
         @group = Group.find(params[:id])
-        render :template => "post/list"
+       
 
         #rescue ActiveRecord::RecordNotFound
     end
+
+    #Author: Mariam Ismail 22-3456
+    #Gets the group with this id, acts exactly as show  
+    def join
+        @group_id = params[:id]
+        @group = Group.find(params[:id])
+       
+    end
+
 
     # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
     def new

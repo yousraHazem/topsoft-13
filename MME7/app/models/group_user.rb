@@ -5,7 +5,7 @@ class GroupUser < ActiveRecord::Base
 
 
 
-   
-   #validates_uniqueness_of :user_id && :group_id
-   
+ 
+
+  
 end
