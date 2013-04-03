@@ -6,5 +6,6 @@ class Project < ActiveRecord::Base
 	has_one :budget 
 	has_many :project_users
 	has_many :users , :through => :project_users
-
+	has_and_belongs_to_many :communities
+	has_and_belongs_to_many :budget_sources
 end
