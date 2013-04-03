@@ -1,0 +1,27 @@
+
+<h1> Budget Sources</h1>
+ <div>
+ 	<table class=" table  " summary="Subject List">
+
+<tr class="header">
+	<th>Name</th>
+	<th>Amount</th>
+	<th>projects</th>
+</tr>
+<% @sources.each do |source|%>
+<tr>
+	<td><%= source.name%></td>
+	<td><%= source.amount%></td>
+	<td><div style="display:none;"><% source.projects.each do |s| %>
+		<%= s.project_name %><br>
+		<%end%>
+		</div>
+	</td>
+    
+</tr>
+<%end%>
+	</table>
+
+ </div>
+
+icon-chevron-down
