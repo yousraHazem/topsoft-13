@@ -12,7 +12,7 @@
 <tr>
 	<td><%= source.name%></td>
 	<td><%= source.amount%></td>
-	<td><div style="display:none;"><% source.projects.each do |s| %>
+	<td><a id="p" href="#"><i class="icon-chevron-down"></i> View</a> <div style="display:none;"><% source.projects.each do |s| %>
 		<%= s.project_name %><br>
 		<%end%>
 		</div>
@@ -24,4 +24,5 @@
 
  </div>
 
-icon-chevron-down
+
+
