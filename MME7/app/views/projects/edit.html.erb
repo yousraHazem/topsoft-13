@@ -2,7 +2,7 @@
          <div class="notice">
          <%= flash[:notice] %>	
          </div>
-        <% end %>
+     <% end %>
 <div class="subject edit">
 	<h2>UPDATE SUBJECT</h2>
 	<%= form_for(:project, :url=>{:action=>'update', :id=> @project.id}) do |f| %>
@@ -30,7 +30,7 @@
 
 	<div><%= submit_tag("Update Project")%></div>
 
-<% end %>
+	<% end %>
 
 </div>
 
