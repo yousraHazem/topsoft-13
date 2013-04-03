@@ -22,9 +22,11 @@
     <td><%= group.group_name %></td>
     <td><%= group.description %></td>
     <td><%= group.levels %></td>
-    <td><%= link_to("Edit", {:action => 'edit', :id => group.id}, :class => 'action edit') %></td>      
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
+     <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+
+     <%if isGroupCreator(group.id,1) == true %>
+        <td><%= link_to("Edit", {:action => 'edit', :id => group.id}, :helper => GroupUsersHelper, :class => 'action edit') %></td>     <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :helper => GroupUsersHelper, :class => 'action delete') %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
