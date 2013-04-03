@@ -1,0 +1,15 @@
+<h1>مرحبا بيك في من الما  حياة </h1>
+ <div>
+      <%= button_to("create project", {:controller => 'projects', :action => 'new'}, :class => 'action new') %>
+    </div>
+
+ <div>
+      <%= button_to("create group", {:controller => 'groups', :action => 'new', :id =>@community_id}, :class => 'action new') %>
+    </div>
+
+     <div>
+      <%= button_to("View all communities", {:controller => 'communities', :action => 'list', :id =>@community_id}, :class => 'action list') %>
+    </div>
+
+  <%= button_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
+

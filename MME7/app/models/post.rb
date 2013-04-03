@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-    attr_accessible :content , :group_id , :project_id
+    attr_accessible :content , :group_id , :project_id, :user_id
 	belongs_to :user  #posts creator 
 	has_many :comments 
 	belongs_to :project

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325155523) do
+ActiveRecord::Schema.define(:version => 20130329202507) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -81,11 +81,12 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string   "group_name",  :limit => 50
+    t.string   "group_name",   :limit => 50
     t.text     "description"
     t.string   "levels"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "community_id"
   end
 
   create_table "groups_users", :id => false, :force => true do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "project_users", :force => true do |t|

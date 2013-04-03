@@ -6,7 +6,6 @@ module CommentsHelper
 
 	def isCommentCreator(current_user)
         Comment.where(:user_id => current_user).exists?  
-
     end 
  
 

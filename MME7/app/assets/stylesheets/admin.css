@@ -2,6 +2,7 @@
 /* loads after public.css */
 
 /* Structure */
+
 #content { padding-left: 100px; padding-right: 100px; }
 #content h2 { width: 760px; text-align: center; }
 

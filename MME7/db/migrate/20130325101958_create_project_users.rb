@@ -7,4 +7,4 @@ class CreateProjectUsers < ActiveRecord::Migration
       t.timestamps
     end
   end
-end
+

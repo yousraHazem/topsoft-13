@@ -3,8 +3,10 @@
 
 <div> 
   <h2>Create community</h2>
-  <%= render(:partial => 'shared/error_messages') %>
+  
   <%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
+ 
+ <%= error_messages_for(@community) %>
 
     <table summary="Subject from fields">
       <tr>
@@ -21,14 +23,7 @@
       </tr>
     </table>
 
-    <div>
-      <%= link_to("create group", {:controller => 'groups', :action => 'new'}, :class => 'action new') %>
-    </div>
-
-     <div>
-      <%= link_to("create project", {:controller => 'projects', :action => 'new'}, :class => 'action new') %>
-    </div>
-
+ 
 
 
 

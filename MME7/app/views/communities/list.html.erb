@@ -1,7 +1,7 @@
 <% @page_title= "Community list" %>
 <div>
   <h2>Communities</h2>
-  <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
+  
 
 <div class="community list">
   
@@ -20,6 +20,8 @@
         <td> 
             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
              <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+             <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
+             
              
 
         </td>

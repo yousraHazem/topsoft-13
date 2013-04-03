@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+include PostsHelper
  #  def delete
  #    @post = Post.find(params[:id])
  #  end
@@ -9,11 +10,12 @@ class PostsController < ApplicationController
  #  end
 
  #    def list 
-	# @post = Post.all
+     # @post = Post.all
  #    end
 
  	# Riham Gamal 22-3871
  	# add a new post 
+
 	def newPost
 		@post = Post.new
 	end
@@ -36,27 +38,39 @@ class PostsController < ApplicationController
 		end
 
 	end
-
-
 	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
-	def editPost
+
+	def editPost	
+	
 		@post = Post.find(params[:id])
-	end
+	#else
+		#render('problempost')
+	#end
+end
+
 
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
+
+
+
 	def updatePost
-		@post = Post.find(params[:id])
-		
+		 @post = Post.find(params[:id])
+
+        
 		if @post.update_attributes(params[:post])
 			flash[:notice] = "Post successfully updated"
-			render("editPost")
+			redirect_to(:action => 'list')
 		else
 			flash[:notice] = "Post could not be updated"
-			# render("editPost")
+			 render("editPost")
 		end
+
+
+
+
 	end
 
 	# # add a new post 
@@ -72,6 +86,7 @@ class PostsController < ApplicationController
 	  
 	  def destroy
 	    Post.find(params[:id]).destroy
+	    flash[:notice] = "Post successfully deleted"
 	    redirect_to(:action => 'list')
 	  end
 

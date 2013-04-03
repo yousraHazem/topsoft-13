@@ -1,5 +1,5 @@
 <h1>Create New Group</h1>
-
+<h2> comm id :<%= @community_id%></h2>
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
   <tr>
@@ -10,7 +10,16 @@
     <th>description</th>
     <td><%= f.text_field :description %></td>
   </tr>
+
+  <tr>
+    <th><%= f.hidden_field :community_id, :value => @community_id%> </th>
+    
+  </tr>
+
   <div>
     <%= submit_tag("create Group") %>
+
+
+    
   </div>
 <% end %>
