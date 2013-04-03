@@ -41,6 +41,48 @@ $(function() {
     });
 });
 
+$(function(){
+  $("#search input").live('keyup', function (){
+    $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
+    return false;
+  });
+});
+
+
+// $(function() {
+//     var name = $( "#name" ),
+//       price = $( "#price" ),
+//       qty = $( "#passwordqty" ),
+//       allFields = $( [] ).add( name ).add( price ).add( qty ),
+ 
+//     $( "#dialog-form" ).dialog({
+//       autoOpen: false,
+//       height: 300,
+//       width: 350,
+//       modal: true,
+//       buttons: {
+//         Cancel: function() {
+//           $( this ).dialog( "close" );
+//         }
+//       },
+//       close: function() {
+//         allFields.val( "" ).removeClass( "ui-state-error" );
+//       }
+//     });
+ 
+//     $( "#create" )
+//       .button()
+//       .click(function() {
+//         $( "#dialog-form" ).window( "open" );
+//       });
+//   });
+
+
+
+
+
+
+
 
 
 

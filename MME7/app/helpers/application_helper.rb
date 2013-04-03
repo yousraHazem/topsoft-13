@@ -10,6 +10,6 @@ module ApplicationHelper
       button_tag('&#215;'.html_safe, :type => 'button', :class => 'close', :'data-dismiss' => 'alert', :name => nil) +
       message[1]
     end
+    end
   end
-   end
 end

@@ -1,14 +1,20 @@
 
- <h2> EDIT</h2>
 
-
-
-<div class="subject edit" id="dialog-form">
-    <p>	<%= form_for(:budget_component, :url=>{:action=>'update', :id=>@component.id, :item_id=>@item}) do |f| %>
-<div id ="table"> <%= render(:partial => "edit" , :locals => {:f=> f}) %> </div> 
-	<div><%= submit_tag("Update Component")%></div>
-<% end %>
+<div class="dialog-form container-fluid">
+	<div class="row-fluid">
+	<h1>EDIT</h1>
+    <p>	<%= form_for(:component, :url=>{:action=>'update',:id=>@component.id,:item_id=> @item } ) do |f| %>
+    <div class="span9" id ="table">
+    <%= render(:partial => "form" , :locals => {:f=> f}) %> 
+     <div><%= submit_tag("Save changes")%></div>
+    </div> 
+    <% end %>
+</div>
 </div> 
+
+
+
+
 
 
 

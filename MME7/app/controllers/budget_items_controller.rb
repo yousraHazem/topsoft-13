@@ -1,14 +1,14 @@
 class BudgetItemsController < ApplicationController
 
-	#def index
- #     list
- #      render('list')
-	# end 
+	def index
+      list
+      render('list')
+	 end 
 
 
-	# def list	
-	# 	@items = BudgetItem.all
-	# end
+	 def list	
+	 	@items = BudgetItem.all
+	 end
 
 	# def edit
 	# 	@total = BudgetComponent.sum(:total, :conditions => {:budget_item_id =>params[:id]})

@@ -1,7 +1,9 @@
 
-<div class="subject edit">
-	<%= form_for(:budget_component, :url=>{:action=>'create', :id=> @item}) do |f| %>
-<div id ="table"> <%= render(:partial => "edit" , :locals => {:f=> f})%> </div> 
+ <h2> New Component</h2>
+
+<div id="dialog-form" >
+	<%= form_for(:component, :url=>{:action=>'create', :id=> @item}) do |f| %>
+<div > <%= render(:partial => "form" , :locals => {:f=> f})%> </div> 
 	<div><%= submit_tag("Save Component")%></div>
 
 <% end %>

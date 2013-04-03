@@ -1,0 +1,26 @@
+ <table  class="table" summary="Subject List">
+<tr class="header">
+	<th>Name</th>
+	<th>Unit Price</th>
+	<th>Quantity Purchased</th>
+	<th>Total Quantity</th>
+	<th>Total Spent</th>
+	<th>Status</th>
+	<th>Action</th>
+</tr>
+<% @components.each do |component|%>
+<tr class="<%= component.status == "Approved" ? 'success' : 'error' %>">
+	<td><%= component.name %></td>
+	<td><%= component.unit_price %></td>
+	<td><%= component.quantity_purchased %></td>
+	<td><%= component.total_quantity %></td>
+	<td><%= component.spent %></td>
+	<td><%= component.status %></td>
+	<td class="actions">
+      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item},:class=>"btn btn-small")%> 
+	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+	</td>
+	
+</tr>
+<%end%>
+	</table>
