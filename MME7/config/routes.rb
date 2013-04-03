@@ -4,7 +4,7 @@ MME7::Application.routes.draw do
 
   #The priority is based upon order of creation:
 
-
+  #root :to => "groups#guest"
   get "comments/editComment"
 
   # get "posts/editPost"

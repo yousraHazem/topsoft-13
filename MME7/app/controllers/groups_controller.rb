@@ -43,4 +43,30 @@ def index
         @groups = Group.order("groups.id")
     end
 
+    #def indexSearch
+     #   @groups = Groups.search(params[:search])
+    #end
+
+    #def self.search(search)
+     #   if search
+      #       find(:all, :conditions => ['group_name LIKE ?', "%#{search}%"])
+       # else
+        #     find(:all)
+        #end
+    #end
+
+    #def search
+     #   if params[:search]
+      #      @groups = Group.find(:all,:condition =>['group_name LIKE?', "%#{params[:search]}%"])
+       # else
+        #    @groups= Group.find(:all)
+        #end
+    #end
+    ##HTML
+    #<% form_tag group_path, :method => 'get' do %>
+     #<p>
+      #   <%= text_field_tag :search, params[:search] %>
+       #  <%= submit_tag "Search", :name => nil %>
+     #</p>
+    #<% end %>
 end
