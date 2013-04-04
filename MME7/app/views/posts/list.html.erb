@@ -21,7 +21,7 @@
       <td>
        
        
-        <% if isPostCreator(4,post.id) %>
+        <% if isPostCreator(6,post.id) %>
         <%= link_to("Edit", {:action => 'editPost', :id => post.id}, :class => 'action editPost') %>
          <%= link_to("Delete", {:action => 'delete', :id => post.id}, :class => 'action delete') %>
         <% end %>
