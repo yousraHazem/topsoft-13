@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331170951) do
+ActiveRecord::Schema.define(:version => 20130404210641) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
     t.integer  "total"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130331170951) do
     t.datetime "updated_at",  :null => false
     t.integer  "total"
     t.integer  "spent"
+    t.integer  "project_id"
   end
 
   create_table "budget_items_users", :id => false, :force => true do |t|
@@ -43,11 +44,24 @@ ActiveRecord::Schema.define(:version => 20130331170951) do
     t.integer "user_id"
   end
 
+  create_table "budget_source_projects", :force => true do |t|
+    t.integer  "budget_source_id"
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "budget_sources", :force => true do |t|
     t.string   "name"
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "budget_source_id"
+    t.integer "project_id"
   end
 
   create_table "budgets", :force => true do |t|
@@ -127,6 +141,7 @@ ActiveRecord::Schema.define(:version => 20130331170951) do
     t.boolean  "admin_or_member"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "title"
   end
 
   create_table "projects_users", :id => false, :force => true do |t|
@@ -139,8 +154,10 @@ ActiveRecord::Schema.define(:version => 20130331170951) do
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|
