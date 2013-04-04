@@ -19,7 +19,7 @@
      <div>
  <% if ifMember(params[:id],6)==false %>
 
- <%= button_to("join",{:action =>'join', :id => params[:id]}, :class => 'action show') %>
+ <%= button_to("join",{:controller => groupusers,:action =>'join', :id => params[:id]}, :class => 'action show') %>
                    
  <% end %>
 
