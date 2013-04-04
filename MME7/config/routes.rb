@@ -1,6 +1,7 @@
 MME7::Application.routes.draw do
   get "posts/newPost"
-
+   get "project_users/get_myprojects"
+get "project_users/projectsname"
   #The priority is based upon order of creation:
 
 
@@ -69,19 +70,5 @@ MME7::Application.routes.draw do
 
 
   match ':controller(/:action(/:id))(.:format)'
-
-
- 
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
-
-   match ':controller(/:action(/:id))(.:format)'
-
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
 
 end
