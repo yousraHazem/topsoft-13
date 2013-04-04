@@ -15,10 +15,10 @@ class BudgetComponentsController < ApplicationController
 		#gets the passed id of the budget item
 		@item = params[:id]
 		#gets all the components of the passed budget item
-		@components = BudgetComponent.search(params[:search], @item) 
-		#@components = BudgetComponent.where(:budget_item_id=> params[:id])
-		# @counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
-		# @all = BudgetComponent.where(:budget_item_id=>params[:id])
+		#@components = BudgetComponent.search(params[:search], @item) 
+		@components = BudgetComponent.where(:budget_item_id=> params[:id])
+		@counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
+		@all = BudgetComponent.where(:budget_item_id=>params[:id])
 
 
 	

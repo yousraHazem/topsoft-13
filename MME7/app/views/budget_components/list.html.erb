@@ -1,21 +1,20 @@
 <% @page_title = "Subjects List"%>
 <%= flash_message %>
 
-<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-
+<input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= (100*@counts.size / @all.size)%>>
 <form action="">
-<fieldset>
-<legend><h1>Marketing</h1></legend>
+<br>
+<br>
+<br>
+<fieldset>	
+<legend><h1>Marketing</h1></legend> 
 <h3>Total: <%= @total %></h3> 
 <h4>Spent: <%= @spent %></h4>
 </fieldset>
 </form>
+<div class="progress offset8" id="progressouter">
+   <div class="bar" id="progress"></div>
+</div>
 
 <hr>
 <div class= "Subject List">
@@ -28,5 +27,11 @@
 <%= render 'table' %> 
 </div>
 
+<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 

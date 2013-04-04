@@ -49,6 +49,20 @@ $(function(){
 });
 
 
+
+
+$(function(){
+    var p = $("#data").val();
+$("#progress").css('width',p+'%');
+$("#progress").html(p+'%');
+// if (p == 100) {
+//     $('#progressouter').removeClass("progress");
+//     $('#progressouter').addClass("bar-success");
+// }
+
+});
+
+
 // $(function() {
 //     var name = $( "#name" ),
 //       price = $( "#price" ),
