@@ -21,14 +21,14 @@ include PostsHelper
 		@post = Post.new
 	end
 
-	#Author Riham Gamal 22-3871
+	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
+	# if the post is saved, added to this method the group-id 
 	def createPost
 
 		@post = Post.new(params[:post])
 
-		#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
-		# if the post is saved, added to this method the group-id 
+
 		if @post.save
 			flash[:notice] = "Post successfully created"
 			redirect_to(:action => 'list')
