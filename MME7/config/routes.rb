@@ -1,4 +1,5 @@
 MME7::Application.routes.draw do
+
   get "posts/newPost"
 
   #The priority is based upon order of creation:

@@ -8,6 +8,9 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
 
+gem "rspec-rails", "~> 2.0"
+
+
 
 
 # Gems used only for assets and not required
@@ -23,6 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'ransack'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,25 @@
+<div class = "Add Members">
+	<h2>Select Members</h2>
+<h2>id <%= @project_id%></h2>
+  <table >
+    <tr>
+      <th>select form the following members</th>
+    </tr>
+     <% @users.each do |u| %>
+    <tr>
+     <td> <%= u.username %></td>
+    </tr>
+     <td>
+        <%= link_to("Add member", {:action => 'addMembers2', :user_id => u.id, :project_id => @project_id}, :confirm => "Are you sure you want to add this member?", :class => 'action delete') %>
+     </td>
+    <% end %>
+  </table>
+
+  <%= form_for(:projectuser, :url=>{:action=>'addMembers2', :project_id=> @project_id}) do |f| %>
+    <p>
+      <%= f.label :user_tokens, "Users" %> <br />
+      <%= f.text_field :user_tokens%>
+    </p>
+    <p><%= f.submit %></p>
+    <% end %>
+</div>
