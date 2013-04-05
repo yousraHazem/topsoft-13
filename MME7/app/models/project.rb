@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  attr_accessible  :project_name , :start_date , :end_date , :description , :private_or_public , :admin_or_member, :user_tokens
+    attr_accessible  :project_name , :start_date , :end_date , :description , 
+                     :private_or_public , :admin_or_member, :user_tokens
 	has_many :posts
 	has_many :tasks 
 	has_and_belongs_to_many :users
@@ -8,7 +9,7 @@ class Project < ActiveRecord::Base
 	has_many :users , :through => :project_users
 	attr_reader :user_tokens
 
-	def get_projectmembers(project_id)
+	def self.get_projectmembers(project_id)
  	 @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
   	end
 
@@ -18,8 +19,14 @@ class Project < ActiveRecord::Base
 	#  @notProjectUser = User.find(:all, :conditions => :user_id != @b)
 	#  end 
 
-	  def user_tokens=(ids)
-	  	self.user_ids = ids.split(",")
-	  end
+    def getMembersNotInProject (project_id)
+     b = Project.get_projectmembers(project_id)
+     return notProjectUser = User.where("id NOT IN (?)" , b)
+    end 
+
+
+	def user_tokens=(ids)
+	  self.user_ids = ids.split(",")
+	end
 
 end

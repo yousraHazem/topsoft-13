@@ -15,7 +15,7 @@
 //= require_tree .
 
 $(function() {
-	$("#project_user_tokens").tokenInput("/authors.json",{
-	  crossDomain: false
-	});
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false
+  });
 });

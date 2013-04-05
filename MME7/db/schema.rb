@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404094242) do
+ActiveRecord::Schema.define(:version => 20130405132430) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -139,12 +139,9 @@ ActiveRecord::Schema.define(:version => 20130404094242) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name", :limit => 20
-    t.string   "last_name",  :limit => 50
     t.string   "email"
     t.string   "phone_Nr",   :limit => 15
     t.string   "address"
-    t.string   "username",   :limit => 20
     t.string   "password",   :limit => 10
     t.boolean  "isAdmin"
     t.integer  "task_id"

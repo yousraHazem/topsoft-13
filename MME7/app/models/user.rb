@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id, :name
+  attr_accessible :name, :email , :phone_Nr , :address , :password , :isAdmin , :task_id
 
 
 
@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
   has_many :groups_users 
   has_many :groups , :through => :group_users 
 
-
+   def self.getMembersNotInProject (project_id)
+     b = get_projectmembers(project_id)
+     return notProjectUser = User.where("id NOT IN (?)" , b)
+    end 
 
 
 end

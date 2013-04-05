@@ -34,6 +34,11 @@
  		<td><%= f.text_field(:admin_or_member) %></td>
  	 </tr>
 
+ 	 <p>
+ 	 	<%= f.label :user_tokens, "Users" %><br />
+        <%= f.text_field :user_tokens %>
+ 	 </p>
+
      </table>
  	<div >
       <%= submit_tag("create project") %>
