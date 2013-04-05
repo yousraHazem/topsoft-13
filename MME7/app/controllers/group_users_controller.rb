@@ -8,6 +8,9 @@
        @newuser= GroupUser.new(:group_id => @group_id, :user_id => @user_id)
        @newuser.save
      redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
+     
     end
+
+    
   end
 

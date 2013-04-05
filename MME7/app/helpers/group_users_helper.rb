@@ -12,8 +12,6 @@ module GroupUsersHelper
  	m.save
    end
 
-
-
    #Author: Mariam Ismail 22-3456
    # This method checks if a user is an already exisiting member in a specific group or not
    def ifMember(group_id,user_id)

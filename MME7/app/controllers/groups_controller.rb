@@ -15,23 +15,13 @@ def index
     #Author: Sama Akram 22-555 As a system I can delete a group, delete method
     def delete
         @group = Group.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
+        #rescue ActiveRecord::RecordNotFound
     end
 
 
     def show
 
        @group_id = params[:id]
-        @group = Group.find(params[:id])
-       
-
-        #rescue ActiveRecord::RecordNotFound
-    end
-
-    #Author: Mariam Ismail 22-3456
-    #Gets the group with this id, acts exactly as show  
-    def join
-        @group_id = params[:id]
         @group = Group.find(params[:id])
        
     end
