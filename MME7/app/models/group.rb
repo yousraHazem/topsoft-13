@@ -12,6 +12,9 @@ class Group < ActiveRecord::Base
 
   validates :description, :presence => true
 
+  validates :levels, :presence => true
+
+
 
 
 end 
