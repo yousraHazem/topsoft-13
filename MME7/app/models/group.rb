@@ -6,6 +6,12 @@ class Group < ActiveRecord::Base
   has_many :groups_users 
   has_many :users , :through => :group_users
 
+  validates :group_name, :presence => true,
+  						 :length => {:within => 1..50},
+  						 :uniqueness => true
+
+  validates :description, :presence => true
+
 
 
 end 
