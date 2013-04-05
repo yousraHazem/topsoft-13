@@ -1,20 +1,15 @@
 class PostsController < ApplicationController
 include PostsHelper
- #  def delete
- #    @post = Post.find(params[:id])
- #  end
-  
- #  def destroy
- #    Post.find(params[:id]).destroy
- #    redirect_to(:action => 'list')
- #  end
 
- #    def list 
-     # @post = Post.all
- #    end
+ 
+ 	def index
+        @posts = Post.order("posts.content ASC")
+    end
 
- 	# Riham Gamal 22-3871
+
+   # Riham Gamal 22-3871
  	# add a new post 
+
 
 	def newPost
 		@group_id = params[:id]
