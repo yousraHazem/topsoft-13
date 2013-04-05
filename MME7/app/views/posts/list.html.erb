@@ -1,0 +1,22 @@
+<div >
+  <h2>post</h2>
+  
+  
+
+  <table >
+    <tr>
+      <th></th>
+      <th>Post List</th>
+    </tr>
+    
+    <% @post.each do |post| %>
+    <tr>
+     <td> <%= post.content %></td>
+      <td>
+       
+        <%= link_to("Delete", {:action => 'delete', :id => post.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
