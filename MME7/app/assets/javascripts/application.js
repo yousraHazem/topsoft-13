@@ -16,8 +16,9 @@
 
 $(function() {
     $("#p").click(function() {
-      $(".grp").toggle();
+      $("#grp").slideToggle();
       $("#icon").toggleClass("icon-chevron-up");
+
       
     });
 });
