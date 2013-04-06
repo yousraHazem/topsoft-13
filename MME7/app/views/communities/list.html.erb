@@ -10,6 +10,10 @@
       <td>
           <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
       </td>
+
+        <td> 
+            <%= link_to("show", {:action => 'show', :id => community.id}, :class => 'action delete') %>
+        </td>
     </tr>
     <% end %>
   </table>

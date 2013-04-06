@@ -4,7 +4,7 @@
 <div>
   <h2>Create community</h2>
 
-  <%= form_for(:community, :url => {:action => 'create'}) do |t| %>
+  <%= form_for(:community, :url => {:action => 'create'}, :id => params[:id]) do |t| %>
   
     <table>
       <tr>

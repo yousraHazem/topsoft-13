@@ -14,13 +14,22 @@ def new
 	@community= Community.new
 end
 
+
+#Author Mariam, 22-3456
+#shows a community with a specific ID
+
+def show
+
+@community= Community.find(params[:id]) 
+
+end
 # Author Mariam, 22-3456
 # creates a new communtity by matching what the admin has entered with the fields in the model
 
 def create
 	@community= Community.new(params[:community])
 	   if @community.save
-	render ('create')
+	redirect_to(:action => 'show', :id => params[:id])
     else 
 	render ('new')
     end
