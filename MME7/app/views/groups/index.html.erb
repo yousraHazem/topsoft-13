@@ -27,10 +27,8 @@
      <%if isGroupCreator(group.id,1) == true %>
         <td><%= link_to("Edit", {:action => 'edit', :id => group.id}, :helper => GroupUsersHelper, :class => 'action edit') %></td>     <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :helper => GroupUsersHelper, :class => 'action delete') %>
         </td>
-        <td>
-          <%= link_to("Add Members", {:controller => 'group_users',:action => 'addMembers', :id=> group.id},:class => 'action show')%>
-        </td>  
-  </td>
+       
+  
     <%end%>
   </tr>
 <% end %>
