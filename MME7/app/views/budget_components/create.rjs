@@ -1,0 +1,4 @@
+ // $("#table2").append("<%= escape_javascript(render(:partial=>'table'))%>");
+ // $("#component-form")[0].reset();
+
+ //page.insert_html :bottom, :table2, :partial => 'table', :object => @component

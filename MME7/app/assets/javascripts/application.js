@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+ 
 
 $(function() {
     $("#price, #total").keyup(function() {
@@ -42,54 +43,44 @@ $(function() {
 });
 
 $(function(){
-  $("#search input").live('keyup', function (){
+  $("#search input").keyup(function (){
     $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
     return false;
   });
 });
 
-
-
-
 $(function(){
     var p = $("#data").val();
 $("#progress").css('width',p+'%');
 $("#progress").html(p+'%');
-// if (p == 100) {
-//     $('#progressouter').removeClass("progress");
-//     $('#progressouter').addClass("bar-success");
-// }
-
 });
 
 
-// $(function() {
-//     var name = $( "#name" ),
-//       price = $( "#price" ),
-//       qty = $( "#passwordqty" ),
-//       allFields = $( [] ).add( name ).add( price ).add( qty ),
- 
-//     $( "#dialog-form" ).dialog({
-//       autoOpen: false,
-//       height: 300,
-//       width: 350,
-//       modal: true,
-//       buttons: {
-//         Cancel: function() {
-//           $( this ).dialog( "close" );
-//         }
-//       },
-//       close: function() {
-//         allFields.val( "" ).removeClass( "ui-state-error" );
-//       }
-//     });
- 
-//     $( "#create" )
-//       .button()
-//       .click(function() {
-//         $( "#dialog-form" ).window( "open" );
-//       });
+$(function() {
+    $("#create").click(function(){
+        $("#comp").toggle("slow");
+    });
+});
+
+jQuery.ajaxSetup({
+   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+$(function() {
+    $("#edit-button").click(function(){
+        $("#editt").toggle("slow");
+    });
+});
+
+
+
+// $(document).ready(function() {
+//   $("#component-form").submit(function(){
+//     $.post($(this).attr("action"),$(this).serialize(), null , "script");
+//     return false;
 //   });
+// });
+
 
 
 

@@ -3,9 +3,6 @@
 
 <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= (100*@counts.size / @all.size)%>>
 <form action="">
-<br>
-<br>
-<br>
 <fieldset>	
 <legend><h1>Marketing <div class="progress offset10" id="progressouter">
    <div class="bar" id="progress"></div>
@@ -15,22 +12,59 @@
 </fieldset>
 </form>
 
-<hr>
-<div class= "Subject List">
-	<h4> <%= link_to({:action=>'new', :id=> @item}, :id=>"create", class: "btn btn-mini btn-success") do %>
+<div> 
+	<h4> <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
       <i class="icon-plus icon-white"></i>
       <% end %>  Components </h4>
-<br>
-<br>
-<div id="table">
-<%= render 'table' %> 
+</div>
+<div id="comp" style="display:none;" >
+  <%= form_for(:component, :url=>{:action=>'create', :id=> @item}, :html =>{:id =>"component-form"}) do |f| %>
+    <%= render(:partial => "form" , :locals => {:f=> f})%>
+  <div><%= submit_tag("Save")%></div>
+    <% end %>
+</div> 
+
+
+
+<div id="table2">
+<%= render(:partial => "table" )%> 
 </div>
 
-<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-<% end %>
+<% end %> -->
 
 
