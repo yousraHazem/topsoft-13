@@ -2,7 +2,7 @@
 	<h2>Create Post</h2>
 	
 
-	<%= form_for(:post, :url => {:action => 'createPost'}) do |f| %>
+	<%= form_for(:post, :url => {:action => 'createPost', :project_id => @project_id}) do |f| %>
 
 	<table summary = "The Post">
 		
@@ -10,6 +10,10 @@
 		<tr>
 			<th>Post Content</th>
 			<td><%= f.text_field (:content) %></td>
+		</tr>
+
+		<tr>
+			<td><%= f.hidden_field :project_id, :value => @project_id %></td>
 		</tr>
 
 	</table>

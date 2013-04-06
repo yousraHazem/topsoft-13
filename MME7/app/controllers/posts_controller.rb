@@ -15,30 +15,30 @@ class PostsController < ApplicationController
  	# Riham Gamal 22-3871
  	# add a new post 
 	def newPost
+		@project_id = params[:id]
 		@post = Post.new
+
 	end
 
 	#Author Riham Gamal 22-3871
 	# create a new post
 	def createPost
+		@project_id = params[:id]
 		@post = Post.new(params[:post])
 
 		#Author Riham Gamal 22-3871
 		# if the post is saved, 
 		if @post.save
 			flash[:notice] = "Post successfully created"
-			redirect_to(:action => 'newPost')
 		#Author Riham Gamal 22-3871
 		# if the post is not saved, 
 		else
 			flash[:notice] = "Post could not be created"
-			render('newPost')
 		end
+		redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
 
 	end
 
-
-	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
 	def editPost
@@ -80,6 +80,8 @@ class PostsController < ApplicationController
 	    def list 
 		@post = Post.all
 	    end
+
+	end
 
 		
 
