@@ -4,7 +4,7 @@ class CommunitiesController < ApplicationController
 # This method lists all communities in the database
 
 def list
-		@communities = Community.order("communities.title ASC")
+		communities = Community.order("communities.title ASC")
 end
 	
  #Author Mariam, 22-3456
@@ -29,7 +29,7 @@ end
 def create
 	@community= Community.new(params[:community])
 	   if @community.save
-	redirect_to(:action => 'show', :id => params[:id])
+	redirect_to(:action => 'show', :id => @community.id)
     else 
 	render ('new')
     end
@@ -48,9 +48,9 @@ end
 def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
-   render ('update')
+  redirect_to(:action => 'show', :id => @community.id)
     else 
-render ('edit')
+  render ('edit')
     end
 end
 

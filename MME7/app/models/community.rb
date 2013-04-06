@@ -3,5 +3,7 @@ class Community < ActiveRecord::Base
 
    has_many :groups
    validates_presence_of :title
+    validates_presence_of :social_profile_info
+
 
 end
