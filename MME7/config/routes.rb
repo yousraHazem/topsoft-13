@@ -1,11 +1,11 @@
 MME7::Application.routes.draw do
-<<<<<<< HEAD
-  get "comments/editComment"
-=======
+
+  
+
   # get "posts/editPost"
   # get "comments/newComment"
   # get "posts/newPost"
->>>>>>> master
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
