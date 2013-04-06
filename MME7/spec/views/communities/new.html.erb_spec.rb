@@ -5,7 +5,6 @@ describe "communities/new.html.erb" do
     @post = assign(:community, stub_model(Community)).as_new_record.as_null_object
  end
   it "renders the new community" do
-    render
     rendered.should have_selector('form',:method => "post",:action => 'new') do |form|
       form.should have_selector('label',:for=>'community_title',:content=>'Title')
       form.should have_selector('input',:type => "string",:name=>'community[title]',:id=>'community_title')
