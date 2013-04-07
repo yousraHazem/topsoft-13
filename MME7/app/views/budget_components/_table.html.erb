@@ -1,4 +1,4 @@
- <table  class="table" summary="Subject List">
+ <table  class="table" id="table-components">
 <tr class="header">
 	<th>Name</th>
 	<th>Unit Price</th>
@@ -8,7 +8,9 @@
 	<th>Status</th>
 	<th>Action</th>
 </tr>
+
 <% @components.each do |component|%>
+<tbody>
 <tr class="<%= component.status == "Approved" ? 'success' : 'error' %>">
 	<td><%= component.name %></td>
 	<td><%= component.unit_price %></td>
@@ -22,5 +24,6 @@
 	</td>
 	
 </tr>
+</tbody>
 <%end%>
 	</table>

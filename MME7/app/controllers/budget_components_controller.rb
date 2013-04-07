@@ -43,6 +43,7 @@ class BudgetComponentsController < ApplicationController
 	    # takes the submitted values from the form and creates a new component
 		@component = BudgetComponent.new(params[:component])
 
+
 		if @component.save
             #if the component was successfully saved,it calculates the new total and spent amounts of all the budget components,and update the attributes of the associated budget item with these values
 			@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
