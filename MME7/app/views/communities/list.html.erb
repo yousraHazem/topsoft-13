@@ -1,24 +1,20 @@
 
 <%= link_to("<< Back to home page", {:action => 'home'}, :class => 'back-link') %>
 
-
 <div class="community list">
   
   <h2>Communities</h2>
 
   <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
 
-      
-      <%= form_tag('list', :method => 'get',:id => "search",:remote => true) do %>  
-           <p> <%= text_field_tag :search, params[:search]%>
-              <%= submit_tag "Search", :name => nil %>
-            </p>  
-       <%end%>
+  <%= form_tag('list', :method => 'get',:id => "search",:remote => true) do %>  
+           <p> 
+           	<%= text_field_tag :search, params[:search]%>
+           	<%= submit_tag "Search", :name => nil %>
+           </p>  
+  <%end%>
 
-      <div id= "table"><%= render'table' %><div>
+  <div id= "table"><%= render'table' %><div>
 
-
-
-  
 </div>
 

@@ -1,4 +1,5 @@
 <table class="listing" summary="community list">
+
     <tr class="header">
       <th>Id</th>
       <th></th>
@@ -11,22 +12,22 @@
       <th>Actions</th>
     </tr>
     <% @communities.each do |community| %>
-     <tr>
+    <tr>
       <%if community.is_dismissed != true%>
-      <td><%= community.id %></td>
-      <td></td>
-       <td><%= community.title %></td>
-       <td></td>
-       <td><%= community.social_profile_info %></td>
-       <td></td>
+        <td><%= community.id %></td>
+        <td></td>
+        <td><%= community.title %></td>
+        <td></td>
+        <td><%= community.social_profile_info %></td>
+        <td></td>
         <td><%= community. contact_info %></td>
         <td></td>
         <td> 
-            <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
-            
+        <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
         </td>
-        <% end %>
-      </tr>
+      <% end %>
+    </tr>
     <% end %>
-  </table>
+    
+</table>
