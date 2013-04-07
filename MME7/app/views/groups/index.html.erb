@@ -1,23 +1,18 @@
+<%= link_to("<< Back to home", {:action => 'home'}, :class => 'back-link') %>
+
 <h1>Groups</h1>
 
 <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
 
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+  <%= form_tag('index', :method => 'get',:id => "search",:remote => true) do %>  
+      <p> <%= text_field_tag :search, params[:search]%>
+        <%= submit_tag "Search", :name => nil %>
+      </p>  
+  <%end%>
 
-  <% if @groups %>
-  <% @groups.each do |group| %>
-  <tr>
-    <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
-  </tr>
-<% end %>
-</table>
+  <div id= "table"><%= render'table' %><div>
 
-<br />
 
-<% end %>
+
+

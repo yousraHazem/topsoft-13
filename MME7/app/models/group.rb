@@ -6,6 +6,12 @@ class Group < ActiveRecord::Base
   has_many :groups_users 
   has_many :users , :through => :group_users
 
-
+def self.search(search)
+	if search
+		find(:all, :conditions => ['group_name LIKE ?',"%#{search}%"])
+	else 
+		find(:all)
+	end
+end
 
 end 

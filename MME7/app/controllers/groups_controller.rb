@@ -1,7 +1,9 @@
 class GroupsController < ApplicationController
 
 def index
-        @groups = Group.order("groups.group_name ASC")
+        #@groups = Group.order("groups.group_name ASC")
+        @groups=Group.search(params[:search])
+   
     end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
@@ -40,7 +42,8 @@ def index
     end
     
     def guest
-        @groups = Group.order("groups.id")
+       # @groups = Group.order("groups.id")
+      @groups=Group.search(params[:search])
     end
 
     #def indexSearch
