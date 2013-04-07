@@ -1,29 +1,29 @@
 require 'spec_helper'
 describe ProjectsController do
 
-  
   def valid_attributes
     {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
- def invalid_attributes
+  def invalid_attributes
     {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "3/4/2011", :description => "blablablablabla"}
   end
 
-   def update_attributes
+  def update_attributes
     {:project_name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
   def valid_task_attributes
     {:description => 'human resources' , :project_id => 1}
   end
+
   describe "GET index" do
-     it "assigns all projects as @projects" do
-        project = Project.create! valid_attributes
-        get :listProjects
-       assigns(:projects).should eq([project])
-     end
-   end
+    it "assigns all projects as @projects" do
+      project = Project.create! valid_attributes
+      get :listProjects
+     assigns(:projects).should eq([project])
+    end
+  end
 
   describe "GET showProject" do
     it "assigns the requested project as @project " do
@@ -78,14 +78,12 @@ describe ProjectsController do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved project as @project" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Project.any_instance.stub(:save).and_return(false)
         post :createProject, {:project => invalid_attributes}
         assigns(:project).should be_a_new(Project)
       end
 
       it "re-renders the 'newProject' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Project.any_instance.stub(:save).and_return(false)
         post :createProject, {:project => invalid_attributes}
         response.should render_template("newProject")
@@ -117,7 +115,6 @@ describe ProjectsController do
     describe "with invalid params" do
       it "assigns the project as @project" do
         project = Project.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Project.any_instance.stub(:save).and_return(false)
         put :updateProject, {:id => project.to_param, :project => invalid_attributes}
         assigns(:project).should eq(project)
@@ -125,7 +122,6 @@ describe ProjectsController do
 
       it "re-renders the 'editProject' template" do
         project = Project.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Project.any_instance.stub(:save).and_return(false)
         put :updateProject, {:id => project.to_param, :project => invalid_attributes}
         response.should render_template("editProject")

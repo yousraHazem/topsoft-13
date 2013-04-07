@@ -2,20 +2,21 @@ class Project < ActiveRecord::Base
     attr_accessible  :project_name , :start_date , :end_date , :description 
     validates_presence_of :project_name
     validates_uniqueness_of :project_name
-    # validates_length_of :project_name,:minimum => 4, :maximum => 255
-    # validates_presence_of :description, :minimum => 10
-    # validates_length_of :description, :maximum => 255
     validate :validate_end_date_before_start_date
+    
+    # Author : Nayera Mohamed 22-3789 , this method checks if the end date is earlier than the start date
     def validate_end_date_before_start_date
         if end_date && start_date
-          errors.add(:end_date, " shouldn't be before the Start date") if end_date < start_date
+          errors.add(:end_date, "shouldn't be before the Start date") if end_date < start_date
         end
     end
+
+    # Author : Nayera Mohamed 22-3789 , this method checks if the start date is earlier than the current date
     validate :validate_start_date_before_current_date
     def validate_start_date_before_current_date
         @current_date = DateTime.now
         if start_date && @current_date
-          errors.add(:start_date, " shouldn't be before the Current date") if start_date < @current_date
+          errors.add(:start_date, "shouldn't be before the Current date") if start_date < @current_date
         end
     end
 
