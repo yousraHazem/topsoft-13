@@ -2582,3 +2582,478 @@ ActionController::RoutingError (No route matches {:action=>"show", :controller=>
 
 
   Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-04-04 21:36:51 +0200
+Served asset /rails.png - 200 OK (51ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-06 00:13:44 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (64.0ms)
+Compiled bootstrap/css/bootstrap-responsive.css  (0ms)  (pid 1770)
+Compiled bootstrap/css/bootstrap-responsive.min.css  (0ms)  (pid 1770)
+Compiled bootstrap/css/bootstrap.css  (1ms)  (pid 1770)
+Compiled bootstrap/css/bootstrap.min.css  (0ms)  (pid 1770)
+Compiled comments.css  (55ms)  (pid 1770)
+Compiled home.css  (10ms)  (pid 1770)
+Compiled posts.css  (9ms)  (pid 1770)
+Compiled scaffolds.css  (30ms)  (pid 1770)
+Compiled application.css  (12ms)  (pid 1770)
+Compiled jquery.js  (5ms)  (pid 1770)
+Compiled jquery_ujs.js  (0ms)  (pid 1770)
+Compiled application.js  (117ms)  (pid 1770)
+Completed 200 OK in 950ms (Views: 863.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /application.css - 200 OK (62ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /comments.css - 200 OK (6ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /bootstrap/css/bootstrap.min.css - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /bootstrap/css/bootstrap-responsive.css - 200 OK (7ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /bootstrap/css/bootstrap-responsive.min.css - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /bootstrap/css/bootstrap.css - 200 OK (7ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /home.css - 200 OK (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /posts.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /jquery_ujs.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /jquery.js - 200 OK (12ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /application.js - 200 OK (9ms)
+
+
+Started GET "/assets/images3.jpg" for 127.0.0.1 at 2013-04-06 00:13:46 +0200
+Served asset /images3.jpg - 200 OK (62ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2013-04-06 00:13:50 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 77ms (Views: 59.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-06 00:14:01 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1[0m
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (28.1ms)
+  Rendered posts/show.html.erb within layouts/application (108.7ms)
+Completed 200 OK in 151ms (Views: 145.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-06 00:14:14 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1[0m
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (59.2ms)
+  Rendered posts/show.html.erb within layouts/application (63.2ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2013-04-06 00:14:30 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I6Lv/deSTyNR17Zulf2hisbZPSfGKq13oQjw6+S71Hk=", "comment"=>{"commenter"=>"sama", "body"=>"samaaaaaaaaaaa"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (82.8ms)[0m  INSERT INTO "comments" ("body", "commenter", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "samaaaaaaaaaaa"], ["commenter", "sama"], ["created_at", Fri, 05 Apr 2013 22:14:30 UTC +00:00], ["post_id", 1], ["updated_at", Fri, 05 Apr 2013 22:14:30 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 93ms (ActiveRecord: 84.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-06 00:14:31 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  Rendered comments/_comment.html.erb (51.3ms)
+  Rendered comments/_form.html.erb (7.9ms)
+  Rendered posts/show.html.erb within layouts/application (110.8ms)
+Completed 200 OK in 176ms (Views: 173.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/1/comments/1/edit" for 127.0.0.1 at 2013-04-06 00:19:22 +0200
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered comments/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/1/comments/1" for 127.0.0.1 at 2013-04-06 00:19:37 +0200
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"I6Lv/deSTyNR17Zulf2hisbZPSfGKq13oQjw6+S71Hk=", "post_id"=>"1", "id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 AND "comments"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  [1m[35m (221.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 233ms (ActiveRecord: 223.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-06 00:19:37 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (4.7ms)
+  Rendered posts/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2013-04-06 00:19:50 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I6Lv/deSTyNR17Zulf2hisbZPSfGKq13oQjw6+S71Hk=", "comment"=>{"commenter"=>"dkdkdkdkd", "body"=>"dkdkdkdkdk"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (34.9ms)[0m  [1mINSERT INTO "comments" ("body", "commenter", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "dkdkdkdkdk"], ["commenter", "dkdkdkdkd"], ["created_at", Fri, 05 Apr 2013 22:19:50 UTC +00:00], ["post_id", 1], ["updated_at", Fri, 05 Apr 2013 22:19:50 UTC +00:00]]
+  [1m[35m (103.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 157ms (ActiveRecord: 138.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-06 00:19:50 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  Rendered comments/_comment.html.erb (3.2ms)
+  Rendered comments/_form.html.erb (5.3ms)
+  Rendered posts/show.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-06 02:27:47 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (801.0ms)
+Completed 200 OK in 2297ms (Views: 1972.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:51 +0200
+Served asset /bootstrap/css/bootstrap-responsive.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:52 +0200
+Served asset /home.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:52 +0200
+Served asset /bootstrap/css/bootstrap.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:54 +0200
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:55 +0200
+Served asset /comments.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:55 +0200
+Served asset /bootstrap/css/bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:55 +0200
+Served asset /bootstrap/css/bootstrap.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:56 +0200
+Served asset /posts.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-06 02:27:56 +0200
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-06 02:27:56 +0200
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-06 02:27:56 +0200
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-06 02:27:56 +0200
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/images3.jpg" for 127.0.0.1 at 2013-04-06 02:27:57 +0200
+Served asset /images3.jpg - 200 OK (1134ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-04-07 01:37:04 +0200
+Served asset /rails.png - 200 OK (72ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-07 01:37:05 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (96.2ms)
+Completed 200 OK in 1504ms (Views: 1264.2ms | ActiveRecord: 38.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /comments.css - 200 OK (35ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /bootstrap/css/bootstrap-responsive.css - 200 OK (6ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /bootstrap/css/bootstrap-responsive.min.css - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /bootstrap/css/bootstrap.min.css - 200 OK (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /bootstrap/css/bootstrap.css - 200 OK (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /posts.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /jquery.js - 200 OK (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /application.js - 200 OK (8ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:07 +0200
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/images3.jpg" for 127.0.0.1 at 2013-04-07 01:37:08 +0200
+Served asset /images3.jpg - 304 Not Modified (59ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2013-04-07 01:37:17 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+  Rendered posts/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 109ms (Views: 67.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:18 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-07 01:37:33 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  Rendered comments/_comment.html.erb (29.7ms)
+  Rendered comments/_form.html.erb (45.7ms)
+  Rendered posts/show.html.erb within layouts/application (223.5ms)
+Completed 200 OK in 267ms (Views: 261.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:34 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/posts/1/comments/2/edit" for 127.0.0.1 at 2013-04-07 01:37:42 +0200
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered comments/edit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:42 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2013-04-07 01:37:54 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" 
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:54 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-07 01:37:57 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  Rendered comments/_comment.html.erb (3.6ms)
+  Rendered comments/_form.html.erb (6.8ms)
+  Rendered posts/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:37:57 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2013-04-07 01:39:37 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R28WdocbiiKSo1l2oG4q4JUTXqI27Sgpmtepn/huAlU=", "comment"=>{"commenter"=>"samaaa", "body"=>"smmamama"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (78.0ms)[0m  INSERT INTO "comments" ("body", "commenter", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "smmamama"], ["commenter", "samaaa"], ["created_at", Sat, 06 Apr 2013 23:39:37 UTC +00:00], ["post_id", 1], ["updated_at", Sat, 06 Apr 2013 23:39:37 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 88ms (ActiveRecord: 79.8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2013-04-07 01:39:37 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  Rendered comments/_comment.html.erb (5.2ms)
+  Rendered comments/_form.html.erb (4.4ms)
+  Rendered posts/show.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 140ms (Views: 137.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 01:39:37 +0200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-07 14:38:00 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 334ms (Views: 236.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /application.css - 200 OK (111ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /bootstrap/css/bootstrap.css - 200 OK (7ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /bootstrap/css/bootstrap-responsive.css - 200 OK (4ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /comments.css - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /bootstrap/css/bootstrap-responsive.min.css - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /bootstrap/css/bootstrap.min.css - 200 OK (3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /home.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /posts.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /scaffolds.css - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /application.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-07 14:38:02 +0200
+Served asset /jquery.js - 200 OK (7ms)
+
+
+Started GET "/assets/images3.jpg" for 127.0.0.1 at 2013-04-07 14:38:03 +0200
+Served asset /images3.jpg - 200 OK (162ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-04-07 14:38:37 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WBOAOm1gVEyQOFJ4jFz3rirRYWj9cyCUeNo2xhtCeBs=", "user"=>{"email"=>"doniashaarawy@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (11.6ms)[0m  SELECT 1 FROM "users" WHERE "users"."email" = 'doniashaarawy@hotmail.com' LIMIT 1
+Binary data inserted for `string` type on column `password_hash`
+Binary data inserted for `string` type on column `password_salt`
+  [1m[36mSQL (33.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_hash", "password_salt", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 07 Apr 2013 12:38:37 UTC +00:00], ["email", "doniashaarawy@hotmail.com"], ["password_hash", "$2a$10$7GLoH096d1wczLZanhEjOegnvzjkNRtSW36sMJ8ig8FGXnp6aYxOy"], ["password_salt", "$2a$10$7GLoH096d1wczLZanhEjOe"], ["updated_at", Sun, 07 Apr 2013 12:38:37 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/home/index
+Completed 302 Found in 523ms (ActiveRecord: 46.4ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2013-04-07 14:38:37 +0200
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-04-07 14:38:37 +0200
+Served asset /home.css - 304 Not Modified (0ms)

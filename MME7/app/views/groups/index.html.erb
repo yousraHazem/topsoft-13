@@ -1,4 +1,12 @@
-<h1>Groups</h1>
+<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
+ <div class="navbar navbar-fixed-top">
+      <div class="container">
+        <a class="brand">Groups List</a>
+    </div>
+ </div>
 
 <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
 
@@ -13,7 +21,10 @@
   <tr>
     <td><%= group.group_name %></td>
     <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
+
+    <% if isGroupCreator(group.id, 1) == true %>
+    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :helper => GroupUsersHelper, :class => 'action delete') %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

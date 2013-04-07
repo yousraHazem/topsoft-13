@@ -6,5 +6,6 @@ class CreatePosts < ActiveRecord::Migration
     	t.references :project
       t.timestamps
     end
+  add_index :post, :group_id
   end
 end

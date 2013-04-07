@@ -84,4 +84,8 @@ MME7::Application.routes.draw do
   match ':controller(/:action(/:id))(.:format)'
 
 
+resources :posts do
+  resources :comments
+end
+
 end

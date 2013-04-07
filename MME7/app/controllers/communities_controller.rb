@@ -45,9 +45,7 @@ render ('edit')
     end
 end
 
-def list
-		@communities = Community.order("communities.title ASC")
-end
+
 
 #Author: May Badr 22-0579
 #find record to be deleted
