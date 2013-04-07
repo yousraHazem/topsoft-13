@@ -1,0 +1,19 @@
+  <table >
+    <% @postlist.each do |post| %>
+    <tr>
+     <td> <%= post.content %></td>
+      <td>
+       
+       
+        <% if isPostCreator(5,post.id) %>
+        <%= link_to("Edit", {:controller => 'posts',:action => 'editPost', :id => post.id, :group_id => @group_id}, :class => 'action editPost' ) %>
+         <%= link_to("Delete", {:controller => 'posts',:action => 'delete', :id => post.id,:id => @group_id}, :class => 'action delete') %>
+
+        <% end %>
+
+
+        
+      </td>
+    </tr>
+    <% end %>
+  </table>
