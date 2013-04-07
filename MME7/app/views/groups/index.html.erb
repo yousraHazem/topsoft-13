@@ -1,39 +1,27 @@
 
 <%= flash[:notice] %>
+
 <h1>Groups</h1>
 
 <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
 
 
 <table>
-   <tr>
+    <tr>
       <th>Group ID</th>
       <th>Group Name</th>
-      <th>Description</th>
-      <th>Levels</th>
-      <th></th>
       <th>Actions</th>
     </tr>
 
-  <% if @groups %>
-  <% @groups.each do |group| %>
-  <tr>
-     <td><%= group.id %></td>
-    <td><%= group.group_name %></td>
-    <td><%= group.description %></td>
-    <td><%= group.levels %></td>
-     <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-
-     
-       <%if isGroupCreator(group.id,1) == true %>
-        <td><%= link_to("Edit", {:action => 'edit', :id => group.id},:helper => GroupUsersHelper, :class => 'action edit') %></td>    
-         <td><%= link_to("Delete", {:action => 'delete', :id => group.id},:helper => GroupUsersHelper, :class => 'action delete') %></td>
-    <%end%>
-
-  </tr>
-<% end %>
+    <% if @groups %>
+      <% @groups.each do |group| %>
+      <tr>
+          <td><%= group.id %></td>
+          <td><%= group.group_name %></td>
+          <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+      </tr>
+      <% end %>
+    <% end %>
 </table>
 
-<br />
 
-<% end %>

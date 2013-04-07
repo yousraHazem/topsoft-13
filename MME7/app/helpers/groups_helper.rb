@@ -17,5 +17,7 @@ module GroupsHelper
    b = Group.getGroupMembers(group_id)
    notGroupUser = User.find(:all, :conditions => :user_id != b)
   end 
+
+  
 end
 	

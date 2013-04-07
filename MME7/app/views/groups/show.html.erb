@@ -1,16 +1,38 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
 
+</br>
+</br>
+
 <tr>
       <th>Name:</th>
       <td><%= @group.group_name %></td>
 </tr>
+
+</br>
+</br>
 
 <tr>
       <th>Description:</th>
       <td><%= @group.description %></td>
 </tr>
 
+</br>
+</br>
+
 <tr>
-      <th>created_at:</th>
-      <td><%= @group.created_at %></td>
+    <th>Level:</th>
+    <td><%= @group.levels %></td>
 </tr>
+
+</br>
+</br>
+
+<tr>
+	<%if isGroupCreator(@group.id,1) == true %>
+       <th><%= link_to("Edit", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'action edit') %></th>
+       <br/> 
+       <br/>
+       <th><%= link_to("Delete", {:action => 'delete', :id => @group.id},:helper => GroupUsersHelper, :class => 'action delete') %></th>
+    <%end%>
+</tr>
+     
