@@ -11,5 +11,7 @@ class Project < ActiveRecord::Base
 
 	def self.getProjectPosts(project_id)
  	     @projectposts = Post.find(:all, :conditions => {:project_id => project_id })
-    end 
+    end
+
+    
 end

@@ -3,8 +3,7 @@
 <div class="project show">
 
     <h2>Show Projects</h2>
-
-    <table summary="Project detail view">
+	<table summary="Project detail view">
   
  	 <tr >
  		<th>name</th>
@@ -49,41 +48,53 @@
  	 <% @postsList.each do |post| %>
     <tr>
      <td> <%= post.content %></td>
-      <td>
- 	<% end %>
-    </table>
+      </tr>
+
+      <%= form_for(:comment, :url => {:controller => 'posts',:action => 'getComment', :id => @post_id}) do |f| %>
+      		<tr>
+			<td><%= f.hidden_field :post_id, :value => @post_id %></td>
+			</tr>
+      <% end %>
+
+
+
+      	<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment'}) do |f| %>
+	    <table summary = "The Comment">
+		<tr>			
+			<td><%= f.text_field (:comment) %></td>
+		</tr>
+		<tr>
+			<td><%= f.hidden_field :post_id, :value => @post_id %></td>
+		</tr>
+
+	    </table>
+		<div class="form-buttons">
+			<%= submit_tag("Create Comment") %>
+		</div>
+	    <% end %>
+	 	<% end %>
+	    </table>
 
 
 
     
-    <div class="post new">
-	<h2>Create Post</h2>
-	
-
-	<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}) do |f| %>
-
-	<table summary = "The Post">
-		
+	    <div class="post new">
+		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}) do |f| %>
+		<table summary = "The Post">		
 		<tr>
 			<th>Post Content</th>
 			<td><%= f.text_field (:content) %></td>
 		</tr>
-
 		<tr>
 			<td><%= f.hidden_field :project_id, :value => @project_id %></td>
+		<!-- 	@project_id = "@project_id" -->
 		</tr>
-
 	</table>
-	
-
 	<div class="form-buttons">
 		<%= submit_tag("Create Post") %>
 	</div>
-
 	<% end %>
-
-
-
 </div>
+
 
 </div>

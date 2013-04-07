@@ -25,6 +25,7 @@ class PostsController < ApplicationController
 	def createPost
 		@project_id = params[:id]
 		@post = Post.new(params[:post])
+		@post.project_id = params[:id]
 
 		#Author Riham Gamal 22-3871
 		# if the post is saved, 
@@ -79,6 +80,10 @@ class PostsController < ApplicationController
 		# displays all available posts 
 	    def list 
 		@post = Post.all
+	    end
+
+	    def getComments
+	    	 @commentsList = Post.getPostComments(params[:id])
 	    end
 
 	end

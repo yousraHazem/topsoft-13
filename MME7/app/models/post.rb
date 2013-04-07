@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
 	belongs_to :project
 	belongs_to :group
 
-	def self.getProjectPosts(project_id)
- 	     @projectposts = Post.find(:all, :conditions => {:project_id => project_id })
+	def self.getPostComments(post_id)
+ 	     @posts = Post.find(:all, :conditions => {:post_id => post_id })
     end 
 
 end

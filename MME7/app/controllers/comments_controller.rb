@@ -9,19 +9,20 @@ class CommentsController < ApplicationController
   #Author Riham Gamal 22-3871
   # create a new comment
   def createComment
+    @post_id = params[:id]
     @comment = Comment.new(params[:comment])
+    @comment.post = params[:id]
 
     #Author Riham Gamal 22-3871
     # if the comment is saved, 
     if @comment.save
       flash[:notice] = "Comment successfully created"
-      redirect_to(:action => 'newComment')
     #Author Riham Gamal 22-3871
     # if the comment is not saved, 
     else
       flash[:notice] = "Comment could not be created"
-      render('newComment')
     end
+    redirect_to(:action => 'list')
 
   end
 
