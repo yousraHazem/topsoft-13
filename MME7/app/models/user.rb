@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id
+  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id ,:name
 
 
 
   has_many :posts
   has_many :comments
-  belongs_to :task
+  has_many :task_users
   belongs_to :group
   has_and_belongs_to_many :budget_items
   has_many :project_users
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
    has_many :groups_users 
    has_many :groups , :through => :group_users 
-
+   has_many :tasks , :through => :task_users
 
 
 
