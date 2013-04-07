@@ -2,8 +2,10 @@
 	<h2>Edit Post</h2>
 	
 
-	<%= form_for(:post, :url=>{:action=>'updatePost', :id=> @post.id}) do |f| %>
+	<%= form_for(:post, :url=>{:action=>'updatePost', :id=> params[:id], :group_id => @group_id}) do |f| %>
 	
+	<%= error_messages_for(@post) %>
+
 
 	<table summary = "The Post">
 		
