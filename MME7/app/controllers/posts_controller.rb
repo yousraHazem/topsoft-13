@@ -42,7 +42,7 @@ include PostsHelper
 
 	def editPost	
 	    @group_id = params[:group_id]
-	    @post_id=params[:post_id]
+	    @post_id=params[:id]
 		@post = Post.find(params[:id])
 		
 end
@@ -53,6 +53,8 @@ end
 
 	def updatePost
 		 @post = Post.find(params[:post_id])
+		 @group_id = params[:group_id]
+	    @post_id=params[:post_id]
         
 		if @post.update_attributes(params[:post])
 
@@ -61,7 +63,8 @@ end
 		else
 
 			flash[:notice] = "Post could not be updated"
-			 render("editPost")
+			 
+			redirect_to(:action => 'editPost',:id =>@post_id, :group_id =>@group_id)
 		end
 
 
@@ -74,16 +77,19 @@ end
 	# 	@post = Post.new
 	# end
 
-	# Salma El Ruby 22-4649
+	# Salma El Ruby 22-4649, Mariam Ismail 22-3456
 	# deletes posts
+	# deletes a post  from a group
 	  def delete
+	  	@group_id = params[:group_id]
+	    @post_id=params[:id]
 	    @post = Post.find(params[:id])
 	  end
 	  
 	  def destroy
-	    Post.find(params[:id]).destroy
+	    Post.find(params[:post_id]).destroy
 	    flash[:notice] = "Post successfully deleted"
-	    redirect_to(:action => 'list')
+	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	  end
 
 
