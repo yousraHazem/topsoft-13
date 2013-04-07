@@ -6,7 +6,9 @@ class ProjectUsersController < ApplicationController
       #@project = Project.find(params[:id])
       #@users = @project.get_projectmembers(params[:id])
       @project_id= params[:id]
-      @users = User.find(:all)
+      b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
+      @users = User.where("id NOT IN (?)" , b)
+      #@users = Project.getMembersNotInProject(params[:id])
       end    
 
  

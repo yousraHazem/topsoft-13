@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 	attr_reader :user_tokens
 
 	def self.get_projectmembers(project_id)
- 	 @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
+ 	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
   	end
 
 	# def getMembersNotInProject()
