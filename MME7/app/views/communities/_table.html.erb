@@ -1,25 +1,32 @@
-<div>
-<%= link_to("<< Back to home page", {:action => 'home'}, :class => 'back-link') %>
-<h2> Communities</h2>
 <table class="listing" summary="community list">
     <tr class="header">
+      <th>Id</th>
+      <th></th>
       <th>Title</th>
       <th></th>
       <th>Social profile info</th>
       <th></th>
       <th>Contact info</th>
-      
+      <th></th>
+      <th>Actions</th>
     </tr>
     <% @communities.each do |community| %>
      <tr>
+      <%if community.is_dismissed != true%>
+      <td><%= community.id %></td>
+      <td></td>
        <td><%= community.title %></td>
        <td></td>
        <td><%= community.social_profile_info %></td>
        <td></td>
         <td><%= community. contact_info %></td>
         <td></td>
-        
+        <td> 
+            <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+            
+        </td>
+        <% end %>
       </tr>
     <% end %>
   </table>
-</div>

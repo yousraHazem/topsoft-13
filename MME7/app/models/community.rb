@@ -4,4 +4,13 @@ class Community < ActiveRecord::Base
    has_many :groups
    validates_presence_of :title
 
+   def self.search(search)
+	if search
+		find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
+	else 
+		find(:all)
+	end
+end
+
+
 end
