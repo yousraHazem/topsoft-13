@@ -4,4 +4,8 @@ module PostsHelper
 	def getposts (g_id)
 	return Post.find(:all, :conditions => {:group_id =>g_id})
     end
+
+    def isPostCreator(current_user, post_id)
+        Post.where(:user_id => current_user, :id => post_id).exists?  
+    end 
 end

@@ -32,17 +32,18 @@ class CommentsController < ApplicationController
   # Riham Gamal 22-33871
   # update the comment by finding its id and chnaging the fields
   def updateComment
+    @project_id = params[:project_id]
     @comment = Comment.find(params[:id])
     
 
     if @comment.update_attributes(params[:comment])
       flash[:notice] = "Comment successfully updated"
-      render("editComment")
+      #render("editComment")
     else
       flash[:notice] = "Comment could not be updated"
-      render("editComment")
+      #render("editComment")
     end
-
+    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
   end
 
 
@@ -67,8 +68,10 @@ class CommentsController < ApplicationController
   
 
   def destroy
+    @project_id = params[:project_id]
+    @post_id = params[:post_id]
     Comment.find(params[:id]).destroy
-    redirect_to(:action => 'list')
+    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
   end
 
   # Salma El -Ruby 22-4649

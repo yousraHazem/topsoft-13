@@ -49,15 +49,17 @@ class PostsController < ApplicationController
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
 	def updatePost
+		@project_id = params[:project_id]
 		@post = Post.find(params[:id])
 		
 		if @post.update_attributes(params[:post])
 			flash[:notice] = "Post successfully updated"
-			render("editPost")
+			# render("editPost")
 		else
 			flash[:notice] = "Post could not be updated"
 			# render("editPost")
 		end
+		redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
 	end
 
 	# # add a new post 
@@ -72,8 +74,10 @@ class PostsController < ApplicationController
 	  end
 	  
 	  def destroy
+	  	@project_id = params[:project_id]
 	    Post.find(params[:id]).destroy
-	    redirect_to(:action => 'list')
+	    #redirect_to(:action => 'list')
+	    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
 	  end
 
 		# Salma El Ruby 22-4649
