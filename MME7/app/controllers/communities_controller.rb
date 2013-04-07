@@ -7,9 +7,12 @@ class CommunitiesController < ApplicationController
 	end
 
 	
-	#Author:May Badr 22-0579
-	#finds record, sets is_dismissed true and removes the delete link from the view
+	#Author:May Atef Badr 22-0579
+	#finds record, sets is_dismissed true and removes the delete-link from the view, the user
+	# can only see the community info
+
 	def destroy 
+
 		@community = Community.find(params[:id])
 		@community.is_dismissed = 'true'
 		@community.save
