@@ -6,3 +6,8 @@ class Post < ActiveRecord::Base
 	belongs_to :group 
 
 end
+
+ 	def  self.getcomments (p_id)
+	return Comment.find(:all, :conditions => {:post_id =>p_id})
+    end
+    

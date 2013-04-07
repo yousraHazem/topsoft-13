@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 	include PostsHelper
-
  
  	def index
         @posts = Post.order("posts.content ASC")
@@ -10,24 +9,25 @@ class PostsController < ApplicationController
    # Riham Gamal 22-3871
  	# add a new post 
 
-
 	def newPost
-		#@group_id = params[:id]
-		#@post = Post.new
+		@group_id = params[:id]
+		@post = Post.new
 	end
 
 	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
 	# if the post is saved, added to this method the group-id 
 	def createPost
-		#@group = Group.find(params[:post_id])
-        #@post = @group.posts.create(params[:comment])
+
 		@post = Post.new(params[:post])
 
-			if @post.save
+		if @post.save
 			flash[:notice] = "Post successfully created"
-			redirect_to(:action => 'list')
-			#redirect_to(:controller => 'groups', :action => 'show', :id => params[:group_id])
+			#redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
+			respond_to do |format|
+				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
+				format.js
+			end
 		#Author Riham Gamal 22-3871
 		# if the post is not saved, 
 		else
@@ -41,27 +41,25 @@ class PostsController < ApplicationController
 	# find the post you want to edit
 
 	def editPost	
-
+	    @group_id = params[:group_id]
+	    @post_id=params[:post_id]
 		@post = Post.find(params[:id])
-	#else
-		#render('problempost')
-	#end
-end
 
+end
 
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
 
 
-
 	def updatePost
-		 @post = Post.find(params[:id])
-
+		 @post = Post.find(params[:post_id])
         
 		if @post.update_attributes(params[:post])
+
 			flash[:notice] = "Post successfully updated"
-			redirect_to(:action => 'list')
+			redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 		else
+
 			flash[:notice] = "Post could not be updated"
 			 render("editPost")
 		end
@@ -92,11 +90,8 @@ end
 # Salma El Ruby 22-4649
 # displays all available posts 
     def list 
-	@posts = Post.order("posts.content ASC")
-    end
-
-    def show
-        @post = Post.find(params[:id])
-        #redirect_to(:action => 'show', :id => params[:id])
+	@post = Post.all
+	# Post.getposts (32)
+       
     end
 end

@@ -1,11 +1,3 @@
- <th>Post</th>
+<th>Post</th>
       <td><%= @post.content %></td>
- </tr>
-
-    <h2>Comments</h2>
-        <% if @comments %>
-    <%= render @post.comments %>
-        <% end %>
-     
-    <h2>Add a comment:</h2>
-    <%= render "comments/form" %>
+    </tr>

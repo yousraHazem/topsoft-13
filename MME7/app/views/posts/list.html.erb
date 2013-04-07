@@ -1,1 +1,35 @@
-<%= render 'list' %>
+<% if !flash[:notice].blank? %>
+<div class="notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<div >
+  <h2>post</h2>
+  
+  
+
+  <table >
+    <tr>
+      <th></th>
+      <th>Post List</th>
+      
+    </tr>
+    <% @post.each do |post| %>
+    <tr>
+     <td> <%= post.content %></td>
+      <td>
+       
+       
+        <% if isPostCreator(1,post.id) %>
+        <%= link_to("Edit", {:action => 'editPost', :id => post.id}, :class => 'action editPost') %>
+         <%= link_to("Delete", {:action => 'delete', :id => post.id}, :class => 'action delete') %>
+        <% end %>
+
+
+        
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

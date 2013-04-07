@@ -1,27 +1,19 @@
-<div >
-  <h2>post</h2>
-  
-  
-
   <table >
-    <tr>
-      <th></th>
-      <th>Post List</th>
-      
-    </tr>
-    <% if @posts %>
-    <% @posts.each do |post| %>
+    <% @postlist.each do |post| %>
     <tr>
      <td> <%= post.content %></td>
-      
-       <td><%= link_to("Show", {:action => 'show', :id => post.id}, :class => 'action show') %></td>
-        <td><%= link_to("Delete", {:action => 'delete', :id => post.id}, :class => 'action delete') %>
-        <% if @comments %>  
-          <%= render @post.comments %>
-              <% end %>
+      <td>
+       
+       
+        <% if isPostCreator(5,post.id) %>
+        <%= link_to("Edit", {:controller => 'posts',:action => 'editPost', :post_id => post.id, :id => params[:id]}, :class => 'action editPost' ) %>
+         <%= link_to("Delete", {:controller => 'posts',:action => 'delete', :id => post.id,:id => @group_id}, :class => 'action delete') %>
+
+        <% end %>
+
+
+        
       </td>
-    <% end %>
     </tr>
     <% end %>
   </table>
-</div>

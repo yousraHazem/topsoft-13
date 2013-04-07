@@ -12,4 +12,8 @@ class Group < ActiveRecord::Base
   validates_uniqueness_of :group_name, :case_sensitive => false
 
  
+ 	def  self.getposts (g_id)
+	return Post.find(:all, :conditions => {:group_id =>g_id})
+    end
+    
 end 

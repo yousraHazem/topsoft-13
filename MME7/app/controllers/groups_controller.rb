@@ -18,7 +18,9 @@ include GroupUsersHelper
     # Author: Sama Akram 22-555
     # finds the group_id i want to view
     def show
+        @group_id = params[:id]
         @group = Group.find(params[:id])
+        @postlist=Group.getposts (params[:id])
     end
 
     # Author: Sama Akram 22-555

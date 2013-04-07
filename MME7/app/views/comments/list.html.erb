@@ -1,1 +1,31 @@
-<%= render 'list' %>
+<% if !flash[:notice].blank? %>
+<div class="notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<div >
+  <h2>comment</h2>
+  
+  
+
+  <table >
+    <tr>
+      <th></th>
+      <th>Comments</th>
+      
+    </tr>
+    <% @comments.each do |f| %>
+    <tr>
+     <td> <%= f.comment %></td>
+      <td>
+        <% if isCommentCreator(1) == 'true' %>
+        <%= link_to("edit", {:action => 'editComment', :id => comment.id}, :class => 'action delete') %>
+        <%= link_to("Delete", {:action => 'destroy', :id => comment.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+        <% end %>
+           
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
