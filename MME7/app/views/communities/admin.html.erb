@@ -3,6 +3,7 @@
  
 
 
-  <%= button_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
 
- 
+ <div>
+      <%= button_to("View all communities", {:controller => 'communities', :action => 'list', :id =>@community_id}, :class => 'action list') %>
+    </div>
