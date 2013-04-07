@@ -8,9 +8,40 @@
         <% if isPostCreator(5,post.id) %>
         <%= link_to("Edit", {:controller => 'posts',:action => 'editPost', :id => post.id, :group_id => params[:id]}, :class => 'action editPost' ) %>
 
+<%= form_for(:post, :url=>{:controller => 'posts',:action=>'updatePost', :post_id=>post.id, :group_id => @group_id}) do |f| %>
+  
+  <%= error_messages_for(@post) %>
 
-        
-        <%= link_to("Delete", {:controller => 'posts',:action => 'delete', :id => post.id, :group_id => params[:id]}) %>
+
+  <table summary = "The Post">
+    
+    <tr>
+      <th><%= f.label(:content, "Content")%></th>
+      <td><%= f.text_field(:content) %></td>
+       </tr>
+
+
+  </table>
+  
+
+  <div class="form-buttons">
+    <%= submit_tag("Update Post") %>
+  </div>
+
+  <% end %>
+       
+
+
+<%= form_for(:post, :url=>{:controller => 'posts',:action=>'destroy', :id=>post.id, :group_id => @group_id}) do |f| %>
+  
+    <div >
+      <%= submit_tag("Delete post") %>
+    </div>
+    
+  <% end %>
+
+
+
         <% end %>
 
 
