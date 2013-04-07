@@ -100,11 +100,4 @@ end
 	# Post.getposts (32)
        
     end
-
-		# Salma El Ruby 22-4649
-		# displays all available posts 
-	    def list 
-		@post = Post.all
-	    end
-
 end
