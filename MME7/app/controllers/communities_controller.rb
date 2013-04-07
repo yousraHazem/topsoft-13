@@ -2,6 +2,7 @@ class CommunitiesController < ApplicationController
 
 # Author : Mariam, 22-3456
 # This method lists all communities in the database
+layout 'admin'
 
 def list
 		@communities = Community.order("communities.title ASC")
@@ -17,12 +18,14 @@ end
 # Author Mariam, 22-3456
 # creates a new communtity by matching what the admin has entered with the fields in the model
 
-def create
+def createCommunity
 	@community= Community.new(params[:community])
+	
 	   if @community.save
-	render ('create')
+	 flash[:notice] = "Community successfully created"
+			redirect_to(:action => 'list')
     else 
-	render ('new')
+	render('new')
     end
 end
 
@@ -39,15 +42,25 @@ end
 def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
-   render ('update')
+ flash[:notice] = "Community successfully updated"
+			redirect_to(:action => 'list')
     else 
-render ('edit')
+    	
+ render('edit')
     end
 end
 
 def list
 		@communities = Community.order("communities.title ASC")
 end
+
+def show
+	@community_id = params[:id]
+	@communities = Community.find(params[:id])
+
+
+end
+
 
 #Author: May Badr 22-0579
 #find record to be deleted
