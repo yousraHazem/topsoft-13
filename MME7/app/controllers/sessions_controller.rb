@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-
+#Author: Donia Amer Shaarawy 22-0270
+#this reverse what login too and make the session equal to null
   def destroy
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"

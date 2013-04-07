@@ -37,7 +37,7 @@ describe "Authentication" do
       it { should_not have_link('Log in', href: login_path) }
     end
     describe "followed by Logout" do
-        before { click_link "Log out" }
+        before { click_link "خروج" }
         it { should have_link('دخول') }
       end
   
