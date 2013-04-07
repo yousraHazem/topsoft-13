@@ -28,12 +28,21 @@
 
 
     <h3>Posts</h3>
-    <table>
-  
+    <table>  
  	<%  @project.posts.each do |post| %>
     <tr>
-    <td> <%= post.content %></td>
-    <td><% post.comments.each do |p|%>
+    <td> <%= post.content %> </td>
+
+	<%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=> post.id}) do |f| %>
+	<table>		
+	<tr>		
+    </table>
+	<div class="form-buttons">
+	<%= submit_tag("Edit Post") %>
+	</div>
+	<% end %>
+
+   <!--  <td><% post.comments.each do |p|%>
     	<%= p.comment.to_s %> <br></br>
       <% end %>
 
@@ -58,10 +67,10 @@
 
 
     </td>
-    </tr>
+    </tr> -->
       
      <% end %>
-     </table>
+     </table> 
 
     
 	    <div class="post new">
