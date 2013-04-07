@@ -19,6 +19,7 @@ class BudgetComponentsController < ApplicationController
 		#@components = BudgetComponent.search(params[:search], @item) 
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 
+		#calculating the progress bar percentage
 		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
 		all = BudgetComponent.where(:budget_item_id=>params[:id])
 		count_size = counts.size
