@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-def index
+    def index
         #@groups = Group.order("groups.group_name ASC")
         @groups=Group.search(params[:search])
    
@@ -41,10 +41,7 @@ def index
         end
     end
     
-    def guest
-       # @groups = Group.order("groups.id")
-      @groups=Group.search(params[:search])
-    end
+    
 
     #def indexSearch
      #   @groups = Groups.search(params[:search])
