@@ -21,7 +21,6 @@ include PostsHelper
 
 		@post = Post.new(params[:post])
 
-
 		if @post.save
 			flash[:notice] = "Post successfully created"
 			#redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
@@ -42,11 +41,10 @@ include PostsHelper
 	# find the post you want to edit
 
 	def editPost	
-	@group_id = params[:id]
+	    @group_id = params[:group_id]
+	    @post_id=params[:post_id]
 		@post = Post.find(params[:id])
-	#else
-		#render('problempost')
-	#end
+		
 end
 
 	# Riham Gamal 22-3871
@@ -54,12 +52,12 @@ end
 
 
 	def updatePost
-		 @post = Post.find(params[:id])
+		 @post = Post.find(params[:post_id])
         
 		if @post.update_attributes(params[:post])
 
 			flash[:notice] = "Post successfully updated"
-			redirect_to(:controller => 'groups',:action => 'show', :group_id => @group_id)
+			redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 		else
 
 			flash[:notice] = "Post could not be updated"
