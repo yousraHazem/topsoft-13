@@ -38,10 +38,12 @@
  	
     </table>
 
+    <% if isCreator(1, params[:id]) %>
     <td class="actions">
 		<%= link_to("Add Members", {:controller => 'project_users',:action => 'addMembers', :id=> @project_id}, 
 		:class => 'action show')%>
 	</td>
+	<% end %>
       
 
 </div>
