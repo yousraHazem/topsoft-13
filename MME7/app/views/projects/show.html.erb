@@ -23,30 +23,24 @@
  	 <tr >
  		<th>description</th>
  		<td><%= @project.description %></td>
- 	 </tr>
-
- 	
+ 	 </tr> 	
     </table>
 
 
     <h3>Posts</h3>
-
-    <table>
+    <table border=1>
   
- 	 <% @project.posts.each do |post| %>
+ 	<%  @postsList.each do |post| %>
     <tr>
-     <td> <%= post.content %></td>
-     <td><%= post.comments.each do |p|%>
-      <%= p.comment %>
-      <%end%>
-     </td>
-      </tr>
-
-      
+    <td> <%= post.content %></td>
+    <td><% post.comments.each do |p|%>
+    	<%= p.comment.to_s %>
       <% end %>
-      </table>
-
-
+    </td>
+    </tr>
+      
+     <% end %>
+     </table>
 
     
 	    <div class="post new">
