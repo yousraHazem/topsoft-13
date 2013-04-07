@@ -3,16 +3,16 @@ require 'spec_helper'
 describe GroupsController  do
 
 	def valid_attributes
-   		 {:group_name => "may", :description => "blaaaah blaah", :levels => "parent"}
+   		 {:group_name => "groupOne", :description => "blaaaah blaah", :levels => "parent"}
  	end
 
  	def invalid_attributes
- 		{:group_name => "", :description => "", :levels => ""}
+ 		{:group_name => "groupOne", :group :description => "", :levels => ""}
  	end
 
 	describe "GET edit" do
    		 it "assigns the requested group as @group" do
-			 @group  = Group.create! valid_attributes
+			 group  = Group.create! valid_attributes
      		 get :edit, {:id => group.to_param}
      		 assigns(:group).should eq(group)
    		 end
@@ -43,7 +43,7 @@ describe GroupsController  do
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        put :update, {:id => group.to_param, :group => invalid_attributes}
+        put :update, {:id => group.to_param, :group => update_attributes}
       end
 
       it "assigns the requested group  as @group" do
@@ -54,9 +54,9 @@ describe GroupsController  do
 
       it "redirects to the group" do
         group = Group.create! valid_attributes
-        put :update, {:id => group.to_param, :group => valid_attributes}
+        put :update, {:id => group.to_param, :@group => valid_attributes}
         response.should redirect_to(group)
       end
     end
-
+  
 	end
