@@ -43,7 +43,7 @@ def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
  flash[:notice] = "Community successfully updated"
-			redirect_to(:action => 'list')
+			render('update')
     else 
     	
  render('edit')
