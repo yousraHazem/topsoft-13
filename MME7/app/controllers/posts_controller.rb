@@ -68,8 +68,6 @@ end
 		end
 
 
-
-
 	end
 
 	# # add a new post 
@@ -87,7 +85,9 @@ end
 	  end
 	  
 	  def destroy
-	    Post.find(params[:post_id]).destroy
+
+		 @group_id = params[:group_id]
+	    Post.find(params[:id]).destroy
 	    flash[:notice] = "Post successfully deleted"
 	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	  end
