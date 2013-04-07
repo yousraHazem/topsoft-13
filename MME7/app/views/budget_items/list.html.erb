@@ -1,0 +1,29 @@
+<% @page_title = "Budget_Item List"%>
+
+
+
+<div>
+	<h2>Budget Items</h2>
+    
+	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
+       <i class="icon-plus icon-white"></i>
+      <% end %>
+
+
+ <table>
+<tr>
+	<th>Name</th>
+	<th>Action</th>
+	
+	
+</tr>
+<% @budget_items.each do |budget_item|%>
+<tr>
+	<td><%= budget_item.name %></td>	
+<td><%= link_to("edit", {:action=>'edit', :id=>budget_item.id})%></td>
+<td><%= link_to("create budget component", {:controller => 'budget_components', :action=>'new', :id=>budget_item.id})%></td>
+</tr>
+
+<%end%>
+</table>
+</div>
