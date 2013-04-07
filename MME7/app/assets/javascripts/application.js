@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function() {
+  $("#task_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    theme: "facebook"
+  });
+});
