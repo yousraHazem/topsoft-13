@@ -82,6 +82,7 @@ class PostsController < ApplicationController
 		@post = Post.all
 	    end
 
+
 	    def getComments
 	    	 @commentsList = Post.getPostComments(params[:id])
 	    end

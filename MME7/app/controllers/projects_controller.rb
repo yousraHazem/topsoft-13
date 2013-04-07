@@ -22,11 +22,9 @@ def create
  	 if @project.save
  	 	flash[:notice]= "project created"
   		redirect_to(:action => 'list')
-
   	else
    		 render('new')
     end
-
 end
 
 # authorized by sarah ahmed id:22-1278
