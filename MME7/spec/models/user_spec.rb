@@ -13,6 +13,8 @@
 #  updated_at :datetime         not null
 #
 
+#Author Donia Amer Shaarawy 22-0270
+#these are all the valdation tests needed for the user model 
 require 'spec_helper'
 
 describe User do

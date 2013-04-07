@@ -1,3 +1,6 @@
+#Author: Donia Amer Shaarawy 22-0270
+# these are the test for the requests which is redirecting to the user page and how the sign up page should look like and whats in it 
+
 require 'spec_helper'
 
 describe "User pages" do
@@ -15,10 +18,10 @@ describe "User pages" do
   describe "signup page" do
 
     before { visit signup_path }
-    it { should have_selector('h1',    text: 'Sign up') }
+    it { should have_selector('h1',    text: 'شتراك') }
     it { should have_selector('title', text: 'Sign up') }
 
-    let(:submit) { "Create my account" }
+    let(:submit) { "إنضم" }
 
     describe "with invalid information" do
       it "should not create a user" do
