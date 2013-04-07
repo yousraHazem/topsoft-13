@@ -1,13 +1,25 @@
+# == Schema Information
+#
+# Table name: groups
+#
+#  id           :integer          not null, primary key
+#  group_name   :string(50)
+#  description  :text
+#  levels       :string(255)
+#  created_at   :datetime         default => false
+#  updated_at   :datetime         not null
+#  community_id :integer
+#
+
 class Group < ActiveRecord::Base
-  attr_accessible :group_name , :description , :levels , :user_id , :community_id
+  attr_accessible :group_name , :description , :levels
 
   has_many :posts 
   has_and_belongs_to_many :users
   has_many :group_users 
   has_many :users , :through => :group_users
 
-
- #Author: Donia Amer Shaarawy 22-0270 
+	#Author: Donia Amer Shaarawy 22-0270 
  #this method is done to return the member of a specific 
  #group thats why we take in parameters group id and it returns the users in the group.
  def getGroupMembers(group_id)
@@ -19,10 +31,12 @@ class Group < ActiveRecord::Base
   #are not in this group we will subtrack the users in this group from all users this is done by calling on 
   #getGroupMembers(group_id) method.
   
+  
   def getMembersNotInGroup (group_id)
    b = Group.getGroupMembers(group_id)
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
+
 
 
 end 

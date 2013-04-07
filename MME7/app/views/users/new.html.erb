@@ -1,0 +1,45 @@
+<% provide(:title, 'Sign up') %>
+<h1>اشتراك</h1>
+<div>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+    <div>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :الاسم %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+   <p>
+    <label>رقم الهاتف</label> <br />
+    <%= f.text_field :phone_Nr %>
+  </p>
+   <p>
+    <%= f.label :عنوان%><br />
+    <%= f.text_field :address %>
+  </p>
+   <p>
+    <label>اسم المستخدم</label><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <label>كلمة السر</label><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <label>تأكيد كلمة المرور</label><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <%= f.submit "إنضم"%></p>
+  <%end%>
+</div>
