@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
 
+    # May Atef Badr 22-0579
+    # this method lists the groups 
+    #and if user uses the search, it will filter the list
     def index
         #@groups = Group.order("groups.group_name ASC")
         @groups=Group.search(params[:search])
@@ -40,33 +43,4 @@ class GroupsController < ApplicationController
             render ('new')
         end
     end
-    
-    
-
-    #def indexSearch
-     #   @groups = Groups.search(params[:search])
-    #end
-
-    #def self.search(search)
-     #   if search
-      #       find(:all, :conditions => ['group_name LIKE ?', "%#{search}%"])
-       # else
-        #     find(:all)
-        #end
-    #end
-
-    #def search
-     #   if params[:search]
-      #      @groups = Group.find(:all,:condition =>['group_name LIKE?', "%#{params[:search]}%"])
-       # else
-        #    @groups= Group.find(:all)
-        #end
-    #end
-    ##HTML
-    #<% form_tag group_path, :method => 'get' do %>
-     #<p>
-      #   <%= text_field_tag :search, params[:search] %>
-       #  <%= submit_tag "Search", :name => nil %>
-     #</p>
-    #<% end %>
 end

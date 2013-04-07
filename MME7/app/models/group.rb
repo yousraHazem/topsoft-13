@@ -6,6 +6,12 @@ class Group < ActiveRecord::Base
   has_many :groups_users 
   has_many :users , :through => :group_users
 
+# May Atef Badr 22-0579
+# This method takes the input the user types in the search field
+# and compares it with the groups' names 
+# if the name matches the input it will list the results of the filtering
+# else it won't list anything
+
 def self.search(search)
 	if search
 		find(:all, :conditions => ['group_name LIKE ?',"%#{search}%"])

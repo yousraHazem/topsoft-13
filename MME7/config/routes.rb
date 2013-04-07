@@ -1,6 +1,6 @@
 MME7::Application.routes.draw do
   get "posts/newPost"
-  get "Home/home"
+  #get "Home/home"
 
   #The priority is based upon order of creation:
 
