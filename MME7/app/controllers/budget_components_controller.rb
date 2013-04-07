@@ -18,8 +18,17 @@ class BudgetComponentsController < ApplicationController
 		#gets all the components of the passed budget item
 		#@components = BudgetComponent.search(params[:search], @item) 
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
-		@counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
-		@all = BudgetComponent.where(:budget_item_id=>params[:id])
+
+		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
+		all = BudgetComponent.where(:budget_item_id=>params[:id])
+		count_size = counts.size
+		all_size = all.size
+		if all_size==0
+		@percent = 0
+		else
+		@percent = 100*count_size / all_size
+	    end
+
         
 
 	

@@ -4,16 +4,14 @@ class BudgetComponent < ActiveRecord::Base
   attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
   belongs_to :budget_item
 
-  validates :name, :presence => {:message => "Name is required" } , :uniqueness => {:message =>" already exists"}
-  validates :unit_price, :presence => true , :numericality => {:greater_than => 0 }
-  validates :total_quantity, :numericality => {:greater_than => 0 }
-  
-  validates :quantity_purchased, :numericality => { :greater_than => 0, :less_than_or_equal_to => :total_quantity }
-  
-
-  #validates :total_quantity, :numericality => {:greater_than_or_equal_to => :quantity_purchased }
-  #validates :total_quantity, :presence => true , :numericality => {:greater_than => 0 }
-  #validates :quantity_purchased, :numericality => {:greater_than => 0 , :less_than_or_equal_to => :total_quantity}
+validates :name, :presence => {:message => "Name is required" }  
+validates_numericality_of :quantity_purchased, :greater_than => 0,
+                        :allow_blank => false
+validates_numericality_of :total_quantity, :greater_than => 0,
+                        :allow_blank => false
+validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_quantity,
+                        :if => Proc.new { |o| !o.total_quantity.nil? } ,
+                        :message => "can't be greater than retail price."
   
   
 

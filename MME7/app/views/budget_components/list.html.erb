@@ -1,7 +1,7 @@
 <% @page_title = "Subjects List"%>
 <%= flash_message %>
 
-<input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= (100*@counts.size / @all.size)%>>
+<input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
 <form action="">
 <fieldset>	
 <legend><h1>Marketing <div class="progress offset10" id="progressouter">
