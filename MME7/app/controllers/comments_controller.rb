@@ -9,10 +9,9 @@ class CommentsController < ApplicationController
   #Author Riham Gamal 22-3871
   # create a new comment
   def createComment
-    @post_id = params[:id]
-    @comment = Comment.new(params[:comment])
-    @comment.post = params[:id]
-
+    @project_id = params[:project_id]
+    @comment = Comment.new(params[:comment]) 
+    @comment.post_id = params[:id]
     #Author Riham Gamal 22-3871
     # if the comment is saved, 
     if @comment.save
@@ -22,8 +21,7 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "Comment could not be created"
     end
-    redirect_to(:action => 'list')
-
+    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
   end
 
   # Riham Gamal 22-3871

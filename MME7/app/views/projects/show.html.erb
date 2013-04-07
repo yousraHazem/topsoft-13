@@ -28,14 +28,35 @@
 
 
     <h3>Posts</h3>
-    <table border=1>
+    <table>
   
  	<%  @project.posts.each do |post| %>
     <tr>
     <td> <%= post.content %></td>
     <td><% post.comments.each do |p|%>
-    	<%= p.comment.to_s %>
+    	<%= p.comment.to_s %> <br></br>
       <% end %>
+
+
+       <div class="comment new">
+	   <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :id => post.id, 
+	   	:project_id => params[:id]}) do |e| %>
+		<table summary = "The Comment">		
+		<tr>
+			<th>Comment Content</th>
+			<td><%= e.text_field (:comment) %></td>
+		</tr>
+		<tr>
+			<td><%= e.hidden_field :post_id, :value => post.id %></td>		
+		</tr>
+		</table>
+		<div class="form-buttons">
+			<%= submit_tag("Create Comment") %>
+		</div>
+		<% end %>
+
+
+
     </td>
     </tr>
       
@@ -53,11 +74,11 @@
 		<tr>
 			<td><%= f.hidden_field :project_id, :value => @project_id %></td>		
 		</tr>
-	</table>
-	<div class="form-buttons">
-		<%= submit_tag("Create Post") %>
-	</div>
-	<% end %>
+		</table>
+		<div class="form-buttons">
+			<%= submit_tag("Create Post") %>
+		</div>
+		<% end %>
 </div>
 
 
