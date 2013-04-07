@@ -91,88 +91,100 @@ require 'spec_helper'
 #   end
 
 # end
-<% module_namespacing do -%>
-describe <%= controller_class_name %>Controller do
+# <% module_namespacing do -%>
+describe BudgetSourcesController do
 
   # This should return the minimal set of attributes required to create a valid
   # <%= class_name %>. As you add validations to <%= class_name %>, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    <%= formatted_hash(example_valid_attributes) %>
+    {:name => 'Market', :unit_price => 2 , :quantity_purchased => 4, :total_quantity => 10}
+  end
+
+  def invalid_attributes
+   {:name => 'Market', :unit_price => 2 , :quantity_purchased => 4, :total_quantity => 1}
+  end
+
+  def update_attributes
+  {:name => 'Market', :unit_price => 3 , :quantity_purchased => 4, :total_quantity => 1}
+   end
+
+  def valid_task_attributes
+  {:quantity_purchased => 4 , :budget_source_id => 51}
   end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # <%= controller_class_name %>Controller. Be sure to keep this updated too.
-  def valid_session
-    {}
-  end
+#   def valid_session
+#     {}
+#   end
 
-<% unless options[:singleton] -%>
+# <% unless options[:singleton] -%>
   describe "GET index" do
-    it "assigns all <%= table_name.pluralize %> as @<%= table_name.pluralize %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:<%= table_name %>).should eq([<%= file_name %>])
+    it "assigns all budget_components as @components" do
+      budget_component = BudgetComponent.create! valid_attributes
+      get :index
+      assigns(:budget_components).should eq([budget_component])
     end
   end
 
-<% end -%>
-  describe "GET show" do
-    it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
-      get :show, {:id => <%= file_name %>.to_param}, valid_session
-      assigns(:<%= ns_file_name %>).should eq(<%= file_name %>)
-    end
-  end
+
+  # describe "GET show" do
+  #   it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
+  #     <%= file_name %> = <%= class_name %>.create! valid_attributes
+  #     get :show, {:id => <%= file_name %>.to_param}, valid_session
+  #     assigns(:<%= ns_file_name %>).should eq(<%= file_name %>)
+  #   end
+  # end
 
   describe "GET new" do
-    it "assigns a new <%= ns_file_name %> as @<%= ns_file_name %>" do
-      get :new, {}, valid_session
-      assigns(:<%= ns_file_name %>).should be_a_new(<%= class_name %>)
+    it "assigns a new budget_component as @component" do
+      get :new
+      assigns(:budget_component).should be_a_new(BudgetComponent)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
-      get :edit, {:id => <%= file_name %>.to_param}, valid_session
-      assigns(:<%= ns_file_name %>).should eq(<%= file_name %>)
+    it "assigns the requested budget_component as @component %>" do
+      budget_component = BudgetComponent.create! valid_attributes
+      get :edit, {:id => budget_component.to_param}
+      assigns(:budget_component).should eq(budget_component)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new <%= class_name %>" do
+      it "creates a new BudgetComponent" do
         expect {
-          post :create, {:<%= ns_file_name %> => valid_attributes}, valid_session
-        }.to change(<%= class_name %>, :count).by(1)
+          post :create, {:budget_component => valid_attributes}, valid_session
+        }.to change(BudgetComponent, :count).by(1)
       end
 
-      it "assigns a newly created <%= ns_file_name %> as @<%= ns_file_name %>" do
-        post :create, {:<%= ns_file_name %> => valid_attributes}, valid_session
-        assigns(:<%= ns_file_name %>).should be_a(<%= class_name %>)
-        assigns(:<%= ns_file_name %>).should be_persisted
+      it "assigns a newly created budget_component  as @component %>" do
+        post :create, {:budget_component => valid_attributes}
+        assigns(:budget_component).should be_a(BudgetComponent)
+        assigns(:budget_component).should be_persisted
       end
 
-      it "redirects to the created <%= ns_file_name %>" do
-        post :create, {:<%= ns_file_name %> => valid_attributes}, valid_session
-        response.should redirect_to(<%= class_name %>.last)
+      it "redirects to the created budget_component" do
+        post :create, {:budget_component => valid_attributes}
+        response.should redirect_to(:action=>'list')
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved <%= ns_file_name %> as @<%= ns_file_name %>" do
+      it "assigns a newly created but unsaved budget_component as @component" do
         # Trigger the behavior that occurs when invalid params are submitted
-        <%= class_name %>.any_instance.stub(:save).and_return(false)
-        post :create, {:<%= ns_file_name %> => <%= formatted_hash(example_invalid_attributes) %>}, valid_session
-        assigns(:<%= ns_file_name %>).should be_a_new(<%= class_name %>)
+        BudgetComponent.any_instance.stub(:save).and_return(false)
+        post :create, {:budget_component => invalid_attributes}
+        assigns(:budget_component).should be_a_new(BudgetComponent)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        <%= class_name %>.any_instance.stub(:save).and_return(false)
-        post :create, {:<%= ns_file_name %> => <%= formatted_hash(example_invalid_attributes) %>}, valid_session
+        BudgetComponent.any_instance.stub(:save).and_return(false)
+        post :create, {:budget_component =>invalid_attributes}
         response.should render_template("new")
       end
     end
@@ -180,69 +192,64 @@ describe <%= controller_class_name %>Controller do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested <%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+      it "updates the requested budget_component" do
+        budget_component = BudgetComponent.create! valid_attributes
         # Assuming there are no other <%= table_name %> in the database, this
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        <%- if Gem::Requirement.new('>= 4.0.0.beta1').satisfied_by?(Gem::Version.new(::Rails.version.to_s)) -%>
-        <%= class_name %>.any_instance.should_receive(:update).with(<%= formatted_hash(example_params_for_update) %>)
-        <%- else -%>
-        <%= class_name %>.any_instance.should_receive(:update_attributes).with(<%= formatted_hash(example_params_for_update) %>)
-        <%- end -%>
-        put :update, {:id => <%= file_name %>.to_param, :<%= ns_file_name %> => <%= formatted_hash(example_params_for_update) %>}, valid_session
+        put :update, {:id => budget_component.to_param, :budget_component =>update_attributes}
       end
 
-      it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
-        put :update, {:id => <%= file_name %>.to_param, :<%= ns_file_name %> => valid_attributes}, valid_session
-        assigns(:<%= ns_file_name %>).should eq(<%= file_name %>)
+      it "assigns the requested budget_component as @component %>" do
+        budget_component = BudgetComponent.create! valid_attributes
+        put :update, {:id => budget_component.to_param, :budget_component => valid_attributes}
+        assigns(:budget_component).should eq(budget_component)
       end
 
-      it "redirects to the <%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
-        put :update, {:id => <%= file_name %>.to_param, :<%= ns_file_name %> => valid_attributes}, valid_session
-        response.should redirect_to(<%= file_name %>)
+      it "redirects to the list page" do
+        budget_component = BudgetComponent.create! valid_attributes
+        put :update, {:id => budget_component.to_param, :budget_component => valid_attributes}
+        response.should redirect_to(:action=>'list')
       end
     end
 
     describe "with invalid params" do
-      it "assigns the <%= ns_file_name %> as @<%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+      it "assigns the budget_component as @component %>" do
+        budget_component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        <%= class_name %>.any_instance.stub(:save).and_return(false)
-        put :update, {:id => <%= file_name %>.to_param, :<%= ns_file_name %> => <%= formatted_hash(example_invalid_attributes) %>}, valid_session
-        assigns(:<%= ns_file_name %>).should eq(<%= file_name %>)
+        BudgetComponent.any_instance.stub(:save).and_return(false)
+        put :update, {:id => budget_component.to_param, :budget_component => invalid_attributes}
+        assigns(:budget_component).should eq(budget_component)
       end
 
       it "re-renders the 'edit' template" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        budget_component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        <%= class_name %>.any_instance.stub(:save).and_return(false)
-        put :update, {:id => <%= file_name %>.to_param, :<%= ns_file_name %> => <%= formatted_hash(example_invalid_attributes) %>}, valid_session
+        BudgetComponent.any_instance.stub(:save).and_return(false)
+        put :update, {:id => budget_component>.to_param, :budget_component => invalid_attributes}
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested <%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+    it "destroys the requested budget_component" do
+      budget_component = BudgetComponent.create! valid_attributes
       expect {
-        delete :destroy, {:id => <%= file_name %>.to_param}, valid_session
-      }.to change(<%= class_name %>, :count).by(-1)
+        delete :destroy, {:id => budget_component.to_param}
+      }.to change(BudgetComponent, :count).by(-1)
     end
 
-    it "redirects to the <%= table_name %> list" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
-      delete :destroy, {:id => <%= file_name %>.to_param}, valid_session
-      response.should redirect_to(<%= index_helper %>_url)
+    it "redirects to the budget_components list" do
+      budget_component = BudgetComponent.create! valid_attributes
+      delete :destroy, {:id => budget_component.to_param}
+      response.should redirect_to(budget_componet_url)
     end
   end
 
 end
-<% end -%>
+
 
 
 

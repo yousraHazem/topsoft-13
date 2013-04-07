@@ -56,30 +56,34 @@ $("#progress").html(p+'%');
 });
 
 
-$(function() {
-    $("#create").click(function(){
-        $("#comp").toggle("slow");
-    });
-});
+// $(function() {
+//     $("#create").click(function(){
+//         $("#comp").toggle("slow");
+//     });
+// });
 
 jQuery.ajaxSetup({
    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
 
-$(function() {
-    $("#edit-button").click(function(){
-        $("#editt").toggle("slow");
-    });
+$(function(){
+    $('#budget-component-dialog').dialog({
+        autoOpen: false,
+        height: 500,
+        width: 500,
+        modal:true,
+        buttons: {
+           "Create" : function() {
+            $("#comp-form").submit();
+            $(this).dialog('close')
+           }
+        }
+    })
+
+    $('#create').button().click(function(){
+        $('#budget-component-dialog').dialog('open')
+    })
 });
-
-
-
-// $(document).ready(function() {
-//   $("#component-form").submit(function(){
-//     $.post($(this).attr("action"),$(this).serialize(), null , "script");
-//     return false;
-//   });
-// });
 
 
 

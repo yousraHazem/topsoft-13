@@ -20,7 +20,7 @@ class BudgetComponentsController < ApplicationController
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 		@counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
 		@all = BudgetComponent.where(:budget_item_id=>params[:id])
-        #@component = BudgetComponent.new
+        
 
 	
 	end
@@ -58,7 +58,7 @@ class BudgetComponentsController < ApplicationController
 			flash[:notice] = "Component successfully created"
 
 			# respond_to do |format|
-			# 	format.html {redirect_to(:action=>'list',:id=> params[:id])}
+			# 	format.html {redirect_to(:action=>'list',:id=> @item)}
 			# 	format.js
 			# end
 			redirect_to(:action=>'list',:id=> @item)

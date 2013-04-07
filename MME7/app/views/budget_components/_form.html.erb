@@ -1,5 +1,9 @@
   <%= error_messages_for(@component) %>
+<% @component ||= BudgetComponent.new %>
+<div id="budget-component-dialog">
+	<%= form_for(:component, :url=>{:controller=>'budget_components',:action=>'create', :id=> @item}, :html=>{:id=>"comp-form"}) do |f| %>
 
+	
  <table>
 <tr>
 	<th ><%= f.label(:name, "Name:")%></th>
@@ -39,6 +43,11 @@
 
 
 	</table> 
+
+<div><%= submit_tag("Save Component")%></div>
+
+<% end %>
+</div>
 
 
 	
