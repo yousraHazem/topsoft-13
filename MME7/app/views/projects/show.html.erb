@@ -30,7 +30,7 @@
     <h3>Posts</h3>
     <table border=1>
   
- 	<%  @postsList.each do |post| %>
+ 	<%  @project.posts.each do |post| %>
     <tr>
     <td> <%= post.content %></td>
     <td><% post.comments.each do |p|%>
