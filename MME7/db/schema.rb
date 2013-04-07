@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325155523) do
+ActiveRecord::Schema.define(:version => 20130407163127) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "quantity"
+    t.integer  "total_quantity"
     t.integer  "unit_price"
-    t.boolean  "status"
+    t.string   "status",             :default => "Pending"
     t.integer  "total"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "budget_item_id"
+    t.integer  "spent"
+    t.integer  "quantity_purchased", :default => 0
   end
 
   create_table "budget_items", :force => true do |t|
@@ -31,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "spent"
+    t.integer  "project_id"
+    t.integer  "total"
   end
 
   create_table "budget_items_users", :id => false, :force => true do |t|
@@ -45,15 +51,9 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "budgets", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "amount"
-    t.integer  "raised"
-    t.integer  "noot_raised"
-    t.integer  "spent"
-    t.integer  "not_spent"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "communities_projects", :id => false, :force => true do |t|
+    t.integer "communities_id"
+    t.integer "projects_id"
+  end
+
   create_table "group_users", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
@@ -81,19 +86,13 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string   "group_name",  :limit => 50
+    t.string   "group_name",   :limit => 50
     t.text     "description"
     t.string   "levels"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "community_id"
   end
-
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
 
   create_table "posts", :force => true do |t|
     t.text     "content"
@@ -101,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "project_users", :force => true do |t|
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "project_name"
+    t.string   "name"
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
@@ -122,18 +122,28 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "projects_users", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
+  create_table "receipts", :force => true do |t|
+    t.string   "name"
+    t.integer  "budget_component_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "image"
   end
 
-  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.boolean  "assigned",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "assigned"
   end
 
   create_table "users", :force => true do |t|
@@ -148,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20130325155523) do
     t.integer  "task_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.string   "name"
   end
 
 end
