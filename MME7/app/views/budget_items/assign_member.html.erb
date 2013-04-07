@@ -1,0 +1,23 @@
+<div >
+
+    <h2>Create Projects</h2>
+    <%= form_for(:budget_item, :url => {:action => 'assign_member'}) do |f| %>
+    <table >
+ 	  <tr >
+ 		<th>Budget Item Id </th>
+ 		<td><%= f.text_field(:id) %></td>
+ 		<td><%= submit_tag("assign_member") %></td>
+ 	 </tr>
+ 	  <tr >
+ 		<th>User Id </th>
+ 		<td><%= f.text_field(:user_id) %></td>
+ 		<td><%= submit_tag("assign_member") %></td>
+ 	 </tr>
+
+     </table>
+ 	<% end %> 
+    
+
+</div>
+
+</div>

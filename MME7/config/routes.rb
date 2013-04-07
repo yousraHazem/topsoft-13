@@ -1,6 +1,6 @@
 MME7::Application.routes.draw do
   get "posts/newPost"
-  get "budget_items/view_operational_BI"
+  get "budget_items/assign_member"
   get "users/get_myprojects"
   get "projects/viewoperationalBI"
   get "projects/viewAllBI"
