@@ -9,7 +9,7 @@ class BudgetItemsController < ApplicationController
 	def list
         @total_budget = BudgetItem.sum(:total)
         @total_spent = BudgetItem.sum(:spent)
-		#@items = BudgetItem.where(:project_id=>params[:id])
+		@items = BudgetItem.where(:project_id=>params[:id])
 	 end
 
 end
