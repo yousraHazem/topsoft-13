@@ -1,0 +1,16 @@
+<% @page_title ="Edit Project: #{@project.project_name}" %>
+<%= link_to("Back to list", {:action => 'listProjects', :class => 'back link'} ) %>
+<div class="project edit">
+
+    <h2>Update Projects</h2>
+    <%= form_for(:project, :url => {:action => 'updateProject', :id => @project.id}) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+   
+ 	<div class="form-buttons">
+      <%= submit_tag("update project") %>
+ 	</div>
+ 	<% end %> 
+    
+</div>
+
+
