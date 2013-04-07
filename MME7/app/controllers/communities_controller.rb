@@ -6,17 +6,13 @@ class CommunitiesController < ApplicationController
 
 	end
 
-	#Author: May Badr 22-0579
-	#find record to be deleted
-	def delete 
-		@community = Community.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-	end
+	
 	#Author:May Badr 22-0579
-	#deletes record chosen
+	#finds record, sets is_dismissed true and removes the delete link from the view
 	def destroy 
-		Community.find(params[:id]).destroy
-		rescue ActiveRecord::RecordNotFound
+		@community = Community.find(params[:id])
+		@community.is_dismissed = 'true'
+		@community.save
 		redirect_to(:action => 'list')
 
 	end

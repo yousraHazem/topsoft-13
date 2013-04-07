@@ -11,11 +11,14 @@
     </tr>
     <% @communities.each do |community| %>
      <tr>
+        <td><%= community.id %></td>
        <td><%= community.title %></td>
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
-            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+          <%if community.is_dismissed != true %>
+            <%= link_to("Delete", {:action => 'destroy', :id => community.id}, :confirm => "Are you sure you want to dismiss this community", :class => 'action delete') %>
+          <% end %>  
         </td>
       </tr>
     <% end %>
