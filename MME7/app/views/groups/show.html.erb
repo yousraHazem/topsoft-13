@@ -1,22 +1,25 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
 
-<tr>
-      <th>Name:</th>
-      <td><%= @group.group_name %></td>
-</tr>
+<div>
+   
+  <table>
+   <tr >
+    <th>Group name</th>
+    <td><%= @group.group_name %></td>
+   </tr>
 
-<tr>
-      <th>Description:</th>
-      <td><%= @group.description %></td>
-</tr>
+   <tr >
+    <th>Description</th>
+    <td><%= @group.description %></td>
+   </tr>
+   
+  </table> 
 
-<tr>
-      <th>created_at:</th>
-      <td><%= @group.created_at %></td>
-</tr>
-
+     <div>
  <% if ifMember(params[:id],5)==false %>
 
  <%= button_to("join",{:controller => 'group_users', :action =>'join', :id => @group_id, :user_id => 5}, :class => 'action show') %>
                    
  <% end %>
+
+     </div>
