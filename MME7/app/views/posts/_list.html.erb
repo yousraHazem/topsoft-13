@@ -12,17 +12,14 @@
   
   <%= error_messages_for(@post) %>
 
-
-  <table summary = "The Post">
-    
+<table class="table table-striped">
     <tr>
       <th><%= f.label(:content, "Content")%></th>
       <td><%= f.text_field(:content) %></td>
        </tr>
 
 
-  </table>
-  
+  <table class="table table-striped">
 
   <div class="form-buttons">
     <%= submit_tag("Update Post") %>
