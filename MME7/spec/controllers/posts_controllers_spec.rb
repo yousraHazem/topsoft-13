@@ -25,19 +25,19 @@ describe PostsController do
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        put :updatePost, {:id => post.to_param, :post => valid_attributes}
+        put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
       end
 
       it "assigns the requested post as @post" do
         post = Post.create! valid_attributes
-        put :updatePost, {:id => post.to_param, :post => valid_attributes}
+        put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
         assigns(:post).should eq(post)
       end
 
-      it "redirects to the post" do
+      it "redirects to the show group" do
         post = Post.create! valid_attributes
-        put :updatePost, {:id => post.to_param, :post => valid_attributes}
-        response.should redirect_to("http://test.host/groups/show/1")
+        put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
+        response.should redirect_to("http://test.host/groups/show")
       end
     end
 
@@ -46,16 +46,16 @@ describe PostsController do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        put :updatePost, {:id => community.to_param, :post => valid_attributes}
+        put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
         assigns(:post).should eq(post)
       end
 
-      it "re-renders the 'edit' template" do
+      it "re-renders the group show template" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        put :updatePost, {:id =>post.to_param, :post => invalid_attributes}
-        response.should render_template("edit")
+        put :updatePost, {:post_id =>post.to_param, :post => invalid_attributes}
+        response.should redirect_to("http://test.host/groups/show")
       end
     end
   end
