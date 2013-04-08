@@ -14,13 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 
+
+$(function(){
+ $("#Budget-serach input").keyup(function (){
+    $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
+    return false;
+  });
+});
+
 $(function() {
     $("#p").click(function() {
-      $("#grp").slideToggle();
-      $("#icon").toggleClass("icon-chevron-up");
-
-      
+      $("#grp").slideToggle();   
     });
 });
+
 
 

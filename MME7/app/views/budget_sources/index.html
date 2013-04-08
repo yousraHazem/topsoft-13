@@ -1,30 +1,26 @@
-
+<br>
+<br>
+<br>
 <h1> Budget Sources</h1>
- <div>
- 	<table class="table table-bordered" summary="Subject List">
 
-<tr class="header">
-	<th>Name</th>
-	<th>Amount</th>
-	<th>projects</th>
-</tr>
-<% @sources.each do |source|%>
-<tr>
-	<td><%= source.name%></td>
-	<td><%= source.amount%></td>
-	<td><a id="p" href="#"><i id="icon" class="icon-chevron-down"></i> View</a>
-    <div id="grp" style="display:none;">
-    <% source.budget_source_projects.each do |s| %>
-	Project name:<%= s.project.project_name %>
-	amount :<%= s.amount %></br>
-	<%end%>
-	</div>
-	</td>    
-</tr>
-<%end%>
-	</table>
+<%= form_tag( 'index', :method => 'get', :id=>"Budget-serach", :remote=>true) do %>
+  <p class="offset12">
+  	<button type="submit" class="btn btn-info">
+    <i class="icon-search"></i> Search
+    </button>
+    <%= text_field_tag :search, params[:search] , :class=>"input-medium" %>
+    
+   
+  </p>
+<% end %>
+
+ <div id="sources-table">
+ 	<%= render 'table' %>
 
  </div>
+
+
+
 
 
 
