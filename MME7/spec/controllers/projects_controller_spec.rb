@@ -13,9 +13,7 @@ describe ProjectsController do
     {:project_name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
-  def valid_task_attributes
-    {:description => 'human resources' , :project_id => 1}
-  end
+ 
 
   describe "GET index" do
     it "assigns all projects as @projects" do
@@ -48,13 +46,7 @@ describe ProjectsController do
     end
   end
 
-  describe "GET showTask" do
-    it "assigns the requested task as @task " do
-      task = Task.create! valid_task_attributes
-      get :showTask, {:id => task.to_param}
-      assigns(:task ).should eq(task)
-    end
-  end
+  
 
   describe "POST createProject" do
     describe "with valid params" do
