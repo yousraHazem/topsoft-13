@@ -11,6 +11,9 @@ gem 'carrierwave'
  gem "rspec-rails", "~> 2.0"
 #gem 'rmagick'
 
+gem "factory_girl_rails", "~> 4.0"
+
+
 
 
 # Gems used only for assets and not required
