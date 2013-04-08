@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { crossDomain: false , prePopulate: $('#budget_source_project_tokens').data('pre') , theme: 'facebook'});
+});
