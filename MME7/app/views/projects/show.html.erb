@@ -28,34 +28,31 @@
 
 
     <h3>Posts</h3>
-    <table>  
+    <table border = 2>  
  	<%  @project.posts.each do |post| %>
     <tr>
-    <td> <%= post.content %> </td>
-
-    
-    <% if isPostCreator(2, post.id)%>
+    <td> <%= post.content %>     
+   
     <%= form_for(:post, :url => {:controller => 'posts', :action => 'destroy', :id => post.id, 
     	:project_id => @project.id}) do |f| -%>
     <div >
       <%= submit_tag("Delete post") %>
-    </div>    
-   <% end %>
+    </div> 
+    <% end %>  
+ 
    
 
    	
 	<%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=> post.id, 
 		:project_id => @project.id}) do |f| %>
-	<table>		
-		<tr>
-			<td><%= f.text_field(:content) %></td>
-       </tr>
-	</table>
+	<%= f.text_field(:content) %>
+	
 	<div class="form-buttons">
 	<%= submit_tag("Edit Post") %>
 	</div>
 	<% end %>
-	<% end %>
+
+	
 	
 
 	
@@ -63,7 +60,7 @@
 
     <td><% post.comments.each do |p|%>
     	<%= p.comment.to_s %> <br></br>
-    	<% if isCommentCreator(2, p.id)%>
+    
 
     	 <%= form_for(:comment, :url => {:controller => 'comments', :action => 'destroy', :id => p.id, 
 	    	:post_id => post.id, :project_id => @project.id}) do |f| -%>
@@ -86,18 +83,11 @@
 	<% end %>
 	<% end %>
 
-    <% end %>
-
-	   
     
-
-
-
-
        <div class="comment new">
 	   <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :id => post.id, 
 	   	:project_id => params[:id]}) do |e| %>
-		<table summary = "The Comment">		
+		<table boder = 2>		
 		<tr>
 			<th>Comment Content</th>
 			<td><%= e.text_field (:comment) %></td>
@@ -110,9 +100,6 @@
 			<%= submit_tag("Create Comment") %>
 		</div>
 		<% end %>
-
-
-
     </td>
     </tr> 
       
