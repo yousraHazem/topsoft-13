@@ -79,16 +79,26 @@ end
 	# 	@post = Post.new
 	# end
 
-	# Salma El Ruby 22-4649
+	
+# Salma El Ruby 22-4649, Mariam Ismail 22-3456
 	# deletes posts
+	# deletes a post  from a group
 	  def delete
+	  	@group_id = params[:group_id]
+	    @post_id=params[:id]
 	    @post = Post.find(params[:id])
 	  end
 	  
 	  def destroy
+
+		 @group_id = params[:group_id]
 	    Post.find(params[:id]).destroy
-	    redirect_to(:action => 'list')
+	    flash[:notice] = "Post successfully deleted"
+	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	  end
+
+
+
 
 		# Salma El Ruby 22-4649
 		# displays all available posts 
