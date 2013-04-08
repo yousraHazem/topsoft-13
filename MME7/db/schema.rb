@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403121750) do
+ActiveRecord::Schema.define(:version => 20130407121646) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(:version => 20130403121750) do
     t.integer "budget_source_id"
   end
 
+  create_table "budgets", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.integer  "raised"
+    t.integer  "noot_raised"
+    t.integer  "spent"
+    t.integer  "not_spent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -70,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130403121750) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -93,6 +105,13 @@ ActiveRecord::Schema.define(:version => 20130403121750) do
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
   end
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+  end
+
+  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
 
   create_table "posts", :force => true do |t|
     t.text     "content"
