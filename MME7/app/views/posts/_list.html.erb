@@ -5,9 +5,15 @@
       <td>
        
        
-       
+   
 
-
+<%= form_for(:post, :url=>{:controller => 'posts',:action=>'destroy', :id=>post.id, :group_id => @group_id}) do |f| %>
+  
+    <div >
+      <%= submit_tag("Delete post") %>
+    </div>
+    
+  <% end %>
 
 
 
