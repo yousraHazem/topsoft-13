@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+	$("#group_members_tokens").tokenInput("/users.json", {
+		crossDomain: false
+		prePopulate: $("#group_members_tokens").data("pre")
+	});
+
+});

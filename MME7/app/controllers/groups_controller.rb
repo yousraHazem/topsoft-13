@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
 def index
         @groups = Group.order("groups.id")
-    end
+end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
     #def destroy

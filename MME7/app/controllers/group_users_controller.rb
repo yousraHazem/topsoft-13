@@ -1,7 +1,12 @@
 class GroupUsersController < ApplicationController
 	def listMembers
 		@group_id = params[:id]
-		@users= User.find(:all)
+		#@users= User.find(:all)
+		@users= User.where("first_name like?","%#{params[:q]}%")
+        respond_to do |format|
+            format.html
+            format.json { render :json => @users.map(&:attributes)}
+        end
 	end
 
 	def addMembers
