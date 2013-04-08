@@ -39,12 +39,16 @@ class PostsController < ApplicationController
 	end
 
 
-	
-	# Riham Gamal 22-3871
+	# Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# find the post you want to edit
-	def editPost
+	# takes the group id
+
+	def editPost	
+	    @group_id = params[:group_id]
+	    @post_id=params[:id]
 		@post = Post.find(params[:id])
-	end
+		
+end
 
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
