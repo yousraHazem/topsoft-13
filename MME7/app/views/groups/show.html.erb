@@ -14,3 +14,50 @@
       <th>created_at:</th>
       <td><%= @group.created_at %></td>
 </tr>
+
+<% if ifMember(params[:id],5)==false %>
+
+ <%= button_to("join",{:controller => 'group_users', :action =>'join', :id => @group_id, :user_id => 5}, :class => 'action show') %>
+                   
+ <% end %>
+
+    <% if ifMember(params[:id],5)==true %>
+ 
+
+  <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}, :html => {:id => "post-form"}) do |f| %>
+
+
+  <%= error_messages_for(@post) %>
+
+
+  <table summary = "The Post">
+    
+
+    <tr>
+      <th>Post Content</th>
+      <td><%= f.text_field (:content) %></td>
+    </tr>
+
+     <tr>
+    <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
+    
+  </tr>
+
+
+
+  
+
+  </table>
+  
+
+  <div class="form-buttons">
+    <%= submit_tag("Create Post") %>
+  </div>
+
+  <% end %>
+
+</div> 
+
+
+ <% end %>
+
