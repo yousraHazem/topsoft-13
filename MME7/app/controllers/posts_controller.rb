@@ -15,6 +15,7 @@ class PostsController < ApplicationController
  	# Riham Gamal 22-3871
  	# add a new post 
 	def newPost
+		@group_id = params[:id]
 		@post = Post.new
 	end
 
