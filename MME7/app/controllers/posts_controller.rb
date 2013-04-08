@@ -19,20 +19,16 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
-	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
+	#Author Riham Gamal 22-3871
 	# create a new post
-	# if the post is saved, added to this method the group-id 
 	def createPost
-
 		@post = Post.new(params[:post])
 
+		#Author Riham Gamal 22-3871
+		# if the post is saved, 
 		if @post.save
 			flash[:notice] = "Post successfully created"
-			#redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
-			respond_to do |format|
-				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
-				format.js
-			end
+			redirect_to(:action => 'newPost')
 		#Author Riham Gamal 22-3871
 		# if the post is not saved, 
 		else
