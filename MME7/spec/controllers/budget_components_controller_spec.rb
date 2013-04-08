@@ -92,26 +92,22 @@ require 'spec_helper'
 
 # end
 # <% module_namespacing do -%>
-describe BudgetSourcesController do
+describe BudgetComponentsController do
 
   # This should return the minimal set of attributes required to create a valid
   # <%= class_name %>. As you add validations to <%= class_name %>, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:name => 'Market', :unit_price => 2 , :quantity_purchased => 4, :total_quantity => 10}
+    {:name => 'Market', :unit_price => 2 , :quantity_purchased => 10,:budget_item_id=>1, :total_quantity => 10 , :status=>"Approved", :total=>20, :spent=>20}
   end
 
   def invalid_attributes
-   {:name => 'Market', :unit_price => 2 , :quantity_purchased => 4, :total_quantity => 1}
+   {:name => 'Market', :unit_price => 2 , :budget_item_id=>1, :quantity_purchased => 4, :total_quantity => 1 , :status=>"Pending", :total=>2, :spent=>8}
   end
 
   def update_attributes
-  {:name => 'Market', :unit_price => 3 , :quantity_purchased => 4, :total_quantity => 1}
+  {:name => 'Market', :unit_price => 3 ,:total_quantity => 10 , :quantity_purchased => 10, :total_quantity => 10 , :status=>"Approved", :total=>30, :spent=>30}
    end
-
-  def valid_task_attributes
-  {:quantity_purchased => 4 , :budget_source_id => 51}
-  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -121,13 +117,13 @@ describe BudgetSourcesController do
 #   end
 
 # <% unless options[:singleton] -%>
-  describe "GET index" do
-    it "assigns all budget_components as @components" do
-      budget_component = BudgetComponent.create! valid_attributes
-      get :index
-      assigns(:budget_components).should eq([budget_component])
-    end
-  end
+  # describe "GET index" do
+  #   it "assigns all budget_components as @components" do
+  #     budget_component = BudgetComponent.create! valid_attributes
+  #     get :index
+  #     assigns(:budget_components).should eq([budget_component])
+  #   end
+  # end
 
 
   # describe "GET show" do
@@ -141,15 +137,15 @@ describe BudgetSourcesController do
   describe "GET new" do
     it "assigns a new budget_component as @component" do
       get :new
-      assigns(:budget_component).should be_a_new(BudgetComponent)
+      assigns(:component).should be_a_new(BudgetComponent)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested budget_component as @component %>" do
-      budget_component = BudgetComponent.create! valid_attributes
-      get :edit, {:id => budget_component.to_param}
-      assigns(:budget_component).should eq(budget_component)
+    it "assigns the requested budget_component as @component" do
+      component = BudgetComponent.create! valid_attributes
+      get :edit, {:id => component.to_param}
+      assigns(:component).should eq(component)
     end
   end
 
@@ -157,18 +153,19 @@ describe BudgetSourcesController do
     describe "with valid params" do
       it "creates a new BudgetComponent" do
         expect {
-          post :create, {:budget_component => valid_attributes}, valid_session
+          post :create, {:component => valid_attributes}
         }.to change(BudgetComponent, :count).by(1)
       end
 
       it "assigns a newly created budget_component  as @component %>" do
-        post :create, {:budget_component => valid_attributes}
-        assigns(:budget_component).should be_a(BudgetComponent)
-        assigns(:budget_component).should be_persisted
+        post :create, {:component => valid_attributes}
+        assigns(:component).should be_a(BudgetComponent)
+        assigns(:component).should be_persisted
       end
 
       it "redirects to the created budget_component" do
-        post :create, {:budget_component => valid_attributes}
+
+        post :create, {:component => valid_attributes}
         response.should redirect_to(:action=>'list')
       end
     end
@@ -177,14 +174,14 @@ describe BudgetSourcesController do
       it "assigns a newly created but unsaved budget_component as @component" do
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        post :create, {:budget_component => invalid_attributes}
-        assigns(:budget_component).should be_a_new(BudgetComponent)
+        post :create, {:component => invalid_attributes}
+        assigns(:component).should be_a_new(BudgetComponent)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        post :create, {:budget_component =>invalid_attributes}
+        post :create, {:component =>invalid_attributes}
         response.should render_template("new")
       end
     end
@@ -193,41 +190,41 @@ describe BudgetSourcesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested budget_component" do
-        budget_component = BudgetComponent.create! valid_attributes
+        component = BudgetComponent.create! valid_attributes
         # Assuming there are no other <%= table_name %> in the database, this
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        put :update, {:id => budget_component.to_param, :budget_component =>update_attributes}
+        put :update, {:id => component.id, :component =>update_attributes}
       end
 
       it "assigns the requested budget_component as @component %>" do
-        budget_component = BudgetComponent.create! valid_attributes
-        put :update, {:id => budget_component.to_param, :budget_component => valid_attributes}
-        assigns(:budget_component).should eq(budget_component)
+        component = BudgetComponent.create! valid_attributes
+        put :update, {:id => component.id, :component => valid_attributes}
+        assigns(:component).should eq(component)
       end
 
       it "redirects to the list page" do
-        budget_component = BudgetComponent.create! valid_attributes
-        put :update, {:id => budget_component.to_param, :budget_component => valid_attributes}
+        component = BudgetComponent.create! valid_attributes
+        put :update, {:id => component.id, :component => valid_attributes}
         response.should redirect_to(:action=>'list')
       end
     end
 
     describe "with invalid params" do
       it "assigns the budget_component as @component %>" do
-        budget_component = BudgetComponent.create! valid_attributes
+        component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        put :update, {:id => budget_component.to_param, :budget_component => invalid_attributes}
-        assigns(:budget_component).should eq(budget_component)
+        put :update, {:id => component.id, :component => invalid_attributes}
+        assigns(:component).should eq(component)
       end
 
       it "re-renders the 'edit' template" do
-        budget_component = BudgetComponent.create! valid_attributes
+        component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        put :update, {:id => budget_component>.to_param, :budget_component => invalid_attributes}
+        put :update, {:id => component.id, :component => invalid_attributes}
         response.should render_template("edit")
       end
     end
@@ -235,16 +232,16 @@ describe BudgetSourcesController do
 
   describe "DELETE destroy" do
     it "destroys the requested budget_component" do
-      budget_component = BudgetComponent.create! valid_attributes
+      component = BudgetComponent.create! valid_attributes
       expect {
-        delete :destroy, {:id => budget_component.to_param}
+        delete :destroy, {:id => component.id}
       }.to change(BudgetComponent, :count).by(-1)
     end
 
     it "redirects to the budget_components list" do
-      budget_component = BudgetComponent.create! valid_attributes
-      delete :destroy, {:id => budget_component.to_param}
-      response.should redirect_to(budget_componet_url)
+      component = BudgetComponent.create! valid_attributes
+      delete :destroy, {:id => component.to_param}
+      response.should redirect_to(componets_url)
     end
   end
 

@@ -1,4 +1,4 @@
- <table  class="table" id="table-components">
+ <table  class="table pagination" id="table-components">
 <tr class="header">
 	<th>Name</th>
 	<th>Unit Price</th>
@@ -11,7 +11,7 @@
 
 <% @components.each do |component|%>
 <tbody>
-<tr class="<%= component.status == "Approved" ? 'success' : 'error' %>">
+<tr class="<%= component.status == "Approved" ? 'info' : 'warning' %>">
 	<td><%= component.name %></td>
 	<td><%= component.unit_price %></td>
 	<td><%= component.quantity_purchased %></td>
@@ -27,3 +27,4 @@
 </tbody>
 <%end%>
 	</table>
+

@@ -15,8 +15,9 @@ class BudgetComponentsController < ApplicationController
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		#gets the passed id of the budget item
 		@item = params[:id]
+		@name = params[:name]
 		#gets all the components of the passed budget item
-		#@components = BudgetComponent.search(params[:search], @item) 
+		#@components = BudgetComponent.search(params[:search], @item)
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 
 		#calculating the progress bar percentage
@@ -29,10 +30,6 @@ class BudgetComponentsController < ApplicationController
 		else
 		@percent = 100*count_size / all_size
 	    end
-
-        
-
-	
 	end
 
 	def new
@@ -67,11 +64,6 @@ class BudgetComponentsController < ApplicationController
             
             #redirect to the list view after saving
 			flash[:notice] = "Component successfully created"
-
-			# respond_to do |format|
-			# 	format.html {redirect_to(:action=>'list',:id=> @item)}
-			# 	format.js
-			# end
 			redirect_to(:action=>'list',:id=> @item)
 
 		else

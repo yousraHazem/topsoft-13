@@ -11,7 +11,7 @@ validates_numericality_of :total_quantity, :greater_than => 0,
                         :allow_blank => false
 validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_quantity,
                         :if => Proc.new { |o| !o.total_quantity.nil? } ,
-                        :message => "can't be greater than retail price."
+                        :message => "can't be greater than total quantity."
   
   
 
@@ -22,6 +22,5 @@ validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_
     find(:all, :conditions => ['budget_item_id = ?' , id ])
   end
 end
-# 'budget_item_id = ? AND name LIKE ?', id , "%#{search}%" 
 
 end
