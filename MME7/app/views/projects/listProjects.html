@@ -1,32 +1,34 @@
 <% @page_title = "Projects List" %>
 <div >
+
  <h2>Projects</h2>
+
  <%= link_to("Add new project",{:action => 'newProject'}, :class =>'action new') %>
- <table >
- 	<tr >
- 		<th>&nbsp;</th>
- 		<th>Project</th>
- 		<th>start date</th>
- 		<th>end date</th>
- 		<th>description</th>
- 	</tr>
- 	
- 	<% @projects.each do |project| %>
- 	<tr>
- 		<td>  <%= project.project_name %></td>
- 		<td > <%= project.start_date %></td>
- 		<td > <%= project.end_date %></td>
- 		<td > <%= project.description %></td>
-		<td class="actions">
-		 	<%= link_to("Show", {:action => 'showProject', :id => project.id}, :class =>'action show') %>
-		 	<%= link_to("Edit", {:action => 'editProject', :id => project.id} , :class =>'action edit') %>
-		 	<%= link_to("Tasks",{:action => 'showTask', :id => project.id} , :class =>'action list') %>
-		 	<%= link_to("Members") %>
-		 	<%= link_to("Communities") %>
-		</td>
- 	</tr>
- 	<% end %>
- </table>
+
+    <table>
+	 	<tr>
+	 		<th>Project</th>
+	 		<th>start date</th>
+	 		<th>end date</th>
+	 		<th>description</th>
+	 	</tr>
+	 	
+	 	<% @projects.each do |project| %>
+		 	<tr>
+		 		<td>  <%= project.project_name %></td>
+		 		<td> <%= project.start_date %>   </td>
+		 		<td> <%= project.end_date %>     </td>
+		 		<td> <%= project.description %>  </td>
+				<td class="actions">
+				 	<%= link_to("Show", {:action => 'show', :id => project.id}, :class =>'action show') %>
+				 	<%= link_to("Edit", {:action => 'editProject', :id => project.id} , :class =>'action edit') %>
+				 	<%= link_to("Tasks",{:controller=>'tasks',:action => 'listTasks', :id => project.id} , :class =>'action list') %>
+				 	<%= link_to("Members") %>
+				 	<%= link_to("Communities") %>
+				</td>
+		 	</tr>
+	 	<% end %>
+    </table>
  	
 </div>
 

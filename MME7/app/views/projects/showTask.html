@@ -1,15 +1,13 @@
-<%= link_to("Back to list", {:action => 'listProjects', :class => 'back link'} ) %>
+<%= link_to("Back to list", {:controller => 'projects',:action => 'listProjects', :class => 'back link'} ) %>
+<h2>Tasks</h2>
 
-<div >
-
-    <h2>Show Task</h2>
-
-    <table >
-  
- 	 <tr >
- 		<th>Task description</th>
- 		<td><%= @task.description %></td>
- 	 </tr>
- 	
+   <table class="table table-striped">
+	 	
+	 	<% @tasks.each do |task| %>
+		 	<tr>
+		 		<td> <%= task.description %></td>
+		 	</tr>
+		 		
+	 	<% end %>
+	 	
     </table>
-</div>

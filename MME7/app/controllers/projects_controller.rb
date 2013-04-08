@@ -1,13 +1,12 @@
 class ProjectsController < ApplicationController
 
 
-
-# Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
+# Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
 def listProjects
   @projects = Project.all
 end
 
-# Author : Nayera Mohamed 22-3789 , this method shows the projects  occuring
+# Author : Nayera Mohamed 22-3789 , this method shows a project occuring
 def showProject
     @project = Project.find(params[:id])
 end
@@ -16,22 +15,25 @@ end
 def newProject
     @project = Project.new
 end
+
 # Author : Nayera Mohamed 22-3789 , this method takes its' input from the params and creates a new project
 def createProject
     @project=Project.new(params[:project])
     if @project.save
        flash[:notice]= "project created"
        redirect_to(:action => 'listProjects')
-   else
+    else
        render('newProject')
-   end
+    end
 end
 
+# Author : Nayera Mohamed 22-3789 , this method takes a project id in order to edit its attributes 
 def editProject
     @project = Project.find(params[:id])
     @project_count = Project.count 
 end
 
+# Author : Nayera Mohamed 22-3789 , this method takes aproject id and takes the updated attributes in order to change them
 def updateProject
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
@@ -43,12 +45,5 @@ def updateProject
     end
 end
 
-def listTasks
-  @tasks = Task.all
-end
-
-def showTask
-    @task = Task.find(params[:id])
-end
   
 end
