@@ -19,8 +19,9 @@ def index
     #end
 
     def show
+         @group_id = params[:id]
         @group = Group.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
+        @postlist=Group.getposts (params[:id])
     end
 
     # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
