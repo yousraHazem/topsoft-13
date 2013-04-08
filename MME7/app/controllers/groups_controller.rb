@@ -19,6 +19,7 @@ def index
     #end
 
     def show
+         @group_id = params[:id]
         @group = Group.find(params[:id])
         rescue ActiveRecord::RecordNotFound
     end
