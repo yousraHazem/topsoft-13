@@ -4,19 +4,27 @@
 <html dir="rtl">
 <head>
   <title>MME7</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tags %>
+<link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Title</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
 <div>
   <% if current_user %>
   
-    Logged in as <%= current_user.username %>.
-    <%= link_to "Log_out", log_out_path %>
+    <%= current_user.username %>.
+    <%= link_to "خروج", log_out_path %>
   <% else %>
     <%= link_to "اشتراك", sign_up_path %> اؤ
-    <%= link_to "log_in", log_in_path %>
+    <%= link_to " دخول", log_in_path %>
   <% end %>
 </div>
 

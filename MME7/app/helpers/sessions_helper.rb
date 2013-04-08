@@ -1,5 +1,6 @@
 module SessionsHelper
-
+  #Author: Donia Amer Shaarawy 22-0270
+#theses are methods for rember cookies for the website 
  def log_in(user)
    cookies.permanent[:remember_token] = user.remember_token
   self.current_user(user)
