@@ -1,5 +1,6 @@
 MME7::Application.routes.draw do
   get "posts/newPost"
+  get "projects/viewoperationalBI"
 
   #The priority is based upon order of creation:
 
