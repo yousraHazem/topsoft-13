@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag 'application' %>
+ <%= javascript_include_tag 'budget_items' %>
+ 
+<head>
+ <title>Operational Budget Items</title>
+ <script type="text/javascript">
+ var testPatterns = [
+        'yyyy','yy','MMMM','MMM','MM','M','dd','d','EEEE','EEE','a',
+        'HH','H','hh','h','mm','m','ss','s','S',
+        'EEEE MMMM, d yyyy hh:mm:ss.S a',
+        'M/d/yy HH:mm'
+      ];
+        </script>
+</head>
+<body>
+<h2>Budget of Project: <%= @project_name.name %></h2>
+<h3>Total budget:</h3>
+<h3>Amount raised:</h3>
+<% if @budget_items.blank? %>
+<p>There are no current budget items </p>
+<% else %>
+<p>The budget items availble are </p>
+<% end %>
+</br>
+ 	<table>
+ 	<tr>
+ 		<th>Name      </th>
+    <th>Assignee  </th>
+ 		<th>Status    </th>
+ 		<th>Total     </th>
+ 		<th>Spent     </th>
+ 	</tr>
+
+ 	<% @budget_items.each do |budgetitem| %>
+		<tr id = "budget_item">
+ 		<td><%= budgetitem.name %></td>
+    <td></td>
+ 		<td><%= budgetitem.status %></td>
+ 		<td><%= budgetitem.total %></td>
+ 		<td><%= budgetitem.spent %></td>
+ 		</tr>
+ 	<% end %>
+ 	</table>
+ 	</br>
+ 	</br>
+ </br>
+    <div>
+      <script>
+        var now = new Date();
+        document.write('<div> Date: '+now+'</div>');
+        $.each(testPatterns,function(){
+          document.write('<div>'+this+'='+$.formatDate(now,this)+'</div>');
+        });
+      </script>
+    </div>
+</body>
