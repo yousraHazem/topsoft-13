@@ -2,7 +2,7 @@ MME7::Application.routes.draw do
   get "posts/newPost"
   get "projects/viewoperationalBI"
   get "projects/viewAllBI"
-
+  get "users/get_myprojects"
   #The priority is based upon order of creation:
 
 
