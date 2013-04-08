@@ -64,4 +64,18 @@ class ProjectsController < ApplicationController
          # render('edit')
       end
     end
+
+     def addMembers2
+      # @theuser = User.find(params[:user_id])
+      @project_id= params[:id]
+      @user_id= params[:user_id]
+      @newUser = ProjectUser.new(:project_id => @project_id , :is_creator => false)
+
+      if @newUser.save
+        flash[:notice] = "User successfully added"
+      else 
+        flash[:notice] = "User failed to be added"
+      end
+        redirect_to(:action => 'show', :id => params[:id])
+    end
 end
