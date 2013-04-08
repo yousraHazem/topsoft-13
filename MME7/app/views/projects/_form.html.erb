@@ -9,15 +9,16 @@
  		<th><%= f.label(:start_date, "Start date") %> </th>
  		<td><%= f.datetime_select(:start_date, :order => [:day, :month, :year]) %></td>
  	 </tr>
+
  	 <tr>
  		<th><%= f.label(:end_date, "End date") %> </th>
  		<td><%= f.datetime_select(:end_date, :order => [:day, :month, :year]) %></td>
  	 </tr>
+
  	 <tr>
  		<th><%= f.label(:description) %></th>
  		<td><%= f.text_field(:description) %></td>
  	 </tr>
-
 </table>
 
   

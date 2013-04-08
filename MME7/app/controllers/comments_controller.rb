@@ -23,10 +23,7 @@ class CommentsController < ApplicationController
 		end
 	end
 
-end
 
-
-	
 	#Author Riham Gamal 22-3871
 	# add a new comment
 	def newComment
