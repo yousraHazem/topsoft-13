@@ -45,14 +45,5 @@ def updateProject
     end
 end
 
-# Author : Nayera Mohamed 22-3789 , this method lists the tasks
-def listTasks
-  @tasks = Task.all
-end
-
-# Author : Nayera Mohamed 22-3789 , this method takes the project id as an input and aoutputs the tasks for a project
-def showTask
-    @task = Task.find(params[:id])
-end
   
 end

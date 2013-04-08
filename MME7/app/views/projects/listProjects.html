@@ -20,9 +20,9 @@
 		 		<td> <%= project.end_date %>     </td>
 		 		<td> <%= project.description %>  </td>
 				<td class="actions">
-				 	<%= link_to("Show", {:action => 'showProject', :id => project.id}, :class =>'action show') %>
+				 	<%= link_to("Show", {:action => 'show', :id => project.id}, :class =>'action show') %>
 				 	<%= link_to("Edit", {:action => 'editProject', :id => project.id} , :class =>'action edit') %>
-				 	<%= link_to("Tasks",{:action => 'showTask', :id => project.id} , :class =>'action list') %>
+				 	<%= link_to("Tasks",{:controller=>'tasks',:action => 'listTasks', :id => project.id} , :class =>'action list') %>
 				 	<%= link_to("Members") %>
 				 	<%= link_to("Communities") %>
 				</td>
