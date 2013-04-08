@@ -68,8 +68,8 @@ end
 		else
 
 			flash[:notice] = "Post could not be updated"
-			 
-			redirect_to(:action => 'editPost',:post_id =>@post_id, :group_id =>@group_id)
+			 render("show")
+			#redirect_to(:action => 'editPost',:post_id =>@post_id, :group_id =>@group_id)
 		end
 
 
