@@ -36,8 +36,9 @@
     
 
     <tr>
-      <th>Post Content</th>
-      <td><%= f.text_field (:content) %></td>
+      <td><%= f.text_field (:content) %>
+      <button class="btn btn-success" type="submit">Post</button>
+      </td>
     </tr>
 
      <tr>
@@ -48,11 +49,8 @@
 
 
   </table>
-  
 
-  <div class="form-buttons">
-    <%= submit_tag("Create Post") %>
-  </div>
+
 
   <% end %>
 
