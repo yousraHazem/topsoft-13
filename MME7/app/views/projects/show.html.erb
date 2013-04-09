@@ -1,127 +1,104 @@
 <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
 <div class="project show">
-
-    <h2>Show Projects</h2>
-	<table summary="Project detail view">
-  
- 	 <tr >
- 		<th>name</th>
- 		<td><%= @project.project_name %></td>
- 	 </tr>
- 	
- 	 <tr >
- 		<th>start date</th>
+ <h1><%= @project.project_name %></h1> 
+    
+	<table class="table">
+  	 <tr class="success">
+ 		<td>start date</td>
  		<td><%= @project.start_date %></td>
  	 </tr>
  	
- 	 <tr >
- 		<th>end date</th>
+ 	 <tr class="error">
+ 		<td>end date</td>
  		<td><%= @project.start_date %></td>
  	 </tr>
 
- 	 <tr >
- 		<th>description</th>
+ 	 <tr class="success">
+ 		<td>description</td>
  		<td><%= @project.description %></td>
  	 </tr> 	
     </table>
 
 
-    <h3>Posts</h3>
-    <table border = 2>  
+    <h3>Posts</h3>    
  	<%  @project.posts.each do |post| %>
-    <tr>
-    <td> <%= post.content %>     
-   
-    <%= form_for(:post, :url => {:controller => 'posts', :action => 'destroy', :id => post.id, 
-    	:project_id => @project.id}) do |f| -%>
-    <div >
-      <%= submit_tag("Delete post") %>
-    </div> 
-    <% end %>  
- 
-   
-
-   	
+ 	<table class="table">
+ 		<tr>
+     <td> <%= post.content %> </td>
+     <td>
+     <%= form_for(:post, :url => {:controller => 'posts', :action => 'destroy', :id => post.id, 
+    	:project_id => @project.id}) do |f| -%>   
+    	<button type="submit" class="btn btn-danger">x</button>
+    <% end %> 
+    </td> 
+     
+     <td> 	
 	<%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=> post.id, 
 		:project_id => @project.id}) do |f| %>
 	<%= f.text_field(:content) %>
-	
-	<div class="form-buttons">
-	<%= submit_tag("Edit Post") %>
-	</div>
+	<button type="submit" class="btn btn-danger">Edit post</button>
+	</td>
+	</tr>
 	<% end %>
-
-	
-	
-
 	
 
 
-    <td><% post.comments.each do |p|%>
-    	<%= p.comment.to_s %> <br></br>
-    
+   <% post.comments.each do |p|%>
+   
+      <tr>
+      	
+    	<td><%= p.comment.to_s %> </td>
 
+    	<td>     	
     	 <%= form_for(:comment, :url => {:controller => 'comments', :action => 'destroy', :id => p.id, 
-	    	:post_id => post.id, :project_id => @project.id}) do |f| -%>
-	    <div >
-	      <%= submit_tag("Delete Comment") %>
-	    </div>    
-	   <% end %>
+	    	:post_id => post.id, :project_id => @project.id}) do |f| %>
+	      <button type="submit" class="btn">Delete Comment</button>
+	      <% end %>
+	    </td>
 
-
-	   <%= form_for(:comment, :url=>{:controller => 'comments', :action=>'updateComment', :id=> p.id, 
-		:post_id => post.id, :project_id => @project.id}) do |f| %>
-	<table>		
-		<tr>
-			<td><%= f.text_field(:comment) %></td>
-       </tr>
-	</table>
-	<div class="form-buttons">
-	<%= submit_tag("Edit Comment") %>
-	</div>
+	    <td>
+		   <%= form_for(:comment, :url=>{:controller => 'comments', :action=>'updateComment', :id=> p.id, 
+		   :post_id => post.id, :project_id => @project.id}) do |f| %>			
+		   <%= f.text_field(:comment) %>
+		   <button type="submit" class="btn">Edit Comment</button>	
+		   <% end %>
+		</td>
+	  </tr> 
 	<% end %>
-	<% end %>
+	
+	
 
     
-       <div class="comment new">
+       
 	   <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :id => post.id, 
 	   	:project_id => params[:id]}) do |e| %>
-		<table boder = 2>		
+				
 		<tr>
-			<th>Comment Content</th>
-			<td><%= e.text_field (:comment) %></td>
-		</tr>
-		<tr>
-			<td><%= e.hidden_field :post_id, :value => post.id %></td>		
-		</tr>
-		</table>
-		<div class="form-buttons">
-			<%= submit_tag("Create Comment") %>
-		</div>
-		<% end %>
-    </td>
-    </tr> 
-      
+			
+			<td><%= e.text_field (:comment) %></td>		
+			<div><%= e.hidden_field :post_id, :value => post.id %></div>
+		    <td>
+		    	<button type="submit" class="btn">Create Comment</button>
+		   </td>
+		   <% end %>    
+    	</tr>      
      <% end %>
-     </table> 
+    </tr>
 
     
 	    <div class="post new">
 		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}) do |f| %>
-		<table summary = "The Post">		
-		<tr>
-			<th>Post Content</th>
-			<td><%= f.text_field (:content) %></td>
-		</tr>
-		<tr>
-			<td><%= f.hidden_field :project_id, :value => @project_id %></td>		
-		</tr>
-		</table>
-		<div class="form-buttons">
-			<%= submit_tag("Create Post") %>
-		</div>
+			
+		<tr>			
+			<td><%= f.text_field (:content) %></td>		
+			<div><%= f.hidden_field :project_id, :value => @project_id %></div>		
+		    <td>
+		    	<button type="submit" class="btn btn-danger">Create Post</button>
+		    </td>
 		<% end %>
+		</tr>
+		</tr>
 </div>
 
 

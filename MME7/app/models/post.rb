@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 	has_many :comments 
 	belongs_to :project
 	belongs_to :group
+	validates_presence_of :content
 
 	def self.getPostComments(post_id)
  	     @posts = Post.find(:all, :conditions => {:post_id => post_id })

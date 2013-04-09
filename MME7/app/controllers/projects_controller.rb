@@ -16,18 +16,18 @@ def new
 	@project = Project.new
 end
 
-# Author : Nayera Mohamed 22-3789 , this method creates a project
+
+
+# authorized by sarah ahmed id:22-1278# Author : Nayera Mohamed 22-3789 , this method creates a project
 def create
  @project=Project.new(params[:project])
- 	 if @project.save
- 	 	flash[:notice]= "project created"
-  		redirect_to(:action => 'list')
-  	else
-   		 render('new')
+   if @project.save
+    flash[:notice]= "project created"
+      redirect_to(:action => 'list')
+    else
+       render('new')
     end
 end
-
-# authorized by sarah ahmed id:22-1278
 #gets the project that need to be edited
  def edit
     @project = Project.find(params[:id])
