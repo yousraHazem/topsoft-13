@@ -37,21 +37,10 @@
  	 </tr>
  	
     </table>
-
-    
+   
     <td class="actions">
 		<%= link_to("Add Members", {:controller => 'project_users',:action => 'addMembers', :id=> @project_id}, 
 		:class => 'action show')%>
 	</td>
 	
-
-	<%= form_for(:project, :url => {:controller => 'project_users', :action => 'addMembers2', :id => @project_id}) do |f| %>
-    <p>
-	  <%= f.label :user_tokens, "Members" %><br />
-	  <%= f.text_field :user_tokens %>
-	</p>
-	<p> <%= f.submit %>
-    <% end %>
-      
-
 </div>

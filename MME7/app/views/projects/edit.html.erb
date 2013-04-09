@@ -6,27 +6,7 @@
 <div class="subject edit">
 	<h2>UPDATE SUBJECT</h2>
 	<%= form_for(:project, :url=>{:action=>'update', :id=> @project.id}) do |f| %>
-
-	<table summary = "subject form fields">
-		<tr>
-	<th><%= f.label(:project_name, "NAME")%></th>
-	<td><%= f.text_field(:project_name) %></td>
-       </tr>
-       <tr>
-	<th><%= f.label(:description)%></th>
-	<td><%= f.text_field(:description) %></td>
-       </tr>
-        <tr>
-	<th><%= f.label(:start_date, "Start Date:")%></th>
-	<td><%= f.date_select(:start_date, :order=>[:day, :month, :year]) %></td>
-       </tr>
-          <tr>
-	<th><%= f.label(:end_date, "End Date:")%></th>
-	<td><%= f.date_select(:end_date, :order=>[:day, :month, :year]) %></td>
-       </tr>
-
-
-	</table>
+	 <%= render(:partial=>"table" , :locals=>{:f=>f}) %>
 
 	<div><%= submit_tag("Update Project")%></div>
 
