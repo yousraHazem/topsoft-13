@@ -12,13 +12,7 @@ class PostsController < ApplicationController
 	# @post = Post.all
  #    end
 
- 	# Riham Gamal 22-3871
- 	# add a new post 
-	def newPost
-		@group_id = params[:id]
-		@post = Post.new
-	end
-
+ 
 	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
 	# if the post is saved, added to this method the group-id 
