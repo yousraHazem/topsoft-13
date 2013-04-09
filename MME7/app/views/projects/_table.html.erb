@@ -30,7 +30,7 @@
 
  	 <p>
  	 	<%= f.label :user_tokens, "Users" %><br />
-        <%= f.text_field :user_tokens %>
+        <%= f.text_field :user_tokens, "data-pre" => @project.users.map(&:attributes).to_json %>
  	 </p>
 
      </table>
