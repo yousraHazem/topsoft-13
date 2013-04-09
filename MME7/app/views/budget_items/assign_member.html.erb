@@ -1,21 +1,21 @@
 <div >
 
     <h2>Create Projects</h2>
-    <%= form_for(:budget_item, :url => {:action => 'assign_member'}) do |f| %>
     <table >
  	  <tr >
+ 	  	<% for budget_item in BudgetItem.find(:all) %>
  		<th>Budget Item Id </th>
- 		<td><%= f.text_field(:id) %></td>
- 		<td><%= submit_tag("assign_member") %></td>
+ 		<td><%= text_field :budget_item, :id %></td>
  	 </tr>
+ 	 <% end %> 
  	  <tr >
+ 	  	<% for user in User.find(:all) %>
  		<th>User Id </th>
- 		<td><%= f.text_field(:user_id) %></td>
- 		<td><%= submit_tag("assign_member") %></td>
+ 		<td><%= text_field :user,:id %></td>
  	 </tr>
-
+	<% end %> 
      </table>
- 	<% end %> 
+ 
     
 
 </div>
