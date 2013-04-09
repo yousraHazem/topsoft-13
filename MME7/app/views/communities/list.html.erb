@@ -1,11 +1,11 @@
 <% @page_title= "Community list" %>
 <div>
-  <h2>Communities</h2>
+  <h2>Communities List</h2>
   
 
-<div class="community list">
+<div>
   
-  <table class="listing" summary="Subject list">
+  <table class="table table-hover">
     <tr class="header">
       <th>Title</th>
       <th>Social profile info</th>
@@ -18,15 +18,12 @@
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
-            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
              <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
              <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
-             
-             
-
         </td>
       </tr>
-    <% end %>
+    <%end%>
   </table>
 </div>
 
