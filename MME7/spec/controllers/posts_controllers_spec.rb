@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe PostsController do
   before :each do
-    @post = FactoryGirl(:post)
+    @post = FactoryGirl.create(:post)
   end
   
   it "deletes the post" do
