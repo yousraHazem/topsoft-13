@@ -12,12 +12,7 @@ class PostsController < ApplicationController
 	# @post = Post.all
  #    end
 
- 	# Riham Gamal 22-3871
- 	# add a new post 
-	def newPost
-		@post = Post.new
-	end
-
+ 
 	#Author Riham Gamal 22-3871
 	# create a new post
 	def createPost
@@ -39,11 +34,6 @@ class PostsController < ApplicationController
 
 
 	
-	# Riham Gamal 22-3871
-	# find the post you want to edit
-	def editPost
-		@post = Post.find(params[:id])
-	end
 
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
@@ -64,12 +54,7 @@ class PostsController < ApplicationController
 	# 	@post = Post.new
 	# end
 
-	# Salma El Ruby 22-4649
-	# deletes posts
-	  def delete
-	    @post = Post.find(params[:id])
-	  end
-	  
+
 	  def destroy
 	    Post.find(params[:id]).destroy
 	    redirect_to(:action => 'list')
