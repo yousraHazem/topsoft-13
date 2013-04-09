@@ -1,27 +1,14 @@
 <table class="table table-striped">
     <% @postlist.each do |post| %>
     <tr>
-     <td> <%= post.content %></td>
-      <td>
-       
-       
-        <% if isPostCreator(5,post.id) %>
-        
-
-
-<%= form_for(:post, :url=>{:controller => 'posts',:action=>'destroy', :id=>post.id, :group_id => @group_id}) do |f| %>
-
-  <button type= "submit" class="btn btn-danger">x</button>
-
+    <td> <%= post.content %></td>
+    <td>
+    <% if isPostCreator(5,post.id) %>
+    <%= form_for(:post, :url=>{:controller => 'posts',:action=>'destroy', :id=>post.id, :group_id => @group_id}) do |f| %>
+    <button type= "submit" class="btn btn-success">x</button>
     <% end %>
-
-
-
-        <% end %>
-
-
-        
-      </td>
+    <% end %>        
+    </td>
     </tr>
     <% end %>
-  </table>
+</table>
