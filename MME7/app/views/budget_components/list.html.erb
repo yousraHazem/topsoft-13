@@ -1,0 +1,72 @@
+<% @page_title = "Subjects List"%>
+<%= flash_message %>
+
+
+<input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
+<form action="">
+<fieldset>	
+<legend><h1><%= @name %><div class="progress offset10" id="progressouter">
+   <div class="bar" id="progress"></div>
+</div></h1></legend> 
+<h3>Total: <%= @total %></h3> 
+<h4>Spent: <%= @spent %></h4>
+</fieldset>
+</form>
+
+<div> 
+	<h4> <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
+      <i class="icon-plus icon-white"></i>
+      <% end %>  Components </h4>
+</div>
+<div id="comp" style="display:none;" >
+  <%= form_for(:component, :url=>{:action=>'create', :id=> @item}, :html =>{:id =>"component-form"}) do |f| %>
+    <%= render(:partial => "form" , :locals => {:f=> f})%>
+  <div><%= submit_tag("Save")%></div>
+    <% end %>
+</div> 
+
+
+<div id="table2">
+<%= render(:partial => "table" )%> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %> -->
+
+

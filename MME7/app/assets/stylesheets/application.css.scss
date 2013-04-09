@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,3 +13,23 @@
  *= require_self
  *= require_tree .
  */
+.progress {
+	height: 29px;
+	width:500px;
+	 text-align: center;
+}
+
+#background {
+ background-image: url(bg.jpg);
+ background-repeat: no-repeat;
+ background-size: 1365px 730px;
+ }
+
+ 
+
+
+
+ 
+
+
+

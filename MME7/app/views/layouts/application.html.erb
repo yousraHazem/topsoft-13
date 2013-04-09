@@ -2,13 +2,19 @@
 <html>
 <head>
   <title>MME7</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+ 
+
+ <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application"  %>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="background">
+	
 
-<%= yield %>
+<div><%= yield %></div>
 
 </body>
 </html>

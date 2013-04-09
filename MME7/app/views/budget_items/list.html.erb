@@ -1,29 +1,29 @@
-<% @page_title = "Budget_Item List"%>
 
+<% @page_title = "Subjects List"%>
 
-
-<div>
-	<h2>Budget Items</h2>
+<div class= "Subject List">
+	<h2>Components</h2>
     
 	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
-       <i class="icon-plus icon-white"></i>
+       New Component <i class="icon-plus icon-white"></i>
       <% end %>
 
 
- <table>
-<tr>
+ <table class="table" summary="Subject List">
+<tr class="header">
 	<th>Name</th>
 	<th>Action</th>
-	
-	
 </tr>
-<% @budget_items.each do |budget_item|%>
+ <% @items.each do |item|%>
 <tr>
-	<td><%= budget_item.name %></td>	
-<td><%= link_to("edit", {:action=>'edit', :id=>budget_item.id})%></td>
-<td><%= link_to("create budget component", {:controller => 'budget_components', :action=>'new', :id=>budget_item.id})%></td>
-</tr>
+	<td><%= item.name %></td>
 
+	<td class="actions">
+		<%= link_to("Edit", {:action=>'edit' ,:id=>item.id , :project_id => item.project_id, :task_id=>item.task_id},:class=>"btn btn-small")%>
+		<%= link_to("View", {:controller=>'budget_components',:action=>'list' ,:id=>item.id ,:name=>item.name}, :class=>"btn btn-small")%>
+		
+	</td>
+	
+</tr>
 <%end%>
-</table>
-</div>
+
