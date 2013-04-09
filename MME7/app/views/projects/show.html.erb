@@ -1,3 +1,5 @@
+<%= flash[:notice] %>
+
 <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
 <div class="project show">
@@ -8,7 +10,7 @@
   
  	 <tr >
  		<th>name</th>
- 		<td><%= @project.project_name %></td>
+ 		<td><%= @project.name %></td>
  	 </tr>
  	
  	 <tr >
