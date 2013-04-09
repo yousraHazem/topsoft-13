@@ -15,9 +15,10 @@
 //= require_tree .
 
 $(function() {
-	$("#group_members_tokens").tokenInput("/users.json", {
-		crossDomain: false
-		prePopulate: $("#group_members_tokens").data("pre")
-	});
+  $("#group_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#group_user_tokens").data("pre")
 
+  });
 });
+

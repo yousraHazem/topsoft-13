@@ -11,11 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130407121646) do
-=======
 ActiveRecord::Schema.define(:version => 20130408104319) do
->>>>>>> master
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"

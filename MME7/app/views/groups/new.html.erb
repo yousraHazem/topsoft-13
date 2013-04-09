@@ -1,20 +1,11 @@
 <h1>Create New Group</h1>
 
-<%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
-  <tr>
-    <th>name</th>
-    <td><%= f.text_field :group_name %></td>
-  </tr>
-  <tr>
-    <th>description</th>
-    <td><%= f.text_field :description %></td>
-  </tr>
-  <tr>
-    <th>Members</th>
-    <td><%= f.text_field :user_tokens %></td>
-  </tr>
+
+<%= form_for(:group, :url => {:action => 'create'}) do |f| %>
+<div id= "table"><%= render(:partial => 'table', :locals => {:f => f}) %><div>
   <div>
     <%= submit_tag("create Group") %>
   </div>
+   
 <% end %>

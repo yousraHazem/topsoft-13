@@ -24,9 +24,7 @@
         <td>
         	<%= link_to("Delete", {:action => 'delete', :id => @group.id}, :helper => GroupUsersHelper, :class => 'action delete') %>
         </td>
-        <td>
-          <%= link_to("Add Members", {:controller => 'group_users',:action => 'listMembers', :id=> @group.id},:class => 'action show')%>
-        </td>  
+        
     <%end%>
 </tr>
 </table>
