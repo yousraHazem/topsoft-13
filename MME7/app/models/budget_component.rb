@@ -15,12 +15,12 @@ validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_
   
   
 
-  def self.search(search,id)
-  if search
-    find(:all, :conditions => ['name LIKE ? AND budget_item_id = ?', "%#{search}%" , id ]) 
-  else
-    find(:all, :conditions => ['budget_item_id = ?' , id ])
-  end
-end
+#   def self.search(search,id)
+#   if search
+#     find(:all, :conditions => ['name LIKE ? AND budget_item_id = ?', "%#{search}%" , 1 ]) 
+#   else
+#     find(:all, :conditions => ['budget_item_id = ?' , id ])
+#   end
+# end
 
 end
