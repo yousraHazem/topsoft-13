@@ -5,9 +5,13 @@
   <h2>Create community</h2>
 
   <%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
-  
+
+  <%= error_messages_for(@community) %>
+
+
     <table>
       <tr>
+
         <th>Title</th>
         <td><%= t.text_field(:title) %></td>
       </tr>
@@ -20,7 +24,8 @@
         <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
-    
+
+
     <div>
       <%= submit_tag("Create community") %>
     </div>
