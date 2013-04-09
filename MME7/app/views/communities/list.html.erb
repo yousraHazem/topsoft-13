@@ -1,20 +1,19 @@
 <% @page_title= "Community list" %>
+<h3> Communities List </h3>
 <div>
-  <h2>Communities</h2>
+ 
+<div>
   
-
-<div class="community list">
+<table class="table table-hover">
   
-<table class="table table-striped">
-  
-    <tr class="header">
+    <tr>
       <th>Title</th>
       <th>Social profile info</th>
       <th>Contact info</th>
       <th>Actions</th>
     </tr>
     <% @communities.each do |community| %>
-     <tr>
+     <tr class="success">
        <td><%= community.title %></td>
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
