@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome to MME7!"
       redirect_to @user, :notice => "Logged in!"
     else
-      flash.now[:error] = 'Invalid username/password combination'
+      flash[:error] = 'Invalid username/password combination'
       render 'new'
     end
   end

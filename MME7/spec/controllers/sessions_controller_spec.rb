@@ -36,4 +36,4 @@ require 'spec_helper'
           response.should redirect_to(root_url)
         end
     end
-end
+end  
