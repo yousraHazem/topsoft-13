@@ -19,19 +19,7 @@ class PostsController < ApplicationController
 			# render("editPost")
 		end
 	end
-	# add a new post 
- #  def delete
- #    @post = Post.find(params[:id])
- #  end
-  
- #  def destroy
- #    Post.find(params[:id]).destroy
- #    redirect_to(:action => 'list')
- #  end
-
- #    def list 
-	# @post = Post.all
- #    end
+	
 
  	# Riham Gamal 22-3871
  	# add a new post 
