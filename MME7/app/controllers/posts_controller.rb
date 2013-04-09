@@ -32,7 +32,6 @@ class PostsController < ApplicationController
         format.js
     	end
 		# redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
-
 	end
 
 	# Riham Gamal 22-3871
