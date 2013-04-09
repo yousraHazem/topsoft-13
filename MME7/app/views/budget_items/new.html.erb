@@ -23,15 +23,15 @@
 <tr> 
 <td><%= f.hidden_field :project_id , :value=> @id %></td>
 </tr>
-</table>
 <tr>
 	<% for user in User.find(:all) %>
-	<td><%= check_box_tag "budget_item[user_id][]", user.id, @budget_item.users %></td>
+	<td><%= check_box_tag "budget_item[user_ids][]", user.id, @budget_item.users %></td>
 	<td><%= user.name %></td>
 	<% end %>
 </tr>
 </br>
 </br>
+</table>
 <p>
 <td><%= f.submit %></td>
 </p>
