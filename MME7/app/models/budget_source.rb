@@ -1,5 +1,12 @@
 class BudgetSource < ActiveRecord::Base
-  attr_accessible :name, :amount
+  attr_accessible :name, :amount , :project_tokens
+    has_many :budget_source_projects
+  has_many :projects , :through => :budget_source_projects
+   attr_reader :project_tokens
 
-  has_and_belongs_to_many :projects
+
+
+  def project_tokens=(ids)
+    self.project_ids = ids.split(",")
+  end
 end
