@@ -1,12 +1,13 @@
 <% if !flash[:notice].blank? %>
-	<div class="notice">
-		<%= flash[:notice] %>
-	</div>
+<div class="notice">
+	<%= flash[:notice] %>
+</div>
 <% end %>
+
 <div >
- <h2>Projects</h2>
- <%= link_to("Add new projectt",{:action => 'new'}, :class =>'action new') %>
- <table >
+<h2>Projects</h2>
+<%= link_to("Add new projectt",{:action => 'new'}, :class =>'action new') %>
+<table >
  	<tr >
  		<th>&nbsp;</th>
  		<th>Project</th>
@@ -22,16 +23,11 @@
  		<td > <%= project.start_date %></td>
  		<td > <%= project.end_date %></td>
  		<td > <%= project.description %></td>
- 		<td > <%= project.private_or_public %></td>
- 		
+ 		<td > <%= project.private_or_public %></td> 		
  	</tr>
- 	<% end %>
- </table>
+<% end %>
+</table>
 </div>
-
-</div>
-
-
 
 
 

@@ -1,21 +1,14 @@
 <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
-<div >
-
+<div>
     <h2>Create Projects</h2>
     <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
-   <%= render(:partial=>"table" , :locals=>{:f=>f}) %>
+    <%= render(:partial=>"table" , :locals=>{:f=>f}) %>
  	<div >
       <%= submit_tag("create project") %>
  	</div>
- 	<% end %> 
-    
-
+ 	<% end %>
 </div>
-
-</div>
-
-
 
 
 

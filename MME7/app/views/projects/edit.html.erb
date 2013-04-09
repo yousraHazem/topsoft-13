@@ -1,17 +1,15 @@
-	<% if !flash[:notice].blank? %>
-         <div class="notice">
-         <%= flash[:notice] %>	
-         </div>
-        <% end %>
-<div class="subject edit">
-	<h2>UPDATE SUBJECT</h2>
-	<%= form_for(:project, :url=>{:action=>'update', :id=> @project.id}) do |f| %>
-	 <%= render(:partial=>"table" , :locals=>{:f=>f}) %>
-
-	<div><%= submit_tag("Update Project")%></div>
-
+<% if !flash[:notice].blank? %>
+<div class="notice">
+    <%= flash[:notice] %>	
+</div>
 <% end %>
 
+<div class="subject edit">
+<h2>UPDATE SUBJECT</h2>
+<%= form_for(:project, :url=>{:action=>'update', :id=> @project.id}) do |f| %>
+<%= render(:partial=>"table" , :locals=>{:f=>f}) %>
+<div><%= submit_tag("Update Project")%></div>
+<% end %>
 </div>
 
 

@@ -31,18 +31,7 @@ class ProjectsController < ApplicationController
         end
     end
 
-    # def addMem
-    #  @projectuser = ProjectUser.new(params[:projectuser] )
-    #    if @projectuser.save
-    #     flash[:notice]= "project created"
-    #       redirect_to(:action => 'list')
-
-    #     else
-    #        render('new')
-    #     end
-    # end
-
-
+  
     # authorized by sarah ahmed id:22-1278
     #gets the project that need to be edited
     def edit
@@ -65,17 +54,4 @@ class ProjectsController < ApplicationController
       end
     end
 
-     def addMembers2
-      # @theuser = User.find(params[:user_id])
-      @project_id= params[:id]
-      @user_id= params[:user_id]
-      @newUser = ProjectUser.new(:project_id => @project_id , :is_creator => false)
-
-      if @newUser.save
-        flash[:notice] = "User successfully added"
-      else 
-        flash[:notice] = "User failed to be added"
-      end
-        redirect_to(:action => 'show', :id => params[:id])
-    end
 end
