@@ -12,12 +12,6 @@ class PostsController < ApplicationController
 	# @post = Post.all
  #    end
 
- 	# Riham Gamal 22-3871
- 	# add a new post 
-	def newPost
-		@group_id = params[:id]
-		@post = Post.new
-	end
 
 	#Author Riham Gamal 22-3871
 	# create a new post
@@ -39,18 +33,7 @@ class PostsController < ApplicationController
 	end
 
 
-	# Riham Gamal 22-3871, Mariam Ismail 22-3456
-	# find the post you want to edit
-	# takes the group id
 
-	def editPost	
-	    @group_id = params[:group_id]
-	    @post_id=params[:id]
-		@post = Post.find(params[:id])
-		
-end
-
-	
 	# Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# update the post by finding its id and changing the fields
 	# takes the group-id and redirects back to show group
@@ -80,14 +63,7 @@ end
 	# end
 
 	
-# Salma El Ruby 22-4649, Mariam Ismail 22-3456
-	# deletes posts
-	# deletes a post  from a group
-	  def delete
-	  	@group_id = params[:group_id]
-	    @post_id=params[:id]
-	    @post = Post.find(params[:id])
-	  end
+
 	  
 	  def destroy
 
