@@ -1,6 +1,6 @@
 describe 'DELETE destroy' do
   before :each do
-    @contact = Factory(:post)
+    @post = Factory(:post)
   end
   
   it "deletes the post" do
@@ -11,6 +11,6 @@ describe 'DELETE destroy' do
     
   it "redirects to group show" do
     delete :destroy, id: @post
-    response.should redirect_to groups_url
+    response.should redirect_to(:controller => "groups", :action => 'show')
   end
 end
