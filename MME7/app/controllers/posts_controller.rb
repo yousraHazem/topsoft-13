@@ -1,13 +1,9 @@
 class PostsController < ApplicationController
-	
-
-
  	# Riham Gamal 22-3871
  	# add a new post 
 	def newPost
 		@project_id = params[:id]
 		@post = Post.new
-
 	end
 
 	#Author Riham Gamal 22-3871
