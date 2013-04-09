@@ -7,8 +7,8 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
-gem 'carrierwave'
-gem 'rmagick'
+# gem 'carrierwave'
+# gem 'rmagick'
 
 
 
