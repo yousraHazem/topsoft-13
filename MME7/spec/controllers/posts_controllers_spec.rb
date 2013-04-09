@@ -1,7 +1,7 @@
 require 'factory_girl'
 require 'spec_helper'
 
-describe 'DELETE destroy' do
+describe PostsController do
   before :each do
     @post = FactoryGirl(:post)
   end
