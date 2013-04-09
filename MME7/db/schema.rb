@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
+  end
+
+  create_table "budgets", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.integer  "raised"
+    t.integer  "noot_raised"
+    t.integer  "spent"
+    t.integer  "not_spent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -97,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.integer  "community_id"
   end
 
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+  end
+
+  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
+
   create_table "posts", :force => true do |t|
     t.text     "content"
     t.integer  "group_id"
@@ -125,6 +148,13 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.datetime "updated_at",        :null => false
   end
 
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
+  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
+
   create_table "receipts", :force => true do |t|
     t.string   "name"
     t.integer  "budget_component_id"
@@ -140,21 +170,5 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.datetime "updated_at",  :null => false
     t.boolean  "assigned"
   end
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone_Nr"
-    t.string   "address"
-    t.string   "username"
-    t.boolean  "isAdmin",         :default => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
