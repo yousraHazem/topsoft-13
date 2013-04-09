@@ -11,23 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130403211722) do
-=======
-ActiveRecord::Schema.define(:version => 20130331221049) do
->>>>>>> C3_yasmin_upload_receipt
-
-  create_table "budget_components", :force => true do |t|
-    t.string   "name"
-    t.integer  "total_quantity"
-=======
 ActiveRecord::Schema.define(:version => 20130404210641) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity",     :default => 0
->>>>>>> c3_sarah_sprint0
     t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
     t.integer  "total"
@@ -71,25 +59,6 @@ ActiveRecord::Schema.define(:version => 20130404210641) do
     t.datetime "updated_at", :null => false
   end
 
-<<<<<<< HEAD
-=======
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "budget_source_id"
-    t.integer "project_id"
-  end
-
-  create_table "budgets", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "amount"
-    t.integer  "raised"
-    t.integer  "noot_raised"
-    t.integer  "spent"
-    t.integer  "not_spent"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
->>>>>>> c3_sarah_sprint0
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -149,12 +118,7 @@ ActiveRecord::Schema.define(:version => 20130404210641) do
     t.boolean  "admin_or_member"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.string   "image"
-=======
-    t.string   "title"
->>>>>>> c3_sarah_sprint0
   end
 
   create_table "receipts", :force => true do |t|
@@ -165,18 +129,12 @@ ActiveRecord::Schema.define(:version => 20130404210641) do
     t.string   "name"
   end
 
-=======
-    t.string   "image"
-  end
-
->>>>>>> C3_yasmin_upload_receipt
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.string   "title"
-    t.boolean  "assigned",    :default => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "assigned"
   end
 
   create_table "users", :force => true do |t|

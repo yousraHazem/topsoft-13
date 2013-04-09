@@ -51,10 +51,7 @@ class BudgetItemsController < ApplicationController
 		if @budget_item.update_attributes(params[:budget_item])
 
 
-	        @old_task = Task.find(@task_id)
-	        if !@old_task.nil?
-	        @old_task.update_attributes(:assigned=>false)
-	        end
+	       
             taskid = @budget_item.task_id
 			if !taskid.nil?
 			task = Task.find_by_id(taskid)
