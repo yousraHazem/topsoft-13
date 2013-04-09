@@ -1,6 +1,6 @@
 describe 'DELETE destroy' do
   before :each do
-    @post = FactoryGirl(:post)
+    @post = Factory(:post)
   end
   
   it "deletes the post" do
