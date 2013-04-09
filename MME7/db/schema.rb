@@ -12,7 +12,11 @@
 # It's strongly recommended to check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130403211722) do
+=======
+ActiveRecord::Schema.define(:version => 20130331221049) do
+>>>>>>> C3_yasmin_upload_receipt
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -146,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20130404210641) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "image"
 =======
     t.string   "title"
@@ -160,6 +165,11 @@ ActiveRecord::Schema.define(:version => 20130404210641) do
     t.string   "name"
   end
 
+=======
+    t.string   "image"
+  end
+
+>>>>>>> C3_yasmin_upload_receipt
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"

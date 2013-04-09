@@ -14,7 +14,9 @@
  		<th>end date</th>
  		<th>description</th>
  		<th>private</th>
+
  		<th>action</th>
+
  	</tr>
  	
  	<% @projects.each do |project| %>
@@ -24,6 +26,7 @@
  		<td > <%= project.end_date %></td>
  		<td > <%= project.description %></td>
  		<td > <%= project.private_or_public %></td>
+
  		<td><%= link_to("edit", {:action=>'edit', :id=>project.id})%></td>
  		
  	</tr>

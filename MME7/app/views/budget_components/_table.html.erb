@@ -21,6 +21,8 @@
 	<td class="actions">
       <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item},:class=>"btn btn-small")%> 
 	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+	  <%= link_to("add attachement", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
+	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
 	</td>
 	
 </tr>

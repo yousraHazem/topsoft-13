@@ -38,7 +38,7 @@ class BudgetComponentsController < ApplicationController
 		@item = params[:id]
 		#initializes a new component
 		@component = BudgetComponent.new
-		
+
 	end
 
 	def create
@@ -104,10 +104,10 @@ class BudgetComponentsController < ApplicationController
 
 			redirect_to(:action=>'list', :id=> @item)
 		else
-	
+
            render('edit')
 		end
-		
+
     end
 
 	def delete
@@ -138,5 +138,4 @@ class BudgetComponentsController < ApplicationController
 	    end
 
     end
-
 
