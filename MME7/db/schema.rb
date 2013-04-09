@@ -133,6 +133,14 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.string   "image"
   end
 
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.boolean  "assigned"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
