@@ -12,26 +12,16 @@
   <%= error_messages_for(@post) %>
 
 <table class="table table-striped">
-    <tr>
-      <th><%= f.label(:content, "Content")%></th>
-      <td><%= f.text_field(:content) %></td>
+    <tr class="text-left">
+      <%= f.text_field(:content) %>
        </tr>
-
-
   </table>
   
-<button type= "submit" class="btn btn-danger">Edit</button>
-
+<button type= "submit" class="btn btn-success">Edit</button>
   <% end %>
-       
-
-
-
-
+  
         <% end %>
-
-
-        
+      
       </td>
     </tr>
     <% end %>
