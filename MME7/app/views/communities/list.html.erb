@@ -1,9 +1,14 @@
+
 <div class="community list">
   <h2>Communities</h2>
+
+  <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
 
   <table class="listing" summary="community list">
     
     <tr class="header">  
+    <tr class="header">
+
       <th>Title</th>
       <th>Social profile info</th>
       <th>Contact info</th>
@@ -20,6 +25,7 @@
 
           <%if community.is_dismissed != true %>
               <%= link_to("Delete", {:action => 'destroy', :id => community.id}, :confirm => "Are you sure you want to dismiss this community", :class => 'action delete') %>
+              <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
           <% end %>  
 
         </td>
