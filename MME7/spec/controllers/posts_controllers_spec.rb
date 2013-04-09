@@ -1,16 +1,16 @@
 describe 'DELETE destroy' do
   before :each do
-    @contact = Factory(:contact)
+    @contact = Factory(:post)
   end
   
-  it "deletes the contact" do
+  it "deletes the post" do
     expect{
-      delete :destroy, id: @contact        
-    }.to change(Contact,:count).by(-1)
+      delete :destroy, id: @post       
+    }.to change(Post,:count).by(-1)
   end
     
-  it "redirects to contacts#index" do
-    delete :destroy, id: @contact
-    response.should redirect_to contacts_url
+  it "redirects to group show" do
+    delete :destroy, id: @post
+    response.should redirect_to groups_url
   end
 end
