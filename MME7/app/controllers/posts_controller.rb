@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 		# if the post is not saved, 
 		else
 			flash[:notice] = "Post could not be created"
-			render('newPost')
+			redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
 		end
 
 	end
