@@ -1,6 +1,9 @@
+require 'factory_girl'
+require 'spec_helper'
+
 describe 'DELETE destroy' do
   before :each do
-    @post = Factory(:post)
+    @post = FactoryGirl(:post)
   end
   
   it "deletes the post" do
