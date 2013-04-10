@@ -19,10 +19,14 @@
 	<td><%= component.spent %></td>
 	<td><%= component.status %></td>
 	<td class="actions">
-      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item},:class=>"btn btn-small")%> 
-	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+		<% if(isProjectCreator(1, @project_id ) == true) %>
+      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
+	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
 	  <%= link_to("add attachement", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
 	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+	    <% else %>
+	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+        <%end%>
 	</td>
 	
 </tr>

@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+﻿class ProjectsController < ApplicationController
 
 # Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
 def list
@@ -38,7 +38,7 @@ def edit
 	def update
 			@project = Project.find(params[:id])
 		if @project.update_attributes(params[:project])
-			flash[:notice] = "Project successfully updated"
+			flash[:notice] = "تم بنجاح"
 			redirect_to(:action=>'show', :id=> @project.id)
 		else
 		   flash[:notice] = "Project unsuccessfully updated"

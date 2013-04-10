@@ -4,22 +4,22 @@
 
 <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
 <form action="">
-<fieldset>	
+<fieldset class="header">	
 <legend><h1><%= @name %><div class="progress offset10" id="progressouter">
    <div class="bar" id="progress"></div>
 </div></h1></legend> 
 <h3>Total: <%= @total %></h3> 
-<h4>Spent: <%= @spent %></h4>
+<h6><i class="icon-tint"></i>Spent: <%= @spent %></h6>
 </fieldset>
 </form>
 
 <div> 
-	<h4> <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
+	<h4> <% if(isProjectCreator(1, @project_id ) == true) %><%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
       <i class="icon-plus icon-white"></i>
-      <% end %>  Components </h4>
+      <% end %> <%end%> Components </h4>
 </div>
 <div id="comp" style="display:none;" >
-  <%= form_for(:component, :url=>{:action=>'create', :id=> @item}, :html =>{:id =>"component-form"}) do |f| %>
+  <%= form_for(:component, :url=>{:action=>'create', :id=> @item , :project_id => @project_id}, :html =>{:id =>"component-form"}) do |f| %>
     <%= render(:partial => "form" , :locals => {:f=> f})%>
   <div><%= submit_tag("Save")%></div>
     <% end %>

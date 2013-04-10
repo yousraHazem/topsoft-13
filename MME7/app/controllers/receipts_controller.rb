@@ -16,7 +16,7 @@ class ReceiptsController < ApplicationController
 	def create 
 		@receipt = Receipt.new(params[:receipt])
 		if @receipt.save
-			redirect_to(:action => 'list')
+			redirect_to(:action => 'list' , :id => @receipt.budget_component_id)
 		else
 			render('new')
 	end

@@ -8,22 +8,18 @@
 <td> <%= f.hidden_field(:status)%></td>
 </tr>
 <tr>
+<td><%= f.check_box(:operational)%></td>
 <th><%= f.label("Operational") %></th>
-<td><%= f.radio_button(:operational , 1)%></td>
-</tr>
-<tr>
-<th><%= f.label("NON Operational") %></th>
-<td><%= f.radio_button(:operational , 0)%></td>
 </tr>
 </br>
-<tr>
-    <input type="checkbox" id="check" name="vehicle" value="Bike">Connect to a task<br>
-    </tr>
+<!-- <tr>
+ <input type="checkbox" id="check" name="vehicle" value="Bike">Connect to a task<br>
+ </tr> -->
 
-    <tr id = "connect" style="display:none;">
-	  <th><%= f.label(:task_id, "Task:")%></th>
-	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] } , {:include_blank=>true } ,:id=>"drop-down") %></td>
-    </tr>
+  <tr id = "connect" >
+  <th><%= f.label(:task_id, "Task:")%></th>
+  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
+  </tr>
 
 <tr> 
 <td><%= f.hidden_field :project_id , :value=> @project %></td>
