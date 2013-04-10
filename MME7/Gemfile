@@ -12,10 +12,11 @@ gem 'carrierwave'
  gem 'best_in_place'
  gem 'bootstrap-sass'
  gem "rspec-rails", "~> 2.0"
+
 #gem 'rmagick'
 
-gem "factory_girl_rails", "~> 4.0"
 
+gem "factory_girl_rails", "~> 4.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,6 +31,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+ gem "rspec-rails", "~> 2.0"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
