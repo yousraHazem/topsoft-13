@@ -10,6 +10,7 @@ gem 'mail', '~> 2.5.3'
 gem 'carrierwave'
  gem "rspec-rails", "~> 2.0"
  gem 'bootstrap-sass'
+ gem 'best_in_place'
 #gem 'rmagick'
 
 
