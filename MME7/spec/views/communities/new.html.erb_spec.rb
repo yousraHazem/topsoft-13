@@ -8,7 +8,8 @@ describe "communities/new.html.erb" do
 
     it 'renders a form' do
      render
-     expect(view).to render_template(:form => "show")
+     expect(view).to render_template("new")
+
     end
     
 end
