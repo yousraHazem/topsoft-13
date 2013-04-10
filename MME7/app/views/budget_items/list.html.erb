@@ -19,8 +19,8 @@
 </tr>
 <% @budget_items.each do |budget_item|%>
 <tr>
-	<td><%= budget_item.name %></td>	
-<td><%= link_to("edit", {:action=>'edit', :id=>budget_item.id})%></td>
+	
+<td><%= best_in_place(budget_item, :name , :path => {:action=>'update' , :id => budget_item.id}) %></td>	
 <td><%= link_to("create budget component", {:controller => 'budget_components', :action=>'new', :id=>budget_item.id})%></td>
 </tr>
 

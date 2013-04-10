@@ -1,8 +1,10 @@
 class BudgetItemsController < ApplicationController
+	respond_to :html, :json
 
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
 		@budget_items = BudgetItem.all
+		#@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
 	end 
 # Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
 	def new 
@@ -31,12 +33,10 @@ class BudgetItemsController < ApplicationController
 # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
 	def update
 		@budget_item = BudgetItem.find(params[:id])
-		if @budget_item.update_attributes(params[:budget_item])
-			redirect_to(:action => 'list')
-		else
-			render('edit')
-
-		end
+		 @budget_item.update_attributes(params[:budget_item])
+			
+		
+		respond_with @budget_item
 	end
 end
 
