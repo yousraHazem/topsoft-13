@@ -19,7 +19,6 @@ jquery.ajaxSetup({
 })
 
 
-
 $(document).ready(function(){
 $("#post-form").submit(function(){
 $.post($(this).attr("action"),$(this).serialize(),null, "script");

@@ -21,16 +21,11 @@ class PostsController < ApplicationController
 		@post = Post.new(params[:post])
 
 		if @post.save
-			flash[:notice] = "Post successfully created"
-			#redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
 			respond_to do |format|
 				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
 				format.js
-			end
-		#Author Riham Gamal 22-3871
-		# if the post is not saved, 
+		end
 		else
-			flash[:notice] = "Post could not be created"
 			redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
 		end
 
