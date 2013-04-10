@@ -36,6 +36,7 @@ class BudgetComponentsController < ApplicationController
 	def new
 		#authorized by: sarah ahmed id=22-1278
         #gets the passed id of the budget item 
+        @project_id = params[:project_id]
 		@item = params[:id]
 		#initializes a new component
 		@component = BudgetComponent.new
@@ -45,6 +46,7 @@ class BudgetComponentsController < ApplicationController
 	def create
 		#authorized by: sarah ahmed id=22-1278
 		# get the passed id of the budget item
+		@project_id = params[:project_id]
 	    @item = params[:id]
 	    # finds this budget item
 	    @budget_item= BudgetItem.find(@item)
@@ -60,7 +62,7 @@ class BudgetComponentsController < ApplicationController
 			@budget_item.update_attributes(:total=>@total,:spent=>@spent)
 			
             #redirect to the list view after saving
-			redirect_to(:action=>'list',:id=> @item)
+			redirect_to(:action=>'list',:id=> @item , :project_id=>@project_id )
 
 		else
 		   #if the component was not saved, render the "new" page
