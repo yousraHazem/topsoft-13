@@ -17,9 +17,7 @@ class PostsController < ApplicationController
 	# create a new post
 	# if the post is saved, added to this method the group-id 
 	def createPost
-
 		@post = Post.new(params[:post])
-
 		if @post.save
 			respond_to do |format|
 				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
