@@ -10,12 +10,6 @@ describe PostsController do
    {:content => ""}
   end
 
- describe "GET new" do
-    it "assigns a new post as @post" do
-      get :newPost
-      assigns(:post).should be_a_new(Post)
-    end
-  end
 describe "POST create" do
     describe "with valid params" do
       it "creates a new Post" do
@@ -48,7 +42,7 @@ describe "POST create" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
         post :createPost, {:post => valid_attributes}
-        response.should render_template("new")
+        response.should redirect_to(:controller => 'groups',:action => "show")
       end
     end
   end

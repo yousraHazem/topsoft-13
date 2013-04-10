@@ -37,8 +37,6 @@ class PostsController < ApplicationController
 	end
 
 
-	
-
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
 	def updatePost
