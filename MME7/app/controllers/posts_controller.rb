@@ -45,30 +45,15 @@ class PostsController < ApplicationController
 	# takes the group-id and redirects back to show group
 
 
+	respond_to :html, :json
 	def updatePost
 		 @post = Post.find(params[:post_id])
 		 @group_id = params[:group_id]
-	    @post_id=params[:post_id]
-        
-		if @post.update_attributes(params[:post])
-
-			flash[:notice] = "Post successfully updated"
-			redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
-		else
-
-			flash[:notice] = "Post could not be updated"
-			
-	redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
-		end
-
-
+	     @post_id=params[:post_id]
+	     @post.update_attributes(params[:post])
+		 respond_with @post
 	end
-	# # add a new post 
-	# def newPost
-	# 	@post = Post.new
-	# end
-
-
+	
 	  def destroy
 	    Post.find(params[:id]).destroy
 	    redirect_to(:action => 'list')

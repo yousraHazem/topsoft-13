@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
 //= require_tree .
 jquery.ajaxSetup({
 	'beforeSend' : function(xhr) {xhr.sendRequestHeader("Accept","text/javascript")}

@@ -1,0 +1,9 @@
+<table class="table table-striped">    <% @postlist.each do |post| %>
+    <tr>
+    <table class="table table-striped">
+   
+        <%= best_in_place post, :content, :path => {:controller => 'posts', :action => 'updatePost', :id => post.id} %>
+    
+    </tr>
+    </table>
+    <% end %>
