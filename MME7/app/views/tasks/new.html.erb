@@ -10,6 +10,12 @@
 			<td><%= f.text_field (:description) %></td>
 		</tr>
 
+
+		<tr>
+  <%= f.label :user_tokens, "Assign members " %><br />
+  <%= f.text_field :user_tokens, "data-pre" => @task.users.map(&:attributes).to_json %>
+</tr>
+
 	</table>
 	
 
