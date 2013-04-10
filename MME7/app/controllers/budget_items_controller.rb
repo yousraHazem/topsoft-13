@@ -29,10 +29,15 @@ class BudgetItemsController < ApplicationController
 	end
 # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
 	def update
-
 		@budget_item = BudgetItem.find(params[:id])
 		if @budget_item.update_attributes(params[:budget_item])
-			redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
+			@budget_users = params['budget_item.users'][:id]
+
+			@budget_users.each do |budget_user|
+			@user = User.find(@budget_users)
+			@budget_assign = @budget_item.users.push(@user)
+			end
+		redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('edit')
 
