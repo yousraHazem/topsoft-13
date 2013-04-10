@@ -1,19 +1,26 @@
 class BudgetItemsController < ApplicationController
 
-	def new
+# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
+	def list 
+		@items = BudgetItem.all
+	end 
+# Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
+	def new 
 		@project = params[:id]
-		@item = BudgetItem.new
+		#@id = params[:id]
+		@budget_item = BudgetItem.new
 		@tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false})
 	end
 
-	def create
-		@item = BudgetItem.new(params[:budget_item])
-		if @item.save
-			flash[:notice] = "Item successfully created"
-			
-			task_id = @item.task_id
-			if !task_id.nil?
-			task = Task.find_by_id(task_id)
+# Author :Yasmin Mahmoud 22-1787 , Method create takes attributes from the new form and enters it in the table 
+	def create 
+		#@id = params[:id]
+		@budget_item = BudgetItem.new(params[:budget_item])
+		if @budget_item.save
+
+			taskid = @budget_item.task_id
+			if !taskid.nil?
+			task = Task.find_by_id(taskid)
 			  if task.update_attributes(:assigned=>true)
 				flash[:notice] = "Task successfully created"
 			  else
@@ -21,11 +28,54 @@ class BudgetItemsController < ApplicationController
 				render('new')
 			  end
 			end
-
+			redirect_to(:action => 'list')
 		else
-			# flash[:notice] = "Item unsuccessfully created"
-            # render('new')
+			render('new')
+
 		end
 
+	end
+
+	# Author :Yasmin Mahmoud 22-1787 , Method edit finds the budgetitem with the id taken from the params 
+
+	def edit  
+		@budget_item = BudgetItem.find(params[:id])
+		@project = params[:project_id]
+		@tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false })
+
+		@task_id = @budget_item.task_id
+		@oldtask = Task.find_by_id(@task_id)
+		if !@oldtask.nil?
+		@tasks << @oldtask
+	    end
+	end
+
+   # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
+	def update
+		@budget_item = BudgetItem.find(params[:id])
+		@task_id = params[:task_id]
+
+		if @budget_item.update_attributes(params[:budget_item])
+
+            if !@task_id.nil?
+	        @old_task = Task.find(@task_id)
+	        @old_task.update_attributes(:assigned=>false)
+	        end
+
+            taskid = @budget_item.task_id
+			if !taskid.nil?
+			task = Task.find_by_id(taskid)
+			if task.update_attributes(:assigned=>true)
+		    flash[:notice] = "Task successfully created"
+			else
+		    flash[:notice] = "Task unsuccessfully created"
+		    render('new')
+			end
+			end
+			redirect_to(:action => 'list')
+		else
+			render('edit')
+
+		end
 	end
 end
