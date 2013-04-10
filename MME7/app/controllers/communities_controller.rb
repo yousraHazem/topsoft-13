@@ -1,74 +1,75 @@
 class CommunitiesController < ApplicationController
 
-# Author : Mariam, 22-3456
-# This method lists all communities in the database
+	# Author : Mariam, 22-3456
+	# This method lists all communities in the database
 
-def list
-		@communities = Community.order("communities.title ASC")
-end
-	
- #Author Mariam, 22-3456
- #Adds a new record of a community in the daabase
+	def list
+			@communities = Community.order("communities.title ASC")
+	end
+		
+	 #Author Mariam, 22-3456
+	 #Adds a new record of a community in the daabase
 
-def new
-	@community= Community.new
-end
+	def new
+		@community= Community.new
+	end
 
-# Author Mariam, 22-3456
-# creates a new communtity by matching what the admin has entered with the fields in the model
+	# Author Mariam, 22-3456
+	# creates a new communtity by matching what the admin has entered with the fields in the model
 
-def create
-	@community= Community.new(params[:community])
-	   if @community.save
-	render ('create')
-    else 
-	render ('new')
-    end
-end
+	def create
+		@community= Community.new(params[:community])
+		   if @community.save
+		render ('create')
+	    else 
+		render ('new')
+	    end
+	end
 
-	
-	#Author:May Atef Badr 22-0579
-	#finds record, sets is_dismissed true and removes the delete-link from the view, the user
-	# can only see the community info
+		
+		#Author:May Atef Badr 22-0579
+		#finds record, sets is_dismissed true and removes the delete-link from the view, the user
+		# can only see the community info
 
-# Author Mariam, 22-3456
-# retrieves the community that the admin wishes to edit  by the id
+	# Author Mariam, 22-3456
+	# retrieves the community that the admin wishes to edit  by the id
 
-def edit
-    @community = Community.find(params[:id])
-end
-  
-# Author Mariam, 22-3456
-# edits the already existing fields with wha the admin has entered
+	def edit
+	    @community = Community.find(params[:id])
+	end
+	  
+	# Author Mariam, 22-3456
+	# edits the already existing fields with wha the admin has entered
 
-def update
-    @community = Community.find(params[:id])    
-    if @community.update_attributes(params[:community])
-   render ('update')
-    else 
-render ('edit')
-    end
-end
+	def update
+	    @community = Community.find(params[:id])    
+	    if @community.update_attributes(params[:community])
+	   render ('update')
+	    else 
+	render ('edit')
+	    end
+	end
 
-def list
-		@communities = Community.order("communities.title ASC")
-end
+	def list
+			@communities = Community.order("communities.title ASC")
+	end
 
-#Author: May Badr 22-0579
-#find record to be deleted
-	
-def delete 
-		@community = Community.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
+	#Author: May Badr 22-0579
+	#find record to be deleted
+		
+	def delete 
+			@community = Community.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
 	end
 	#Author:May Badr 22-0579
 	#deletes record chosen
 	def destroy 
 
-		@community = Community.find(params[:id])
-		@community.is_dismissed = 'true'
-		@community.save
-		redirect_to(:action => 'list')
+			@community = Community.find(params[:id])
+			@community.is_dismissed = 'true'
+			@community.save
+			redirect_to(:action => 'list')
 
 	end
+
 end
