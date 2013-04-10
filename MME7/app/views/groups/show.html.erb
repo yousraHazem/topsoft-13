@@ -12,27 +12,11 @@
    
   </table> 
 
-<div>  
-  <table>
-   <tr >
-    <th>Group name</th>
-    <td><%= @group.group_name %></td>
-   </tr>
-
-   <tr >
-    <th>Description</th>
-    <td><%= @group.description %></td>
-   </tr>
-   
-  </table> 
-
-<div id = "posts">
-
+<div>
   <%= render(:partial=> "groups/list") %>
 </div>
 
-
-     <div>
+<div>
  
 
     <% if ifMember(params[:id],5)==true %>
