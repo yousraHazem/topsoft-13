@@ -1,6 +1,6 @@
-#Author: Donia Amer Shaarawy 22-0270
+﻿#Author: Donia Amer Shaarawy 22-0270
 # these are the test for the requests which is redirecting to the user page and how the sign up page should look like and whats in it 
-
+require 'FactoryGirl'
 require 'spec_helper'
 
 describe "User pages" do

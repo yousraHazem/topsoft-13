@@ -1,3 +1,4 @@
+﻿
 <% provide(:title, @user.name) %>
 <div>
 
@@ -7,3 +8,4 @@
       </h1>
 
 </div>
+<%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %>

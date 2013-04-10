@@ -4,34 +4,51 @@
 <html dir="rtl">
 <head>
   <title>MME7</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">  
+<%= stylesheet_link_tag "application"%>
+    <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="navbar navbar-fixed-top">
+<body id = "background">
+  <div class="navbar navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="#">Title</a>
-    <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Home"%></li>
+          <li><%= link_to "About Us" %></li>
+          <li><%= link_to "Contact Us" %></li>
+          <% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
+   <li class="offset10"> <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %></li><% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-<div>
-  <% if current_user %>
-  
-    <%= current_user.username %>.
-    <%= link_to "خروج", log_out_path %>
-  <% else %>
-    <%= link_to "اشتراك", sign_up_path %> اؤ
-    <%= link_to " دخول", log_in_path %>
-  <% end %>
+
+<div class="container">
+
+  <div class="row"></div>
+  <div class="span9"> 
+ 
 </div>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <%= yield %>
+  </div>
+  
+
+</div>
+<div>
+</div>
+
 
 </body>
 </html>
