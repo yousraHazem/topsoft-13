@@ -1,10 +1,14 @@
    <div class = "comments"><%= link_to("#{post.comments.size} comments", {})%>
-   <% post.comments.last(5).each do |p|%>             	
-      <%= p.comment.to_s %>
+   <% post.comments.last(5).each do |p|%> 
+
+   	
+  <%= best_in_place p, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> p.id, 
+  	:post_id => post.id, :project_id => @project.id} %> 
+        
+
       <%= link_to("x", {:controller => 'comments', :action => 'destroy', :id => p.id, 
 	    	:post_id => post.id, :project_id => @project.id})%>
-	   <%= link_to("Edit Comment", {:controller => 'comments', :action=>'updateComment', :id=> p.id, 
-		   :post_id => post.id, :project_id => @project.id})%>	<br>
+	   <br>
 	  <% end %>
 
 	   <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :id => post.id, 

@@ -1,5 +1,10 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
+//= require_tree .
 jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+  'beforeSend': function(xhr) {xhr.sendRequestHeader("Accept", "text/javascript")}
 })
 
 jQuery.fn.submitWithAjax = function() {
@@ -10,16 +15,10 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 };
 
-
 $(document).ready(function (){
-     $('#new_review').submit(function (){
+     $('#post-form').submit(function (){
        $.post($(this).attr('action'), $(this).serialize(), null, "script");
        return false;
      });
    });
 
-$('#user').hover(function() {
-    $('#popup').show();
-}, function() {
-    $('#popup').hide();
-});
