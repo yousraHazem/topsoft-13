@@ -20,11 +20,10 @@ end
 def createCommunity
 	@community= Community.new(params[:community])
 	
-	   if @community.save
-	 flash[:notice] = "Community successfully created"
-			redirect_to(:action => 'list')
+	if @community.save
+	 redirect_to(:action => 'list')
     else 
-	render('new')
+	 render('new')
     end
 end
 
@@ -41,25 +40,16 @@ end
 def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
- flash[:notice] = "Community successfully updated"
-			render('update')
-    else 
-    	
- render('edit')
+	 redirect_to(:action => 'list')
+    else 	
+    render('edit')
     end
-end
-
-def list
-		@communities = Community.order("communities.title ASC")
 end
 
 def show
 	@community_id = params[:id]
 	@communities = Community.find(params[:id])
-
-
 end
-
 
 #Author: May Badr 22-0579
 #find record to be deleted

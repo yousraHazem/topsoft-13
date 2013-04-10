@@ -3,10 +3,15 @@
 <div>
  
 <div>
-  
+ 
 <table class="table table-hover">
   
     <tr>
+  <h2>Communities List</h2>
+<div>
+  
+  <table class="table table-hover">
+    <tr class="header">
       <th>Title</th>
       <th>Social profile info</th>
       <th>Contact info</th>
@@ -18,15 +23,12 @@
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
-            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
              <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
              <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
-             
-             
-
         </td>
       </tr>
-    <% end %>
+    <%end%>
   </table>
 </div>
 
