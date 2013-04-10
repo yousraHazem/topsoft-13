@@ -47,9 +47,8 @@ class PostsController < ApplicationController
 
 
 	  def destroy
-		@group_id = params[:group_id]
-	    @post = Post.find(params[:post_id])
-	    @post.destroy
+		 @group_id = params[:group_id]
+	    Post.find(params[:id]).destroy
 	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	  end
 		# Salma El Ruby 22-4649
