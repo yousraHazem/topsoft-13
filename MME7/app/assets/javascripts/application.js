@@ -15,7 +15,6 @@
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
- 
 
 $(function() {
     $("#price, #total").keyup(function() {
@@ -67,31 +66,4 @@ $(function() {
 jQuery.ajaxSetup({
    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
-
-$(document).ready(function(){
-    $('#check').change(function(){
-        if(this.checked)
-            $('#connect').show("slow");
-        else
-            $('#connect').hide();
-
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

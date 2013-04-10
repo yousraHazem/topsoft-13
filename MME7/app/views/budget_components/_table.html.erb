@@ -24,9 +24,9 @@
 	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
 	  <%= link_to("add attachement", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
 	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
-	    <% else %>
+	   <%else%>
 	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
-        <%end%>
+        <% end %>
 	</td>
 	
 </tr>

@@ -1,29 +1,30 @@
 
-<% @page_title = "Subjects List"%>
-
-<div class= "Subject List">
-	<h2>Components</h2>
-    
-	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
-       New Component <i class="icon-plus icon-white"></i>
+<% @page_title = "Budget Item"%>
+<form action="">
+<fieldset>
+<legend><h1>Budget</h1></legend>
+<h3>Total Budget: <%= @total_budget %></h3> 
+<h4>Total Spent: <%= @total_spent %></h4>
+<h6><i class="icon-tint"></i>Total Raised: <%= @raised %></h6>
+</fieldset>
+</form>
+<hr>
+<%= link_to({:action=>'new' , :id => params[:id]}, class: "btn btn-success") do %>
+    <i class="icon-plus icon-white"></i>
       <% end %>
-
-
  <table class="table" summary="Subject List">
 <tr class="header">
 	<th>Name</th>
 	<th>Action</th>
 </tr>
- <% @items.each do |item|%>
+<% @items.each do |item|%>
+
 <tr>
 	<td><%= item.name %></td>
 
 	<td class="actions">
-
 		<%= link_to("Edit", {:action=>'edit' ,:id=>item.id},:class=>"btn btn-small")%>
-		<%= link_to("View", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>
-
-		
+		<%= link_to("View", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>	
 	</td>
 	
 </tr>

@@ -2,8 +2,12 @@ class BudgetItemsController < ApplicationController
 
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
-		@items = BudgetItem.all
+		@items = BudgetItem.where(:project_id => params[:id])
 		@raised = BudgetSourceProject.sum(:amount , :conditions=>{:project_id => params[:id]})
+		@total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:id]})
+		@total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
+
+
 	end 
 # Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
 	def new 
@@ -41,18 +45,27 @@ class BudgetItemsController < ApplicationController
 
 	def edit  
 		@budget_item = BudgetItem.find(params[:id])
-		@task_id = params[:task_id]
 		@project = params[:project_id]
-		@tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false})
+		@tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false })
+
+		@task_id = @budget_item.task_id
+		@oldtask = Task.find_by_id(@task_id)
+		if !@oldtask.nil?
+		@tasks << @oldtask
+	    end
 	end
-# Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
+
+   # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
 	def update
 		@budget_item = BudgetItem.find(params[:id])
 		@task_id = params[:task_id]
+
 		if @budget_item.update_attributes(params[:budget_item])
 
-
-	       
+            if !@task_id.nil?
+	        @old_task = Task.find(@task_id)
+	        @old_task.update_attributes(:assigned=>false)
+	        end
             taskid = @budget_item.task_id
 			if !taskid.nil?
 			task = Task.find_by_id(taskid)
@@ -63,9 +76,6 @@ class BudgetItemsController < ApplicationController
 		    render('new')
 			end
 			end
-
-
-
 			redirect_to(:action => 'list')
 		else
 			render('edit')

@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
+
   attr_accessible  :name , :start_date , :end_date , :description , :private_or_public , :admin_or_member
+
 
 	has_many :posts
 	has_many :tasks 
@@ -7,5 +9,8 @@ class Project < ActiveRecord::Base
 	has_one :budget 
 	has_many :project_users
 	has_many :users , :through => :project_users
-	mount_uploader :image , ImageUploader
+
+	has_many :budget_items
+
+
 end
