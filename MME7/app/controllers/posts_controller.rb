@@ -1,18 +1,5 @@
 class PostsController < ApplicationController
- #  def delete
- #    @post = Post.find(params[:id])
- #  end
-  
- #  def destroy
- #    Post.find(params[:id]).destroy
- #    redirect_to(:action => 'list')
- #  end
 
- #    def list 
-	# @post = Post.all
- #    end
-
- 
 	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
 	# if the post is saved, added to this method the group-id 
@@ -26,7 +13,6 @@ class PostsController < ApplicationController
 		else
 			redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
 		end
-
 	end
 
 
@@ -50,10 +36,10 @@ class PostsController < ApplicationController
 	# end
 
 
-	  def destroy
+	def destroy
 	    Post.find(params[:id]).destroy
 	    redirect_to(:action => 'list')
-	  end
+	end
 
 		# Salma El Ruby 22-4649
 		# displays all available posts 
