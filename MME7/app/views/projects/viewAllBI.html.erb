@@ -40,7 +40,7 @@
  		<td><%= budgetitem.status %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
-    <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
+    <td><%= link_to("edit", {:controller => 'budget_items',:action=>'edit', :id=>budgetitem.id})%></td>
     <td><%= link_to("create budget component", 
     {:controller => 'budget_components', :action=>'new', :id=>budgetitem.id})%></td>
  		</tr>
