@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>MME7</title>
- 
 
- <%= stylesheet_link_tag  "application" %>
+ <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= javascript_include_tag "application"  %>
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
@@ -33,9 +32,7 @@
 </div>
 	<div id ="style"> 
     <%= yield %>
-  </div>
-
-
+  </div> 
 <div>
 </div>
 </body>

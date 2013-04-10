@@ -9,8 +9,14 @@ class Project < ActiveRecord::Base
 	has_one :budget 
 	has_many :project_users
 	has_many :users , :through => :project_users
+<<<<<<< HEAD
 
 	has_many :budget_items
 
 
+=======
+	#has_and_belongs_to_many :budget_sources
+	has_many :budget_source_projects
+    has_many :budget_sources , :through => :budget_source_projects
+>>>>>>> c3_sarah_budget_sources
 end

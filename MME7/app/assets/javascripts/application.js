@@ -16,6 +16,7 @@
 //= require best_in_place
 //= require_tree .
 
+
 $(function() {
     $("#price, #total").keyup(function() {
         var p = $("#price").val();
@@ -46,6 +47,10 @@ $(function() {
 $(function(){
   $("#search input").keyup(function (){
     $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
+
+$(function(){
+ $("#Budget-serach input").keyup(function (){
+    $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
     return false;
   });
 });
@@ -66,4 +71,10 @@ $(function() {
 jQuery.ajaxSetup({
    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
+$(function() {
+    $("#p").click(function() {
+      $("#grp").slideToggle();   
+    });
+});
+
 

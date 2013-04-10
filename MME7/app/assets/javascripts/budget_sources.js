@@ -5,5 +5,8 @@
 
 
 
+<<<<<<< HEAD:MME7/app/assets/javascripts/budget_sources.js.coffee
 jQuery ->
   $('.best_in_place').best_in_place()
+=======
+>>>>>>> c3_sarah_budget_sources:MME7/app/assets/javascripts/budget_sources.js

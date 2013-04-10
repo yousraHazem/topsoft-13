@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-<<<<<<< HEAD
+
 def index
         @groups = Group.order("groups.group_name ASC")
     end
@@ -18,9 +18,6 @@ def index
         #@group = Group.find(params[:id])
         #rescue ActiveRecord::RecordNotFound
     #end
-=======
-
->>>>>>> c3_sarah_sprint0
 
     def show
         @group = Group.find(params[:id])

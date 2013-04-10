@@ -1,0 +1,19 @@
+   <% @sources.each do |source|%>
+ <div class="sources">
+
+ <fieldset>
+<legend><%= source.name%><span class="offset11">Amount:<%= source.amount%></span></legend>
+    <div id="grp" style="display:none;">
+    <h4>Projects: </h4> 
+    <% source.budget_source_projects.each do |s| %>
+	<span class="offset1"><%= link_to("#{s.project.name}",{:controller=>"projects",:action=>'show',:id=>s.project_id})%> <span><span class="offset6">amount :<%= s.amount %></span>
+	</br>
+	<%end%></div><br>
+</fieldset>
+
+</div>
+	  
+<%end%>
+
+
+<a id="p" href="#"><i id="icon" class="icon-chevron-down"></i></a>
