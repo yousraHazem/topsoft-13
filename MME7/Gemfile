@@ -7,11 +7,13 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
-gem 'carrierwave'
+
+#gem 'carrierwave'
 
  gem 'best_in_place'
  gem 'bootstrap-sass'
  gem "rspec-rails", "~> 2.0"
+
 
 #gem 'rmagick'
 

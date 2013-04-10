@@ -10,7 +10,6 @@ describe PostsController do
    {:content => ""}
   end
 
-<<<<<<< HEAD
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested post" do
@@ -32,7 +31,7 @@ describe PostsController do
         post = Post.create! valid_attributes
         put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
         response.should redirect_to("http://test.host/groups/show")
-=======
+
 describe "POST create" do
     describe "with valid params" do
       it "creates a new Post" do
@@ -50,12 +49,10 @@ describe "POST create" do
       it "redirects to the created post" do
         post :createPost, {:post => valid_attributes}
         response.should redirect_to(:controller => 'groups',:action => "show")
->>>>>>> c1_mariam_create_post_sprint1
       end
     end
 
     describe "with invalid params" do
-<<<<<<< HEAD
       it "assigns the post as @post" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
@@ -73,7 +70,6 @@ describe "POST create" do
       end
     end
   end
-=======
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
@@ -89,31 +85,4 @@ describe "POST create" do
       end
     end
   end
-
-  
->>>>>>> c1_mariam_create_post_sprint1
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

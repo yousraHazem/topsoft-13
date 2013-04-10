@@ -24,6 +24,8 @@ def index
         @postlist=Group.getposts (params[:id])
           end
 
+        #rescue ActiveRecord::RecordNotFound
+   
     # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
     def new
         @group = Group.new

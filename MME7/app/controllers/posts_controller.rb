@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 	# @post = Post.all
  #    end
 
+
 	#Author Riham Gamal 22-3871
 	# create a new post
 	def createPost
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
 
 	end
 
+
 	# Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# update the post by finding its id and changing the fields
 	# takes the group-id and redirects back to show group
@@ -41,9 +43,7 @@ class PostsController < ApplicationController
 	end
 
 
-	
 
-	  
 
 	  def destroy
 		 @group_id = params[:group_id]

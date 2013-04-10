@@ -1,4 +1,16 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
+<div>
+  <table>
+   <tr >
+    <th>Group name</th>
+    <td><%= @group.group_name %></td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td><%= @group.description %></td>
+    </tr>
+   
+  </table> 
 
 <div>  
   <table>
@@ -14,11 +26,8 @@
    
   </table> 
 
-<<<<<<< HEAD
-
-=======
 <div id = "posts">
->>>>>>> c1_mariam_delete_post_sprint1
+
   <%= render(:partial=> "groups/list") %>
 </div>
 
@@ -47,16 +56,19 @@
      <tr>
     <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
     
-  </tr>
+</tr>
 
-
-
-  </table>
-
-
-
-  <% end %>
-
+</table>
+ <% end %>
  </div> 
  <% end %>
  </div>
+
+     <div>
+ <% if ifMember(params[:id],5)==false %>
+
+ <%= button_to("join",{:controller => 'group_users', :action =>'join', :id => @group_id, :user_id => 5}, :class => 'action show') %>
+                   
+ <% end %>
+
+     </div>
