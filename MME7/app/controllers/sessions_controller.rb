@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+﻿class SessionsController < ApplicationController
   def new
   end
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome to MME7!"
       redirect_to @user, :notice => "Logged in!"
     else
-      flash[:error] = 'Invalid username/password combination'
+      flash[:error] = 'Invalid usern بلانلييتنومملابؤsword combination'
       render 'new'
     end
   end

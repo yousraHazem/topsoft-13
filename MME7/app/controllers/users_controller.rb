@@ -1,8 +1,14 @@
-class UsersController < ApplicationController
+﻿class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
   #show is a method that when you recive the user you find the user with his id
+  #and the list of groups he is in 
 	def show
     @user = User.find(params[:id])
+     @current_user = current_user
+    @groupusers = GroupUser.find(:all, 
+     :conditions => {:user_id => @current_user}, 
+     :order => "group_id ASC")
+
   end
   #Author: Donia Amer Shaarawy 22-0270
   #new just calls on a new record
@@ -22,4 +28,6 @@ class UsersController < ApplicationController
      render "new"
     end
  end
+ 
+ 
 end 

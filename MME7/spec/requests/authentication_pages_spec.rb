@@ -1,4 +1,4 @@
-#Author: Donia Amer Shaarawy 22-0270
+﻿#Author: Donia Amer Shaarawy 22-0270
 #this is for the login and logout requests and pirmission
 require 'FactoryGirl'
 require 'spec_helper'
