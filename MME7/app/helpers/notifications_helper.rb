@@ -1,2 +1,2 @@
-module NotificationsHelper
+﻿module NotificationsHelper
 end
