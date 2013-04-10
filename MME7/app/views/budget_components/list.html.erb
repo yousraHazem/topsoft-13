@@ -4,12 +4,12 @@
 
 <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
 <form action="">
-<fieldset>	
+<fieldset class="header">	
 <legend><h1><%= @name %><div class="progress offset10" id="progressouter">
    <div class="bar" id="progress"></div>
 </div></h1></legend> 
 <h3>Total: <%= @total %></h3> 
-<h4>Spent: <%= @spent %></h4>
+<h6><i class="icon-tint"></i>Spent: <%= @spent %></h6>
 </fieldset>
 </form>
 

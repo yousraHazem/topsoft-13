@@ -1,5 +1,5 @@
 class BudgetComponentsController < ApplicationController
-    	
+  	
 
 	def index
      list
@@ -15,7 +15,8 @@ class BudgetComponentsController < ApplicationController
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		#gets the passed id of the budget item
 		@item = params[:id]
-		@name = params[:name]
+		@name = BudgetItem.find(@item).name
+		@project_id = params[:project_id]
 		#gets all the components of the passed budget item
 		#@components = BudgetComponent.search(params[:search], @item)
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
@@ -56,14 +57,9 @@ class BudgetComponentsController < ApplicationController
 			@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 			@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
-			if @budget_item.update_attributes(:total=>@total,:spent=>@spent)
-			  flash[:notice] = "Item successfully updated"
-		    else
-		       flash[:notice] = "Item unsuccessfully updated"	
-	        end
-            
+			@budget_item.update_attributes(:total=>@total,:spent=>@spent)
+			
             #redirect to the list view after saving
-			flash[:notice] = "Component successfully created"
 			redirect_to(:action=>'list',:id=> @item)
 
 		else
@@ -77,6 +73,7 @@ class BudgetComponentsController < ApplicationController
 		#authorized by: sarah ahmed id=22-1278
 		#gets the passed id of the budget item
 		@item = params[:item_id]
+		@project_id = params[:project_id]
 		#gets the component values
 		@component = BudgetComponent.find(params[:id])
 		#@component = BudgetComponent.find(:all, :conditions=>{:id=>params[:id], :budget_item_id=>@item})
@@ -86,23 +83,19 @@ class BudgetComponentsController < ApplicationController
 		#authorized by: sarah ahmed id=22-1278
 		#gets the budget item of the passed id
 		@item = params[:item_id]
+		@project_id = params[:project_id]
 		@budget_item= BudgetItem.find(@item)
 		# takes the submitted values from the form and creates a new component
 		@component = BudgetComponent.find(params[:id])
 
 		if @component.update_attributes(params[:component])
         #if updating the component attributes was successful,it recalculates the new total and spent amounts of all the budget components,and update the attributes of the associated budget item with these values
-			flash[:notice] = "Component successfully updated"
 			@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 			@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
-            if @budget_item.update_attributes(:total=>@total, :spent=>@spent)
-			   flash[:notice] = "Item successfully updated"
-		    else
-		       flash[:notice] = "Item unsuccessfully updated"	
-	        end
-
-			redirect_to(:action=>'list', :id=> @item)
+            @budget_item.update_attributes(:total=>@total, :spent=>@spent)
+			
+			redirect_to(:action=>'list', :id=> @item , :project_id=>@project_id )
 		else
 	
            render('edit')

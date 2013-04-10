@@ -6,7 +6,9 @@
 	<th>Total Quantity</th>
 	<th>Total Spent</th>
 	<th>Status</th>
+	<% if(isProjectCreator(1, @project_id) == true) %>
 	<th>Action</th>
+	<% end%>
 </tr>
 
 <% @components.each do |component|%>
@@ -19,8 +21,10 @@
 	<td><%= component.spent %></td>
 	<td><%= component.status %></td>
 	<td class="actions">
-      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item},:class=>"btn btn-small")%> 
-	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+		<% if(isProjectCreator(1, @project_id ) == true) %>
+      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
+	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+	    <% end %>
 	</td>
 	
 </tr>
