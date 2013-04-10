@@ -14,7 +14,7 @@ class BudgetItemsController < ApplicationController
 		#@id = params[:id]
 		@budget_item = BudgetItem.new(params[:budget_item])
 		if @budget_item.save
-			redirect_to(:controller => 'projects',:action => 'viewAllBI')
+			redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('new')
 
@@ -32,7 +32,7 @@ class BudgetItemsController < ApplicationController
 
 		@budget_item = BudgetItem.find(params[:id])
 		if @budget_item.update_attributes(params[:budget_item])
-			redirect_to(:controller => 'projects',:action => 'viewAllBI')
+			redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('edit')
 
