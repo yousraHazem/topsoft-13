@@ -1,5 +1,5 @@
 
-<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+<%= link_to("<< روجوع", {:action => 'list'}, :class => 'back-link') %>
 
 <div>
   
@@ -9,26 +9,21 @@
 
     <table>
       <tr>
-        <th>Title</th>
+        <p class= "text-center">
+        <th>عنوان</th>
         <td><%= t.text_field(:title) %></td>
       </tr>
       <tr>
-        <th>Social_profile_info</th>
+        <th>معلومات عن المجتمع </th>
         <td><%= t.text_field(:social_profile_info) %></td>
       </tr>
       <tr>
-        <th>Contact info</th>
+        <th>الارقام</th>
         <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
-<<<<<<< HEAD
-    
-   <button class="btn btn-success" type="submit">Submit</button>
-
-=======
     <p class="text-center">
-<button class="btn btn-success" type="submit">تحديث </button>
+<button class="btn btn-success" type="submit">تحديث</button>
     </p>
->>>>>>> c1_mariam_edit_community_sprint1
   <% end %>
 </div>
