@@ -131,7 +131,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-
   best_in_place
   bootstrap-sass
   carrierwave

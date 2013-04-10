@@ -3,10 +3,15 @@
     <% @postlist.each do |post| %>
     <tr>
      <td> <%= post.content %></td>
+
       <td>
+      	  <% if isPostCreator(5,post.id) %>
+      	<%= best_in_place post, :content, :path => {:controller => 'posts', :action => 'updatePost', :id => post.id} %>
         <% end %>
         
       </td>
+        <% end %>
     </tr>
   
   </table>
+
