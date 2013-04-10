@@ -87,5 +87,8 @@ MME7::Application.routes.draw do
 resources :posts do
   resources :comments
 end
+get "/CommentsController/destroy"
+#POST "/posts/45/comments/46"
+
 
 end

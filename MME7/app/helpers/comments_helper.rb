@@ -4,9 +4,8 @@ module CommentsHelper
 
 	
 
-	def isCommentCreator(current_user)
-        Comment.where(:user_id => current_user).exists?  
-
+	def isCommentCreator(user_id, comment_id)
+        Comment.where(:user_id => user_id, :comment_id => comment_id).exists?
     end 
  
 

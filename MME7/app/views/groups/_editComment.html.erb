@@ -1,0 +1,21 @@
+
+	<%= form_for(:comment, :url=>{:action=>'updateComment', :comment_id=> params[:c_id]}) do |f| %>
+	
+
+	<table summary = "The Comment">
+		
+		<tr>
+			<th><%= f.label(:comment, "Comment")%></th>
+			<td><%= f.text_field(:comment) %></td>
+       </tr>
+
+	</table>
+	
+
+	<div class="form-buttons">
+		<%= submit_tag("Update Comment") %>
+	</div>
+
+	<% end %>
+
+</div>

@@ -32,11 +32,11 @@
         <% end %>
 
         <% if ifMember(@group.id, 1) == true && isGroupCreator(@group.id, 1) != true %>
-        <%= button_to("leave Group",{:helper => 'group_users', :action =>'leave', :id => @group.id}, :class => 'action show') %>               
+        <%= button_to("leave Group",{:helper => 'group_users', :action =>'leave', :id => @group.id}, :confirm => 'Are you sure you want to leave this group?', :class => 'action show') %>               
         <% end %>
 
         <% if isGroupCreator(@group.id, 1) == true %>
-        <%= button_to("Delete Group", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'Are you sure you want to delete this group?', :class => 'action delete') %>
+        <%= button_to("Delete Group", {:action => 'destroy', :id => @group.id}, :confirm => 'Are you sure you want to delete this group?', :class => 'action delete') %>
         <% end %>
       </div>
 </div>
@@ -45,19 +45,7 @@
 <div id = "allpostsborder">
   <% @group.posts.each do |post| %>
     <b id = "postaya">Post: <%= post.content %></b>
-    <% post.comments.each do |comment| %>
-    <p><%= comment.comment %></p>
-    <p><%= button_to("delete comment", {:action => 'destroy', :id => comment.id}, :controller => CommentsController, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
-    <%= button_to("edit comment", {:action => 'updateComment', :id => comment.id}, :controller => CommentsController, :class => 'action edit') %></p>
-    <% end %>
-
-  <% if ifMember(params[:id],1)==true %>
-    <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :id => params[:id]}) do |f| %>
-    <td><%= f.text_field (:comment), :placeholder =>"leave your comment" %></td>
-    <%= f.hidden_field :post_id, :value => post.id%>
-    <th><%= submit_tag("leave a Comment") %></th>
-    <% end %>
-    <% end %>
+    <div><%= render :partial => "listcomments", :locals => {:post => post} %></div>
   <% end %>
 </div>
 

@@ -34,8 +34,6 @@ include GroupUsersHelper
     # creates new group and if saved into db it creates a new record in GroupUser
     # with currend user_id & and current group_id then sets att. isCreator = true since he's the creator
     def create
-        #@community = Community.find(params[:post_id])
-        #@group = @community.groups.create(params[:comment])
         @group = Group.new(params[:group])
         if @group.save
             @m = GroupUser.new(:group_id => @group.id, :user_id => 1)

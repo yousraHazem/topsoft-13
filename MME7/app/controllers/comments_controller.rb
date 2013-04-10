@@ -7,24 +7,21 @@ class CommentsController < ApplicationController
   #redirection changed to
   def createComment
     @comment = Comment.new(params[:comment])
-    #Author Riham Gamal 22-3871
-    # if the comment is saved, 
+    @comment.user_id = 1 
     if @comment.save
-      flash[:notice] = "Comment successfully created"
-      redirect_to(:controller => 'groups',:action => 'show', :id => params[:id])
-      #redirect_to(:controller => 'groups',:action => 'show', :id => @group_id)
-      #Author Riham Gamal 22-3871
-      # if the comment is not saved, 
+      respond_to do |format|
+      format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+      format.js
+    end 
     else
-      flash[:notice] = "Comment could not be created"
-      render('newComment')
+      redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
     end
   end
 
   # Riham Gamal 22-3871
-  def editComment
-    @comment = Comment.find(params[:comment_id])
-  end
+  #def editComment
+   #@comment = Comment.find(params[:comment_id])
+  #end
 
   # Riham Gamal 22-33871
   # update the comment by finding its id and chnaging the fields
@@ -32,13 +29,14 @@ class CommentsController < ApplicationController
   # Author: Sama Akram 22-555 
   # redirection updates
   def updateComment
+    @group.id = params[:group_id]
     @comment = Comment.find(params[:comment_id])
     if @comment.update_attributes(params[:comment])
       flash[:notice] = "Comment successfully updated"
-      redirect_to(:controller => 'groups',:action => 'show', :id => params[:id])
+      redirect_to(:controller => 'groups',:action => 'show', :group_id => @group.id)
     else
       flash[:notice] = "Comment could not be updated"
-      render("editComment")
+      render("_editComment")
     end
   end
   
@@ -55,9 +53,9 @@ class CommentsController < ApplicationController
   # Author: Sama Akram 22-555 
   # updated the redirection
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:comment_id])
     @comment.destroy
-    redirect_to(:controller => 'groups', :action => 'show', :id => @group.id)
+    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
   end
 
   # Salma El -Ruby 22-4649
