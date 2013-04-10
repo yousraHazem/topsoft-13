@@ -1,4 +1,4 @@
-class BudgetItem < ActiveRecord::Base
+﻿class BudgetItem < ActiveRecord::Base
 
    attr_accessible :name , :status , :operational , :task_id , :budget_id , :total , :spent , :project_id
 

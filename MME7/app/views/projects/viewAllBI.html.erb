@@ -28,6 +28,8 @@
  		<th>Status    </th>
  		<th>Total     </th>
  		<th>Spent     </th>
+        <th>Edit      </th>
+        <th>Delete     </th>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
@@ -36,16 +38,20 @@
  		<td><%= budgetitem.status %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
+    <td><%= link_to("edit", {:controller => 'budget_items',:action=>'edit', :id=>budgetitem.id})%></td>
+    <td><%= link_to("create budget component", 
+    {:controller => 'budget_components', :action=>'list', :id=>budgetitem.id})%></td>
  		</tr>
  	<% end %>
  	</table>
+    <td><%= link_to("create new budget item", {:controller => 'budget_items',:action=>'create'})%></td>
  	</br>
  	</br>
  </br>
     <div>
       <script>
         var now = new Date();
-        document.write('<div>Date: '+now+'</div>');
+        document.write('<div> Date: '+now+'</div>');
         $.each(testPatterns,function(){
           document.write('<div>'+this+'='+$.formatDate(now,this)+'</div>');
         });

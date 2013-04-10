@@ -1,4 +1,4 @@
-<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
 	<h2>Create Budget Item</h2>
 	<%= form_for(:budget_item, :url=>{:action=>'create' , :project_id => @project }) do |f| %>
@@ -9,4 +9,3 @@
 </p>
 <% end %>
 </div>
-

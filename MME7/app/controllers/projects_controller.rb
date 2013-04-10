@@ -32,6 +32,7 @@ end
 
 # authorized by sarah ahmed id:22-1278
 #gets the project that need to be edited
+
 def edit
 		@project = Project.find(params[:id])
 		
@@ -49,5 +50,7 @@ def edit
            render('edit')
 		end
 	end
-	
+
+
+
 end

@@ -72,6 +72,14 @@ $(function() {
     });
 });
 
+$(function() {
+    $("#new-item").click(function(){
+        $("#item-form").toggle("slow");
+    });
+});
+
+
+
 jQuery.ajaxSetup({
    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })

@@ -1,11 +1,11 @@
-<%= flash[:notice] %>
-
+﻿<%= flash[:notice] %>
+<div class = "offset1">
 <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
 <div class="project show">
 
-    <h2>Show Projects</h2>
-
+    <h2>Show Projects <span class="offset8"><%= link_to("view budget",{:controller=>'budget_items',:action=>'list', :project_id=> @project.id}) %></span>
+</h2>
     <table summary="Project detail view">
   
  	 <tr >
@@ -38,5 +38,7 @@
  	 </tr>
  	
     </table>
-    <td><%= link_to("view operational budget items",{:controller=>'budget_items',:action=>'list', :project_id=> @project.id}) %></td>
+    </br>
+    </br>
+</div>
 </div>

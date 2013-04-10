@@ -1,6 +1,6 @@
-<% @page_title = "Subjects List"%>
+﻿<% @page_title = "Subjects List"%>
 <%= flash_message %>
-
+<%= link_to("Back to list", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %>
 
 <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
 <form action="">

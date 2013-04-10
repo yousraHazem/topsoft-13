@@ -1,4 +1,4 @@
-class Project < ActiveRecord::Base
+﻿class Project < ActiveRecord::Base
 
   attr_accessible  :name , :start_date , :end_date , :description , :private_or_public , :admin_or_member
 

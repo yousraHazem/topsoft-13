@@ -1,4 +1,4 @@
-class BudgetComponentsController < ApplicationController
+﻿class BudgetComponentsController < ApplicationController
   	
 
 	def index
@@ -129,7 +129,7 @@ class BudgetComponentsController < ApplicationController
 	    end
 
 	    flash[:notice] = "Component successfully destroyed"
-        redirect_to(:action=>'list',:id=> @item)
+        redirect_to(:action=>'list',:id=> @item , :project_id=>@project_id)
 	    end
 
     end

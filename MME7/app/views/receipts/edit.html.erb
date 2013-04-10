@@ -1,4 +1,4 @@
-<%= render(:partial => 'shared/error_messages' , :locals => {:object => @receipt}) %>
+﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @receipt}) %>
 <div> 
 	<h2>Update Receipt</h2>
 	<%= form_for(:receipt, :url=>{:action=>'update' , :id => @receipt.id}) do |f| %>

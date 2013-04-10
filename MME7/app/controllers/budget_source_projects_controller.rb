@@ -1,4 +1,4 @@
-class BudgetSourceProjectsController < ApplicationController
+﻿class BudgetSourceProjectsController < ApplicationController
 	def addamount 
 		@id = params[:id]
 		@budgets = BudgetSourceProject.where(:budget_source_id => params[:id])

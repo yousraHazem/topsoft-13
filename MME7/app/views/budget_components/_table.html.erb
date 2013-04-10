@@ -1,12 +1,12 @@
- <table  class="table pagination" id="table-components">
+﻿ <table  class="table pagination" id="table-components">
 <tr class="header">
-	<th>Name</th>
-	<th>Unit Price</th>
-	<th>Quantity Purchased</th>
-	<th>Total Quantity</th>
-	<th>Total Spent</th>
-	<th>Status</th>
-	<th>Action</th>
+	<th>إسم</th>
+	<th>سعر الوحدة</th>
+	<th>الكمية المشترة</th>
+	<th>إجمالي الكمية</th>
+	<th>المدفوع</th>
+	<th>الحالة</th>
+	<th>فعل</th>
 </tr>
 
 <% @components.each do |component|%>
@@ -20,12 +20,12 @@
 	<td><%= component.status %></td>
 	<td class="actions">
 		<% if(isProjectCreator(1, @project_id ) == true) %>
-      <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
-	  <%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
-	  <%= link_to("add attachement", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
-	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+      <%= link_to("تعديل", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
+	  <%= link_to("إلغاء", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"Are you sure?", :id=>"delete",:class=>"btn btn-danger btn-small")%>
+	  <%= link_to("إضافة وصل", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
+	  <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
 	   <%else%>
-	  <%= link_to("view attachement",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+	  <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
         <% end %>
 	</td>
 	

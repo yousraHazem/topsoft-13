@@ -1,4 +1,4 @@
-class Receipt < ActiveRecord::Base
+﻿class Receipt < ActiveRecord::Base
 
   attr_accessible :budget_component_id, :image , :name
 

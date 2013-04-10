@@ -1,4 +1,4 @@
-<table>
+﻿<table>
 <tr>
 <th><%= f.label(:Name) %></th>
 <td><%= f.text_field(:name)%></td>
@@ -17,7 +17,6 @@
   <th><%= f.label(:task_id, "Task:")%></th>
   <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
   </tr>
-
 <tr> 
 <td><%= f.hidden_field :project_id , :value=> @project %></td>
 </tr>

@@ -1,4 +1,4 @@
-module GroupUsersHelper
+﻿module GroupUsersHelper
    #Author: Donia Amer Shaarawy 22-0270 
    #this is a method that shows if the current user the person 
    #who is loged in is the creator of the group or not.
