@@ -14,7 +14,45 @@
    
   </table> 
 
-<div id = "posts">
-  <%= render(:partial=> "list") %>
+
+  <%= render(:partial=> "groups/list") %>
 </div>
 
+
+     <div>
+ 
+
+    <% if ifMember(params[:id],5)==true %>
+ 
+
+  <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}, :html => {:id => "post-form"}) do |f| %>
+
+
+  <%= error_messages_for(@post) %>
+
+
+  <table class="table table-striped">
+    
+
+    <tr>
+      <td><%= f.text_field (:content) %>
+      <button class="btn btn-success" type="submit">Post</button>
+      </td>
+    </tr>
+
+     <tr>
+    <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
+    
+  </tr>
+
+
+
+  </table>
+
+
+
+  <% end %>
+
+ </div> 
+ <% end %>
+ </div>

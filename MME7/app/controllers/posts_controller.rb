@@ -12,26 +12,21 @@ class PostsController < ApplicationController
 	# @post = Post.all
  #    end
 
- 
-
-	#Author Riham Gamal 22-3871
+	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
 	def createPost
 		@post = Post.new(params[:post])
-
-		#Author Riham Gamal 22-3871
-		# if the post is saved, 
 		if @post.save
-			flash[:notice] = "Post successfully created"
-			redirect_to(:action => 'newPost')
-		#Author Riham Gamal 22-3871
-		# if the post is not saved, 
+			respond_to do |format|
+				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
+				format.js
+		end
 		else
-			flash[:notice] = "Post could not be created"
-			render('newPost')
+			redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
 		end
 
 	end
+
 
 
 	# Riham Gamal 22-3871, Mariam Ismail 22-3456
@@ -40,7 +35,8 @@ class PostsController < ApplicationController
 
 
 	
-	# Riham Gamal 22-3871, Mariam Ismail 22-3456
+
+	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
 	# takes the group-id and redirects back to show group
 
@@ -63,8 +59,6 @@ class PostsController < ApplicationController
 		# displays all available posts 
 	    def list 
 		@post = Post.all
-	    end
-
-		
+	    end	
 
 end
