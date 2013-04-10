@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.purr
-//= require best_in_place
 //= require_tree .
 
+
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { crossDomain: false , prePopulate: $('#budget_source_project_tokens').data('pre') , theme: 'facebook'});
+});
 
 $(function() {
     $("#price, #total").keyup(function() {
@@ -46,14 +48,16 @@ $(function() {
 
 $(function(){
   $("#search input").keyup(function (){
-    $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
+     $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
+     });
 
+});
 $(function(){
  $("#Budget-serach input").keyup(function (){
     $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
-    return false;
-  });
-});
+     return false;
+        });
+ });
 
 $(function(){
     var p = $("#data").val();
@@ -76,5 +80,4 @@ $(function() {
       $("#grp").slideToggle();   
     });
 });
-
 

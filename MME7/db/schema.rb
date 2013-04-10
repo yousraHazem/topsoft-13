@@ -12,6 +12,7 @@
 # It's strongly recommended to check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130404210641) do
 
   create_table "budget_components", :force => true do |t|
@@ -24,14 +25,26 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.string   "name"
     t.integer  "total_quantity"
 >>>>>>> c3_sarah_budget_sources
+=======
+ActiveRecord::Schema.define(:version => 20130408114151) do
+
+  create_table "budget_components", :force => true do |t|
+    t.string   "name"
+    t.integer  "total_quantity"
+>>>>>>> C3_yasmin_budget
     t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
     t.integer  "total"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
+<<<<<<< HEAD
     t.integer  "quantity_purchased", :default => 0
     t.integer  "spent"
+=======
+    t.integer  "spent"
+    t.integer  "quantity_purchased", :default => 0
+>>>>>>> C3_yasmin_budget
   end
 
   create_table "budget_items", :force => true do |t|
@@ -42,9 +55,15 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+<<<<<<< HEAD
     t.integer  "total"
     t.integer  "spent"
     t.integer  "project_id"
+=======
+    t.integer  "spent"
+    t.integer  "project_id"
+    t.integer  "total"
+>>>>>>> C3_yasmin_budget
   end
 
   create_table "budget_items_users", :id => false, :force => true do |t|
@@ -53,11 +72,19 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
   end
 
   create_table "budget_source_projects", :force => true do |t|
+<<<<<<< HEAD
     t.integer  "budget_source_id"
     t.integer  "project_id"
     t.integer  "amount"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+=======
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "amount"
+    t.integer  "budget_source_id"
+    t.integer  "project_id"
+>>>>>>> C3_yasmin_budget
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -67,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   create_table "budget_sources_projects", :id => false, :force => true do |t|
@@ -86,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
   end
 
 >>>>>>> c3_sarah_budget_sources
+=======
+>>>>>>> C3_yasmin_budget
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -100,6 +130,11 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "communities_projects", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "project_id"
   end
 
   create_table "group_users", :force => true do |t|
@@ -153,11 +188,18 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
   end
 
   create_table "receipts", :force => true do |t|
+<<<<<<< HEAD
+=======
+    t.string   "name"
+>>>>>>> C3_yasmin_budget
     t.integer  "budget_component_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "image"
+<<<<<<< HEAD
     t.string   "name"
+=======
+>>>>>>> C3_yasmin_budget
   end
 
   create_table "tasks", :force => true do |t|
@@ -167,6 +209,7 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "assigned"
+<<<<<<< HEAD
     t.string   "title"
 =======
     t.datetime "created_at",                     :null => false
@@ -174,20 +217,24 @@ ActiveRecord::Schema.define(:version => 20130403194706) do
     t.string   "title"
     t.boolean  "assigned",    :default => false
 >>>>>>> c3_sarah_budget_sources
+=======
+>>>>>>> C3_yasmin_budget
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name", :limit => 20
-    t.string   "last_name",  :limit => 50
+    t.string   "name"
     t.string   "email"
-    t.string   "phone_Nr",   :limit => 15
+    t.string   "phone_Nr"
     t.string   "address"
-    t.string   "username",   :limit => 20
-    t.string   "password",   :limit => 10
-    t.boolean  "isAdmin"
-    t.integer  "task_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "username"
+    t.boolean  "isAdmin",         :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

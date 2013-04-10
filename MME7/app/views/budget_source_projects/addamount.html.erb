@@ -1,0 +1,23 @@
+<% @page_title = "Budget_Source List"%>
+
+
+
+<div>
+	<%= form_for(:budget_source_project, :url=>{:action=>'create' , :id => @id}) do |f| %>
+	<h2>Project Amount</h2>
+
+ <table>
+<tr>
+	<th>Project</th>
+	<th>Amount</th>
+</tr>
+<% @budgets.each do |budget_source_project|%>
+<tr>
+<td><%= budget_source_project.project.name %></td>	
+<td><%= f.text_field(budget_source_project.project.id) %></td>
+</tr>
+<%end%>
+</table>
+<td><%= f.submit %></td>
+<% end %>
+</div>

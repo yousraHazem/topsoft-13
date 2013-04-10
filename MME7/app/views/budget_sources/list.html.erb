@@ -1,0 +1,40 @@
+<% @page_title = "Budget_Source List"%>
+
+
+
+<div>
+	<h2>Budget Sources</h2>
+    
+	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
+       <i class="icon-plus icon-white"></i>
+      <% end %>
+
+
+ <table>
+<tr>
+	<th>Name</th>
+	<th>Amount</th>
+	<th>Project</th>
+	<th>Project Amount</th>
+	<th>Action</th>
+	
+	
+</tr>
+<% @budget_sources.each do |budget_source|%>
+<tr>
+	<td><%= budget_source.name %></td>	
+<td><%= budget_source.amount %></td>
+<td><div><% budget_source.budget_source_projects.each do |budget_source| %>
+ <%= budget_source.project.name%> <%= budget_source.amount%> </td>
+		
+<%end%>
+
+</div>
+<td><%= link_to("edit", {:action => 'edit', :id => budget_source.id}, :popup => true) %></td>
+<td> <%= link_to "Delete", {:action => 'destroy', :id => budget_source.id},:confirm => "Are you sure you want to delete this budget source?" %></td>
+<td><%= link_to("Add Contribution to project", {:controller => 'budget_source_projects' , :action => 'addamount', :id => budget_source.id}) %></td>
+</tr>
+<%end%>
+</table>
+
+</div>

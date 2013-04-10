@@ -20,5 +20,5 @@ validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_
 #   end
 # end
 
-
+  has_many :receipts
 end

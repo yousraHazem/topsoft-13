@@ -1,8 +1,9 @@
 class BudgetSource < ActiveRecord::Base
-  attr_accessible :name, :amount
- # has_and_belongs_to_many :projects
-  has_many :budget_source_projects 
+
+ attr_accessible :name, :amount , :project_tokens
+    has_many :budget_source_projects
   has_many :projects , :through => :budget_source_projects
+   attr_reader :project_tokens
 
 
 def self.search(search)
@@ -12,5 +13,8 @@ def self.search(search)
     find(:all)
   end
 end
-
+  
+  def project_tokens=(ids)
+    self.project_ids = ids.split(",")
+  end
 end

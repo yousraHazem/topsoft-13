@@ -1,9 +1,13 @@
 ﻿class ProjectsController < ApplicationController
 
 # Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
-def list
-	@projects = Project.all
-end
+def index
+    @projects = Project.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.map(&:attributes) }
+    end
+  end
 # Author : Nayera Mohamed 22-3789 , this method shows the projects  occuring
 def show
 	@project = Project.find(params[:id])
