@@ -1,5 +1,28 @@
 class TasksController < ApplicationController
  
+  #Author salma el ruby 22-4649
+  # create a new task
+  def new
+  @task = Task.new
+end
+ #Author salma el ruby 22-4649
+  # create a new task
+
+def create
+  @project_id = params[:id]
+  @task=Task.new(params[:task])
+  @task.project_id = params[:id]
+
+   if @task.save
+    flash[:notice]= "task created"
+    redirect_to(:controller => 'tasks',:action => 'taskList', :id => params[:id])
+
+    else
+       render('new')
+    end
+
+end
+
 # Author: Salma El -Ruby 22-4649
 # this method takes input parameter the project_id and returns all ids of members in the project that are not assigned to the task id taken from users 
   
@@ -30,14 +53,20 @@ class TasksController < ApplicationController
   # this method takes the task-id as the input parameter and deletes the record from the data base after the user confirms the delete 
    def destroy
     Task.find(params[:id]).destroy
-     redirect_to(:controller => 'tasks',:action => 'index', :id => params[:project_id])
+     redirect_to(:controller => 'tasks',:action => 'taskList', :id => params[:project_id])
    
   end
 
   # Author: Salma El -Ruby 22-4649
   # displays the available comments
       def index
-    @task=Task.where(:project_id => params[:id])
+      @project_id = (params[:id])
+      @task=Task.where(:project_id => params[:id])
+      end
+
+      def taskList
+        @project_id = (params[:id])
+        @task=Task.where(:project_id => params[:id])
       end
 
 
@@ -55,7 +84,7 @@ class TasksController < ApplicationController
     # Update the object
     if @task.update_attributes(params[:task])
       # If update succeeds, redirect to the list action
-      redirect_to(:controller => 'tasks',:action => 'index', :id => params[:project_id])
+      redirect_to(:controller => 'tasks',:action => 'taskList', :id => params[:project_id])
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')

@@ -35,6 +35,6 @@
  		<td><%= @project.admin_or_member %></td>
  	 </tr>
  	
-        <b> <%= link_to "tasks", {:controller => 'tasks',:action => 'index', :id => @project.id} %></b>
+        <b> <%= link_to "tasks", {:controller => 'tasks', :action => 'taskList', :id => @project.id} %></b>
     </table>
 </div>
