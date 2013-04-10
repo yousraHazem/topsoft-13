@@ -7,7 +7,7 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
 	<h2>Update Budget Item</h2>
-	<%= form_for(:budget_item, :url=>{:action=>'update' , :id => @budget_item.id , :task_id=>@task_id}) do |f| %>
+	<%= form_for(:budget_item, :url=>{:action=>'update' , :id => @budget_item.id , :task_id=>@task_id , :project_id =>@project}) do |f| %>
     <%= render(:partial=>'budget', :locals=>{:f=>f}) %>
 </br>
 <p>

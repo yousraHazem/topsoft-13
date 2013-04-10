@@ -2,16 +2,20 @@
 <% @page_title = "Budget Item"%>
 <form action="">
 <fieldset>
-<legend><h1>Budget</h1></legend>
+<legend><h2>Budget of Project: <%= @project_name.name %></h2></legend>
 <h3>Total Budget: <%= @total_budget %></h3> 
-<h4>Total Spent: <%= @total_spent %></h4>
+<h6><i class="icon-tint"></i>Total Spent: <%= @total_spent %></h6>
+
 <h6><i class="icon-tint"></i>Total Raised: <%= @raised %></h6>
 </fieldset>
 </form>
 <hr>
-<%= link_to({:action=>'new' , :id => params[:id]}, class: "btn btn-success") do %>
+<%= link_to({:action=>'new' , :project_id => params[:project_id]}, class: "btn btn-success") do %>
     <i class="icon-plus icon-white"></i>
       <% end %>
+ <% if @items.blank? %>
+<p>There are no current budget items </p>
+<% end %>
  <table class="table" summary="Subject List">
 <tr class="header">
 	<th>Name</th>
@@ -23,7 +27,7 @@
 	<td><%= item.name %></td>
 
 	<td class="actions">
-		<%= link_to("Edit", {:action=>'edit' ,:id=>item.id},:class=>"btn btn-small")%>
+		<%= link_to("Edit", {:action=>'edit' ,:id=>item.id , :project_id => item.project_id},:class=>"btn btn-small")%>
 		<%= link_to("View", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>	
 	</td>
 	
