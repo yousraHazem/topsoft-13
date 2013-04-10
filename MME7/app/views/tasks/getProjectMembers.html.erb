@@ -1,0 +1,59 @@
+  <h2>Assign task</h2>
+    <h4>Member List</h4>
+
+
+
+<%= form_for(:task, :url => {:action => 'assign', :id => params[:project_id] , :task_id => params[:id] }) do |f| %>
+
+
+
+    
+<p>
+  <%= f.label :user_tokens, "Members in project" %><br />
+  <%= f.text_field :user_tokens %>
+
+</p>
+<p> <%= f.submit %>
+    <% end %>
+
+  
+<% flash[:notice] %>
+    
+      <h1>Members Already assigned to this task</h1>
+      
+    </tr>
+    <% @assignedppl.each do |p| %>
+      <tr>
+        <td> 
+          <%= p.user.name %>
+           <br/>
+        </td>
+      </tr>
+    <% end %>
+  
+</p>
+
+
+ <table>
+    <tr>
+      
+      <h1>Select from the following members</h1>
+      
+    </tr>
+    <% @notassigned.each do |p| %>
+      <tr>
+        <td> <%= p.user.name %></td>
+           <p>
+  
+
+</p>
+     <td>
+  <b> <%= link_to " Assign ", {:controller => 'users' ,:action => 'assign', :id => params[:project_id] , :task_id => params[:id] , :user_id =>p.user.id} , :confirm => "Are you sure you want to assign this person to the task?" %></b>  
+     </td>
+<% end %>
+      
+</tr>
+
+  
+
+</table>

@@ -1,0 +1,21 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="post edit">
+  <h2>Update post</h2>
+
+  <%= form_for(:task, :url => {:action => 'update', :id =>params[:id], :project_id => params[:project_id]}) do |f| %>
+  
+    <table>
+      <tr>
+        <th>task</th>
+        <td><%= f.text_field(:description) %></td>
+      </tr>
+    
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Update task") %>
+    </div>
+    
+  <% end %>
+</div>

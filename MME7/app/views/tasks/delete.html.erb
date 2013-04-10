@@ -1,0 +1,10 @@
+  <h2>Delete task</h2>
+  
+   
+
+  <%= form_for(:task, :url => {:action => 'destroy', :id => @task.id, :project_id => params[:id]}) do |f| -%>
+    <div >
+      <%= submit_tag("Delete Task") %>
+    </div>
+    
+  <% end %>
