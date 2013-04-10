@@ -3,6 +3,7 @@ class BudgetItemsController < ApplicationController
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
 		@items = BudgetItem.all
+		@raised = BudgetSourceProject.sum(:amount , :conditions{:project_id => params[:id]})
 	end 
 # Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
 	def new 
