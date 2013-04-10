@@ -1,0 +1,24 @@
+
+<table class="table table-striped">    
+	<% @postlist.each do |post| %>
+    <tr>
+    <table class="table table-striped">
+      <% if isPostCreator(5,post.id) %>
+        <%= best_in_place post, :content, :path => {:controller => 'posts', :action => 'updatePost', :id => post.id} %>
+
+    <%= form_for(:post, :url=>{:controller => 'posts',:action=>'destroy', :id=>post.id, :group_id => @group_id}) do |f| %>
+    <button type= "submit" class="btn btn-success">x</button>
+     <% end %>     
+
+
+        
+        <%else%>
+        <%= post.content %>
+ 
+
+  
+      <%end%>
+    </tr>
+    </table>
+    <% end %>
+

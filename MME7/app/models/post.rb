@@ -5,6 +5,9 @@ class Post < ActiveRecord::Base
 	belongs_to :project
 	belongs_to :group 
 
+	validates_presence_of :content
+
+
 end
 
  	def  self.getcomments (p_id)

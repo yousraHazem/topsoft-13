@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
 jquery.ajaxSetup({
 	'beforeSend' : function(xhr) {xhr.sendRequestHeader("Accept","text/javascript")}
 })
