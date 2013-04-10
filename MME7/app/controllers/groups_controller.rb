@@ -1,7 +1,16 @@
 class GroupsController < ApplicationController
 
+
+    #def index
+       # @groups = Group.order("groups.id")
+
+    # May Atef Badr 22-0579
+    # this method lists the groups 
+    #and if user uses the search, it will filter the list
     def index
-        @groups = Group.order("groups.id")
+        #@groups = Group.order("groups.group_name ASC")
+        @groups=Group.search(params[:search])
+   
     end
 
     # Author: Sama Akram 22-555 As a system I can delete a group, destroying method

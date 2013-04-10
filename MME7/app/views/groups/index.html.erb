@@ -1,27 +1,22 @@
 
+
+<%= link_to("<< Back to home", {:action => 'home'}, :class => 'back-link') %>
+</br>
 <%= flash[:notice] %>
 
 <h1>Groups</h1>
 
 <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
 
+<%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
+    <p> 
+    	<%= text_field_tag :search, params[:search]%>
+        <%= submit_tag "Search", :name => nil %>
+    </p>  
+<%end%>
 
-<table>
-    <tr>
-      <th>Group ID</th>
-      <th>Group Name</th>
-      <th>Actions</th>
-    </tr>
+<div id= "table"><%= render'table' %><div>
 
-    <% if @groups %>
-      <% @groups.each do |group| %>
-      <tr>
-          <td><%= group.id %></td>
-          <td><%= group.group_name %></td>
-          <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-      </tr>
-      <% end %>
-    <% end %>
-</table>
+
 
 
