@@ -9,13 +9,6 @@ describe PostsController do
   def invalid_attributes
    {:content => ""}
   end
- describe "GET edit" do
-    it "assigns the requested post as @post" do
-     post = Post.create! valid_attributes
-      get :editPost, {:id => post.to_param}
-      assigns(:post).should eq(post)
-    end
-  end
 
   describe "PUT update" do
     describe "with valid params" do
