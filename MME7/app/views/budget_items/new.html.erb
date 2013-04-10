@@ -1,21 +1,11 @@
-<div class="subject new">
-	<h2>New Item</h2>
-	<%= form_for(:budget_item, :url=>{:action=>'create'}) do |f| %>
-	
-     <table summary = "subject form fields">
-    <tr>
-    <input type="checkbox" id="check" name="vehicle" value="Bike">Connect to a task<br>
-    </tr>
-
-    <tr id = "connect" style="display:none;">
-	  <th><%= f.label(:task_id, "Task:")%></th>
-	  <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id] } , {:include_blank=>true }) %></td>
-    </tr>
-
-	</table>
-
-
-	<div><%= submit_tag("Create Subject")%></div>
+<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+<div> 
+	<h2>Create Budget Item</h2>
+	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project}) do |f| %>
+	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
+</br>
+<p>
+<td><%= f.submit %></td>
+</p>
 <% end %>
-
 </div>
