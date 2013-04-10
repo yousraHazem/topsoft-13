@@ -1,19 +1,19 @@
-   <% @sources.each do |source|%>
- <div class="sources">
-
- <fieldset>
-<legend><%= source.name%><span class="offset11">Amount:<%= source.amount%></span></legend>
-    <div id="grp" style="display:none;">
-    <h4>Projects: </h4> 
-    <% source.budget_source_projects.each do |s| %>
-	<span class="offset1"><%= link_to("#{s.project.name}",{:controller=>"projects",:action=>'show',:id=>s.project_id})%> <span><span class="offset6">amount :<%= s.amount %></span>
-	</br>
-	<%end%></div><br>
-</fieldset>
-
-</div>
-	  
-<%end%>
 
 
-<a id="p" href="#"><i id="icon" class="icon-chevron-down"></i></a>
+
+<p class="pull-right"></p><% @sources.last(5).each do |source| %>
+
+       <h4><i class="icon-tint"> </i> <%= source.name %> <%= source.amount%><span class="pull-right"> <%= link_to("#{source.budget_source_projects.size} projects",{:action=>'show', :source_id=> source.id}, :id=>"show-more" , :class=>'more-results')%></span></h4>
+        <div class="sources">
+        <% if source.budget_source_projects.size != 0 %>
+		<% source.budget_source_projects.each do |s| %> 
+		<%= link_to("#{s.project.name}",{:controller=>"projects",:action=>'show',:id=>s.project_id})%>
+	    amount:<%= s.amount %><br> <br>
+	    <%end%> <hr>
+	    <%else%>
+	    No contributions yet <br><br> 
+	    <%end%>
+		</div>
+		<%end%> 
+
+

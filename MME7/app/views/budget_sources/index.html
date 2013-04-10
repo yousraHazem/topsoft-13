@@ -1,23 +1,23 @@
 <br>
 <br>
 <br>
-<h1> Budget Sources</h1>
-
-<%= form_tag( 'index', :method => 'get', :id=>"Budget-serach", :remote=>true) do %>
-  <p class="offset12">
-  	<button type="submit" class="btn btn-info">
-    <i class="icon-search"></i> Search
-    </button>
-    <%= text_field_tag :search, params[:search] , :class=>"input-medium" %>
-    
-   
-  </p>
-<% end %>
+<h1 class="offset1"> Budget Sources</h1>
+<div class="offset1">
+<span><%= form_tag( 'index', :method => 'get', :id=>"Budget-serach", :remote=>true) do %>
+ <div class="input-append">
+ <%= text_field_tag :search, params[:search] , :class=>"span2" , :id=>"appendedInputButton" , :type=>"text" %>
+  <button class="btn" type="submit"><i class="icon-search"></i></button>
+ <% end %></span>
+</div>
+</div>
 
  <div id="sources-table">
  	<%= render 'table' %>
 
  </div>
+
+
+
 
 
 
