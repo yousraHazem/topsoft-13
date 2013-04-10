@@ -16,8 +16,16 @@
 <td><%= f.check_box(:operational)%></td>
 </tr>
 </br>
+<th>assign a user:</th>
+<td>
+	<% for user in User.find(:all) %>
+	<div>
+	<%= check_box_tag "@budget_item[users][]", user.id, @budget_item.users.include?(user) %>
+	<%= user.name %>
+	</div>
+	<% end %>
+</td>
 </table>
-</br>
 <p>
 <td><%= f.submit %></td>
 </p>
