@@ -1,10 +1,5 @@
 class PostsController < ApplicationController
- 	# Riham Gamal 22-3871
- 	# add a new post 
-	def newPost
-		@project_id = params[:id]
-		@post = Post.new
-	end
+	
 
 	#Author Riham Gamal 22-3871
 	# create a new post
@@ -22,7 +17,6 @@ class PostsController < ApplicationController
 		end	
     	end
 		# redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
-
 
 	
 	# Riham Gamal 22-3871
@@ -54,8 +48,8 @@ class PostsController < ApplicationController
 	    def list 
 		@post = Post.all
 	    end
-
-
+	   
+	   
 	    def getComments
 	    	 @commentsList = Post.getPostComments(params[:id])
 	    end

@@ -3,6 +3,7 @@
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
+
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.sendRequestHeader("Accept", "text/javascript")}
 })
@@ -22,3 +23,12 @@ $(document).ready(function (){
      });
    });
 
+
+
+$(function() {
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#project_user_tokens").data("pre"),
+    theme: "facebook"
+  });
+});

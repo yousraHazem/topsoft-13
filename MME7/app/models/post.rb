@@ -9,5 +9,4 @@ class Post < ActiveRecord::Base
 	def self.getPostComments(post_id)
  	     @posts = Post.find(:all, :conditions => {:post_id => post_id })
     end 
-
 end

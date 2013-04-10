@@ -12,12 +12,25 @@
  		<td>end date</td>
  		<td><%= @project.start_date %></td>
  	 </tr>
+
  	 <tr class="success">
  		<td>description</td>
+
+ 	 <tr >
+
+ 		<th>description</th>
  		<td><%= @project.description %></td>
  	 </tr> 	
     </table>
+
 <div id = "tablePosts"><%= render 'table' %></div>
 
+
+   
+    <td class="actions">
+		<%= link_to("Add Members", {:controller => 'project_users',:action => 'addMembers', :id=> @project_id}, 
+		:class => 'action show')%>
+	</td>
+	
 
 </div>

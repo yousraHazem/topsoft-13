@@ -4,5 +4,6 @@ class Comment < ActiveRecord::Base
 	belongs_to :user #comments creator
 	belongs_to :post
 	validates_presence_of :comment
-	 
+
+ 
 end
