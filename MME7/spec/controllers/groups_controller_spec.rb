@@ -7,8 +7,13 @@ describe GroupsController  do
  	end
 
  	def invalid_attributes
- 		{:group_name => "groupOne", :group :description => "", :levels => ""}
+ 		{:group_name => "groupOne",:description => "", :levels => ""}
  	end
+
+  def update_attributes
+    {:group_name => "groupOneOne", :description => "blaaaah blaah haaa", :levels => "child"}
+  end
+
 
 	describe "GET edit" do
    		 it "assigns the requested group as @group" do
@@ -39,6 +44,8 @@ describe GroupsController  do
    		 describe "with valid params" do
       it "updates the requested group" do
         group = Group.create! valid_attributes
+        puts group
+        puts "HAHAHAHHAHA"
         # Assuming there are no other <%= table_name %> in the database, this
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
