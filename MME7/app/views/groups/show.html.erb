@@ -17,7 +17,7 @@
 </tr>
 
 <tr>
-	<%if isGroupCreator(@group.id,1) == true %>
+<%if isGroupCreator(@group.id,2) == true %>
         <td>
         	<%= link_to("Edit", {:action => 'edit', :id => @group.id}, :helper => GroupUsersHelper, :class => 'action edit') %>
         </td>    
@@ -25,6 +25,6 @@
         	<%= link_to("Delete", {:action => 'delete', :id => @group.id}, :helper => GroupUsersHelper, :class => 'action delete') %>
         </td>
         
-    <%end%>
+<%end%>
 </tr>
 </table>

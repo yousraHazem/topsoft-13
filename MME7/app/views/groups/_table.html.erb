@@ -1,19 +1,19 @@
 <tr>
     <th>name</th>
     <td><%= f.text_field :group_name %></td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <th>description</th>
     <td><%= f.text_field :description %></td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <th>Level</th>
     <td><%= f.text_field :levels %></td>
-  </tr>
+</tr>
 </br>
-  <tr>
+<tr>
   <%= f.label :user_tokens, "Users" %><br />
   <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json%>
-  </tr>
+</tr>
 
   
