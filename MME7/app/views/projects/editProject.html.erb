@@ -1,0 +1,16 @@
+﻿<% @page_title ="تعديل مشروع: #{@project.project_name}" %>
+<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
+<div class="project edit">
+
+    <h2>تعديل مشروع</h2>
+    <%= form_for(:project, :url => {:action => 'updateProject', :id => @project.id}) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+   
+ 	<div >
+      <%= submit_tag("تغير ") %>
+ 	</div>
+ 	<% end %> 
+    
+</div>
+
+

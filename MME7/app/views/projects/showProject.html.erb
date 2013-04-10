@@ -1,0 +1,30 @@
+﻿<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
+
+<div class="project show">
+
+    <h2>شاهد المشروع</h2>
+
+    <table summary="Project detail view">
+  
+ 	 <tr >
+ 		<th>الاسم</th>
+ 		<td><%= @project.project_name %></td>
+ 	 </tr>
+ 	
+ 	 <tr >
+ 		<th>تاريخ البداية</th>
+ 		<td><%= @project.start_date %></td>
+ 	 </tr>
+ 	
+ 	 <tr >
+ 		<th>تاريخ النهاىة</th>
+ 		<td><%= @project.start_date %></td>
+ 	 </tr>
+
+ 	 <tr >
+ 		<th>التفاصيل</th>
+ 		<td><%= @project.description %></td>
+ 	 </tr>
+ 	
+    </table>
+</div>
