@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+﻿class ProjectsController < ApplicationController
 
 # Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
 def list
@@ -17,7 +17,7 @@ end
 def create
  @project=Project.new(params[:project])
  	 if @project.save
- 	 	flash[:notice]= "project created"
+ 	 	flash[:notice]= "project createdلتبههسيه"
   		redirect_to(:action => 'list')
 
   	else
