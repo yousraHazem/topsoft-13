@@ -23,27 +23,6 @@ def create
 
 end
 
-# Author: Salma El -Ruby 22-4649
-# this method takes input parameter the project_id and returns all ids of members in the project that are not assigned to the task id taken from users 
-  
-
-  def getProjectMembers
-  	  @task_id = params[:id]
-      @user = params[:user_id]
-      project_id =params[:project_id]
-
-      #@projectmembersid=ProjectUser.find(:all, :conditions => {:project_id => @project_id })
-      @assignedppl  = TaskUser.find(:all, :conditions=>{:task_id=> params[:id]})
-      @assigned  = TaskUser.find(:all,:select=>"user_id", :conditions=>{:task_id=>params[:id]}).collect(&:user_id)
-      if @assigned.empty?
-      @notassigned = ProjectUser.where(:project_id=> params[:project_id])  
-      else
-      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , params[:project_id] , @assigned)
-      end
-
-      #@new = TaskUser.find(:all , :conditions => {:task_id => @task_id , :user_id =>@user , :assigned = false})
-    end
- 
 
     def search
     @task = Task.search(params[:search])

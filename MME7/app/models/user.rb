@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :budget_items
   has_many :project_users
   has_many :projects , :through => :project_users
-
    has_many :groups_users 
    has_many :groups , :through => :group_users 
 

@@ -14,10 +14,3 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function() {
-  $("#task_user_tokens").tokenInput("/users.json", {
-    crossDomain: false,
-    prePopulate: $("#task_user_tokens").data("pre"),
-    theme: "facebook"
-  });
-});
