@@ -15,11 +15,13 @@
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
+
 jquery.ajaxSetup({
 	'beforeSend' : function(xhr) {xhr.sendRequestHeader("Accept","text/javascript")}
 })
 
 
+<<<<<<< HEAD
 
 $(document).ready(function(){
 $("#comment-form").submit(function(){
@@ -28,4 +30,16 @@ return false;
 });
 });
 
-
+//= require jquery
+//= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
+//= require_tree .
+=======
+$(document).ready(function(){
+$("#post-form").submit(function(){
+$.post($(this).attr("action"),$(this).serialize(),null, "script");
+return false;
+});
+});
+>>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748

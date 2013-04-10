@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 	# create a new post
 	def createPost
 		@post = Post.new(params[:post])
+		@post.user_id = 1
 		if @post.save
 			respond_to do |format|
 				format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
@@ -46,11 +47,11 @@ class PostsController < ApplicationController
 
 
 	  def destroy
-		 @group_id = params[:group_id]
-	    Post.find(params[:id]).destroy
+		@group_id = params[:group_id]
+	    @post = Post.find(params[:post_id])
+	    @post.destroy
 	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	  end
-
 		# Salma El Ruby 22-4649
 		# displays all available posts 
 	    def list 

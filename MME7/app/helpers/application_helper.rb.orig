@@ -1,0 +1,16 @@
+module ApplicationHelper
+
+<<<<<<< HEAD
+	def error_messages_for( object )
+		render(:partial => 'shared/error_messages', :locals => {:object => object})
+    end
+=======
+
+  def error_messages_for( object )
+    render(:partial => 'shared/error_messages', :locals => {:object => object})
+  end
+>>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748
+end
+
+
+

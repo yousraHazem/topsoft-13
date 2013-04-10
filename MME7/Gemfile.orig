@@ -6,11 +6,19 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
-gem 'carrierwave'
+<<<<<<< HEAD
+#gem 'carrierwave'
 #gem 'rmagick'
 
 
 
+=======
+gem "rspec-rails", "~> 2.0"
+#gem 'rmagick'
+gem "factory_girl_rails", "~> 4.0"
+gem 'best_in_place'
+gem 'bootstrap-sass'
+>>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,7 +30,12 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem 'best_in_place'
+<<<<<<< HEAD
+#gem 'best_in_place'
+=======
+
+
+>>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

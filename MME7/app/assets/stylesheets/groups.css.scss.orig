@@ -1,0 +1,18 @@
+// Place all the styles related to the Groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+<<<<<<< HEAD
+div.flash{
+	color: red;
+=======
+.purr {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 250px;
+  padding: 20px;
+  background-color: #FCC;
+  border: solid 2px #C66;
+  &:first-letter { text-transform: uppercase; }
+>>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748
+}

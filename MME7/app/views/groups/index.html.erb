@@ -2,13 +2,14 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
- <div class="navbar navbar-fixed-top">
+
       <div class="container">
         <a class="brand">Groups List</a>
     </div>
- </div>
 
+<div>
 <%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+</div>
 
 
 <table>
