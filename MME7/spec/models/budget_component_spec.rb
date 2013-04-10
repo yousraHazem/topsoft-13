@@ -21,7 +21,7 @@ describe BudgetComponent do
   it { should respond_to(:total_quantity) }
   it { should respond_to(:quantity_purchased) }
   it { should respond_to(:unit_price) }
-
+  it { should respond_to(:status)}
     it { should be_valid }
 
   describe "when name is not present" do
@@ -34,10 +34,10 @@ describe BudgetComponent do
     it { should_not be_valid }
   end
 
-  # describe "when total_quantity is not present" do
-  #   before { @component.total_quantity = nil }
-  #   it { should_not be_valid }
-  # end
+  describe "when total_quantity is not present" do
+    before { @component.total_quantity = nil }
+     it { should_not be_valid }
+   end
 
   describe "when unit_price is not present" do
     before { @component.unit_price = nil }

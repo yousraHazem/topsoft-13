@@ -109,6 +109,10 @@ describe BudgetComponentsController do
   {:name => 'Market', :unit_price => 3 ,:total_quantity => 10 , :quantity_purchased => 10, :total_quantity => 10 , :status=>"Approved", :total=>30, :spent=>30}
    end
 
+  def findBudgetItem(item)
+      BudgetItem.find(item)
+    end
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # <%= controller_class_name %>Controller. Be sure to keep this updated too.
@@ -195,18 +199,18 @@ describe BudgetComponentsController do
         # specifies that the <%= class_name %> created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        put :update, {:id => component.id, :component =>update_attributes}
+        put :update, {:id => component.to_param, :component =>update_attributes}
       end
 
       it "assigns the requested budget_component as @component %>" do
         component = BudgetComponent.create! valid_attributes
-        put :update, {:id => component.id, :component => valid_attributes}
+        put :update, {:id => component.to_param, :component => valid_attributes}
         assigns(:component).should eq(component)
       end
 
       it "redirects to the list page" do
         component = BudgetComponent.create! valid_attributes
-        put :update, {:id => component.id, :component => valid_attributes}
+        put :update, {:id => component.to_param, :component => valid_attributes}
         response.should redirect_to(:action=>'list')
       end
     end
@@ -216,7 +220,7 @@ describe BudgetComponentsController do
         component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        put :update, {:id => component.id, :component => invalid_attributes}
+        put :update, {:id => component.to_param, :component => invalid_attributes}
         assigns(:component).should eq(component)
       end
 
@@ -224,7 +228,7 @@ describe BudgetComponentsController do
         component = BudgetComponent.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         BudgetComponent.any_instance.stub(:save).and_return(false)
-        put :update, {:id => component.id, :component => invalid_attributes}
+        put :update, {:id => component.to_param, :component => invalid_attributes}
         response.should render_template("edit")
       end
     end
@@ -234,7 +238,7 @@ describe BudgetComponentsController do
     it "destroys the requested budget_component" do
       component = BudgetComponent.create! valid_attributes
       expect {
-        delete :destroy, {:id => component.id}
+        delete :destroy, {:id => component.to_param}
       }.to change(BudgetComponent, :count).by(-1)
     end
 
