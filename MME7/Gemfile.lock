@@ -135,9 +135,8 @@ DEPENDENCIES
   jquery-rails
   mail (~> 2.5.3)
   rails (= 3.2.13)
-  rspec-rails
   ransack
-  rspec-rails (~> 2.0)
+  rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

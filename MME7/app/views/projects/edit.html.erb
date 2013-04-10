@@ -7,7 +7,7 @@
 <div class="subject edit">
 <h2>UPDATE SUBJECT</h2>
 <%= form_for(:project, :url=>{:action=>'update', :id=> @project.id}) do |f| %>
-<%= render(:partial=>"table" , :locals=>{:f=>f}) %>
+<%= render(:partial=>"projectEditCreate" , :locals=>{:f=>f}) %>
 <div><%= submit_tag("Update Project")%></div>
 <% end %>
 </div>

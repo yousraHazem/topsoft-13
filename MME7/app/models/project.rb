@@ -15,12 +15,7 @@ class Project < ActiveRecord::Base
  	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
   	end
 
-	# def getMembersNotInProject()
-	#  # a = User.find(:all)
-	#  @b = ProjectUser.get_projectmembers(:project_id)
-	#  @notProjectUser = User.find(:all, :conditions => :user_id != @b)
-	#  end 
-
+	
     def getMembersNotInProject (project_id)
      b = Project.get_projectmembers(project_id)
      return notProjectUser = User.where("id NOT IN (?)" , b)

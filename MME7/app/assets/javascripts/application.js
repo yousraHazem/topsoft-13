@@ -24,7 +24,6 @@ $(document).ready(function (){
    });
 
 
-
 $(function() {
   $("#project_user_tokens").tokenInput("/users.json", {
     crossDomain: false,

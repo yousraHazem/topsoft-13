@@ -3,7 +3,7 @@
 <div>
     <h2>Create Projects</h2>
     <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
-    <%= render(:partial=>"table" , :locals=>{:f=>f}) %>
+    <%= render(:partial=>"projectEditCreate", :locals=>{:f=>f}) %>
  	<div >
       <%= submit_tag("create project") %>
  	</div>
