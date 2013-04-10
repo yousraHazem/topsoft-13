@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+
 //= require_tree .
+
+
+// $(function(){
+// 	$("#signin").click(function(){
+// 		$("#login").slideToggle("slow");
+// 	});
+// });

@@ -1,5 +1,6 @@
-#Author: Donia Amer Shaarawy 22-0270
+﻿#Author: Donia Amer Shaarawy 22-0270
 #this is for the login and logout requests and pirmission
+require 'FactoryGirl'
 require 'spec_helper'
 describe "Authentication" do
 
@@ -8,13 +9,13 @@ describe "Authentication" do
   describe "login page" do
     before { visit login_path }
 
-    it { should have_selector('h1',    text: 'Log in') }
+    it { should have_selector('h1',    text: 'تسجيل دخول') }
     it { should have_selector('title', text: 'Log in') }
   end
   describe "login" do
    before { visit login_path }
     describe "with invalid information" do
-     before { click_button "Log in" }
+     before { click_button "دخول" }
      it { should have_selector('title', text: 'Log in') }
      it { should have_selector('div.alert.alert-error', text: 'Invalid') }
     end

@@ -1,4 +1,4 @@
-class BudgetItem < ActiveRecord::Base
+﻿class BudgetItem < ActiveRecord::Base
    attr_accessible :name , :status , :operational
   belongs_to :task
   belongs_to :budget

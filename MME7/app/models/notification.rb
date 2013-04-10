@@ -1,3 +1,3 @@
-class Notification < ActiveRecord::Base
+﻿class Notification < ActiveRecord::Base
   # attr_accessible :title, :body
 end
