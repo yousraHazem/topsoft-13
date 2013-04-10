@@ -29,15 +29,12 @@ class CommentsController < ApplicationController
   # Author: Sama Akram 22-555 
   # redirection updates
   def updateComment
-    @group.id = params[:group_id]
-    @comment = Comment.find(params[:comment_id])
-    if @comment.update_attributes(params[:comment])
+    @group_id = params[:group_id]
+    @comment = Comment.find(params[:id])
+    @comment.update_attributes(params[:comment])
+    @comment.post_id = params[:post_id]
       flash[:notice] = "Comment successfully updated"
-      redirect_to(:controller => 'groups',:action => 'show', :group_id => @group.id)
-    else
-      flash[:notice] = "Comment could not be updated"
-      render("_editComment")
-    end
+      redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
   end
   
   def show
