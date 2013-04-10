@@ -1,0 +1,42 @@
+<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+<div> 
+	<h2>Create Budget Item</h2>
+	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @id}) do |f| %>
+	<table>
+<tr>
+<th><%= f.label(:Name) %></th>
+<td><%= f.text_field(:name)%></td>
+</tr>
+</br>
+<tr>
+<td> <%= f.hidden_field(:status)%></td>
+</tr>
+<tr>
+<th><%= f.label("Operational") %></th>
+<td><%= f.radio_button(:operational , 1)%></td>
+</tr>
+<tr>
+<th><%= f.label("NON Operational") %></th>
+<td><%= f.radio_button(:operational , 0)%></td>
+</tr>
+</br>
+<tr> 
+<td><%= f.hidden_field :project_id , :value=> @id %></td>
+</tr>
+<th>assign a user:</th>
+<td>
+	<% for user in User.find(:all) %>
+	<div>
+	<%= check_box_tag "@budget_item[users][]", user.id, @budget_item.users.include?(user) %>
+	<%= user.name %>
+	</div>
+	<% end %>
+</td>
+</table>
+<p>
+<td><%= f.submit %></td>
+</p>
+<% end %>
+</div>
+
+	
