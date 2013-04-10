@@ -2,9 +2,6 @@
     attr_accessible  :project_name , :start_date , :end_date , :description 
     validates_presence_of :project_name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :project_name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
-    # validates_length_of :project_name,:minimum => 4, :maximum => 255
-    # validates_presence_of :description, :minimum => 10
-    # validates_length_of :description, :maximum => 255
 
     # Author : Nayera Mohamed 22-3789 , this method checks if the end date is earlier than the start date
     validate :validate_end_date_before_start_date
