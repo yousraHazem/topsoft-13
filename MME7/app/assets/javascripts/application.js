@@ -4,9 +4,6 @@
 //= require best_in_place
 //= require_tree .
 
-jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.sendRequestHeader("Accept", "text/javascript")}
-})
 
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {

@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
 	has_and_belongs_to_many :budget_sources
 	attr_reader :user_tokens
 
+
 	def self.get_projectmembers(project_id)
  	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
   	end
