@@ -20,7 +20,8 @@
 <td>
 	<% for user in User.find(:all) %>
 	<div>
-	<%= check_box_tag "@budget_item[users][]", user.id, @budget_item.users.include?(user) %>
+	<%= check_box_tag "budget_item.users[id][]", user.id, @budget_item.users.include?(user) %>
+
 	<%= user.name %>
 	</div>
 	<% end %>
