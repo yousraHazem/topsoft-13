@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'factory_girl'
 
 describe PostsController do
 
@@ -31,6 +32,10 @@ describe PostsController do
         post = Post.create! valid_attributes
         put :updatePost, {:post_id => post.to_param, :post => valid_attributes}
         response.should redirect_to("http://test.host/groups/show")
+      end
+    end
+
+
 
 describe "POST create" do
     describe "with valid params" do
@@ -38,7 +43,10 @@ describe "POST create" do
         expect {
           post :createPost, {:post => valid_attributes}
         }.to change(Post, :count).by(1)
-      end
+    
+    end
+  end
+
 
       it "assigns a newly created post as @post" do
         post :createPost, {:post => valid_attributes}
@@ -51,7 +59,6 @@ describe "POST create" do
         response.should redirect_to(:controller => 'groups',:action => "show")
       end
     end
-
     describe "with invalid params" do
       it "assigns the post as @post" do
         post = Post.create! valid_attributes
@@ -68,8 +75,7 @@ describe "POST create" do
         put :updatePost, {:post_id =>post.to_param, :post => invalid_attributes}
         response.should redirect_to("http://test.host/groups/show")
       end
-    end
-  end
+    
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
@@ -83,6 +89,25 @@ describe "POST create" do
         post :createPost, {:post => valid_attributes}
         response.should redirect_to(:controller => 'groups',:action => "show")
       end
-    end
+   
+  
+end
+end
+describe PostsController do
+  before :each do
+    @post = FactoryGirl.create(:post)
   end
+  
+  it "deletes the post" do
+    expect{
+      delete :destroyPost, id: @post       
+    }.to change(Post,:count).by(-1)
+  end
+    
+  it "redirects to group show" do
+    delete :destroy, id: @post
+    response.should redirect_to(:controller => "groups", :action => 'show')
+  end
+end
+
 end

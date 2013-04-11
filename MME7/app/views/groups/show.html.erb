@@ -48,7 +48,6 @@
 <div id = "allpostsborder">
   <% @group.posts.each do |post| %>
     <b id = "postaya">Post: <%= post.content %></b>
-
   <% if isPostCreator(1,post.id ) == true %>
     <b><%= button_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id, },:confirm => 'Are you sure you want to delete this post?', :class => 'btn btn-danger') %></b>
 
