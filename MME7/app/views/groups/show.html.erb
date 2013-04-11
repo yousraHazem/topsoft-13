@@ -48,15 +48,21 @@
 <div id = "allpostsborder">
   <% @group.posts.each do |post| %>
     <b id = "postaya">
+       <% if isPostCreator(1,post.id ) == true %>
       <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id, } %>
+      
+      <%else%>
+      <%= post.content %>
+      <%end%>
+          <%= render :partial => "listcomments", :locals => {:post => post} %>
     </b>
   <% if isPostCreator(1,post.id ) == true %>
-    <b><%= button_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id, },:confirm => 'Are you sure you want to delete this post?', :class => 'btn btn-danger') %></b>
+    <b><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id, },:confirm => 'Are you sure you want to delete this post?') %></b>
     <b>
 
      <% end %>
      </b>
-    <%= render :partial => "listcomments", :locals => {:post => post} %></div>
+
   <% end %>
 </div>
 

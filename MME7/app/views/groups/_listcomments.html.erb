@@ -2,11 +2,8 @@
 <% post.comments.each do |c| %>
     
 
-    <%= best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateCommentGroup', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %>  
-
-
-   
-    <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentGroup', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+    <%= best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateCommentGroup', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %>    
+    <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentGroup', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %> </br> 
     <% end %>
 
 
