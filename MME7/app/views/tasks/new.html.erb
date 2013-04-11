@@ -1,7 +1,9 @@
-﻿<div >
+﻿
+<div >
 	<h2>إضافة مهمة جديدة</h2>
 	<%= form_for(:task, :url => {:action => 'create', :id =>params[:id], :project_id => params[:project_id]}) do |f| %>
-
+    <%= error_messages_for(@task) %>
+    
 	<table>
 		
 

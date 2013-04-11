@@ -4,20 +4,22 @@
   # takes as parameter the task id and get the project members who are not assigned to this particular task
 
   def getProjectMembers
+      @user = params[:user_id]
       @task_id = params[:task_id]
       #@user = params[:user_id]
       @project_id =params[:project_id]
-
+      
      #@projectmembersid=ProjectUser.find(:all, :conditions => {:project_id => @project_id })
-      @assignedppl  = TaskUser.find(:all, :conditions=>{:task_id=>@task_id})
+
+      @assignedppl  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id})
       #@notassigned = ProjectUser.all
-      @assigned  = TaskUser.find(:all,:select=>"user_id", :conditions=>{:task_id=>@task_id}).collect(&:user_id)
+      @assigned  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id}).collect(&:user_id)
       if @assigned.empty?
       @notassigned = ProjectUser.where(:project_id=>@project_id)  
       else
-      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , project_id , @assigned)
+      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , @project_id , @assigned)
       end
-
+      
       #@new = TaskUser.find(:all , :conditions => {:task_id => @task_id , :user_id =>@user , :assigned = false})
     end
 

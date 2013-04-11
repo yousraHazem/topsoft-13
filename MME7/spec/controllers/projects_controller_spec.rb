@@ -2,15 +2,15 @@
 describe ProjectsController do
 
   def valid_attributes
-    {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
+    {:name => 'proj1a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
   def invalid_attributes
-    {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "3/4/2011", :description => "blablablablabla"}
+    {:name => 'proj1a', :start_date => "7/8/2013" , :end_date => "3/4/2011", :description => "blablablablabla"}
   end
 
   def update_attributes
-    {:project_name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
+    {:name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
  
