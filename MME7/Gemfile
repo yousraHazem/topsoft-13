@@ -10,6 +10,9 @@ gem 'mail', '~> 2.5.3'
 #gem 'carrierwave'
 #gem 'rmagick'
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
 
 
 # Gems used only for assets and not required
