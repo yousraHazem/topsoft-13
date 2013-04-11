@@ -4,7 +4,6 @@
 //= require best_in_place
 //= require_tree .
 
-
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {
     $.post(this.action, $(this).serialize(), null, "script");
@@ -26,10 +25,21 @@ $(function() {
     crossDomain: false,
     prePopulate: $("#project_user_tokens").data("pre"),
     theme: "facebook"
-  });
+
+$(function(){
+	$("#search input").keyup(function(){
+		$.get($("#search").attr("action"),$("#search").serialize(), null, "script");
+		return false;
+	});
 });
 
 
+$(function() {
+  $("#group_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $('#group_user_tokens').data('pre')
+  });
+});
 
 $(document).ready(function(){
 $("#comment-form").submit(function(){

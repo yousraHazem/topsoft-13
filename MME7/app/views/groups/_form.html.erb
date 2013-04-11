@@ -7,14 +7,23 @@
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
+
   <p>
     <%= f.text_field :group_name %>
-    <b dir="rtl" lang="ar">اسم المجموعة *</b>
+    <b>اسم المجموعة *</b>
   </p>
   <p>
     <%= f.text_area :description%>
-    <b dir="rtl" lang="ar">وصف *</b>
+    <b>وصف *</b>
   </p>
+
+    <p>
+    <%= f.text_field :levels%>
+    <b>l *</b>
+  </p> 
+
+ 
+
   <div>
     <%= submit_tag("إنشاء المجموعة") %>
   </div>

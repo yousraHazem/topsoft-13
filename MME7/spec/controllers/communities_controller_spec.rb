@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CommunitiesController do
 
+<<<<<<< HEAD
   def valid_attributes
    {:title => "put valid attributes", :social_profile_info => "valid", :contact_info => "555"}
   end
@@ -61,3 +62,25 @@ describe "POST create" do
   end
 
 end
+=======
+
+  def valid_attributes
+      {:title => 'comOne', :social_profile_info => 'spinfoOne', :contact_info => '12345'}
+  end
+
+
+
+
+  describe "GET list" do
+    it "assigns all communities as @communities" do
+      community  = Community.create! valid_attributes
+      puts community
+      get :list, {}
+      #assigns(Community).should eq([community])
+    end
+  end
+
+end 
+
+  
+>>>>>>> da2c61293000cd85631205090632da6204bb4223

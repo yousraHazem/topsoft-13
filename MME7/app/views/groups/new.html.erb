@@ -1,1 +1,11 @@
+
 <%= render 'form' %>
+
+<%= form_for(:group, :url => {:action => 'create'}) do |f| %>
+
+<div id= "tableTwo"><%= render(:partial => 'tableTwo', :locals => {:f => f}) %><div>
+  <div>
+    <%= submit_tag("create Group") %>
+  </div>
+   
+<% end %>

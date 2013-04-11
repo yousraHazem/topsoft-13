@@ -1,8 +1,6 @@
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
 
   attr_accessible :name, :email , :phone_Nr , :address , :password , :isAdmin , :task_id
-
-
 
   has_many :posts
   has_many :comments

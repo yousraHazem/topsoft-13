@@ -1,4 +1,23 @@
-class PostsController < ApplicationController
+﻿
+﻿class PostsController < ApplicationController
+ #  def delete
+ #    @post = Post.find(params[:id])
+ #  end
+  
+ #  def destroy
+ #    Post.find(params[:id]).destroy
+ #    redirect_to(:action => 'list')
+ #  end
+
+ #    def list 
+	# @post = Post.all
+ #    end
+
+ 	# Riham Gamal 22-3871
+ 	# add a new post 
+	#def newPost
+		#@post = Post.new
+	#end
 
 	#Author Riham Gamal 22-3871
 	# create a new post
@@ -62,8 +81,7 @@ class PostsController < ApplicationController
 	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	end
 		
-	   
-	   
+	      
 	    def getComments
 	    	 @commentsList = Post.getPostComments(params[:id])
 	    end

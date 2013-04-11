@@ -1,4 +1,4 @@
-module GroupsHelper
+﻿module GroupsHelper
 
 
  #Author: Donia Amer Shaarawy 22-0270 
@@ -17,5 +17,7 @@ module GroupsHelper
    b = Group.getGroupMembers(group_id)
    notGroupUser = User.find(:all, :conditions => :user_id != b)
   end 
+
+  
 end
 	

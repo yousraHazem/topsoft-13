@@ -1,34 +1,53 @@
-class Project < ActiveRecord::Base
-    attr_accessible  :project_name , :start_date , :end_date , :description , 
-                     :private_or_public , :admin_or_member, :user_tokens
-	has_many :posts
-	has_many :tasks 
-	has_and_belongs_to_many :users
-	has_one :budget 
-	has_many :project_users
-	has_many :users , :through => :project_users
-	has_and_belongs_to_many :communities
-	has_and_belongs_to_many :budget_sources
-	attr_reader :user_tokens
-
-	def self.get_projectmembers(project_id)
- 	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
-  	end
+class ProjectsController < ApplicationController
 
 
-    def getMembersNotInProject (project_id)
-     b = Project.get_projectmembers(project_id)
-     return notProjectUser = User.where("id NOT IN (?)" , b)
-    end 
+  # Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
+  def listProjects
+    @projects = Project.all
+  end
 
+  # # Author : Nayera Mohamed 22-3789 , this method shows a project occuring
+  # def showProject
+  #     @project = Project.find(params[:id])
+  # end
 
-	def user_tokens=(ids)
-	  self.user_ids = ids.split(",")
-	end
+  def show
+      @project_id = params[:id]
+      @project = Project.find(params[:id])
+    end
 
-	def self.getProjectPosts(project_id)
- 	     @projectposts = Post.find(:all, :conditions => {:project_id => project_id })
-    end 
+  # Author : Nayera Mohamed 22-3789 , this method puts a new project
+  def newProject
+      @project = Project.new
+  end
 
-    
+  # Author : Nayera Mohamed 22-3789 , this method takes its' input from the params and creates a new project
+  def createProject
+      @project=Project.new(params[:project])
+      if @project.save
+         flash[:notice]= "project created"
+         redirect_to(:action => 'show', :id => @project.id)
+      else
+         render('newProject')
+      end
+  end
+
+  # Author : Nayera Mohamed 22-3789 , this method takes a project id in order to edit its attributes 
+  def editProject
+      @project = Project.find(params[:id])
+      @project_count = Project.count 
+  end
+
+  # Author : Nayera Mohamed 22-3789 , this method takes aproject id and takes the updated attributes in order to change them
+  def updateProject
+      @project = Project.find(params[:id])
+      if @project.update_attributes(params[:project])
+       flash[:notice]= "project updated"
+         redirect_to(:action => 'show', :id => @project.id)
+      else
+         @project_count = Project.count 
+         render('editProject')
+      end
+  end
+
 end

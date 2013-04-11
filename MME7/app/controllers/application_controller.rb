@@ -1,3 +1,4 @@
+﻿
 class ApplicationController < ActionController::Base
    #ProjectsHelper :getMembersNotInProject
    #ProjectUsersHelper :get_projectmembers
@@ -13,4 +14,5 @@ class ApplicationController < ActionController::Base
 
    
     protect_from_forgery
+
 end

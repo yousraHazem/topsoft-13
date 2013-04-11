@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+﻿class CommentsController < ApplicationController
 
   #Author Riham Gamal 22-3871
   # create a new comment  

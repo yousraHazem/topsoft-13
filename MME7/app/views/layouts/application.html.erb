@@ -3,6 +3,9 @@
 <head>
   <title>MME7</title>
  <%= stylesheet_link_tag    "application", "token-input-facebook", :media => "all" %>
+
+  <%= stylesheet_link_tag    "application", "token-input", :media => "all" %>
+
   <%= javascript_include_tag "application", "jquery.tokeninput" %>
   <%= csrf_meta_tags %>
 </head>
@@ -33,6 +36,8 @@
     <%= yield %>
   </div>
   </div>
+
+<%= yield %>
 
 
 </div>
