@@ -11,7 +11,7 @@
 #
 
 class GroupUser < ActiveRecord::Base
-   attr_accessible :group_id , :user_id , :is_creator
+   attr_accessible :group_id , :user_id , :isCreator
    belongs_to :group 
    belongs_to :user
    #Author: Donia Amer Shaarawy 22-0270 
@@ -21,9 +21,15 @@ class GroupUser < ActiveRecord::Base
 	  GroupUser.where(:group_id => group_id, :user_id => user_id, :isCreator => true).exists?
    end 
    #Author: Donia Amer Shaarawy 22-0270 
-   #add a user to a group add it in the join table 
+   #it takes in the groupid and the userid and adds the member in the join table
    def addMembers (group_id, user_id)
  	 m = GroupUser.new(:group_id => group_id, :user_id => user_id)
  	 m.save
    end
+   #Author: Donia Amer Shaarawy 22-0270 
+  #they take the groupid this method is done to return  specific members 
+  
+ def getGroupMembers(group_id)
+   groupmembersid = GroupUser.find(:all, :conditions => {:group_id => group_id})    
+ end
 end

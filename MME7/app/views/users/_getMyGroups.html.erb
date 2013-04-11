@@ -1,5 +1,5 @@
+<html dir="rtl">
 <head>
- <title> My Project List </title>
  <script type="text/javascript">
  var testPatterns = [
         'yyyy','yy','MMMM','MMM','MM','M','dd','d','EEEE','EEE','a',
@@ -10,15 +10,15 @@
         </script>
 </head>
 <body>
-<h1>Listing groups</h1>
+<h1>مجموعتي </h1>
 <% if @groupusers.blank? %>
-<p>You do not have any groups</p>
+<p>لم يكن لديك أي مجموعة</p>
 <% else %>
-<h2>List of Groups of: <%= @user.name %> </h2>
+<h2>قائمة مجموعات من: <%= @user.name %> </h2>
 <table>
   <tr>
-    <th>Group Name</th>
-    <th>Group Link</th>
+    <th>اسم المجموعة</th>
+    <th>مجموعة رابط</th>
  </tr>
 
 <% end %>
@@ -46,3 +46,4 @@
       </script>
     </div>
 </body>
+</html>

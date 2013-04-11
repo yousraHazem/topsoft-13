@@ -2,6 +2,7 @@
 #this is for the login and logout requests and pirmission
 require 'FactoryGirl'
 require 'spec_helper'
+
 describe "Authentication" do
 
   subject { page }
@@ -25,7 +26,7 @@ describe "Authentication" do
     before do
      fill_in "username",    with: user.username
      fill_in "Password", with: user.password
-     click_button "Log in"
+     click_button "دخول"
    end
  end
     it { should have_selector('title', text: user.name) }
