@@ -3,7 +3,7 @@
 
 
 <div>
-	<h2>Receipts</h2>
+	<h2>إيصالات</h2>
     
 	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
        <i class="icon-plus icon-white"></i>
@@ -12,14 +12,14 @@
 
  <table>
 <tr>
-	<th>Name</th>
-	<th>Image</th>
+	<th>إسم</th>
+	<th>ألأيصال</th>
 </tr>
 <% @receipts.each do |receipt|%>
 <tr>
 	<td><%= receipt.name %></td>	
 	<td><%= image_tag receipt.image_url(:thumb).to_s %></td>	
-	<td><%= link_to("edit", {:action=>'edit', :id=>receipt.id})%></td>
+	<td><%= link_to("تعديل", {:action=>'edit', :id=>receipt.id})%></td>
 </tr>
 
 <%end%>

@@ -1,8 +1,6 @@
 class ReceiptsController < ApplicationController
 
 	# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
-
-
 	def list
 		@receipts = Receipt.where(:budget_component_id => params[:id])
 	end
