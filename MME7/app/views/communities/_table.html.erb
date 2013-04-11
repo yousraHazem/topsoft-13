@@ -1,5 +1,5 @@
 
-========================GUEST
+
 <table class="listing" summary="community list">
 
     <tr class="header">
@@ -15,7 +15,7 @@
     </tr>
     <% @communities.each do |community| %>
     <tr>
-      <%if community.is_dismissed != true%>
+    
         <td><%= community.id %></td>
         <td></td>
         <td><%= community.title %></td>
@@ -25,10 +25,12 @@
         <td><%= community. contact_info %></td>
         <td></td>
         <td> 
-        <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-        <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+        <%if community.is_dismissed != true %>
+            <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+            <%= link_to("Delete", {:action => 'destroy', :id => community.id}, :confirm => "Are you sure you want to dismiss this community", :class => 'action delete') %>
+              <% end %> 
         </td>
-      <% end %>
+     
     </tr>
     <% end %>
     

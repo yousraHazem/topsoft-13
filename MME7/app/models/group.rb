@@ -15,8 +15,8 @@ class Group < ActiveRecord::Base
   # May Atef Badr 22-0579
   # the validations of edit method
   
-  validates :group_name, :presence => true,
-  						            :length => {:within => 1..50},
+  validates :group_name, :presence => true, 
+  						            :length => {:within => 1..50}, 
   						            :uniqueness => true
 
   validates :description, :presence => true

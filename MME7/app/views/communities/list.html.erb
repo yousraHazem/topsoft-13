@@ -19,36 +19,7 @@
 
   <div id= "table"><%= render'table' %><div>
 
-======= USER
-  <table class="listing" summary="community list">
-    
-    <tr class="header">  
-    <tr class="header">
-
-      <th>Title</th>
-      <th>Social profile info</th>
-      <th>Contact info</th>
-      <th>Actions</th>
-    </tr>
-    
-    <% @communities.each do |community| %>
-    <tr>
-        <td><%= community.id %></td>
-        <td><%= community.title %></td>
-        <td><%= community.social_profile_info %></td>
-        <td><%= community. contact_info %></td>
-        <td> 
-
-          <%if community.is_dismissed != true %>
-              <%= link_to("Delete", {:action => 'destroy', :id => community.id}, :confirm => "Are you sure you want to dismiss this community", :class => 'action delete') %>
-              <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-          <% end %>  
-
-        </td>
-    </tr>
-    <% end %>
-    
-  </table>
+ 
 
 </div>
 
