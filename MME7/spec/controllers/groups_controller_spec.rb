@@ -60,6 +60,7 @@ describe 'DELETE destroy' do
   before :each do
     @group = Factory(:group)
   end
+end
   
   it "deletes the group" do
     expect{

@@ -36,7 +36,6 @@
   <%end%>
 </div>
 </div>
-
 <div>
 <div id = "allpostsborder">
   <% @group.posts.each do |post| %>
@@ -45,19 +44,19 @@
     <b><%= button_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id, },:confirm => 'Are you sure you want to delete this post?', :class => 'btn btn-danger') %></b>
     <b>
       <p>
-  <%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id, }) do |f| %>
+        
+  <%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=>post.id, :group_id => @group.id}) do |f| %>
       <tr>
       <th><%= f.label(:post, "حذف التعبير")%></th>
       <td><%= f.text_field(:content) %></td>
-      </tr>
-</p>
+      </tr>  
+      </p>
      <% end %>
      <% end %>
      </b>
     <%= render :partial => "listcomments", :locals => {:post => post} %></div>
   <% end %>
 </div>
-
 <div>
   <% if ifMember(params[:id],1)==true %>
   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}) do |f| %>
