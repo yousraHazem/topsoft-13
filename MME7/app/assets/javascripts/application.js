@@ -14,11 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 
+
 $(function(){
 	$("#search input").keyup(function(){
 		$.get($("#search").attr("action"),$("#search").serialize(), null, "script");
 		return false;
 	});
+});
+
+
+
+$(function() {
+  $("#group_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $('#group_user_tokens').data('pre')
+  });
 });
 
 

@@ -1,16 +1,13 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
 <h1>Create New Group</h1>
+
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
-  <tr>
-    <th>name</th>
-    <td><%= f.text_field :group_name %></td>
-  </tr>
-  <tr>
-    <th>description</th>
-    <td><%= f.text_field :description %></td>
-  </tr>
+<div id= "tableTwo"><%= render(:partial => 'tableTwo', :locals => {:f => f}) %><div>
   <div>
     <%= submit_tag("create Group") %>
   </div>
+   
 <% end %>

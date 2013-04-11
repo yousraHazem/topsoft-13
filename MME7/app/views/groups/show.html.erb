@@ -1,8 +1,7 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
 
-</br>
-</br>
 
+<table>
 <tr>
       <th>Name:</th>
       <td><%= @group.group_name %></td>
@@ -35,5 +34,6 @@
        <th><%= link_to("Delete", {:action => 'delete', :id => @group.id},:helper => GroupUsersHelper, :class => 'action delete') %></th>
     <%end%>
 </tr>
-     
+
+</table>
 
