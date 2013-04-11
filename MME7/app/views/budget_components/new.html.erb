@@ -1,4 +1,4 @@
-
+﻿
 <div class="subject edit">
 	<%= form_for(:budget_component, :html => {:multipart => true} ,:url=>{:action=>'create', :id=> @item}) do |f| %>
 <div id ="table"> <%= render(:partial => "edit" , :locals => {:f=> f})%> </div> 
