@@ -19,11 +19,10 @@ end
 
 def createCommunity
 	@community= Community.new(params[:community])
-	
 	if @community.save
-	 redirect_to(:action => 'list')
+	redirect_to(:action => 'list')
     else 
-	 render('new')
+	render('new')
     end
 end
 
