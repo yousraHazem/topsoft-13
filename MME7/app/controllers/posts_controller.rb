@@ -34,13 +34,13 @@ class PostsController < ApplicationController
 	# update the post by finding its id and changing the fields
 	# takes the group-id and redirects back to show group
 
-	respond_to :html, :json
+		respond_to :html, :json
 	def updatePost
-		 @post = Post.find(params[:post_id])
 		 @group_id = params[:group_id]
-	     @post_id=params[:post_id]
+		 @post = Post.find(params[:id])
+	     
 	     @post.update_attributes(params[:post])
-		 respond_with @post
+		 redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	end
 
 

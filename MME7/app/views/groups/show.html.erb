@@ -1,61 +1,109 @@
 <%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
 <div>
-  <table>
-   <tr >
-    <th>Group name</th>
-    <td><%= @group.group_name %></td>
-    </tr>
-    <tr>
-    <th>Description</th>
-    <td><%= @group.description %></td>
-    </tr>
-   
-  </table> 
 
 <div>
-  <%= render(:partial=> "list") %>
+  <div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
+
+<%= link_to("Back to View All Groups", {:action => 'index'}, :class => 'back-link') %>
+
+<div>
+      <p>
+        <b>Group Name:</b>
+        <%= @group.group_name %>
+      </p>
+
+      <p>
+        <b>Description:</b>
+        <%= @group.description %>
+      </p>
+
+      <p>
+        <b>created_at:</b>
+        <%= @group.created_at %>
+      </p>
+
+      <p>
+        <b>last updated_at:</b>
+        <%= @group.updated_at %>
+      </p>
+
+      <div>
+        <% if ifMember(@group.id, 1) == false %>
+        <%= button_to("join",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => 1}, :class => 'action show') %>
+        <% end %>
+
+        <% if ifMember(@group.id, 1) == true && isGroupCreator(@group.id, 1) != true %>
+        <%= button_to("leave Group",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'action show') %>               
+        <% end %>
+
+        <% if isGroupCreator(@group.id, 1) == true %>
+        <%= button_to("Delete Group", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'Are you sure you want to delete this group?', :class => 'action delete') %>
+        <% end %>
+      </div>
 </div>
 
 <div>
- 
+<div id = "allpostsborder">
+  <% @group.posts.each do |post| %>
+    <b id = "postaya">Post: <%= post.content %></b>
 
-    <% if ifMember(params[:id],1)==true %>
- 
+  <% if isPostCreator(1,post.id ) == true %>
+    <b><%= button_to("x", {:controller => 'posts', :action => 'destroy', :post_id => post.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this post?', :class => 'action delete') %></b>
 
+    <b>
+<p>
+      <%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=>post.id,         :group_id => @group.id}) do |f| %>
+    
+
+
+            <tr>
+            <th><%= f.label(:post, "Post")%></th>
+            <td><%= f.text_field(:content) %></td>
+       </tr>
+       <button type = "submit" >update </button>
+    </p>
+
+
+
+    <% end %>
+     <% end %>
+
+
+    </b>
+    <%= render :partial => "listcomments", :locals => {:post => post} %></div>
+  <% end %>
+</div>
+
+<div>
+  <% if ifMember(params[:id],1)==true %>
   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}, :html => {:id => "post-form"}) do |f| %>
-
-
-  <%= error_messages_for(@post) %>
-
-
-  <table class="table table-striped">
-    
-
+  <table summary = "The Post">
     <tr>
-      <td><%= f.text_field (:content) %>
-      <button class="btn btn-success" type="submit">Post</button>
-      </td>
+      <th>Post Content</th>
+      <td><%= f.text_field (:content) %></td>
     </tr>
+    <tr>
+      <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
+    </tr>
+  </table> 
 
-     <tr>
-    <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
-    
-</tr>
+<div class="form-buttons">
+  <%= submit_tag("Create Post") %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
 
-</table>
- <% end %>
- </div> 
- <% end %>
+
+
+
+
+</div>
+
+
  </div>
 
-     <div>
- <% if ifMember(params[:id],1)==false %>
-
- <%= button_to("join",{:controller => 'group_users', :action =>'join', :id => @group_id, :user_id => 1}, :class => 'action show') %>
-  <% end %>
- <% if ifMember(@group.id, 1) == true && isGroupCreator(@group.id, 1) != true %>
-        <%= button_to("leave Group",{:helper => 'group_users', :controller => 'group_users', :action =>'leave', :id => @group.id}, :confirm => 'Are you sure you want to leave this group?', :class => 'action show') %>
-                   
- <% end %>
-
-     </div>
+ 
