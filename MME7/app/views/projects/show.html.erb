@@ -36,8 +36,8 @@
  	 </tr>
  	
     </table>
-    <td><%= link_to("view operational",:action=>'viewoperationalBI', :id=> @project.id) %></td>
+    <td><%= link_to("view operational",:controller=>'budget_items',:action=>'viewoperationalBI', :id=> @project.id) %></td>
     </br>
     </br>
-    <td><%= link_to("view all budget items",:action=>'viewAllBI', :id=> @project.id) %></td>
+    <td><%= link_to("view all budget items",:controller=>'budget_items',:action=>'viewAllBI', :id=> @project.id) %></td>
 </div>

@@ -13,7 +13,12 @@ class BudgetItemsController < ApplicationController
 		#@id = params[:id]
 		@budget_item = BudgetItem.new(params[:budget_item])
 		if @budget_item.save
-			redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
+		@budget_users = params['budget_item.users'][:id]
+	    @budget_users.each do |budget_user|
+		@user = User.find(@budget_users)
+		@budget_assign = @budget_item.users.push(@user)
+	    end
+			redirect_to(:controller => 'budget_items',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('new')
 		end
@@ -30,16 +35,34 @@ class BudgetItemsController < ApplicationController
 		@budget_item = BudgetItem.find(params[:id])
 		if @budget_item.update_attributes(params[:budget_item])
 			@budget_users = params['budget_item.users'][:id]
-
 			@budget_users.each do |budget_user|
 			@user = User.find(@budget_users)
 			@budget_assign = @budget_item.users.push(@user)
 			end
-		redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
+		redirect_to(:controller => 'budget_items',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('edit')
 
 		end
 	end
+  #Authored by Toka Omar  id:22-1925
+  #this method has no inputs and outputs: the operational budgetitems of 
+  #the current project being viewd 
+  #the method returs a list of operational budgetitems a guest could see  
+  def viewoperationalBI
+  @id = params[:id]
+  @budget_items = BudgetItem.find(:all, :conditions => {:operational =>true,
+  :project_id => @id}) 
+  @project_name = Project.find(@id)
+    end
+  #Authored by Toka Omar  id:22-1925
+  #this method has no inputs and outputs: the all  budgetitems 
+  #the method returs a list of operational budgetitems the admin or user can view 
+  def viewAllBI 
+  @id = params[:id]
+  @budget_items = BudgetItem.find(:all, 
+  :conditions => {:project_id => @id})
+  @project_name = Project.find(@id)
+    end
 end
 

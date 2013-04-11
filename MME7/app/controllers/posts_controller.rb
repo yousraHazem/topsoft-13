@@ -1,19 +1,4 @@
 class PostsController < ApplicationController
- #  def delete
- #    @post = Post.find(params[:id])
- #  end
-  
- #  def destroy
- #    Post.find(params[:id]).destroy
- #    redirect_to(:action => 'list')
- #  end
-
- #    def list 
-	# @post = Post.all
- #    end
-
- 	# Riham Gamal 22-3871
- 	# add a new post 
 	def newPost
 		@post = Post.new
 	end
@@ -58,14 +43,6 @@ class PostsController < ApplicationController
 			# render("editPost")
 		end
 	end
-
-	# # add a new post 
-	# def newPost
-	# 	@post = Post.new
-	# end
-
-	# Salma El Ruby 22-4649
-	# deletes posts
 	  def delete
 	    @post = Post.find(params[:id])
 	  end

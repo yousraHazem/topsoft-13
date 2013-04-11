@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   	#the method returs a list of projects the user has  
 def get_myprojects
   @projectusers = ProjectUser.find(:all, 
-   :conditions => {:user_id => current_user.id}, 
+   :conditions => {:user_id => 1}, #current_user
    :order => "project_id ASC",)
-   @user_name = User.find(current_user.id)
+   @user_name = User.find(1) #current_user
     end 
 end 

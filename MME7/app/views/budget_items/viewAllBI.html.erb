@@ -14,8 +14,6 @@
 </head>
 <body>
 <h2>Budget of Project: <%= @project_name.name %></h2>
-<h3>Total budget:</h3>
-<h3>Amount raised:</h3>
 <% if @budget_items.blank? %>
 <p>There are no current budget items </p>
 <% else %>
@@ -28,26 +26,16 @@
  		<th>Status    </th>
  		<th>Total     </th>
  		<th>Spent     </th>
-        <th>Edit      </th>
-        <th>Delete     </th>
-        <th>Assignee  </th>
- 		<th>Status    </th>
- 		<th>Total     </th>
- 		<th>Spent     </th>
-        <th>Edit     </th>
-       <th>Delete     </th>
+    <th>Edit      </th>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
 		<tr id = "budget_item">
  		<td><%= budgetitem.name %></td>
-        <td><%= budgetitem.users.name %></td>
  		<td><%= budgetitem.status %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
     <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
-    <td><%= link_to("create budget component", 
-    {:controller => 'budget_components', :action=>'new', :id=>budgetitem.id})%></td>
  		</tr>
  	<% end %>
  	</table>
