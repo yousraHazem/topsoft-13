@@ -38,13 +38,14 @@ class CommentsController < ApplicationController
   end
 
 
+  respond_to :html, :json
   def updateCommentGroup
     @group_id = params[:group_id]
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
     @comment.post_id = params[:post_id]
     flash[:notice] = "Comment successfully updated"
-    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+    respond_with @comment 
   end
 
 

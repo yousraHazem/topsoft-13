@@ -17,15 +17,14 @@ class PostsController < ApplicationController
 		@post.user_id = 1
 		@post.save
 		respond_to do |format|
-		format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
+		format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
 		format.js
 		end
 	end
 
-
 	
-	# Riham Gamal 22-3871
-	# update the post by finding its id and changing the fields
+	#Riham Gamal 22-3871
+	#update the post by finding its id and changing the fields
 	respond_to :html, :json
 	def updatePostProject
 		@project_id = params[:project_id]
@@ -37,9 +36,10 @@ class PostsController < ApplicationController
 	respond_to :html, :json
 	def updatePostGroup
 		 @group_id = params[:group_id]
-		 @post = Post.find(params[:id])	     
+		 @post = Post.find(params[:id])	
+		 @post.group_id = params[:group_id]     
 	     @post.update_attributes(params[:post])
-		 redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+	     respond_with @post
 	end
 
 	  
