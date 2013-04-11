@@ -1,29 +1,34 @@
-<% @page_title = "Budget_Item List"%>
+﻿<% @page_title = "Budget_Item List"%>
 
 
 
 <div>
-	<h2>Budget Items</h2>
+	<h2>عناصر الميزانية</h2>
     
-	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
-       <i class="icon-plus icon-white"></i>
-      <% end %>
+	<%= link_to("عنصر جديد" ,{:action=>'new'}, class: "btn btn-success") %>
+      
 
 
  <table>
-<tr>
-	<th>Name</th>
-	<th>Action</th>
-	
-	
-</tr>
-<% @budget_items.each do |budget_item|%>
-<tr>
-	
-<td><%= best_in_place(budget_item, :name , :path => {:action=>'update' , :id => budget_item.id}) %></td>	
-<td><%= link_to("create budget component", {:controller => 'budget_components', :action=>'new', :id=>budget_item.id})%></td>
-</tr>
+	<tr>
+		<th>إسم</th>
+		<th>فعل</th>
+		
+		
+	</tr>
 
-<%end%>
+	<% @items.each do |item|%>
+
+
+	<tr>
+	
+	  <% if isProjectCreator(1, @projectid) == true %>
+		<td><%= best_in_place(item, :name , :path => {:action=>'update' , :id => item.id}) %></td>
+
+	<% else%>
+		<td><%= item.name %></td>
+    <%end%>
+	</tr>
+	<%end%>
 </table>
 </div>

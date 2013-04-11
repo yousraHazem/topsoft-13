@@ -1,4 +1,4 @@
-class Project < ActiveRecord::Base
+﻿class Project < ActiveRecord::Base
   attr_accessible  :name , :start_date , :end_date , :description 
 	has_many :posts
 	has_many :tasks 

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
 
   attr_accessible  :address, :email, :name, :isAdmin, :phone_Nr, :username
 

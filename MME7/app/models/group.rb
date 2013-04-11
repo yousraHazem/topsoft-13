@@ -1,4 +1,4 @@
-class Group < ActiveRecord::Base
+﻿class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :user_id , :community_id
 
   has_many :posts 
