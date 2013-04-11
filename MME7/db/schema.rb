@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403211722) do
+ActiveRecord::Schema.define(:version => 20130407183405) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
     t.integer  "total"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(:version => 20130403211722) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "communities_projects", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "project_id"
   end
 
   create_table "group_users", :force => true do |t|
@@ -134,20 +139,24 @@ ActiveRecord::Schema.define(:version => 20130403211722) do
     t.integer  "project_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "assigned"
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name", :limit => 20
-    t.string   "last_name",  :limit => 50
+    t.string   "name"
     t.string   "email"
-    t.string   "phone_Nr",   :limit => 15
+    t.string   "phone_Nr"
     t.string   "address"
-    t.string   "username",   :limit => 20
-    t.string   "password",   :limit => 10
-    t.boolean  "isAdmin"
-    t.integer  "task_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "username"
+    t.boolean  "isAdmin",         :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

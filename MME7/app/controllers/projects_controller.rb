@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+﻿class ProjectsController < ApplicationController
 
 # Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
 def list
