@@ -1,7 +1,7 @@
 ﻿class Project < ActiveRecord::Base
-    attr_accessible  :project_name , :start_date , :end_date , :description 
-    validates_presence_of :project_name, :message => "يجب اضافة اسم"
-    validates_uniqueness_of :project_name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
+    attr_accessible  :name , :start_date , :end_date , :description 
+    validates_presence_of :name, :message => "يجب اضافة اسم"
+    validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
 
     # Author : Nayera Mohamed 22-3789 , this method checks if the end date is earlier than the start date
     validate :validate_end_date_before_start_date

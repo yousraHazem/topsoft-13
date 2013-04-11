@@ -1,4 +1,4 @@
-﻿<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
+<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
 
 <div class="project show">
 
@@ -8,7 +8,7 @@
   
  	 <tr >
  		<th>الاسم</th>
- 		<td><%= @project.project_name %></td>
+ 		<td><%= @project.name %></td>
  	 </tr>
  	
  	 <tr >
@@ -27,4 +27,6 @@
  	 </tr>
  	
     </table>
+    <%= link_to("المهمات", {:controller =>'tasks' ,:action => 'listTasks', :id => @project.id} ) %>
+
 </div>

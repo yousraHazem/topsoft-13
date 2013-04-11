@@ -1,0 +1,51 @@
+ <h2>تعيين العضو</h2>
+    <h4>الأعضاء</h4>
+
+
+
+<%= form_for(:task, :url => {:controller => 'users' ,:action => 'assign', :id => params[:project_id] , :task_id => params[:task_id], :user_id => params[:user_id] }) do |f| %>
+
+
+
+
+    <% end %>
+
+  
+
+
+      
+      <h1>الأعضاء المعينين لهذه المهمة :</h1><br/><br/><br/><br/>
+      
+    </tr>
+    <% @assignedppl.each do |p| %>
+      <tr>
+        <td> 
+
+          <%= p.user.name %>
+           <br/>
+        </td>
+      </tr>
+    <% end %>
+  
+</p>
+
+
+    <tr>
+      
+      <h1>تعيين أعضاء جدد لهذه المهمة : </h1>
+      
+    </tr>
+    <% @notassigned.each do |p| %>
+      <tr>
+        <td> <%= p.user %></td>
+           
+     <td>
+  <b> <%= link_to " عين", {:controller => 'users' ,:action => 'assign', :id => params[:project_id] , :task_id => params[:id] , :user_id =>p.user.id} %></b>  
+     </td>
+     </tr>
+<% end %> 
+
+</table>
+
+
+

@@ -1,12 +1,12 @@
 ﻿<div >
-	<h2>Create Task</h2>
+	<h2>إضافة مهمة جديدة</h2>
 	<%= form_for(:task, :url => {:action => 'create', :id =>params[:id], :project_id => params[:project_id]}) do |f| %>
 
 	<table>
 		
 
 		<tr>
-			<th>Task description</th>
+			<th>تفاصيل المهمة</th>
 			<td><%= f.text_field (:description) %></td>
 		</tr>
 
@@ -16,7 +16,7 @@
 	
 
 	<div >  
-		<%= submit_tag("Create task") %>
+		<%= submit_tag("إضافة") %>
 	</div>
 
 	<% end %>

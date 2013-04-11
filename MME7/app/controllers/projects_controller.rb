@@ -38,7 +38,7 @@
       @project = Project.find(params[:id])
       if @project.update_attributes(params[:project])
        flash[:notice]= "project updated"
-         redirect_to(:action => 'showProject', :id => @project.id)
+         redirect_to(:action => 'listProjects', :id => @project.id)
       else
          @project_count = Project.count 
          render('editProject')
