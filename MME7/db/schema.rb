@@ -12,9 +12,14 @@
 # It's strongly recommended to check this file into your version control system.
 
 
+
 #ActiveRecord::Schema.define(:version => 20130408104319) do
 
-ActiveRecord::Schema.define(:version => 20130407183405) do
+#ActiveRecord::Schema.define(:version => 20130407183405) do
+
+
+#ActiveRecord::Schema.define(:version => 20130407121646) do
+ActiveRecord::Schema.define(:version => 20130408104319) do
 
 
   create_table "budget_components", :force => true do |t|
