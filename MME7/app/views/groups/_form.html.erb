@@ -3,7 +3,7 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-<h2>إنشاء مجموعة</h2>
+<h2 class = 'text-center'>إنشاء مجموعة</h2>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
@@ -15,7 +15,11 @@
     <%= f.text_area :description%>
     <b dir="rtl" lang="ar">وصف *</b>
   </p>
+   <p>
+    <%= f.text_field :levels %>
+    <b dir="rtl" lang="ar">مستوى المجموعة *</b>
+  </p>
   <div>
-    <%= submit_tag("إنشاء المجموعة") %>
+    <button class="btn btn-info" type="submit">إنشاء المجموعة</button>
   </div>
 <% end %>
