@@ -1,9 +1,10 @@
-class BudgetSourcesController < ApplicationController
+﻿class BudgetSourcesController < ApplicationController
 
 def list 
 		@budget_sources = BudgetSource.all
     
 	end 
+
 
 	def new
 		@budget_source = BudgetSource.new

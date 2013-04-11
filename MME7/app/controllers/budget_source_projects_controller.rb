@@ -1,4 +1,4 @@
-class BudgetSourceProjectsController < ApplicationController
+﻿class BudgetSourceProjectsController < ApplicationController
 	def addamount 
 		@id = params[:id]
 		@budgets = BudgetSourceProject.where(:budget_source_id => params[:id])
@@ -8,10 +8,12 @@ class BudgetSourceProjectsController < ApplicationController
 		@id = params[:id]
 		@list = params[:budget_source_project]
 		@list.each do |key, value|
-			@add = BudgetSourceProject.where(:budget_source_id => @id , :project_id  => key)
-			@add.update_all(:amount => value)
+		@add = BudgetSourceProject.where(:budget_source_id => @id , :project_id  => key)
+		@add.update_all(:amount => value)
+
+		redirect_to(:controller => 'budget_sources', :action => 'list')
 
 	end
-	redirect_to(:controller => 'budget_sources', :action => 'list')
+	
 end
 end

@@ -13,14 +13,24 @@
  *= require_self
  *= require_tree .
  */
-
+.progress {
+	height: 29px;
+	width:500px;
+	 text-align: center;
+}
+ 
  #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 730px;
- }
-
- div.container{
+ padding-top: 60px;
 
  }
+ 
+ #style{
+	
+	width: 1130px;
+	height: 430px;
+	overflow: auto;
+}
 

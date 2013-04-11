@@ -1,15 +1,15 @@
-<% @page_title = "Budget_Source List"%>
+﻿<% @page_title = "Budget_Source List"%>
 
 
 
 <div>
 	<%= form_for(:budget_source_project, :url=>{:action=>'create' , :id => @id}) do |f| %>
-	<h2>Project Amount</h2>
+	<h2>كمية المساهمة للمشروع</h2>
 
  <table>
 <tr>
-	<th>Project</th>
-	<th>Amount</th>
+	<th>مشروع</th>
+	<th>كيمة</th>
 </tr>
 <% @budgets.each do |budget_source_project|%>
 <tr>
@@ -18,6 +18,6 @@
 </tr>
 <%end%>
 </table>
-<td><%= f.submit %></td>
+<td><%= f.submit ("إحفظ") %></td>
 <% end %>
 </div>

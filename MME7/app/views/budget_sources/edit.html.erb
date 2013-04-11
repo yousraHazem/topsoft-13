@@ -1,27 +1,27 @@
-<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_source}) %>
+﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_source}) %>
 <div> 
-	<h2>Create Budget Sources</h2>
+	<h2>تعديل مصدر الميزاني</h2>
 <%= form_for(:budget_source, :url=>{:action=>'update' , :id => @budget_source.id}) do |f| %>
 <table>
 <tr>
-<th><%= f.label(:Company_Name) %></th>
+<th><%= f.label(:Name , "إسم") %></th>
 <td><%= f.text_field(:name)%></td>
 </tr>
 </br>
 <tr>
-<th><%= f.label(:Amount)%></th>
+<th><%= f.label(:Amount , "كمية")%></th>
 <td><%= f.text_field(:amount)%></td>
 </tr>
 </br>
 <tr>
-<th><%= f.label (:Project)%></th>
+<th><%= f.label ("مشروع")%></th>
 <td><%= f.text_field :project_tokens , "data-pre" => @budget_source.projects.map(&:attributes).to_json%> </td>
 </tr>
 
 </table>
 </br>
 <p>
-<td><%= f.submit %></td>
+<td><%= f.submit ("أحفظ")%></td>
 </p>
 <% end %>
 </div>
