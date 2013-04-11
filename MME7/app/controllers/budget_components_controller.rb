@@ -1,4 +1,4 @@
-class BudgetComponentsController < ApplicationController
+﻿class BudgetComponentsController < ApplicationController
   	
 
 	def index
@@ -22,7 +22,7 @@ class BudgetComponentsController < ApplicationController
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 
 		#calculating the progress bar percentage
-		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"Approved")
+		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"اكتمل")
 		all = BudgetComponent.where(:budget_item_id=>params[:id])
 		count_size = counts.size
 		all_size = all.size
@@ -99,7 +99,6 @@ class BudgetComponentsController < ApplicationController
 			
 			redirect_to(:action=>'list', :id=> @item , :project_id=>@project_id )
 		else
-	
            render('edit')
 		end
 		
@@ -127,11 +126,9 @@ class BudgetComponentsController < ApplicationController
 		else
 		  flash[:notice] = "Item unsuccessfully updated"	
 	    end
+        redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
+	end
 
-	    flash[:notice] = "Component successfully destroyed"
-        redirect_to(:action=>'list',:id=> @item)
-	    end
-
-    end
+end
 
 

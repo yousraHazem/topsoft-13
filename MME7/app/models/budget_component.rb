@@ -1,4 +1,4 @@
-class BudgetComponent < ActiveRecord::Base
+﻿class BudgetComponent < ActiveRecord::Base
 
 
   attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
@@ -11,7 +11,7 @@ validates_numericality_of :total_quantity, :greater_than => 0,
                         :allow_blank => false
 validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_quantity,
                         :if => Proc.new { |o| !o.total_quantity.nil? } ,
-                        :message => "can't be greater than total quantity."
+                        :message => "الكمية المشتراة يجب الا تزيد عن  مجموع الكمية المحدد"
   
   
 

@@ -1,4 +1,4 @@
-class BudgetItemsController < ApplicationController
+﻿class BudgetItemsController < ApplicationController
 
 	def index
       list
