@@ -1,5 +1,8 @@
-<h1> admin masrer </h1>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+<html dir="rtl">
+<h1> مشرف</h1>
+ <% flash.each do |name, msg| %>
+ <%= content_tag :div, msg, :id => "flash_#{name}" %>
+ <% end %>
+ 
 <%= yield %>
+</html>
