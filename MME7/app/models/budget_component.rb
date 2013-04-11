@@ -4,7 +4,7 @@
   attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
   belongs_to :budget_item
 
-validates :name, :presence => {:message => "Name is required" }  
+validates :name, :presence => {:message => "يجب ادخال الاسم" }  
 validates_numericality_of :quantity_purchased, :greater_than => 0,
                         :allow_blank => false
 validates_numericality_of :total_quantity, :greater_than => 0,
@@ -12,15 +12,8 @@ validates_numericality_of :total_quantity, :greater_than => 0,
 validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_quantity,
                         :if => Proc.new { |o| !o.total_quantity.nil? } ,
                         :message => "الكمية المشتراة يجب الا تزيد عن  مجموع الكمية المحدد"
-  
-  
-
-#   def self.search(search,id)
-#   if search
-#     find(:all, :conditions => ['name LIKE ? AND budget_item_id = ?', "%#{search}%" , 1 ]) 
-#   else
-#     find(:all, :conditions => ['budget_item_id = ?' , id ])
-#   end
-# end
+validates_length_of :unit_price , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
+validates_length_of :quantity_purchased , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
+validates_length_of :total_quantity , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
 
 end
