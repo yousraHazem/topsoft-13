@@ -1,6 +1,6 @@
 ﻿#Author: Donia Amer Shaarawy 22-0270
 # these are the test for the requests which is redirecting to the user page and how the sign up page should look like and whats in it 
-require 'FactoryGirl'
+
 require 'spec_helper'
 
 describe "User pages" do
@@ -8,7 +8,7 @@ describe "User pages" do
   subject { page }
 
    describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
    before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.name) }
