@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
 	def createPostGroup
 		@post = Post.new(params[:post])
-		@post.user_id = 1
+		@post.user_id = @user_id
 		@post.save
 		respond_to do |format|
 		format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}

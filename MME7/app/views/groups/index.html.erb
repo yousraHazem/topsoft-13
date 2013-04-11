@@ -17,12 +17,8 @@
   <% if @groups %>
   <% @groups.each do |group| %>
   <tr>
-    <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-
-    <% if isGroupCreator(group.id, 1) == true %>
-    <td><%= link_to("Delete", {:action => 'destroy', :id => group.id}, :helper => GroupUsersHelper, :confirm => 'Are you sure you want to delete this group?', :class => 'action delete') %></td>
-    <% end %>
+ 
+    <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
   </tr>
 <% end %>
 </table>
