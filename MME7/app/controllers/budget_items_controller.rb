@@ -14,10 +14,6 @@ class BudgetItemsController < ApplicationController
 		#@id = params[:id]
 		@budget_item = BudgetItem.new(params[:budget_item])
 		if @budget_item.save
-		@budget_users = params['budget_item.users'][:id]
-	    @budget_users.each do |budget_user|
-		@user = User.find(@budget_users)
-		@budget_assign = @budget_item.users.push(@user)
 	    end
 			redirect_to(:controller => 'budget_items',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
@@ -42,19 +38,7 @@ class BudgetItemsController < ApplicationController
 			end
 		else
 			render('edit')
-
 		end
-	end
-
-	def assign_user
-		render('assign_user')
-		@budget_item = BudgetItem.find(1)
-		@budget_users = params['budget_item.users'][:id]
-		@budget_users.each do |budget_user|
-		@user = User.find(@budget_users)
-		@budget_assign = @budget_item.users.push(@user)
-    end
-	end
 
 #Authored by Toka Omar  id:22-1925
 #this method has no inputs and outputs: the operational budgetitems of 
