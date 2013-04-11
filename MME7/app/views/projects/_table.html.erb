@@ -9,7 +9,6 @@
  	  
      <td>
      	<% if isPostCreator(1, post.id) %>
-     	<label>tab to edit</label>
         <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=> post.id} %> 
         <% else %>	
         <%= post.content %>
@@ -26,12 +25,10 @@
 	
 <% end %>
 </table>
+	   </tr> 
 
-
-	   </tr>    
 	    <div class="post new">
-		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id]}, 
-		:html => {:id => "post-form"}) do |f| %>
+		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => @project.id}) do |f| %>
 		<tr>			
 		<td><%= f.text_field (:content) %></td>		
 		<div><%= f.hidden_field :project_id, :value => @project_id %></div>		

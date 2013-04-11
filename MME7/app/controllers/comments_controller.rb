@@ -40,8 +40,7 @@ class CommentsController < ApplicationController
   # Salma El -Ruby 22-4649
   # displays the available comments
   def list 
-    @comment = Comment.all
+    @post = Post.find(params[:id])
   end
-
 
 end

@@ -7,15 +7,12 @@ class PostsController < ApplicationController
 		@project_id = params[:id]
 		@post = Post.new(params[:post])
 		@post.project_id = params[:id]
-		if @post.save
+		@post.save
 		respond_to do |format|
-        format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
-        format.js
-	    end
-		else
-			redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
-		end	
-    	end
+    format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
+    format.js
+end
+		end
 		# redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
 
 	
@@ -29,17 +26,10 @@ class PostsController < ApplicationController
 		respond_with @post			
 	end
 
-	
-	# Salma El Ruby 22-4649
-	# deletes posts
-	  def delete
-	    @post = Post.find(params[:id])
-	  end
 	  
 	  def destroy
 	  	@project_id = params[:project_id]
 	    Post.find(params[:id]).destroy
-	    #redirect_to(:action => 'list')
 	    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
 	  end
 

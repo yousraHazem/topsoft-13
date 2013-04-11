@@ -1,36 +1,25 @@
-<%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
+    <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
-<div class="project show">
- <h1><%= @project.project_name %></h1>     
+    <td class="actions">
+		<%= link_to("Edit Project", {:action => 'edit', :id=> @project_id}, 
+		:class => 'action edit')%>
+	</td>
+
+    <div class="project show">
+    <h1><%= @project.project_name %></h1>     
 	<table class="table">
-  	 <tr class="success">
+  	<tr class="success">
  		<td>start date</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
- 	
- 	 <tr class="error">
+ 	</tr> 	
+ 	<tr class="error">
  		<td>end date</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
+ 	</tr>
 
- 	 <tr class="success">
+ 	<tr class="success">
  		<td>description</td>
 
- 	 <tr >
-
- 		<th>description</th>
- 		<td><%= @project.description %></td>
- 	 </tr> 	
-    </table>
-
-<div id = "tablePosts"><%= render 'table' %></div>
-
-
-   
-    <td class="actions">
-		<%= link_to("Add Members", {:controller => 'project_users',:action => 'addMembers', :id=> @project_id}, 
-		:class => 'action show')%>
-	</td>
-	
-
-</div>
+ 	</table>
+ 	<div id = "tablePosts"><%= render 'table' %></div>
+    </div>
