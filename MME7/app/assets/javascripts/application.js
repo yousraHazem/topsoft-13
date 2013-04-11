@@ -24,3 +24,10 @@ $(document).ready(function(){
 
     });
 });
+
+
+$(function() {
+    $("#new-item").click(function(){
+        $("#item-form").toggle("slow");
+    });
+});
