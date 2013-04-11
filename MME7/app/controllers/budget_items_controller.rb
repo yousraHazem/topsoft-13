@@ -28,11 +28,11 @@ class BudgetItemsController < ApplicationController
 		@budget_item = BudgetItem.find(params[:id])
 	end
 # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
+# Author :Toka Omar 22-1925 , it also assigns user to the budget item 
 	def update
 		@budget_item = BudgetItem.find(params[:id])
 		if @budget_item.update_attributes(params[:budget_item])
 			@budget_users = params['budget_item.users'][:id]
-
 			@budget_users.each do |budget_user|
 			@user = User.find(@budget_users)
 			@budget_assign = @budget_item.users.push(@user)
