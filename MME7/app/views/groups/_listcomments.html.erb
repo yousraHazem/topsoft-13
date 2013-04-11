@@ -1,0 +1,20 @@
+﻿<div class = "group comments">
+<% post.comments.each do |c| %>
+    
+
+    <%= best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateCommentGroup', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %>  
+
+
+   
+    <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentGroup', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+    <% end %>
+
+
+    <% if ifMember(params[:id],1) == true %>
+    <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createCommentGroup', :post_id => post.id, :group_id => @group.id}, :html => {:id => "comment-form"}) do |f| %>
+    <td><%= f.text_field (:comment), :placeholder =>"leave your comment" %></td>
+    <%= f.hidden_field :post_id, :value => post.id%>
+    <th><%= submit_tag("leave a Comment") %></th>
+  <% end %>
+<% end %>
+</div>

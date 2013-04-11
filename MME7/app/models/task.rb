@@ -6,8 +6,4 @@ has_one :budget_item
 has_many :users, :through => :task_users
 has_many :task_users
 belongs_to :project
- 
-
-  
-
-end
+ end

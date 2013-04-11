@@ -1,5 +1,17 @@
 ﻿class Project < ActiveRecord::Base
-    attr_accessible  :name , :start_date , :end_date , :description 
+
+    attr_accessible  :name , :start_date , :end_date , :description , :user_tokens
+    has_many :posts
+    has_many :tasks 
+    has_and_belongs_to_many :users
+    has_one :budget 
+    has_many :project_users
+    has_many :users , :through => :project_users
+    has_and_belongs_to_many :communities
+    has_many :budget_source_projects
+    has_many :budget_sources , :through => :budget_source_projects
+    has_and_belongs_to_many :budget_sources
+    attr_reader :user_tokens
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
 
@@ -29,14 +41,24 @@
     end
 
 
+	def self.get_projectmembers(project_id)
+ 	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
+  	end
 
-	has_many :posts
-	has_many :tasks 
-	has_and_belongs_to_many :users
-	has_one :budget 
-	has_many :project_users
-	has_many :users , :through => :project_users
-	has_and_belongs_to_many :communities
-	has_many :budget_source_projects
-	has_many :budget_sources , :through => :budget_source_projects
+
+    def getMembersNotInProject (project_id)
+     b = Project.get_projectmembers(project_id)
+     return notProjectUser = User.where("id NOT IN (?)" , b)
+    end 
+
+
+	def user_tokens=(ids)
+	  self.user_ids = ids.split(",")
+	end
+
+	def self.getProjectPosts(project_id)
+ 	     @projectposts = Post.find(:all, :conditions => {:project_id => project_id })
+    end 
+
+    
 end

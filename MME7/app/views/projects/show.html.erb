@@ -1,0 +1,26 @@
+﻿    <%= link_to("Back to list", {:action => 'listProjects', :class => 'back link'} ) %>
+
+    <td class="actions">
+		<%= link_to("Edit Project", {:action => 'editProject', :id=> @project_id}, 
+		:class => 'action edit')%>
+	</td>
+
+    <div class="project show">
+    <h1><%= @project.name %></h1>     
+	<table class="table">
+  	<tr class="success">
+ 		<td>start date</td>
+ 		<td><%= @project.start_date %></td>
+ 	</tr> 	
+ 	<tr class="error">
+ 		<td>end date</td>
+ 		<td><%= @project.start_date %></td>
+ 	</tr>
+
+ 	<tr class="success">
+ 		<td>description</td>
+
+ 	</table>
+ 	<div id = "tablePosts"><%= render 'table' %></div>
+    </div>
+    <%= link_to("المهمات", {:controller =>'tasks' ,:action => 'listTasks', :id => @project.id} ) %>

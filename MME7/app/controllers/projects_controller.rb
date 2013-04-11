@@ -6,10 +6,15 @@
     @projects = Project.all
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method shows a project occuring
-  def showProject
+  # # Author : Nayera Mohamed 22-3789 , this method shows a project occuring
+  # def showProject
+  #     @project = Project.find(params[:id])
+  # end
+
+  def show
+      @project_id = params[:id]
       @project = Project.find(params[:id])
-  end
+    end
 
   # Author : Nayera Mohamed 22-3789 , this method puts a new project
   def newProject
@@ -21,7 +26,7 @@
       @project=Project.new(params[:project])
       if @project.save
          flash[:notice]= "project created"
-         redirect_to(:action => 'listProject')
+         redirect_to(:action => 'show', :id => @project.id)
       else
          render('newProject')
       end
@@ -38,7 +43,7 @@
       @project = Project.find(params[:id])
       if @project.update_attributes(params[:project])
        flash[:notice]= "project updated"
-         redirect_to(:action => 'listProjects', :id => @project.id)
+         redirect_to(:action => 'show', :id => @project.id)
       else
          @project_count = Project.count 
          render('editProject')

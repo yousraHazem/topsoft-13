@@ -1,22 +1,13 @@
-﻿
+﻿<% @page_title= "Community list" %> 
 <div>
-  <h2>Communities</h2>
-  <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
-    <% @communities.each do |community| %>
+ 
+<table class="table table-hover">
+  
     <tr>
-      <td><%= community.title %></td>
-      <td><%= community.social_profile_info %></td>
-      <td><%= community. contact_info %></td>
-      <td>
-          <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
-<div class="community list">
-  <h2>Communities</h2>
-  <table class="listing" summary="community list">
+  <h2>Communities List</h2>
+<div>
+  
+  <table class="table table-hover">
     <tr class="header">
       <th>Title</th>
       <th>Social profile info</th>
@@ -24,15 +15,17 @@
       <th>Actions</th>
     </tr>
     <% @communities.each do |community| %>
-     <tr>
+     <tr class="success">
        <td><%= community.title %></td>
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
-            <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+             <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+             <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
         </td>
       </tr>
-    <% end %>
+    <%end%>
   </table>
 </div>
 

@@ -12,6 +12,10 @@
 
 
 
+  def self.getMembersNotInProject (project_id)
+     b = get_projectmembers(project_id)
+     return notProjectUser = User.where("id NOT IN (?)" , b)
+  end 
 
 
 end
