@@ -1,5 +1,5 @@
 
-<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+<%= link_to("<< الروجع إلى القائمة الرئيسية", {:action => 'list'}, :class => 'back-link') %>
 <div>
   
   <%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
@@ -7,19 +7,19 @@
   <%= error_messages_for(@community) %>
     <table>
       <tr >
-        <th>Title</th>
+        <th>اسم المجتمع </th>
         <td><%= t.text_field(:title) %></td>
       </tr>
       <tr>
-        <th>Social_profile_info</th>
-        <td><%= t.text_field(:social_profile_info) %></td>
+        <th>وصف</th>
+        <td><%= t.text_area(:social_profile_info) %></td>
       </tr>
       <tr>
-        <th>Contact info</th>
+        <th>معلومات الاتصال</th>
         <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
-<button class="btn btn-success" type="submit">Submit</button>
+<button class="btn btn-info" type="submit">تسجيل </button>
     
   <% end %>
 </div>

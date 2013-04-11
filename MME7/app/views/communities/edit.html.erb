@@ -10,20 +10,20 @@
     <table>
       <tr>
         <p class= "text-center">
-        <th>عنوان</th>
+        <th>اسم المجتمع</th>
         <td><%= t.text_field(:title) %></td>
       </tr>
       <tr>
-        <th>معلومات عن المجتمع </th>
-        <td><%= t.text_field(:social_profile_info) %></td>
+        <th>وصف</th>
+        <td><%= t.text_area(:social_profile_info) %></td>
       </tr>
       <tr>
-        <th>الارقام</th>
+        <th>امعلومات الاتصال</th>
         <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
     <p class="text-center">
-<button class="btn btn-success" type="submit">تحديث</button>
+<button class="btn btn-info" type="submit">تحديث</button>
     </p>
   <% end %>
 </div>
