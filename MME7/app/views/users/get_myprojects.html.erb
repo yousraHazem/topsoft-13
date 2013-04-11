@@ -1,0 +1,46 @@
+<head>
+ <title> My Project List </title>
+ <script type="text/javascript">
+ var testPatterns = [
+        'yyyy','yy','MMMM','MMM','MM','M','dd','d','EEEE','EEE','a',
+        'HH','H','hh','h','mm','m','ss','s','S',
+        'EEEE MMMM, d yyyy hh:mm:ss.S a',
+        'M/d/yy HH:mm'
+      ];
+        </script>
+</head>
+<body>
+<h1>Listing projects</h1>
+<% if @projectusers.blank? %>
+<p>You do not have any projects</p>
+<% else %>
+<p>These are the current proojects you have </p>
+<% end %>
+<h2>List of Projects of: <%= @user_name.name %></h2>
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th>Project Link</th>
+ </tr>
+
+<% @projectusers.each do |project_user| %>
+  <tr>
+   <td id ="project_name"><%= project_user.project.name %></td>
+   <td><%= link_to("view this project",:controller => 'projects',:action=>'show', :id=> project_user.id) %></td>
+ </tr>
+<% end %>
+</table>
+
+</br>
+ 	</br>
+ </br>
+    <div>
+      <script>
+        var now = new Date();
+        document.write('<div> Date: '+now+'</div>');
+        $.each(testPatterns,function(){
+          document.write('<div>'+this+'='+$.formatDate(now,this)+'</div>');
+        });
+      </script>
+    </div>
+</body>

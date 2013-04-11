@@ -1,5 +1,4 @@
 class BudgetItemsController < ApplicationController
-	# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
 		@budget_items = BudgetItem.all
 	end 
@@ -17,7 +16,6 @@ class BudgetItemsController < ApplicationController
 			redirect_to(:controller => 'projects',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('new')
-
 		end
 
 	end
@@ -43,5 +41,5 @@ class BudgetItemsController < ApplicationController
 
 		end
 	end
-
 end
+

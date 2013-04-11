@@ -30,21 +30,27 @@
  		<th>Spent     </th>
         <th>Edit      </th>
         <th>Delete     </th>
+        <th>Assignee  </th>
+ 		<th>Status    </th>
+ 		<th>Total     </th>
+ 		<th>Spent     </th>
+        <th>Edit     </th>
+       <th>Delete     </th>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
 		<tr id = "budget_item">
  		<td><%= budgetitem.name %></td>
+        <td><%= budgetitem.users.name %></td>
  		<td><%= budgetitem.status %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
-    <td><%= link_to("edit", {:controller => 'budget_items',:action=>'edit', :id=>budgetitem.id})%></td>
+    <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
     <td><%= link_to("create budget component", 
-    {:controller => 'budget_components', :action=>'list', :id=>budgetitem.id})%></td>
+    {:controller => 'budget_components', :action=>'new', :id=>budgetitem.id})%></td>
  		</tr>
  	<% end %>
  	</table>
-    <td><%= link_to("create new budget item", {:controller => 'budget_items',:action=>'create'})%></td>
  	</br>
  	</br>
  </br>
