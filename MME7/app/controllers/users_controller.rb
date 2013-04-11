@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 
 	# May Atef Badr 22-0579
@@ -9,4 +10,5 @@ class UsersController < ApplicationController
     		format.json { render :json => @users.map(&:attributes) }
   		end
 	end
+
 end 

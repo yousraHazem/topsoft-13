@@ -23,7 +23,6 @@ $(function(){
 });
 
 
-
 $(function() {
   $("#group_user_tokens").tokenInput("/users.json", {
     crossDomain: false,

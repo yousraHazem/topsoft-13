@@ -1,3 +1,4 @@
+
 class Group < ActiveRecord::Base
 	
  	 attr_accessible :group_name , :description , :levels , :user_id , :community_id, :user_tokens
@@ -7,7 +8,8 @@ class Group < ActiveRecord::Base
  	 has_many :group_users 
  	 has_many :users , :through => :group_users
 
-  	attr_reader :user_tokens
+
+  attr_reader :user_tokens
 
   
   # May Atef Badr 22-0579

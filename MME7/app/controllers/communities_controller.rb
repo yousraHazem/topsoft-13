@@ -1,10 +1,15 @@
-class CommunitiesController < ApplicationController
+﻿class CommunitiesController < ApplicationController
 
 # Author : Mariam, 22-3456
 # This method lists all communities in the database
+#May update
+# Author : May Atef Badr 22-0579
+# this emthod lists the communities 
+#and if user uses the search, it will filter the list
 
 def list
-		@communities = Community.order("communities.title ASC")
+	#@communities = Community.order("communities.title ASC")
+	@communities=Community.search(params[:search])
 end
 	
  #Author Mariam, 22-3456
@@ -20,10 +25,10 @@ end
 def create
 	@community= Community.new(params[:community])
 	   if @community.save
-	render ('create')
-    else 
-	render ('new')
-    end
+			render ('create')
+   		 else 
+			render ('new')
+    	end
 end
 
 # Author Mariam, 22-3456
@@ -40,28 +45,29 @@ def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
    render ('update')
+   
     else 
 render ('edit')
     end
 end
 
-def list
-		@communities = Community.order("communities.title ASC")
-end
 
 #Author: May Badr 22-0579
 #find record to be deleted
 	
 def delete 
-		@community = Community.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-	end
-	#Author:May Badr 22-0579
-	#deletes record chosen
-	def destroy 
-		Community.find(params[:id]).destroy
-		rescue ActiveRecord::RecordNotFound
-		redirect_to(:action => 'list')
+	@community = Community.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+end
 
-	end
+#Author:May Badr 22-0579
+#deletes record chosen
+def destroy 
+	Community.find(params[:id]).destroy
+	rescue ActiveRecord::RecordNotFound
+	redirect_to(:action => 'list')
+end
+
+
+
 end

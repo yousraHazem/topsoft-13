@@ -1,3 +1,6 @@
+
 class GroupUsersController < ApplicationController
 	
 end 
+
+﻿
