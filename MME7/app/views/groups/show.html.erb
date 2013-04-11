@@ -51,11 +51,11 @@
     <b id = "postaya">Post: <%= post.content %></b>
 
   <% if isPostCreator(1,post.id ) == true %>
-    <b><%= button_to("x", {:controller => 'posts', :action => 'destroy', :post_id => post.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this post?', :class => 'action delete') %></b>
+    <b><%= button_to("x", {:controller => 'posts', :action => 'destroyPost', :post_id => post.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this post?', :class => 'action delete') %></b>
 
     <b>
 <p>
-      <%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=>post.id,         :group_id => @group.id}) do |f| %>
+      <%= form_for(:post, :url=>{:controller => 'posts', :action=>'updatePost', :id=>post.id, :group_id => @group.id}) do |f| %>
     
 
 
