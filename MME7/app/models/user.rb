@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id , :id
+  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id , :id ,:name
 
 
 
