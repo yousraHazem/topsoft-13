@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
 
-  
   #Author Riham Gamal 22-3871
-  # create a new comment
-  def createComment
+  # create a new comment  
+  def createCommentProject
     @project_id = params[:project_id]
     @comment = Comment.new(params[:comment]) 
     @comment.post_id = params[:id]
@@ -14,11 +13,23 @@ class CommentsController < ApplicationController
     end
   end
 
+
+  # sama updated
+  #Author: Sama Akram 22-555 
+  #redirection changed to
+  def createCommentGroup
+    @comment = Comment.new(params[:comment])
+    @comment.user_id = 1 
+    @comment.save
+    respond_to do |format|
+    format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+    format.js
+    end 
+  end
+
  
-  # Riham Gamal 22-33871
-  # update the comment by finding its id and chnaging the fields
   respond_to :html, :json
-  def updateComment
+  def updateCommentProject
     @project_id = params[:project_id]
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
@@ -27,15 +38,41 @@ class CommentsController < ApplicationController
   end
 
 
-  # Salma El -Ruby 22-4649
-  # deletes comments
+  def updateCommentGroup
+    @group_id = params[:group_id]
+    @comment = Comment.find(params[:id])
+    @comment.update_attributes(params[:comment])
+    @comment.post_id = params[:post_id]
+    flash[:notice] = "Comment successfully updated"
+    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+  end
+
+
   
-  def destroy
+  def destroyCommentProject
     @project_id = params[:project_id]
     @post_id = params[:post_id]
     Comment.find(params[:id]).destroy
     redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
   end
+
+  
+  
+  # Author: Sama Akram 22-555 
+  # updated the redirection
+  def destroyCommentGroup
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+  end
+
+
+
+  def show
+    @comment = Comment.find(params[:id])
+  end
+  
+ 
 
   # Salma El -Ruby 22-4649
   # displays the available comments

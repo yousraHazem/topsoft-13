@@ -9,7 +9,7 @@
  	  
      <td>
      	<% if isPostCreator(1, post.id) %>
-        <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=> post.id} %> 
+        <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostProject', :id=> post.id} %> 
         <% else %>	
         <%= post.content %>
         <% end %>
@@ -17,7 +17,7 @@
         <div id ="tablePosts"><%= render(:partial => "tableComments", :locals => {:post => post}) %></div>
         </td>
         <td>
-     	<%= link_to("delete post", {:controller => 'posts', :action => 'destroy', :id => post.id, 
+     	<%= link_to("delete post", {:controller => 'posts', :action => 'destroyPostGroup', :id => post.id, 
     	:project_id => @project.id})%>  
         </td> 
 	</tr>
@@ -28,7 +28,7 @@
 	   </tr> 
 
 	    <div class="post new">
-		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => @project.id}) do |f| %>
+		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostProject', :id => @project.id}) do |f| %>
 		<tr>			
 		<td><%= f.text_field (:content) %></td>		
 		<div><%= f.hidden_field :project_id, :value => @project_id %></div>		

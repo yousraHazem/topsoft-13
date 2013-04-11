@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html>
 <head>
   <title>MME7</title>
-
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook" %>
- <%= javascript_include_tag "application", "jquery.tokeninput" %>
-
-
+ <%= stylesheet_link_tag    "application", "token-input-facebook", :media => "all" %>
+  <%= javascript_include_tag "application", "jquery.tokeninput" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
-	<div class="navbar navbar-inverse">
+  <div class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -30,8 +27,8 @@
   </div>
 </div>
 <div class="container">
-	<div class="row"></div>
-	<div class="span9"> 
+  <div class="row"></div>
+  <div class="span9"> 
     <%= yield %>
   </div>
 

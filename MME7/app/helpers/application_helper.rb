@@ -9,4 +9,11 @@ module ApplicationHelper
  # 	     @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
  #    end 
 
+
+  def error_messages_for( object )
+    render(:partial => 'shared/error_messages', :locals => {:object => object})
+  end
 end
+
+
+

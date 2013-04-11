@@ -11,12 +11,11 @@ class Project < ActiveRecord::Base
 	has_and_belongs_to_many :budget_sources
 	attr_reader :user_tokens
 
-
 	def self.get_projectmembers(project_id)
  	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
   	end
 
-	
+
     def getMembersNotInProject (project_id)
      b = Project.get_projectmembers(project_id)
      return notProjectUser = User.where("id NOT IN (?)" , b)

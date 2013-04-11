@@ -1,43 +1,67 @@
 class PostsController < ApplicationController
-	
 
 	#Author Riham Gamal 22-3871
 	# create a new post
-	def createPost
+	def createPostProject
 		@project_id = params[:id]
 		@post = Post.new(params[:post])
-		@post.project_id = params[:id]
 		@post.save
 		respond_to do |format|
-    format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
-    format.js
-end
+    	format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
+    	format.js
 		end
-		# redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id])
+	end
+
+	def createPostGroup
+		@post = Post.new(params[:post])
+		@post.user_id = 1
+		@post.save
+		respond_to do |format|
+		format.html{redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
+		format.js
+		end
+	end
+
 
 	
 	# Riham Gamal 22-3871
 	# update the post by finding its id and changing the fields
 	respond_to :html, :json
-	def updatePost
+	def updatePostProject
 		@project_id = params[:project_id]
 		@post = Post.find(params[:id])
 		@post.update_attributes(params[:post])			       		
 		respond_with @post			
 	end
 
+	respond_to :html, :json
+	def updatePostGroup
+		 @group_id = params[:group_id]
+		 @post = Post.find(params[:id])	     
+	     @post.update_attributes(params[:post])
+		 redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+	end
+
 	  
-	  def destroy
+	def destroyPostGroup
 	  	@project_id = params[:project_id]
 	    Post.find(params[:id]).destroy
 	    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
-	  end
+	end
 
-		# Salma El Ruby 22-4649
-		# displays all available posts 
-	    def list 
-		@post = Post.all
-	    end
+		
+	# Riham Gamal 22-3871, Mariam Ismail 22-3456
+	# update the post by finding its id and changing the fields
+	# takes the group-id and redirects back to show group
+
+	
+	def destroyPost
+		@group_id = params[:group_id]
+        @post=Post.find(params[:post_id])
+	    @post.destroy
+	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+	end
+		
 	   
 	   
 	    def getComments

@@ -28,3 +28,12 @@ $(function() {
     theme: "facebook"
   });
 });
+
+
+
+$(document).ready(function(){
+$("#comment-form").submit(function(){
+$.comment($(this).attr("action"),$(this).serialize(),null, "script");
+return false;
+});
+});

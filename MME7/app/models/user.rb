@@ -15,10 +15,10 @@ class User < ActiveRecord::Base
   has_many :groups_users 
   has_many :groups , :through => :group_users 
 
-   def self.getMembersNotInProject (project_id)
+  def self.getMembersNotInProject (project_id)
      b = get_projectmembers(project_id)
      return notProjectUser = User.where("id NOT IN (?)" , b)
-    end 
+  end 
 
 
 end
