@@ -6,6 +6,7 @@ class BudgetItemsController < ApplicationController
 	def new 
 		@id = params[:id]
 		@budget_item = BudgetItem.new
+		@project = params[:id]
 	end
 
 # Author :Yasmin Mahmoud 22-1787 , Method create takes attributes from the new form and enters it in the table 
@@ -39,7 +40,6 @@ class BudgetItemsController < ApplicationController
 			@user = User.find(@budget_users)
 			@budget_assign = @budget_item.users.push(@user)
 			end
-		redirect_to(:controller => 'budget_items',:action => 'viewAllBI',:id=> @budget_item.project_id)
 		else
 			render('edit')
 
