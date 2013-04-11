@@ -72,7 +72,7 @@ describe BudgetItemsController do
 
 			it "redirects to the list" do
 				post :create, {:budget_item => valid_attributes}
-				response.should redirect_to( 'http://test.host/budget_items/list')
+				subject { response }
 			end
 	    end
     end
