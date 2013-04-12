@@ -22,7 +22,7 @@
 </tr>
 <% @budget_sources.each do |budget_source|%>
 <tr>
-	<td><%= budget_source.name %></td>	
+	<td><%= budget_source.budget_source_name %></td>	
 <td><%= budget_source.amount %></td>
 <td><div><% budget_source.budget_source_projects.each do |budget_source| %>
  <%= budget_source.project.name%> <%= budget_source.amount%> </td>

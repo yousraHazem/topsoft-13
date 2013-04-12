@@ -4,8 +4,8 @@
 <%= form_for(:budget_source, :url=>{:action=>'update' , :id => @budget_source.id}) do |f| %>
 <table>
 <tr>
-<th><%= f.label(:Name , "إسم") %></th>
-<td><%= f.text_field(:name)%></td>
+<th><%= f.label(:budget_source_name , "إسم") %></th>
+<td><%= f.text_field(:budget_source_name)%></td>
 </tr>
 </br>
 <tr>
