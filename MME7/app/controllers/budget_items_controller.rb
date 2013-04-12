@@ -1,3 +1,4 @@
+
 class BudgetItemsController < ApplicationController
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
@@ -8,7 +9,7 @@ class BudgetItemsController < ApplicationController
 		# @total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:project_id]})
 		# @total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:project_id]})
 		# @project_name = Project.find(params[:project_id])
-		 @tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false})
+		 @tasks = Task.find(:all,:conditions=>{:project_id=> 1, :assigned=>false})
 		 @items = BudgetItem.all
 	# else
 		#Authored by Toka Omar  id:22-1925
@@ -66,7 +67,7 @@ class BudgetItemsController < ApplicationController
 	def edit  
 		@budget_item = BudgetItem.find(params[:id])
 		@project = params[:project_id]
-		@tasks = Task.find(:all,:conditions=>{:project_id=> @project, :assigned=>false })
+		@tasks = Task.find(:all,:conditions=>{:project_id=> 1 , :assigned=>false })
 
 		@task_id = @budget_item.task_id
 		@oldtask = Task.find_by_id(@task_id)

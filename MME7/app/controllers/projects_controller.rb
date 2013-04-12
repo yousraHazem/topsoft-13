@@ -24,11 +24,5 @@ def create
    		 render('new')
     end
 
-  	 else
-   		 render('new')
-     end
-
 end
-
-	
 end

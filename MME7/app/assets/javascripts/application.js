@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 
+//= require_tree .
 
 $(document).ready(function(){
     $('#check').change(function(){
@@ -21,9 +21,23 @@ $(document).ready(function(){
             $('#connect').show("slow");
         else
             $('#connect').hide();
+  });
+});
 
+
+$(function(){
+ $("#Budget-serach input").keyup(function (){
+    $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
+    return false;
+  });
+});
+
+$(function() {
+    $("#p").click(function() {
+      $("#grp").slideToggle();   
     });
 });
+
 
 
 $(function() {
@@ -31,3 +45,6 @@ $(function() {
         $("#item-form").toggle("slow");
     });
 });
+
+
+
