@@ -10,8 +10,9 @@
         'EEEE MMMM, d yyyy hh:mm:ss.S a',
         'M/d/yy HH:mm'
       ];
-        </script>
+  </script>
 </head>
+
 <body>
 <% if @budget_items.blank? %>
 <p>ليس لديك أي عناصر حاليا</p>
@@ -19,11 +20,12 @@
 <p>عناصر الميزانية الحالية هي </p>
 <% end %>
 </br>
+
  	<table>
  	<tr>
- 		<th>اسم عنصر الميزانية     </th>
- 		<th>مجموع العنصر الميزانية     </th>
- 		<th>ما الذي تم صرفه     </th>
+ 		<th>اسم عنصر الميزانية </th>
+ 		<th>مجموع العنصر الميزانية</th>
+ 		<th>ما الذي تم صرفه</th>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
