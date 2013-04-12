@@ -15,7 +15,7 @@
       if @assigned.empty?
       @notassigned = ProjectUser.where(:project_id=>@project_id)  
       else
-      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , project_id , @assigned)
+      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , @project_id , @assigned)
       end
 
       #@new = TaskUser.find(:all , :conditions => {:task_id => @task_id , :user_id =>@user , :assigned = false})
