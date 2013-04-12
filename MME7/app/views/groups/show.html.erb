@@ -10,18 +10,18 @@
 
 <div>
       <p>
-        <b>اسم المجموعة</b>
         <%= @group.group_name %>
+        <b>اسم المجموعة</b>
       </p>
 
       <p>
-        <b>وصف</b>
         <%= @group.description %>
+        <b>وصف</b>
       </p>
 
       <p>
-        <b>مستوى المجموعة</b>
         <%= @group.levels %>
+        <b>مستوى المجموعة</b>
       </p>
 
       <p>
@@ -52,6 +52,7 @@
 <div>
 <div id = "allpostsborder">
   <% @group.posts.each do |post| %>
+  
     <b id = "postaya">Post: <%= post.content %></b>
 
   <% if isPostCreator(1,post.id ) == true %>
@@ -78,6 +79,7 @@
 
     </b>
     <%= render :partial => "listcomments", :locals => {:post => post} %></div>
+
   <% end %>
 </div>
 

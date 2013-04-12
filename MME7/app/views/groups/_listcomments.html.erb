@@ -2,18 +2,21 @@
 <% post.comments.each do |c| %>
     <p><%= c.comment %></p>
     <p>
-      <%= form_for(:comment, :url=>{:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id}) do |f| %>
+      
+      <%= form_for(:comment, :url=>{:controller => 'comments', :helper => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id, :user_id => 1}) do |f| %>
     
 
 
             <tr>
-            <th><%= f.label(:comment, "Comment")%></th>
+            <th><%= f.label(:comment)%></th>
             <td><%= f.text_field(:comment) %></td>
        </tr>
        
     </p>
     <% end %>
-     <%= button_to(" X comment", {:controller => 'comments', :action => 'destroy', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+     <%= button_to(" X comment", {:controller => 'comments', :helper => 'comments', :action => 'destroy', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+     </div>
+
 <% end %>
 
 

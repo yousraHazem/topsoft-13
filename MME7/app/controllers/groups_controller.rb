@@ -39,10 +39,10 @@ include GroupUsersHelper
             @m = GroupUser.new(:group_id => @group.id, :user_id => 1)
             @m.isCreator = 'true'
             @m.save
-            flash[:notice] = "Congratulations, you have successfully created a group"
+            #flash[:notice] = "Congratulations, you have successfully created a group"
             redirect_to :action => 'index'
         else
-            flash[:error] = "Please make sure to fill in the required fields * OR you might have chosen an already existing group name"
+            #flash[:error] = "Please make sure to fill in the required fields * OR you might have chosen an already existing group name"
             render ('new')
         end
     end

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 				format.js
 		end
 		else
-			redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])
+			redirect_to(:controller => 'groups', :action => 'show', :id =>params[:id])
 		end
 
 	end
