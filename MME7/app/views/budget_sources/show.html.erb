@@ -1,0 +1,11 @@
+<br>
+<br>
+<h1 class="search offset1"><%= @source.name %></h1>
+<br>
+<br>
+<div class="sources contribution">
+		<% @source.budget_source_projects.each do |s| %> 
+		<span class="amount">amount:<%= s.amount %></span>
+	    <%= s.project.name %><br> <br>
+	    <%end%> <hr>
+		</div>
