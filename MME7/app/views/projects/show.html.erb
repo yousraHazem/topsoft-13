@@ -5,9 +5,9 @@
 		:class => 'action edit')%>
 	</td>
 
-    <div class="project show">
-    <h1><%= @project.name %></h1>     
-	<table class="table">
+<div class="project show">
+  <h1><%= @project.name %></h1>     
+  <table class="table">
   	<tr class="success">
  		<td>تاريخ البداية</td>
  		<td><%= @project.start_date %></td>
@@ -16,10 +16,9 @@
  		<td>تاريخ النهاية</td>
  		<td><%= @project.start_date %></td>
  	</tr>
-
  	<tr class="success">
  		<td>التفاصيل</td>
-
+    </tr>
  	</table>
  	<div id = "tablePosts"><%= render 'table' %></div>
-    </div>
+</div>
