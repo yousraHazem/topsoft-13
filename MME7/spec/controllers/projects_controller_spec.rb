@@ -1,4 +1,5 @@
 ﻿require 'spec_helper'
+# Author : Nayera Mohamed 22-3789 
 describe ProjectsController do
 
   def valid_attributes
@@ -14,7 +15,6 @@ describe ProjectsController do
   end
 
  
-
   describe "GET index" do
     it "assigns all projects as @projects" do
       project = Project.create! valid_attributes

@@ -1,5 +1,5 @@
 ﻿require "spec_helper"
-
+# Author : Nayera Mohamed 22-3789 
 describe "stub_model(Project) with a hash of stubs" do
   let(:project) do
     stub_model Project, :name => "Proj1a", :start_date =>"7/8/2013", :end_date => "7/8/2014" , :description => "blablablablabla"
