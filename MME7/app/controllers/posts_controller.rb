@@ -57,4 +57,5 @@ class PostsController < ApplicationController
 	@post = Post.all
     end
 
+
 end

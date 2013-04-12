@@ -1,2 +1,2 @@
-class TasksController < ApplicationController
+﻿class TasksController < ApplicationController
 end
