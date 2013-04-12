@@ -12,8 +12,7 @@ describe PostsController do
      def update_attributes
     {:content => 'post 1'}
      end
-
-
+     
    describe "PUT updatePost" do
     describe "with valid params" do
       it "updates the requested post" do
