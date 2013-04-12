@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+﻿class GroupsController < ApplicationController
+
+def index
+        @groups = Group.order("groups.group_name ASC")
+    end
+
+    # Author: Sama Akram 22-555 As a system I can delete a group, destroying method
+    #def destroy
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+        #@group.destroy
+        #render 'index'
+    #end
+
+    # Author: Sama Akram 22-555 As a system I can delete a group, delete method
+    #def delete
+        #@group = Group.find(params[:id])
+        #rescue ActiveRecord::RecordNotFound
+    #end
+
+    def show
+        @group = Group.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+    end
+
+    # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
+=======
 class GroupsController < ApplicationController
 include GroupUsersHelper
 
@@ -25,10 +53,20 @@ include GroupUsersHelper
 
     # Author: Sama Akram 22-555
     # As a system I can create a group, called when clicked on create new group
+>>>>>>> master
     def new
         @group = Group.new
     end
 
+<<<<<<< HEAD
+    # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
+    def create
+        @group = Group.new(params[:group])
+        if @group.save
+            #@group.isGroupCreator(current_user.id) == 'true'
+            render ('create')
+        else
+=======
     # Author: Sama Akram 22-555
     # As a system/admin/member I can create a group issue #157 
     # creates new group and if saved into db it creates a new record in GroupUser
@@ -43,8 +81,14 @@ include GroupUsersHelper
             redirect_to :action => 'index'
         else
             flash[:error] = "Please make sure to fill in the required fields * OR you might have chosen an already existing group name"
+>>>>>>> master
             render ('new')
         end
     end
 end
 
+<<<<<<< HEAD
+﻿
+>>>>>>> master
+=======
+>>>>>>> master

@@ -1,0 +1,29 @@
+﻿
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Create community</h2>
+
+  <%= form_for(:community, :url => {:action => 'create'}) do |t| %>
+  
+    <table>
+      <tr>
+        <th>Title</th>
+        <td><%= t.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Social_profile_info</th>
+        <td><%= t.text_field(:social_profile_info) %></td>
+      </tr>
+      <tr>
+        <th>Contact info</th>
+        <td><%= t.text_field(:contact_info) %></td>
+      </tr>
+    </table>
+    
+    <div>
+      <%= submit_tag("Create community") %>
+    </div>
+    
+  <% end %>
+</div>

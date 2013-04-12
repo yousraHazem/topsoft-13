@@ -1,3 +1,4 @@
+
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -32,9 +33,11 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+
     t.integer  "total"
     t.integer  "spent"
     t.integer  "project_id"
+
   end
 
   create_table "budget_items_users", :id => false, :force => true do |t|
@@ -58,12 +61,12 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
   end
 
 
+
   create_table "budget_sources_projects", :id => false, :force => true do |t|
     t.integer "budget_source_id"
     t.integer "project_id"
   end
-
-  create_table "budgets", :force => true do |t|
+create_table "budgets", :force => true do |t|
     t.integer  "project_id"
     t.integer  "amount"
     t.integer  "raised"
@@ -151,12 +154,7 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.string   "title"
   end
 
-  create_table "projects_users", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
-  end
 
-  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
 
   create_table "receipts", :force => true do |t|
     t.string   "name"

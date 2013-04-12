@@ -1,20 +1,4 @@
-﻿# == Schema Information
-#
-# Table name: users
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  phone_Nr   :string(255)
-#  address    :string(255)
-#  username   :string(255)
-#  isAdmin    :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
-#Author Donia Amer Shaarawy 22-0270
-#these are all the valdation tests needed for the user model 
+﻿
 require 'spec_helper'
 
 describe User do
