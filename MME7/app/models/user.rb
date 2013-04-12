@@ -13,12 +13,10 @@
 #  updated_at :datetime         not null
 #
 class User < ActiveRecord::Base
-
-  #Author: Donia Amer Shaarawy 22-0270
+ #Author: Donia Amer Shaarawy 22-0270
   #these are the attributes needed for a user also though are out valdiations that are need for the input of sign up 
   attr_accessible :address, :email, :name, :isAdmin, :phone_Nr, :username, :password, :password_confirmation
   has_secure_password
-
   has_many :posts
   has_many :comments
   belongs_to :task
@@ -46,6 +44,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 
   validates_uniqueness_of :phone_Nr, :message => "هذا الرقم تم ادخاله من قبل"
+
 
   validates_presence_of :username, :message => "لا يوجد سم المستخدم"
   validates_length_of :username, :maximum => 20, :message => "الحد الاقصى ٢٠ حرف"

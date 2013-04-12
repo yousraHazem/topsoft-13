@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 #Author : Nayera Mohamed 22-3789
 describe ProjectsController do
 
@@ -43,9 +44,9 @@ describe ProjectsController do
     it "assigns the requested project as @project" do
       project = Project.create! valid_attributes
       get :editProject, {:id => project.to_param}
-      assigns(:project).should eq(project)
-    end
-  end
+
+       end
+
 
   
 
@@ -124,3 +125,5 @@ describe ProjectsController do
 end
 
 
+
+end

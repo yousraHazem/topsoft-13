@@ -1,0 +1,16 @@
+﻿<div class = "comments"><%= link_to("#{post.comments.size} التعليقات", {:controller => 'comments',                 :action => 'list', :id => post.id})%>
+
+   <% post.comments.last(5).each do |p|%> <br>
+   
+   <%= p.comment %>
+   <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentProject', :id => p.id, 
+	    :post_id => post.id, :project_id => @project.id})%>	   
+	
+	<% end %>
+
+	<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createCommentProject', :id => post.id, :project_id => params[:id]}) do |e| %>	 
+	<%= e.text_field (:comment) %>		
+	<div><%= e.hidden_field :post_id, :value => post.id %></div>		
+	<button type="submit" class="btn">أضف تعليق</button>		
+	<% end %>    
+</div> 
