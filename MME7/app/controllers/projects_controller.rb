@@ -1,4 +1,5 @@
-﻿class ProjectsController < ApplicationController
+
+class ProjectsController < ApplicationController
 
 # Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
 def list
@@ -28,8 +29,7 @@ end
 
 def edit
 		@project = Project.find(params[:id])
-		
-	end
+end
 
 	def update
 			@project = Project.find(params[:id])
@@ -41,7 +41,5 @@ def edit
            render('edit')
 		end
 	end
-
-	
 
 end

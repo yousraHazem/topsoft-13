@@ -64,6 +64,16 @@ $(function() {
     });
 });
 
+
+$(document).ready(function(){
+    $('#check').change(function(){
+        if(this.checked)
+            $('#connect').show("slow");
+        else
+            $('#connect').hide();
+  });
+});
+
 $(function(){
  $("#Budget-serach input").keyup(function (){
     $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
@@ -94,6 +104,7 @@ $(function() {
         $("#item-form").toggle("slow");
     });
 });
+
 // jQuery.ajaxSetup({
 //    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 // })
@@ -116,6 +127,7 @@ $(function() {
 //         $('#budget-component-dialog').dialog('open')
 //     })
 // });
+
 
 
 

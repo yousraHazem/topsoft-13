@@ -1,4 +1,7 @@
-﻿class BudgetItemsController < ApplicationController
+
+
+class BudgetItemsController < ApplicationController
+
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 	def list 
 	# if current_user
@@ -66,8 +69,7 @@
 	def edit  
 		@budget_item = BudgetItem.find(params[:id])
 		@project = params[:project_id]
-		@tasks = Task.find(:all,:conditions=>{:project_id=> 1, :assigned=>false })
-
+		@tasks = Task.find(:all,:conditions=>{:project_id=> 1 , :assigned=>false })
 		@task_id = @budget_item.task_id
 		@oldtask = Task.find_by_id(@task_id)
 		if !@oldtask.nil?
@@ -82,7 +84,6 @@
 		@task_id = params[:task_id]
 
 		if @budget_item.update_attributes(params[:budget_item])
-
             if !@task_id.nil?
 	        @old_task = Task.find(@task_id)
 	        @old_task.update_attributes(:assigned=>false)
@@ -104,3 +105,4 @@
 		end
 	end
 end
+

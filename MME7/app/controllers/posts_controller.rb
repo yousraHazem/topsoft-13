@@ -1,4 +1,4 @@
-﻿
+
 class PostsController < ApplicationController
 
 
@@ -58,8 +58,4 @@ class PostsController < ApplicationController
 	@post = Post.all
     end
 
-
-
-
-﻿
 end

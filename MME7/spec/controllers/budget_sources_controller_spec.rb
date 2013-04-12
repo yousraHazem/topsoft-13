@@ -18,7 +18,14 @@ describe BudgetSourcesController do
       it "assigns all sources as @sources" do
       sources = BudgetSource.create! valid_attributes
       get :index
+<<<<<<< HEAD
       assigns(:sources).should eq([sources])
       end
       end
 end   
+=======
+      assigns(:sourcess).should eq([sources])
+      end
+      end
+end     
+>>>>>>> master

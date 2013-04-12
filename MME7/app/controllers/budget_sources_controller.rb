@@ -1,9 +1,8 @@
-﻿
+
 
 class BudgetSourcesController < ApplicationController
 
-def index
-
+def list
 	@sources = BudgetSource.search(params[:search])
 end
 

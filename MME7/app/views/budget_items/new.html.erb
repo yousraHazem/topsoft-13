@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<div class="subject new">
 	<h2>New Item</h2>
 	<%= form_for(:budget_item, :url=>{:action=>'create'}) do |f| %>
@@ -18,4 +19,16 @@
 	<div><%= submit_tag("Create Subject")%></div>
 <% end %>
 
+=======
+
+<div> 
+	<h2>Create Budget Item</h2>
+	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project}) do |f| %>
+	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
+</br>
+<p>
+<td><%= f.submit("حفظ") %></td>
+</p>
+<% end %>
+>>>>>>> master
 </div>

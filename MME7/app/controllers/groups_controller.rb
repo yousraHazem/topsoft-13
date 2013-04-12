@@ -1,7 +1,9 @@
+
 ﻿
 class GroupsController < ApplicationController
 
 
 
   end 
+
 

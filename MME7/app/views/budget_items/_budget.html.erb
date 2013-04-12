@@ -1,27 +1,21 @@
-﻿<table>
+<table>
 <tr>
 <th><%= f.label(:Name , "الاسم") %></th>
 <td><%= f.text_field(:name)%></td>
 </tr>
 </br>
 <tr>
-<td> <%= f.hidden_field(:status)%></td>
-</tr>
-<tr>
 <td><%= f.radio_button(:operational , 1)%></td>
-<th><%= f.label("Operational") %></th>
+<th><%= f.label("تشغيلية") %></th>
 </tr>
 <tr>
 <td><%= f.radio_button(:operational , 0)%></td>
-<th><%= f.label("NON Operational") %></th>
+<th><%= f.label("ليست تشغيلية") %></th>
 </tr>
 </br>
-<!-- <tr>
- <input type="checkbox" id="check" name="vehicle" value="Bike">Connect to a task<br>
- </tr> -->
-
   <tr id = "connect" >
   <th><%= f.label(:task_id, "Task:")%></th>
+  <th><%= f.label(:task_id, "المهمة")%></th>
   <td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
   </tr>
 
