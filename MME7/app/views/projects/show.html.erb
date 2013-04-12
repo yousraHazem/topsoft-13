@@ -26,15 +26,6 @@
  		<td><%= @project.description %></td>
  	 </tr>
 
- 	 <tr >
- 		<th>public or private</th>
- 		<td><%= @project.private_or_public %></td>
- 	 </tr>
- 	 <tr >
- 		<th>admin or member</th>
- 		<td><%= @project.admin_or_member %></td>
- 	 </tr>
- 	
     </table>
 </br>
     <td><%= link_to("view all budget items",:controller=>'budget_items',:action=>'viewAllBI', :id=> @project.id) %></td>
