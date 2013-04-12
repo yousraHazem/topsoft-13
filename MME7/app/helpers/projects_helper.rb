@@ -1,4 +1,4 @@
-﻿module ProjectsHelper
+module ProjectsHelper
 
 	#Author: Donia Amer Shaarawy 22-0270 
     #getMembersNotInProject takes in a paramater project id and then goes to the user table and find all the users that 
@@ -14,5 +14,6 @@
  def get_all_projects
    return Project.order("projects.id ASC")
  end	
+﻿module ProjectsHelper	
 end   				 
-
+ 

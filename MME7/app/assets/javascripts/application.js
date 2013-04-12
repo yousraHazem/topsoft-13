@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require_tree .
+
+
+// $(function(){
+// 	$("#signin").click(function(){
+// 		$("#login").slideToggle("slow");
+// 	});
+// });

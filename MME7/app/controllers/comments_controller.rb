@@ -1,5 +1,4 @@
 ﻿class CommentsController < ApplicationController
-
   #Author Riham Gamal 22-3871
   # add a new comment
   def newComment
@@ -77,6 +76,5 @@
   def list 
     @comment = Comment.all
   end
-
 
 end

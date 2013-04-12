@@ -1,3 +1,4 @@
+
 ﻿class GroupsController < ApplicationController
 
 def index

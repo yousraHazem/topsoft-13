@@ -1,13 +1,5 @@
 ﻿<head>
  <title> My Project List </title>
- <script type="text/javascript">
- var testPatterns = [
-        'yyyy','yy','MMMM','MMM','MM','M','dd','d','EEEE','EEE','a',
-        'HH','H','hh','h','mm','m','ss','s','S',
-        'EEEE MMMM, d yyyy hh:mm:ss.S a',
-        'M/d/yy HH:mm'
-      ];
- </script>
 </head>
 
 <body>
@@ -34,13 +26,4 @@
 </br>
  	</br>
  </br>
-    <div>
-      <script>
-        var now = new Date();
-        document.write('<div> Date: '+now+'</div>');
-        $.each(testPatterns,function(){
-          document.write('<div>'+this+'='+$.formatDate(now,this)+'</div>');
-        });
-      </script>
-    </div>
 </body>
