@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"
-  VALID_NAME_REGEX = /^[A-Z][a-z]+(\s+[A-Z][a-z]+)*$/
-  validates_format_of :name, :with => VALID_NAME_REGEX, :message => "هذا لاسم غر صحيح"
+  #VALID_NAME_REGEX = /^[A-Z][a-z]+(\s+[A-Z][a-z]+)*$/
+#  validates_format_of :name, :message => "هذا لاسم غر صحيح"
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_presence_of :email, :message =>"لا يوجد ايميل "
