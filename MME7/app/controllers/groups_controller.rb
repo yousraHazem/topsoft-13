@@ -1,1 +1,7 @@
-﻿
+class GroupsController < ApplicationController
+
+	
+end
+
+
+
