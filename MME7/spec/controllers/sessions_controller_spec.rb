@@ -17,7 +17,7 @@ require 'spec_helper'
               assigns(:sessions).should be_a(Sessions)
               assigns(:sessions).should be_persisted
            end
-            it "redirects to the created project" do
+            it "redirects to the created user" do
              post :create, {:sessions => valid_attributes}
              response.should redirect_to(@user)
             end
@@ -30,7 +30,7 @@ require 'spec_helper'
          delete :destroy, {:id => Sessions.to_param}, valid_session
          }.to change(Sessions, :count).by(-1)
         end
-        it "redirects to the users list" do
+        it "redirects to the root url home page" do
           user = User.create! valid_attributes
           delete :destroy, {:id => User.to_param}
           response.should redirect_to(root_url)
