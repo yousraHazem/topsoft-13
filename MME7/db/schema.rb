@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130404184945) do
 
-  create_table "budget_components", :force => true do |t|
-    t.string   "name"
-    t.integer  "quantity"
-    t.integer  "unit_price"
-    t.boolean  "status"
-    t.integer  "total"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-=======
 ActiveRecord::Schema.define(:version => 20130412003037) do
 
   create_table "budget_components", :force => true do |t|
@@ -36,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.integer  "quantity_purchased", :default => 0
     t.integer  "unit_price"
     t.integer  "total"
->>>>>>> master
+
   end
 
   create_table "budget_items", :force => true do |t|
@@ -67,20 +56,6 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.datetime "updated_at", :null => false
   end
 
-<<<<<<< HEAD
-  create_table "budgets", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "amount"
-    t.integer  "raised"
-    t.integer  "noot_raised"
-    t.integer  "spent"
-    t.integer  "not_spent"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-=======
->>>>>>> master
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -98,14 +73,11 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.boolean  "is_dismissed"
   end
 
-<<<<<<< HEAD
-=======
   create_table "communities_projects", :id => false, :force => true do |t|
     t.integer "community_id"
     t.integer "project_id"
   end
 
->>>>>>> master
   create_table "group_users", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
@@ -158,31 +130,25 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
   create_table "projects_users", :id => false, :force => true do |t|
     t.integer "project_id"
     t.integer "user_id"
+    t.boolean  "is_creator"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-<<<<<<< HEAD
-  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
-=======
   create_table "task_users", :force => true do |t|
     t.integer  "task_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
->>>>>>> master
 
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-<<<<<<< HEAD
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-=======
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "assigned",    :default => false
     t.string   "title"
->>>>>>> master
   end
 
   create_table "users", :force => true do |t|
@@ -191,15 +157,9 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.string   "phone_Nr"
     t.string   "address"
     t.string   "username"
-<<<<<<< HEAD
-    t.boolean  "isAdmin"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-=======
     t.boolean  "isAdmin",         :default => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
->>>>>>> master
     t.string   "password_digest"
     t.string   "remember_token"
   end
