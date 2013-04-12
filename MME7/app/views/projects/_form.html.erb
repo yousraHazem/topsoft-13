@@ -1,22 +1,22 @@
-<%= error_messages_for(@project) %>
-<table >
+﻿<%= error_messages_for(@project) %>
+<table class="table table-striped" >
  	 <tr>
- 		<th><%= f.label(:project_name) %></th>
- 		<td><%= f.text_field(:project_name) %></td>
+ 		<th><%= "الاسم " %></th>
+ 		<td><%= f.text_field(:name) %></td>
  	 </tr>
  	
  	 <tr>
- 		<th><%= f.label(:start_date, "Start date") %> </th>
+ 		<th><%=  "تاريخ البداية" %> </th>
  		<td><%= f.datetime_select(:start_date, :order => [:day, :month, :year]) %></td>
  	 </tr>
 
  	 <tr>
- 		<th><%= f.label(:end_date, "End date") %> </th>
+ 		<th><%=  "تاريخ النهاىة" %> </th>
  		<td><%= f.datetime_select(:end_date, :order => [:day, :month, :year]) %></td>
  	 </tr>
 
  	 <tr>
- 		<th><%= f.label(:description) %></th>
+ 		<th><%=  "التفاصيل " %></th>
  		<td><%= f.text_field(:description) %></td>
  	 </tr>
 </table>

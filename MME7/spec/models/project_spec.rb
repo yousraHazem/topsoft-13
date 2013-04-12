@@ -1,9 +1,10 @@
-require 'spec_helper'
+﻿require 'spec_helper'
+
 
 describe Project do
 
   before(:each) do
-    @project = { :project_name => "Proj1a", :start_date =>"7/8/2013", :end_date => "7/8/2014" , :description => "blablablablabla"  }
+    @project = { :name => "Proj1a", :start_date =>"7/8/2013", :end_date => "7/8/2014" , :description => "blablablablabla"  }
   end
 
   it "should create a new instance given a valid attribute" do
@@ -11,7 +12,7 @@ describe Project do
   end
 
   it "should require a name" do
-    no_name_project = Project.new(@project.merge(:project_name => ""))
+    no_name_project = Project.new(@project.merge(:name => ""))
     no_name_project.should_not be_valid
   end
 
@@ -26,12 +27,7 @@ describe Project do
     it { should_not be_valid }
   end
 
-  # describe "when start date before current date" do
    
-  #  current_date = DateTime.now
-  #   before { :start_date < current_date}
-  #   it { should_not be_valid }
-  # end
 
  
 end

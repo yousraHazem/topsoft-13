@@ -1,0 +1,11 @@
+﻿ <h2>Delete Comments</h2>
+  
+   
+
+  <%= form_for(:Comment, :url => {:action => 'destroy', :id => @comment.id}) do |f| -%>
+    <div >
+      <%= submit_tag("Delete Comment") %>
+    </div>
+    
+  <% end %>
+

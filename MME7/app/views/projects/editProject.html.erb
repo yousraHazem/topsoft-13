@@ -1,13 +1,13 @@
-<% @page_title ="Edit Project: #{@project.project_name}" %>
-<%= link_to("Back to list", {:action => 'listProjects', :class => 'back link'} ) %>
+﻿<% @page_title ="تعديل مشروع: #{@project.name}" %>
+<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
 <div class="project edit">
 
-    <h2>Update Projects</h2>
+    <h2>تعديل مشروع</h2>
     <%= form_for(:project, :url => {:action => 'updateProject', :id => @project.id}) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %>
    
- 	<div class="form-buttons">
-      <%= submit_tag("update project") %>
+ 	<div >
+      <%= submit_tag("تغير ") %>
  	</div>
  	<% end %> 
     
