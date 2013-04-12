@@ -14,4 +14,7 @@
     super
   end
 end
+<<<<<<< HEAD
+=======
 
+>>>>>>> master

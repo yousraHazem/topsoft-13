@@ -1,5 +1,9 @@
 ﻿class GroupUsersController < ApplicationController
 
+<<<<<<< HEAD
+end 
+
+=======
 #Author Mariam Ismail, 22-3456
 #This method adds the user to the group and checks if he's an already exisiting member or not
   def join
@@ -17,3 +21,4 @@
    end
 
 end 
+>>>>>>> master
