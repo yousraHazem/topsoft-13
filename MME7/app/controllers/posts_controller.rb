@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
 	def createPostProject
-		@project_id = params[:id]
+        @project_id = params[:id]
 		@post = Post.new(params[:post])
 		@post.save
 		respond_to do |format|
@@ -45,8 +45,6 @@ class PostsController < ApplicationController
 	     respond_with @post
 	end
 
-
-
 	#Author Mariam Ismail 22-3456
 	# delete a post from a group with its comments
 	def destroyPost
@@ -55,13 +53,9 @@ class PostsController < ApplicationController
 	    @post.destroy
 	    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
 	end
-		
-	   
+		   
 	def getComments
 	    @commentsList = Post.getPostComments(params[:id])
 	end
 
 	end
-
-		
-

@@ -12,8 +12,6 @@ class CommentsController < ApplicationController
     format.js
     end
   end
-
-
   # sama updated
   #Author: Sama Akram 22-555 
   #redirection changed to
@@ -27,7 +25,6 @@ class CommentsController < ApplicationController
     end 
   end
 
- 
   respond_to :html, :json
   def updateCommentProject
     @project_id = params[:project_id]
@@ -36,7 +33,6 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
     respond_with @comment  
   end
-
 
   respond_to :html, :json
   def updateCommentGroup
@@ -47,17 +43,13 @@ class CommentsController < ApplicationController
     flash[:notice] = "Comment successfully updated"
     respond_with @comment 
   end
-
-
-  
+ 
   def destroyCommentProject
     @project_id = params[:project_id]
     @post_id = params[:post_id]
     Comment.find(params[:id]).destroy
     redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
   end
-
-  
   
   # Author: Sama Akram 22-555 
   # updated the redirection
@@ -67,14 +59,10 @@ class CommentsController < ApplicationController
     redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
   end
 
-
-
   def show
     @comment = Comment.find(params[:id])
   end
   
- 
-
   # Salma El -Ruby 22-4649
   # displays the available comments
   def list 
