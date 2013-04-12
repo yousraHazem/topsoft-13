@@ -92,7 +92,9 @@ describe BudgetComponent  do
   # it "should create a new instance given a valid attribute" do
   #   BudgetComponent.create!(@component)
   # end
-
+  specify do
+    @component.should validate_length_of(:quantity_purchased, :in => 1..4)
+  end
   # it "should require a name" do
   #   no_name_component = BudgetComponent.new(@component.merge(:name => ""))
   #   no_name_component.should_not be_valid
