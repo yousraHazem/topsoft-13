@@ -1,19 +1,41 @@
 class PostsController < ApplicationController
-
-
-  def delete
-    @post = Post.find(params[:id])
-  end
+ #  def delete
+ #    @post = Post.find(params[:id])
+ #  end
   
-  def destroy
-    Post.find(params[:id]).destroy
-    redirect_to(:action => 'list')
-  end
+ #  def destroy
+ #    Post.find(params[:id]).destroy
+ #    redirect_to(:action => 'list')
+ #  end
 
-    def list 
-	@post = Post.all
-    end
+ #    def list 
+	# @post = Post.all
+ #    end
 
+ 	# Riham Gamal 22-3871
+ 	# add a new post 
+	def newPost
+		@post = Post.new
+	end
+
+	#Author Riham Gamal 22-3871
+	# create a new post
+	def createPost
+		@post = Post.new(params[:post])
+
+		#Author Riham Gamal 22-3871
+		# if the post is saved, 
+		if @post.save
+			flash[:notice] = "Post successfully created"
+			redirect_to(:action => 'newPost')
+		#Author Riham Gamal 22-3871
+		# if the post is not saved, 
+		else
+			flash[:notice] = "Post could not be created"
+			render('newPost')
+		end
+
+	end
 	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
@@ -34,12 +56,6 @@ class PostsController < ApplicationController
 			# render("editPost")
 		end
 	end
-
-	# add a new post 
-	def newPost
-		@post = Post.new
-	end
-
 # Salma El Ruby 22-4649
 # deletes posts
   def delete
@@ -56,6 +72,5 @@ class PostsController < ApplicationController
     def list 
 	@post = Post.all
     end
-
 
 end

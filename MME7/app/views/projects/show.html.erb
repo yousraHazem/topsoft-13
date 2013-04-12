@@ -1,4 +1,4 @@
-<%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
+﻿<%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
 <div class="project show">
 
@@ -8,7 +8,7 @@
   
  	 <tr >
  		<th>name</th>
- 		<td><%= @project.project_name %></td>
+ 		<td><%= @project.name %></td>
  	 </tr>
  	
  	 <tr >
@@ -36,4 +36,9 @@
  	 </tr>
  	
     </table>
+   <td><%= link_to("view operational budget items",:action=>'viewoperationalBI', 
+   :id=> @project.id) %></td>
+   </br>
+   </br>
+    <td><%= link_to("view all budget items",:action=>'viewAllBI', :id=> @project.id) %></td>
 </div>

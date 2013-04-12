@@ -1,7 +1,10 @@
 MME7::Application.routes.draw do
-
-  get "admin/index"
-
+  get "posts/newPost"
+  get "projects/viewoperationalBI"
+  get "projects/viewAllBI"
+  get "users/get_myprojects"
+  #The priority is based upon order of creation:
+ get "admin/index"
   get "home/index"
 
  get "log_out" => "sessions#destroy", :as => "log_out"

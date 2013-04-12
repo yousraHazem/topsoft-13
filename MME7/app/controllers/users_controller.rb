@@ -1,4 +1,7 @@
 ﻿class UsersController < ApplicationController
+ #Authored by Toka Omar  id:22-1925
+ #this method has no inputs and outputs: the projects of the current user  
+ #the method returs a list of projects the user has  
  #Author: Donia Amer Shaarawy 22-0270
  #show is a method that when you recive the userid  and find the user with this id and display his work
  #and the list of groups he is in 
@@ -6,8 +9,9 @@
    @user = User.find(params[:id])
    @current_user = current_user
    @groupusers = GroupUser.find(:all, 
-   :conditions => {:user_id => @current_user}, 
+   :conditions => {:user_id => 1}, 
    :order => "group_id ASC")
+   @projectusers = ProjectUser.find(:all,:conditions => {:user_id => 1})
   end
  #Author: Donia Amer Shaarawy 22-0270
  #new just calls on a new record

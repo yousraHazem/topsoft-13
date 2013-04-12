@@ -1,6 +1,18 @@
-﻿require 'spec_helper'
+require 'spec_helper'
 
+#Authored by:Toka Abdelgabar 22-1925
 describe UsersController do
+def valid_attributes_toka
+      {:project_id => '1', :user_id => '1',}
+end
+#Authored by:Toka Abdelgabar 22-1925
+  describe "GET get_myprojects" do
+    it "assigns all projectusers as @projectusers" do
+      projectusers = ProjectUser.create! valid_attributes_toka
+      get :get_myprojects
+     assigns(:projectusers).should eq([projectusers])
+    end
+  end
 
 def valid_attributes
  { name: "Example User", email: "user@example.com", phone_Nr: "123456788", isAdmin: false,
@@ -34,7 +46,6 @@ end
 it "redirects to the created user" do
 post :create, {:user => valid_attributes}
 response.should redirect_to(:controller => 'sessions', :action => 'new')
-end
 end
 end
 end
