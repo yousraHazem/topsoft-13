@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 describe TasksController do
 
 	 def valid_task_attributes

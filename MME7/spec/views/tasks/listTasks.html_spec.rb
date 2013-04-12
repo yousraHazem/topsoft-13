@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 
 describe "tasks/listTasks.html" do
   it "renders the task partial for each project" do
