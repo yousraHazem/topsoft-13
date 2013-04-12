@@ -1,3 +1,4 @@
+
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :user_id , :community_id
 
@@ -13,8 +14,8 @@ class Group < ActiveRecord::Base
 
 
  
- 	def  self.getposts (g_id)
-	return Post.find(:all, :conditions => {:group_id =>g_id})
+  def  self.getposts (g_id)
+  return Post.find(:all, :conditions => {:group_id =>g_id})
   end
     
 

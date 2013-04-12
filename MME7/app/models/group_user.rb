@@ -1,3 +1,4 @@
+
 class GroupUser < ActiveRecord::Base
   attr_accessible :group_id , :user_id , :is_creator
   belongs_to :group 
@@ -5,7 +6,7 @@ class GroupUser < ActiveRecord::Base
 
 
   def self.getGroupMembers(group_id)
-  	groupmembersid = GroupUser.find(:all, :conditions => {:group_id => group_id}) 	
+    groupmembersid = GroupUser.find(:all, :conditions => {:group_id => group_id})   
   end
 
   def getMembersNotInGroup(group_id)
