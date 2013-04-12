@@ -15,5 +15,6 @@ validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_
 validates_length_of :unit_price , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
 validates_length_of :quantity_purchased , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
 validates_length_of :total_quantity , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
+validates_length_of :name , :maximum=> 12 , :too_long=> "الحد الاقصى 12 ارقام"
 
 end

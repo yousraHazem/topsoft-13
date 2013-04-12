@@ -1,70 +1,34 @@
-﻿<p class="link pull-left"><%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %></p>
+﻿<p class="link pull-left">
+  <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %>
+  <i class=" icon-chevron-left"></i>
+</p>
 <% @page_title = "عنلصر الميزانية"%>
 <div class="style">
-<input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
+  <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
 
-<fieldset class="header">	
- <legend><h1><%= @name %><div class="progress pull-left" id="progressouter">
- <div class="bar" id="progress"></div></div></h1></legend> 
- <h3>الاجمالى: <%= @total %></h3> 
- <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
-</fieldset>
-
-<h3>
-  <% if(isProjectCreator(1, @project_id ) == true) %> <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
-  <i class="icon-plus icon-white"></i>
-  <% end %> <%end%> العناصر 
-</h3>
-
-<div id="comp" style="display:none;" >
-  <%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}, :html =>{:id =>"component-form"}) do |f| %>
-  <%= render(:partial => "form" , :locals => {:f=> f})%>
-  <%= submit_tag("احفظ")%>
-  <% end %>
-</div> 
+  <fieldset class="header">	
+    <legend>
+      <h1><%= @name %>
+        <div class="progress pull-left" id="progressouter">
+          <div class="bar" id="progress"></div>
+        </div>
+      </h1>
+    </legend> 
+    <h3>الاجمالى: <%= @total %></h3> 
+    <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
+  </fieldset>
+   <span class="h3"> <% if(isProjectCreator(1, @project_id ) == true) %> 
+      <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success") do %>
+     <i class="icon-plus icon-white"></i>
+     <% end %> 
+    <%end%> العناصر <span>
+  <div id="comp" style="display:none;" >
+    <%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}, :html =>{:id =>"component-form"}) do |f| %>
+      <%= render(:partial => "form" , :locals => {:f=> f})%>
+      <%= submit_tag("احفظ")%>
+    <% end %>
+  </div>
 </div>
-
 <div id="table2">
 <%= render(:partial => "table" )%> 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<%= form_tag('list', :method => 'get', :id=>"search", :remote=> true) do %> 
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %> -->
-
-

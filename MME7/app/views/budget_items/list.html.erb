@@ -21,7 +21,7 @@
 
 	<td class="actions">
 		<%= link_to("Edit", {:action=>'edit' ,:id=>item.id},:class=>"btn btn-small")%>
-		<%= link_to("View", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=>item.project_id,:name=>item.name}, :class=>"btn btn-small")%>
+		<%= link_to("View", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:item=>item ,:project_id=>item.project_id,:name=>item.name}, :class=>"btn btn-small")%>
 		
 	</td>
 	

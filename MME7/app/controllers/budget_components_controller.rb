@@ -20,28 +20,27 @@
 		#gets all the components of the passed budget item
 		#@components = BudgetComponent.search(params[:search], @item)
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
-
 		#calculating the progress bar percentage
 		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"اكتمل")
 		all = BudgetComponent.where(:budget_item_id=>params[:id])
 		count_size = counts.size
 		all_size = all.size
-		if all_size==0
-		@percent = 0
+		if all_size == 0
+			@percent = 0
 		else
-		@percent = 100*count_size / all_size
+			@percent = 100*count_size / all_size
 	    end
 	end
 
-	def new
-		#authorized by: sarah ahmed id=22-1278
-        #gets the passed id of the budget item 
-        @project_id = params[:project_id]
-		@item = params[:id]
-		#initializes a new component
-		@component = BudgetComponent.new
+	# def new
+	# 	#authorized by: sarah ahmed id=22-1278
+    #   gets the passed id of the budget item 
+    #   @project_id = params[:project_id]
+	# 	@item = params[:id]
+	# 	#initializes a new component
+	# 	@component = BudgetComponent.new
 		
-	end
+	# end
 
 	def create
 		#authorized by: sarah ahmed id=22-1278
