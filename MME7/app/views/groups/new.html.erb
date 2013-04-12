@@ -1,3 +1,4 @@
+
 ﻿<h1>Create New Group</h1>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
@@ -14,3 +15,6 @@
     <%= submit_tag("create Group") %>
   </div>
 <% end %>
+
+﻿<%= render 'form' %>
+

@@ -1,5 +1,16 @@
 ﻿class UsersController < ApplicationController
+<<<<<<< HEAD
 
+=======
+	# Riham Gamal 22-3871
+	def index
+		 @users = User.where("name like ?", "%#{params[:q]}%")
+		 respond_to do |format|
+		 format.html
+		 format.json { render :json => @users.map(&:attributes)}
+         end		
+	end
+>>>>>>> master
  #Author: Donia Amer Shaarawy 22-0270
  #show is a method that when you recive the userid  and find the user with this id and display his work
  #and the list of groups he is in 

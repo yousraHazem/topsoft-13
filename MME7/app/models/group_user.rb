@@ -2,8 +2,25 @@ class GroupUser < ActiveRecord::Base
 
    attr_accessible :group_id , :user_id , :isCreator
 
+
   belongs_to :group 
   belongs_to :user
+  attr_accessible :group_id , :user_id , :isCreator
+  belongs_to :group 
+  belongs_to :user
+
+
+  def self.getGroupMembers(group_id)
+  	groupmembersid = GroupUser.find(:all, :conditions => {:group_id => group_id}) 	
+  end
+
+  def getMembersNotInGroup(group_id)
+   b = GroupUser.getGroupMembers(group_id)
+   notGroupUser = User.find(:all, :conditions => :user_id != b)
+  end 
+
+
+  
 
    #Author: Donia Amer Shaarawy 22-0270 
    #this is a method that shows if the current user the person 
