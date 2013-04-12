@@ -1,0 +1,17 @@
+<br>
+<br>
+<br>
+
+<div class = "offset2">
+
+<div> 
+	<h2>تعديل العنصر</h2>
+	<%= form_for(:budget_item, :url=>{:action=>'update' , :id => @budget_item.id , :task_id=>@task_id}) do |f| %>
+    <%= render(:partial=>'budget', :locals=>{:f=>f}) %>
+</br>
+<p>
+<td><%= f.submit("حفظ") %></td>
+</p>
+<% end %>
+</div>
+<div>

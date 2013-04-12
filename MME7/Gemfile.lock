@@ -31,9 +31,10 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
-
+<<<<<<< HEAD
+=======
     bcrypt-ruby (3.0.1-x86-mingw32)
-
+>>>>>>> master
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -121,12 +122,15 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+=======
   annotate (= 2.5.0)
   bcrypt-ruby
   bootstrap-sass
   factory_girl_rails (= 4.1.0)
+>>>>>>> master
   jquery-rails
   mail (~> 2.5.3)
   rails (= 3.2.13)
