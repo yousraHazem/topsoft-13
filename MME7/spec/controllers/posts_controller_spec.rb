@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 require 'spec_helper'
 describe PostsController do
 
@@ -282,4 +280,3 @@ describe PostsController do
 end
 
 end
->>>>>>> 7708f3d4a65f405a2906e39571d5adb6ba1dabbb

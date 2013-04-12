@@ -1,7 +1,6 @@
 
 require 'spec_helper'
 
-
 describe Community do
   it "has a valid factory" do
     FactoryGirl.create(:community).should be_valid
