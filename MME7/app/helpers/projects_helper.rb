@@ -1,4 +1,3 @@
-﻿module ProjectsHelper
-	
+﻿module ProjectsHelper	
 end   				 
  

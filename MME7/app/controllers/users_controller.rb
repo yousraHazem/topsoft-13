@@ -1,17 +1,16 @@
 ﻿class UsersController < ApplicationController
-  #Author: Donia Amer Shaarawy 22-0270
-  #show is a method that when you recive the user you find the user with his id
-  #and the list of groups he is in 
+ #Author: Donia Amer Shaarawy 22-0270
+ #show is a method that when you recive the userid  and find the user with this id and display his work
+ #and the list of groups he is in 
 	def show
-    @user = User.find(params[:id])
-     @current_user = current_user
-    @groupusers = GroupUser.find(:all, 
-     :conditions => {:user_id => @current_user}, 
-     :order => "group_id ASC")
-
+   @user = User.find(params[:id])
+   @current_user = current_user
+   @groupusers = GroupUser.find(:all, 
+   :conditions => {:user_id => @current_user}, 
+   :order => "group_id ASC")
   end
-  #Author: Donia Amer Shaarawy 22-0270
-  #new just calls on a new record
+ #Author: Donia Amer Shaarawy 22-0270
+ #new just calls on a new record
   def new
    @user = User.new
   end
@@ -20,14 +19,11 @@
  #we make the user sign up so we go to the log in page and like that we created a new user in the database
   def create
    @user = User.new(params[:user])
-   if @user.save
-   
-      flash[:success] = "Welcome to MME7!"
-      redirect_to :controller => 'sessions', :action => 'new' #, :notice => "Logged in!"
-   else
+    if @user.save
+     flash[:success] = "مرحب بيك فى ؤمن االماء حيه"
+     redirect_to :controller => 'sessions', :action => 'new' #, :notice => "Logged in!"
+    else
      render "new"
     end
- end
- 
- 
-end 
+ end 
+end
