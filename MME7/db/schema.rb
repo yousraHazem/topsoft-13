@@ -16,16 +16,15 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
-    t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
+    t.integer  "spent"
     t.integer  "unit_price"
     t.integer  "total"
-
   end
 
   create_table "budget_items", :force => true do |t|
@@ -34,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "total"
+    t.integer  "spent"
+    t.integer  "project_id"
   end
 
   create_table "budget_items_users", :id => false, :force => true do |t|
@@ -44,9 +46,9 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+    t.integer  "amount"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.integer  "amount"
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -54,6 +56,22 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "budget_source_id"
+    t.integer "project_id"
+  end
+
+  create_table "budgets", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.integer  "raised"
+    t.integer  "noot_raised"
+    t.integer  "spent"
+    t.integer  "not_spent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -108,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "project_users", :force => true do |t|
@@ -119,20 +138,30 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "project_name"
+    t.string   "name"
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "private_or_public"
+    t.boolean  "admin_or_member"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "title"
   end
 
   create_table "projects_users", :id => false, :force => true do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.boolean  "is_creator"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  end
+
+  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
+
+  create_table "receipts", :force => true do |t|
+    t.string   "name"
+    t.integer  "budget_component_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "image"
   end
 
   create_table "task_users", :force => true do |t|
@@ -147,8 +176,8 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "assigned",    :default => false
     t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|
