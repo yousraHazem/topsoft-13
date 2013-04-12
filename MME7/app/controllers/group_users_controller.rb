@@ -1,3 +1,4 @@
+﻿
 class GroupUsersController < ApplicationController
 
 #Author Mariam Ismail, 22-3456
@@ -15,4 +16,6 @@ class GroupUsersController < ApplicationController
     @newuser.destroy_all
     redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
   end
+
+﻿
 end 

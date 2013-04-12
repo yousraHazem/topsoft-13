@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+﻿class PostsController < ApplicationController
 
 	#Author Riham Gamal 22-3871, Mariam Ismail 22-3456
 	# create a new post
@@ -23,7 +23,8 @@ class PostsController < ApplicationController
 		format.js
 		end
 	end
-	
+
+
 	#Riham Gamal 22-3871
 	#update the post by finding its id and changing the fields
 	respond_to :html, :json
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
 	     respond_with @post
 	end
 
+
 	#Author Mariam Ismail 22-3456
 	# delete a post from a group with its comments
 	def destroyPost
@@ -58,4 +60,6 @@ class PostsController < ApplicationController
 	    @commentsList = Post.getPostComments(params[:id])
 	end
 
-	end
+  
+
+end

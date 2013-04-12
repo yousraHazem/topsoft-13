@@ -1,3 +1,4 @@
+﻿<<<<<<< HEAD
 ﻿<% if object.errors.any? %>
 	<div id="errorExplanation">
     <h2> الاخطاء  </h2>
@@ -5,4 +6,13 @@
 	  <% object.errors.messages.each do |message| %>
 	    <div class="message"><%= message.last.last.html_safe %></div>
 	  <% end %>
+=======
+<% if object.errors.any? %>
+<div id="errorExplanation">
+    <h2> الاخطاء  </h2>
+    <p>يوجد بعض الاخطاء:</p>
+ <% object.errors.messages.each do |message| %>
+   <div class="message"><%= message.last.last.html_safe %></div>
+ <% end %>
+>>>>>>> 80cdefc848873ab6cca888113104c71bd3be74c6
 <% end %>
