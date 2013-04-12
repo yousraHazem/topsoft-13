@@ -1,9 +1,5 @@
 ﻿class GroupsController < ApplicationController
 
-
-    #def index
-       # @groups = Group.order("groups.id")
-
     # May Atef Badr 22-0579
     # this method lists the groups 
     #and if user uses the search, it will filter the list
@@ -26,15 +22,8 @@
         #rescue ActiveRecord::RecordNotFound
     #end
 
-    def show
-        @group = Group.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
-    end
+	
 
-    # Author: Sama Akram 22-555 As a system I can create a group, calls when clicked on create new group
-    def new
-        @group = Group.new
-    end
 
     # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
     def create
@@ -71,3 +60,4 @@
 
    
 end
+

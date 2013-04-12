@@ -1,3 +1,4 @@
+
 ﻿module ProjectsHelper
 
 	#Author: Donia Amer Shaarawy 22-0270 
@@ -14,5 +15,7 @@
  def get_all_projects
    return Project.order("projects.id ASC")
  end	
-end   				 
 
+
+end   				 
+ 

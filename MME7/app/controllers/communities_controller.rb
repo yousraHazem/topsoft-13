@@ -1,6 +1,5 @@
 ﻿class CommunitiesController < ApplicationController
 
-
 	# Author : Mariam, 22-3456
 	# This method lists all communities in the database
 	#May update

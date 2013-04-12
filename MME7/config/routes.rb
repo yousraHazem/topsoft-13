@@ -1,8 +1,19 @@
 MME7::Application.routes.draw do
+
   get "posts/newPost"
   #get "Home/home"
 
-  #The priority is based upon order of creation:
+
+  get "admin/index"
+
+  get "/groups"
+
+    get "/groups/edit"
+
+    get "/communities/list"
+
+
+
 
   #root :to => "groups#guest"
   get "comments/editComment"
@@ -11,8 +22,20 @@ MME7::Application.routes.draw do
   # get "comments/newComment"
   # get "posts/newPost"
 
-  # The priority is based upon order of creation:
+  get "home/index"
 
+ get "log_out" => "sessions#destroy", :as => "log_out"
+get "log_in" => "sessions#new", :as => "log_in"
+get "sign_up" => "users#new", :as => "sign_up"
+get "log_in" => "admin#new", :as => "log_in"
+root :to => "home#index"
+ 
+  get "users/new"
+  resources :users
+  resources :sessions
+
+
+  # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
@@ -61,28 +84,11 @@ MME7::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
-
- 
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
-
    match ':controller(/:action(/:id))(.:format)'
-
-
-
-  match ':controller(/:action(/:id))(.:format)'
-
-
 end
