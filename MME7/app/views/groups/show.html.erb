@@ -34,7 +34,7 @@
         <% end %>
 
         <% if isGroupCreator(@group.id, 1) == true %>
-        <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'Are you sure you want to delete this group?', :class => 'btn btn-danger') %>
+        <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
         <% end %>
       </div>
 </div>

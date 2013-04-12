@@ -3,21 +3,24 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
+
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+
 <h2 class = 'text-center'>إنشاء مجموعة</h2>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
   <p>
-    <%= f.text_field :group_name %>
     <b dir="rtl" lang="ar">اسم المجموعة *</b>
+    <%= f.text_field :group_name %>
   </p>
   <p>
-    <%= f.text_area :description%>
     <b dir="rtl" lang="ar">وصف *</b>
+    <%= f.text_area :description%>
   </p>
    <p>
-    <%= f.text_field :levels %>
     <b dir="rtl" lang="ar">مستوى المجموعة *</b>
+    <%= f.text_field :levels %>
   </p>
   <div>
     <button class="btn btn-info" type="submit">إنشاء المجموعة</button>
