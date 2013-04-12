@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
+
 gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
@@ -14,6 +15,13 @@ gem 'rspec-rails'
 # group :test, :development do
 #   gem "rspec-rails", "~> 2.0"
 # end
+
+gem 'bootstrap-sass'
+
+# gem 'carrierwave'
+# gem 'rmagick'
+
+
 
 gem "bcrypt-ruby", :require => "bcrypt"
  gem 'annotate', '2.5.0'
@@ -26,7 +34,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+
 
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'

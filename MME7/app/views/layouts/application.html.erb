@@ -4,7 +4,7 @@
 <head>
   <title>MME7</title>
 <%= stylesheet_link_tag    "application", "token-input-facebook", :media => "all" %>
-  <%= javascript_include_tag "application", "jquery.tokeninput" %>
+<%= javascript_include_tag "application", "jquery.tokeninput" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
@@ -19,14 +19,14 @@
       
       <div class="nav-collapse">
         <ul class="nav">
-          <li  class="text-info"><%= link_to "Home"%></li>
-          <li class="text-info"><%= link_to "About Us" %></li>
-          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
-          <li class="text-info"><%= link_to "مجموعات" %></li>
-          <li class="text-info"><%= link_to "المجتمعات" %></li>
-          <li class="text-info"><%= link_to "امشاريع" %></li>
-          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
-            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
+          <li><%= link_to "Home"%></li>
+          <li><%= link_to "About Us" %></li>
+          <li><%= link_to "الاتصال بنا" %></li>
+           <li><%= link_to "مجموعات" %></li>
+          <li><%= link_to "المجتمعات" %></li>
+           <li><%= link_to "امشاريع" %></li>
+          <% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
+   <li class="offset10"> <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %></li><% end %>
         </ul>
       </div>
     </div>
@@ -56,32 +56,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

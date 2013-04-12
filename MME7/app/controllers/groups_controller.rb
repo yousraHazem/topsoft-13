@@ -1,4 +1,4 @@
-﻿class GroupsController < ApplicationController
+class GroupsController < ApplicationController
 include GroupUsersHelper
 
     # Author: Sama Akram 22-555, it gets all groups ordered alphabetically by group name

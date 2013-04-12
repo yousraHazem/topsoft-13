@@ -1,4 +1,4 @@
-﻿class PostsController < ApplicationController
+class PostsController < ApplicationController
 
 	#Author Riham Gamal 22-3871
 	# create a new post
@@ -72,4 +72,5 @@
 	end
 
 		
+
 

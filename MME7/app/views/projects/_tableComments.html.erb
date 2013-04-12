@@ -1,13 +1,11 @@
 ﻿<div class = "comments"><%= link_to("#{post.comments.size} التعليقات", {:controller => 'comments',                 :action => 'list', :id => post.id})%>
 
    <% post.comments.last(5).each do |p|%> <br>
-   <% if isCommentCreator(p, post.id) == true%>  
-   <%= best_in_place p, :comment, :path => {:controller => 'comments', :action=>'updateCommentProject', :id=> p.id, :post_id => post.id, :project_id => @project.id} %>
+   
+   <%= p.comment %>
    <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentProject', :id => p.id, 
 	    :post_id => post.id, :project_id => @project.id})%>	   
-	<% else %>
-	<% p.comment %>
-	<% end %>
+	
 	<% end %>
 
 	<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createCommentProject', :id => post.id, :project_id => params[:id]}) do |e| %>	 

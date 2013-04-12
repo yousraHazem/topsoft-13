@@ -1,4 +1,4 @@
-﻿@import 'bootstrap';
+@import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -23,13 +23,40 @@
  }
 
 
- 
 
- #background {
+#background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding-top: 60px;
+ background-size: 900px 600px;
+ }
+
+
+.sources{
+	background-color: #F0F0F0 ;
+}
+
+.search {
+	display: inline;
+	margin-right: 60px;
+}
+
+.contribution {
+	margin : 20px;
+}
+ .amount {
+
+margin: 50px;
+ }
+
+ h1 , h2 , h3 , h4, h5 , h6 {
+ color: #000066;
+ }
+
+
+ #login{
+ background-color: #F0F0F0;
+ position:fixed;
+ margin: 20px;
  }
  
   #style{

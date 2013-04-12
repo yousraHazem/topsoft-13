@@ -14,13 +14,14 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible  :name , :start_date , :end_date , :description, :user_tokens 
+ attr_accessible  :name , :start_date , :end_date , :description, :user_tokens 
 	has_many :posts
 	has_many :tasks 
 	has_and_belongs_to_many :users
 	has_one :budget 
 	has_many :project_users
 	has_many :users , :through => :project_users
+	has_many :budget_items
 	has_and_belongs_to_many :communities
 	has_and_belongs_to_many :budget_sources
 	has_many :budget_source_projects
@@ -36,6 +37,7 @@ class Project < ActiveRecord::Base
 	def user_tokens=(ids)
 	  self.user_ids = ids.split(",")
 	end
+
 
 
 	#Author: Donia Amer Shaarawy 22-0270 
