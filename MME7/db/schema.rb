@@ -114,18 +114,7 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.integer  "community_id"
   end
 
-<<<<<<< HEAD
    create_table "posts", :force => true do |t|
-=======
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
-
-  create_table "posts", :force => true do |t|
->>>>>>> 7708f3d4a65f405a2906e39571d5adb6ba1dabbb
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"

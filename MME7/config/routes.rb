@@ -2,6 +2,7 @@ MME7::Application.routes.draw do
   get "posts/editPost"
 
   get "posts/newPost"
+  
 
   #The priority is based upon order of creation:
 
