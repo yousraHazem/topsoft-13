@@ -14,7 +14,6 @@ group :test, :development do
 end
 
 gem "bcrypt-ruby", :require => "bcrypt"
-gem "rspec-rails", "~> 2.0"
  gem 'annotate', '2.5.0'
  gem 'factory_girl_rails', '4.1.0'
 

@@ -9,9 +9,9 @@
    @user = User.find(params[:id])
    @current_user = current_user
    @groupusers = GroupUser.find(:all, 
-   :conditions => {:user_id => @current_user}, 
+   :conditions => {:user_id => 1}, 
    :order => "group_id ASC")
-   @projectusers = ProjectUser.find(:all,:conditions => {:user_id => current_user})
+   @projectusers = ProjectUser.find(:all,:conditions => {:user_id => 1})
   end
  #Author: Donia Amer Shaarawy 22-0270
  #new just calls on a new record
@@ -31,4 +31,3 @@
     end
  end 
 end
->>>>>>> master

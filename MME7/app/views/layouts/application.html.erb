@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-<html dir ='rtl'>
-<head>
-  <title>MME7</title>
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook" %>
-    <%= javascript_include_tag "application", "jquery.tokeninput" %>
-  <%= csrf_meta_tags %>
-</head>
-<body id = "background">
-	<div class="navbar navbar-inverse">
-=======
-
+﻿
 <!DOCTYPE html>
 
 <html dir="rtl">
@@ -33,11 +21,6 @@
       
       <div class="nav-collapse">
         <ul class="nav">
-<<<<<<< HEAD
-          <li><%= link_to "Home"%></li>
-          <li><%= link_to "About Us" %></li>
-          <li><%= link_to "Contact Us" %></li>
-=======
           <li  class="text-info"><%= link_to "Home"%></li>
           <li class="text-info"><%= link_to "About Us" %></li>
           <li class="text-info"><%= link_to "الاتصال بنا" %></li>
@@ -46,20 +29,11 @@
           <li class="text-info"><%= link_to "امشاريع" %></li>
           <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
             <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
->>>>>>> master
         </ul>
       </div>
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-<div class="container">
-	<div class="row"></div>
-	<div class="span9"> 
-    <%= yield %>
-  </div>
-	
-=======
 
 <div class="container">
 
@@ -80,8 +54,6 @@
 </div>
 <div>
 </div>
-
->>>>>>> master
 
 </div>
 <div>
