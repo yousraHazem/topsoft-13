@@ -64,6 +64,19 @@ $(function() {
     });
 });
 
+$(function(){
+ $("#Budget-serach input").keyup(function (){
+    $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
+    return false;
+  });
+});
+
+$(function() {
+    $("#p").click(function() {
+      $("#grp").slideToggle();   
+    });
+});
+
 
 // jQuery.ajaxSetup({
 //    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
