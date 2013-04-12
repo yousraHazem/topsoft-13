@@ -1,6 +1,4 @@
-
 @import 'bootstrap';
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,10 +13,21 @@
  *= require_tree .
  */
 
+ .comments{
+ background-color: #F0F0F0;
+ text-align: right;
+ }
+
+.posts{
+ text-align: right;
+ }
+
+
+
 #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
- background-size: 1365px 730px;
+ background-size: 900px 600px;
  }
 
 
@@ -49,11 +58,15 @@ margin: 50px;
  position:fixed;
  margin: 20px;
  }
-
+ 
   #style{
- height: 440px;
- width: 1150px;
+ height: 500px;
+ width: 1365px;
  overflow: auto;
  }
 
-
+ .progress {
+ height: 29px;
+ width:540px;
+  text-align: center;
+}

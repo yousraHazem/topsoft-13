@@ -14,8 +14,7 @@
 #
 
 class Project < ActiveRecord::Base
-
-  attr_accessible  :name , :start_date , :end_date , :description 
+ attr_accessible  :name , :start_date , :end_date , :description, :user_tokens 
 	has_many :posts
 	has_many :tasks 
 	has_and_belongs_to_many :users
@@ -24,8 +23,21 @@ class Project < ActiveRecord::Base
 	has_many :users , :through => :project_users
 	has_many :budget_items
 	has_and_belongs_to_many :communities
+	has_and_belongs_to_many :budget_sources
 	has_many :budget_source_projects
 	has_many :budget_sources , :through => :budget_source_projects
+	attr_reader :user_tokens
+
+	def self.get_projectmembers(project_id)
+ 	 @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
+  	end
+
+
+   
+	def user_tokens=(ids)
+	  self.user_ids = ids.split(",")
+	end
+
 
 
 	#Author: Donia Amer Shaarawy 22-0270 
@@ -37,4 +49,4 @@ class Project < ActiveRecord::Base
       @users = User.where("id NOT IN (?)" , b)
     end 
 end
-     
+    
