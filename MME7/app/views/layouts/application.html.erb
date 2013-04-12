@@ -1,11 +1,10 @@
 
 <!DOCTYPE html>
-
 <html dir="rtl">
 <head>
   <title>MME7</title>
-<%= stylesheet_link_tag "application"%>
-    <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
@@ -34,7 +33,7 @@
   </div>
 </div>
 
-<div class="container">
+
 
   <div class="row"></div>
   <div class="span9"> 
@@ -47,7 +46,7 @@
 <div id="style">
 <%= yield %>
 </div>
-  </div>
+
   
 
 </div>
