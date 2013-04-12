@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :task_id
+  attr_accessible :name, :email , :phone_Nr , :address , :username , :password , :isAdmin , :id
 
 
 
@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :projects , :through => :project_users
 
-   has_many :groups_users 
-   has_many :groups , :through => :group_users 
+  has_many :groups_users 
+  has_many :groups , :through => :group_users 
+
+  has_many :task_users
+  has_many :tasks , :through => :task_users
 
 
 
