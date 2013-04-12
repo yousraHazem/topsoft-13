@@ -25,7 +25,7 @@ $(function(){
 
 $(function() {
   $("#group_user_tokens").tokenInput("/users.json", {
-    crossDomain: false,
+    crossDomain: false, theme: 'facebook' ,
     prePopulate: $('#group_user_tokens').data('pre')
   });
 });
