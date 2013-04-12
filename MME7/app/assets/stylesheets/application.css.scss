@@ -1,5 +1,4 @@
-@import "bootstrap";
-
+﻿@import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -25,6 +24,7 @@
 
 
  
+
  #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
@@ -40,6 +40,6 @@
 
  .progress {
  height: 29px;
- width:500px;
+ width:540px;
   text-align: center;
 }

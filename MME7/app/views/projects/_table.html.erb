@@ -1,27 +1,34 @@
-<table class="postss">
+﻿<table class="postss">
     <tr>
     	<th>التعبير</th>
     </tr>  
 	<%  @project.posts.each do |post| %> 	
  	<tr>
-        <td>     
+        <td> 
+        <% if isPostCreator(current_user, post.id) == true%>    
         <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=> post.id} %>      
-    	<div id ="tablePosts"><%= render(:partial => "tableComments", :locals => {:post => post}) %></div>
     	</td>
     	<td>
     	<%= link_to("مسح", {:controller => 'posts', :action => 'destroyPostGroup', :id => post.id, 
     	:project_id => @project.id})%>  
     	</td> 
+    	<% else %>
+    	<td><%= post.content %>
+        <div id ="tablePosts"><%= render(:partial => "tableComments", :locals => {:post => post}) %></div>
+        </td>
+        <% end %>
 	</tr>
+   
     <% end %>
 </table>
 
 	 
 <div class="post new">
-		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostProject', :id => @project.id}) do |f| %>
+		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostProject', :id => @project.id, :user_id => current_user}) do |f| %>
 	<tr>			
 		<td><%= f.text_field (:content) %></td>		
-		<div><%= f.hidden_field :project_id, :value => @project_id %></div>		
+		<div><%= f.hidden_field :project_id, :value => @project_id %></div>	
+		<div><%= f.hidden_field :user_id, :value => current_user %></div>		
 		<td>
 		<button type="submit" class="btn btn-danger">أضف تعبيرك</button>
 		</td>		

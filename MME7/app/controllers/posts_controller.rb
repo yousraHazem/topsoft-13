@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+﻿class PostsController < ApplicationController
 
 	#Author Riham Gamal 22-3871
 	# create a new post
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
 	def createPostGroup
 		@post = Post.new(params[:post])
-		@post.user_id = 1
+		@post.user_id = current_user
 		@post.save
 		respond_to do |format|
 		format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 	def updatePostProject
 		@project_id = params[:project_id]
 		@post = Post.find(params[:id])
+		@post.user_id = params[:user_id]
 		@post.update_attributes(params[:post])			       		
 		respond_with @post			
 	end

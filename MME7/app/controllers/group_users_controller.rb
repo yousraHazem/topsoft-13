@@ -1,4 +1,4 @@
-class GroupUsersController < ApplicationController
+﻿class GroupUsersController < ApplicationController
 
 #Author Mariam Ismail, 22-3456
 #This method adds the user to the group and checks if he's an already exisiting member or not
@@ -15,4 +15,5 @@ class GroupUsersController < ApplicationController
       @newuser.destroy_all
       redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
    end
+
 end 
