@@ -13,8 +13,11 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
 gem 'bootstrap-sass'
+<<<<<<< HEAD
+=======
 # gem 'carrierwave'
 # gem 'rmagick'
+>>>>>>> master
 
 gem "bcrypt-ruby", :require => "bcrypt"
  gem 'annotate', '2.5.0'
