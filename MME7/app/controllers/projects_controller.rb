@@ -21,7 +21,7 @@ def createProject
     @project=Project.new(params[:project])
     if @project.save
        flash[:notice]= "project created"
-       redirect_to(:action => 'listProjects')
+       redirect_to(:action => 'listProject')
     else
        render('newProject')
     end

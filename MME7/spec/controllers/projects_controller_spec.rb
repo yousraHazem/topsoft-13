@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 describe ProjectsController do
 
   def valid_attributes
@@ -64,7 +64,7 @@ describe ProjectsController do
 
       it "redirects to the created project" do
         post :createProject, {:project => valid_attributes}
-        response.should redirect_to(:action => 'listProjects')
+        response.should redirect_to("http://test.host/projects/listProject")
       end
     end
 

@@ -1,13 +1,13 @@
-<% @page_title ="Create Project" %>
+﻿<% @page_title ="تكوين مشروع" %>
 
-<%= link_to("Back to list", {:action => 'listProjects', :class => 'back link'} ) %>
+<%= link_to("ارجع الي القاءمة", {:action => 'listProjects', :class => 'back link'} ) %>
 
 <div >
-    <h2>Create Projects</h2>
+    <h2>كون مشروع</h2>
     <%= form_for(:project, :url => {:action => 'createProject'}) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %>
  	<div >
-      <%= submit_tag("create project") %>
+      <%= submit_tag("تكوين ") %>
  	</div>
  	<% end %>     
 </div>

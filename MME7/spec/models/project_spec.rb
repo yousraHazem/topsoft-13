@@ -1,4 +1,5 @@
-require 'spec_helper'
+﻿require 'spec_helper'
+require 'parsedate'
 
 describe Project do
 
@@ -26,12 +27,12 @@ describe Project do
     it { should_not be_valid }
   end
 
-  # describe "when start date before current date" do
-   
-  #  current_date = DateTime.now
-  #   before { :start_date < current_date}
-  #   it { should_not be_valid }
-  # end
+   # describe "when start date before current date" do
+   #   current_date = DateTime.now
+     
+   #   before {  ("7/8/2013" ) < current_date}
+   #   it { should_not be_valid }
+   # end
 
  
 end
