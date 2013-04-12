@@ -15,7 +15,7 @@ describe BudgetComponentsController do
    end
 
      describe "GET list" do
-      it "assigns all budget_components as @components" do
+      it "assigns all components as @components" do
       item = BudgetItem.new
       BudgetItem.should_receive(:find).and_return(item)
       components = BudgetComponent.create! valid_attributes
