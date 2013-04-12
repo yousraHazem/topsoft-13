@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-    attr_accessible  :project_name , :start_date , :end_date , :description , 
+    attr_accessible  :name , :start_date , :end_date , :description , 
                      :private_or_public , :admin_or_member, :user_tokens
 	has_many :posts
 	has_many :tasks 
