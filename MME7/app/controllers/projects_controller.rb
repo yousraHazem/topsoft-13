@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
       @projects = Project.all
     end
      
-    # Author : Nayera Mohamed 22-3789 , this method shows the projects  occuring
+    # Author : Riham Gamal 22-3789 , this method shows the project page of the user
     def show
       @project_id = params[:id]
       @project = Project.find(params[:id])

@@ -1,4 +1,4 @@
-<table class="postss">
+<table class="table">
     <tr>
     <th>التعبير</th>
     </tr>  
@@ -9,7 +9,7 @@
     <div id ="tablePosts"><%= render(:partial => "tableComments", :locals => {:post => post}) %></div>
     </td>
     <td>
-    <%= link_to("مسح", {:controller => 'posts', :action => 'destroyPostGroup', :id => post.id, 
+    <%= link_to("مسح تعبير", {:controller => 'posts', :action => 'destroyPostGroup', :id => post.id, 
     :project_id => @project.id})%>  
     </td> 
 	</tr>
@@ -23,7 +23,7 @@
 		<td><%= f.text_field (:content) %></td>		
 		<div><%= f.hidden_field :project_id, :value => @project_id %></div>		
 		<td>
-		<button type="submit" class="btn btn-danger">أضف تعبيرك</button>
+		<button type="submit" class="btn btn-danger">أضف تعبير</button>
 		</td>		
 		</tr>
 		</tr>
@@ -31,5 +31,3 @@
 		<% end %>
 
 
-
-   
