@@ -1,4 +1,4 @@
-﻿class PostsController < ApplicationController
+class PostsController < ApplicationController
  #  def delete
  #    @post = Post.find(params[:id])
  #  end
@@ -36,8 +36,6 @@
 		end
 
 	end
-
-
 	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
@@ -58,26 +56,21 @@
 			# render("editPost")
 		end
 	end
+# Salma El Ruby 22-4649
+# deletes posts
+  def delete
+    @post = Post.find(params[:id])
+  end
+  
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to(:action => 'list')
+  end
 
-	# # add a new post 
-	# def newPost
-	# 	@post = Post.new
-	# end
+# Salma El Ruby 22-4649
+# displays all available posts 
+    def list 
+	@post = Post.all
+    end
 
-	# Salma El Ruby 22-4649
-	# deletes posts
-	  def delete
-	    @post = Post.find(params[:id])
-	  end
-	  
-	  def destroy
-	    Post.find(params[:id]).destroy
-	    redirect_to(:action => 'list')
-	  end
-
-		# Salma El Ruby 22-4649
-		# displays all available posts 
-	    def list 
-		@post = Post.all
-	    end
 end
