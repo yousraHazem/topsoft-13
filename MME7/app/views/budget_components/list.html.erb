@@ -19,9 +19,10 @@
   </fieldset>
    <span class="h3"> 
     <div>
-    <% if(isProjectCreator(1, 1 ) == true) %> 
-    <%= link_to("#", :id=>"create", class: "btn btn-mini btn-success")  %>
-     <i class="icon-plus icon-white"></i>
+    <% if(isProjectCreator(current_user, @project_id ) == true) %> 
+   <%= link_to("#",:id=>"create" , class: "btn btn-success") do %>
+    <i class="icon-plus icon-white"></i> 
+      <% end %>
      <% end %> 
      العناصر  </div><span>
 
