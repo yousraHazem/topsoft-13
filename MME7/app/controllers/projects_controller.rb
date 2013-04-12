@@ -1,7 +1,4 @@
-﻿class ProjectsController < ApplicationController
-
-
-  # Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
+﻿# Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
   def listProjects
     @projects = Project.all
   end
@@ -16,7 +13,7 @@
       @project = Project.new
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method takes its' input from the params and creates a new project
+  # Author : Nayera Mohamed 22-3789 , this method takes the project params and creates a new project
   def createProject
       @project=Project.new(params[:project])
       if @project.save
@@ -33,7 +30,7 @@
       @project_count = Project.count 
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method takes aproject id and takes the updated attributes in order to change them
+  # Author : Nayera Mohamed 22-3789 , this method takes a project id and takes the updates attributes in order to change them
   def updateProject
       @project = Project.find(params[:id])
       if @project.update_attributes(params[:project])
