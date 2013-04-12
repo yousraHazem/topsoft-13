@@ -1,4 +1,12 @@
 ﻿module UsersHelper
+
+	def isAdmin(current_user)
+		User.where(:id => current_user, :isAdmin => true).exists?
+	end
+
+
+ 
+
  #Author: Donia Amer Shaarawy 22-0270
  # Returns the Gravatar (http://gravatar.com/) for the given user.
  	def gravatar_for(user)
