@@ -1,5 +1,4 @@
 ﻿class BudgetComponentsController < ApplicationController
-  	
 
 	def index
      list
@@ -127,7 +126,6 @@
 	    end
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
-
 end
 
 

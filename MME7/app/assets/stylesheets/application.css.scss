@@ -1,5 +1,5 @@
-@import "bootstrap";
 
+@import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,11 +13,6 @@
  *= require_self
  *= require_tree .
  */
-.progress {
-	height: 29px;
-	width:500px;
-	 text-align: center;
-}
 
  #background {
  background-image: url(bg.jpg);
@@ -26,69 +21,16 @@
  padding-top: 10px;
 
  }
-  .header {
-  margin-left: 20px;
-  }
- 
-  #style{
- height: 450px;
- width: 1365px;
- overflow: auto;
- }
 
- .style {
+ #login{
+ background-color: #F0F0F0;
+ position:fixed;
  margin: 20px;
  }
 
- .link {
- margin-left: 40px;
+  #style{
+ height: 440px;
+ width: 1150px;
+ overflow: auto;
  }
-
- h1 , h2 , h3 , h4 ,h5 , h6{
- font: helvetica;
- color: #000066;
- }
-
- #table2 {
-   margin-top: 0;
-	padding-top: 0;
-}
-
-#comp {
-	margin-top: 0;
-	padding-top: 0;
-}
-
-.h3 {
-	font-size: 150%;
-	font: helvetica;
-    color: #000066;
-}
-
-.sources{
-	background-color: #F0F0F0 ;
-}
-
-.search {
-	display: inline;
-	margin-right: 60px;
-}
-
-.contribution {
-	margin : 20px;
-}
- .amount {
-
-margin: 50px;
- }
-
- h1 , h2 , h3 , h4, h5 , h6 {
- color: #000066;
- }
-
-
-
- 
-
-
 

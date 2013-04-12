@@ -28,7 +28,10 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    annotate (2.5.0)
+      rake
     arel (3.0.2)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     best_in_place (2.1.0)
       jquery-rails
       rails (~> 3.1)
@@ -46,6 +49,11 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -121,9 +129,12 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  annotate (= 2.5.0)
+  bcrypt-ruby
   best_in_place
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  factory_girl_rails (= 4.1.0)
   jquery-rails
   mail (~> 2.5.3)
   rails (= 3.2.13)

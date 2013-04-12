@@ -1,4 +1,5 @@
-module GroupsHelper
+﻿module GroupsHelper
+
 
 
  #Author: Donia Amer Shaarawy 22-0270 
@@ -18,5 +19,6 @@ module GroupsHelper
    b = Group.getGroupMembers(group_id)
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
+
 end
 	

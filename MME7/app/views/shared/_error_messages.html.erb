@@ -1,3 +1,4 @@
+
 ﻿<% if object && object.errors.size > 0 %>
   <div id="errorExplanation">
     <h2><%= pluralize(object.errors.size, "خطأ") %> يمنع هذا العنصر من الحفظ</h2>
@@ -8,4 +9,10 @@
     <% end %>
     </ul>
   </div>
+<div id="errorExplanation">
+    <h2> الاخطاء  </h2>
+    <p>يوجد بعض الاخطاء:</p>
+ <% object.errors.messages.each do |message| %>
+   <div class="message"><%= message.last.last.html_safe %></div>
+ <% end %>
 <% end %>

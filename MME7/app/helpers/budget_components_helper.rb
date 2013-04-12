@@ -1,2 +1,2 @@
-module BudgetComponentsHelper
+﻿module BudgetComponentsHelper
 end
