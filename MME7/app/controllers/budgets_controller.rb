@@ -1,0 +1,2 @@
+﻿class BudgetsController < ApplicationController
+end
