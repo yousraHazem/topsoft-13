@@ -47,9 +47,15 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+<<<<<<< HEAD
     t.integer  "amount"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+=======
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "amount"
+>>>>>>> master
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -57,11 +63,6 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -152,9 +153,9 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.string   "phone_Nr"
     t.string   "address"
     t.string   "username"
-    t.boolean  "isAdmin"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.boolean  "isAdmin",         :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
   end
