@@ -1,9 +1,16 @@
-require "spec_helper"
 
-describe GroupUsersHelper do
-  describe "is this is already a member" do
-    it "returns true" do
-      helper.ifMember.should be_true
-    end
-  end
+require 'spec_helper'
+
+describe GroupUser do
+it "should return true if he's the creator " do
+user = User.new(:name => "name 1", :email => "name@hotmail" , :phone_Nr =>"123456" , :address => "aaaaa" , :username => "yasmin1" , :isAdmin => false)
+user.save
+userid= user.id
+group = Group.new(:group_name => "project1" , :description=> "jnhb" , :levels => "3")
+group.save
+groupid = group.id
+member = GroupUser.new(:user_id => userid, :group_id =>groupid ,  :is_creator => true )
+member.save
+member.ifMember(userid , projectid)
 end
+end 
