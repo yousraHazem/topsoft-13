@@ -1,39 +1,25 @@
-<%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
+﻿    <%= link_to("الرجوع للقائمة", {:action => 'listProjects', :class => 'back link'} ) %>
+     <%= link_to("budget", {:controller => 'budget_items',:action => 'list', :id => @project.id    } ) %>
+
+    <td class="actions">
+		<%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project_id}, 
+		:class => 'action edit')%>
+	</td>
 
 <div class="project show">
-
-    <h2>Show Projects</h2>
-
-    <table summary="Project detail view">
-  
- 	 <tr >
- 		<th>name</th>
- 		<td><%= @project.project_name %></td>
- 	 </tr>
- 	
- 	 <tr >
- 		<th>start date</th>
+  <h1><%= @project.name %></h1>     
+  <table class="table">
+  	<tr class="success">
+ 		<td>تاريخ البداية</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
- 	
- 	 <tr >
- 		<th>end date</th>
+ 	</tr> 	
+ 	<tr class="error">
+ 		<td>تاريخ النهاية</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
-
- 	 <tr >
- 		<th>description</th>
- 		<td><%= @project.description %></td>
- 	 </tr>
-
- 	 <tr >
- 		<th>public or private</th>
- 		<td><%= @project.private_or_public %></td>
- 	 </tr>
- 	 <tr >
- 		<th>admin or member</th>
- 		<td><%= @project.admin_or_member %></td>
- 	 </tr>
- 	
-    </table>
+ 	</tr>
+ 	<tr class="success">
+ 		<td>التفاصيل</td>
+    </tr>
+ 	</table>
+ 	<div id = "tablePosts"><%= render 'table' %></div>
 </div>
