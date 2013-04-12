@@ -2,15 +2,15 @@
 describe ProjectsController do
 
   def valid_attributes
-    {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
+    {:name => 'proj1a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
   def invalid_attributes
-    {:project_name => 'proj1a', :start_date => "7/8/2013" , :end_date => "3/4/2011", :description => "blablablablabla"}
+    {:name => 'proj1a', :start_date => "7/8/2013" , :end_date => "3/4/2011", :description => "blablablablabla"}
   end
 
   def update_attributes
-    {:project_name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
+    {:name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
  
@@ -26,7 +26,7 @@ describe ProjectsController do
   describe "GET showProject" do
     it "assigns the requested project as @project " do
       project = Project.create! valid_attributes
-      get :showProject, {:id => project.to_param}
+      get :show, {:id => project.to_param}
       assigns(:project ).should eq(project)
     end
   end
@@ -100,7 +100,7 @@ describe ProjectsController do
       it "redirects to the project" do
         project = Project.create! valid_attributes
         put :updateProject, {:id => project.to_param, :@project => valid_attributes}
-        response.should redirect_to("http://test.host/projects/showProject/1")
+        response.should redirect_to("http://test.host/projects/listProjects/1")
       end
     end
 

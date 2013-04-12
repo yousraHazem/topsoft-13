@@ -15,16 +15,15 @@
 	 	
 	 	<% @projects.each do |project| %>
 		 	<tr>
-		 		<td>  <%= project.project_name %></td>
+		 		<td> <%= project.name %></td>
 		 		<td> <%= project.start_date %>   </td>
 		 		<td> <%= project.end_date %>     </td>
 		 		<td> <%= project.description %>  </td>
 				<td >
-				 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}, :class =>'action show') %>
+				 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}, :class =>'action show') %> 
 				 	<%= link_to("تعديل", {:action => 'editProject', :id => project.id} , :class =>'action edit') %>
-				 	<%= link_to("المهام",{:controller=>'tasks',:action => 'listTasks', :id => project.id} , :class =>'action list') %>
-				 	<%= link_to("اعضاء") %>
-				 	<%= link_to("مجتمعات") %>
+				 	
+				 	
 				</td>
 		 	</tr>
 	 	<% end %>
