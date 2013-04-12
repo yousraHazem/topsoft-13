@@ -1,3 +1,4 @@
+﻿
 module ProjectsHelper
 
 	#Author: Donia Amer Shaarawy 22-0270 
@@ -7,6 +8,12 @@ module ProjectsHelper
     def getMembersNotInProject (project_id)
       b = Project.get_projectmembers(project_id)
       notProjectUser = User.find(:all, :conditions => :user_id != b)
-    end 	
+    end 
+
+    # authorized by sarah ahmed id:22-1278
+  #returns all the projects in the table
+ def get_all_projects
+   return Project.order("projects.id ASC")
+ end	
 end   				 
 

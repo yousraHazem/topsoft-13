@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 describe ProjectUsersController do
 
 it"should return list of members in a project" do
