@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+﻿class GroupsController < ApplicationController
 
 def index
         @groups = Group.order("groups.group_name ASC")

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
 $('th').css("background-color","#ff0");
  $("tr:even").css("background-color","#cef");
  $('tr:odd').css("background-color","#ffc");
