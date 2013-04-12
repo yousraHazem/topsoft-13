@@ -1,6 +1,0 @@
-$("#posts").append("<%= escape_javascript(render(:partial => 'posts/list'))%>");
-<<<<<<< HEAD
-$("#post-form")[0].reset();
-=======
-$("#post-form")[0].reset();
->>>>>>> f68e2668b8f2ca3aeddbfd52994752d21d818748

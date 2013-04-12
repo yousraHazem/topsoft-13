@@ -16,7 +16,7 @@ class Group < ActiveRecord::Base
  
  	def  self.getposts (g_id)
 	return Post.find(:all, :conditions => {:group_id =>g_id})
-    end
+  end
     
 
 end 

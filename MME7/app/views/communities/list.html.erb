@@ -6,15 +6,15 @@
 <table class="table table-hover">
   
     <tr>
-  <h2>Communities List</h2>
+  <h1 class="text-center">المجتمعات </h1>
 <div>
   
   <table class="table table-hover">
     <tr class="header">
-      <th>Title</th>
-      <th>Social profile info</th>
-      <th>Contact info</th>
-      <th>Actions</th>
+      <th>اسم المجتمع</th>
+      <th>وصف</th>
+      <th>معلومات الاتصال</th>
+      <th>يمكنكا فعل </th>
     </tr>
     <% @communities.each do |community| %>
      <tr class="success">
@@ -22,9 +22,11 @@
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
-             <%= link_to("Delete", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
-             <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-             <%= link_to("Show", {:action => 'show', :id => community.id}, :class => 'action show') %>
+             <%= link_to("مسح", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+           </br>
+             <%= link_to("تعديل ", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+              </br>
+             <%= link_to("عرض ", {:action => 'show', :id => community.id}, :class => 'action show') %>
         </td>
       </tr>
     <%end%>

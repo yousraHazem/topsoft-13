@@ -41,9 +41,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.8.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -93,6 +90,8 @@ GEM
     multi_json (1.7.2)
     nokogiri (1.5.9)
     nokogiri (1.5.9-x86-mingw32)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -126,6 +125,10 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
+    ransack (0.7.2)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec (2.13.0)
@@ -175,9 +178,8 @@ PLATFORMS
 
 DEPENDENCIES
   best_in_place
-  bootstrap-sass (~> 2.3.1.0)
+  bootstrap-sass
   capybara
-  carrierwave
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   faker
@@ -186,6 +188,7 @@ DEPENDENCIES
   launchy
   mail (~> 2.5.3)
   rails (= 3.2.13)
+  ransack
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3

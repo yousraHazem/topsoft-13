@@ -3,14 +3,18 @@ class Post < ActiveRecord::Base
 	belongs_to :user  #posts creator 
 	has_many :comments, :dependent => :destroy
 	belongs_to :project
-	belongs_to :group 
-
+	belongs_to :group
 	validates_presence_of :content
 
 
-end
+	def self.getPostComments(post_id)
+ 	     @posts = Post.find(:all, :conditions => {:post_id => post_id })
+    end 
+
 
  	def  self.getcomments (p_id)
 	return Comment.find(:all, :conditions => {:post_id =>p_id})
     end
+
+end
     

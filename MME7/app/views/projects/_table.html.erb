@@ -1,0 +1,36 @@
+<table class="table">
+    <tr>
+    <th>Post Name</th>
+    <th>Action</th>
+    </tr>  
+	<%  @project.posts.each do |post| %> 	
+ 	<tr>
+    <td>     
+    <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=> post.id} %>      
+    <div id ="tablePosts"><%= render(:partial => "tableComments", :locals => {:post => post}) %></div>
+    </td>
+    <td>
+    <%= link_to("delete post", {:controller => 'posts', :action => 'destroyPostGroup', :id => post.id, 
+    :project_id => @project.id})%>  
+    </td> 
+	</tr>
+    <% end %>
+</table>
+
+	</tr>    
+	    <div class="post new">
+		<%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostProject', :id => @project.id}) do |f| %>
+		<tr>			
+		<td><%= f.text_field (:content) %></td>		
+		<div><%= f.hidden_field :project_id, :value => @project_id %></div>		
+		<td>
+		<button type="submit" class="btn btn-danger">Create Post</button>
+		</td>		
+		</tr>
+		</tr>
+		</div>
+		<% end %>
+
+
+
+   
