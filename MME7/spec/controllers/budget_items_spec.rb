@@ -4,8 +4,7 @@ describe BudgetItemsController do
 
   def valid_attributes
       {:name => 'comOne', :status => 'false', 
-       :operational => 'true', :spent => '100',
-       :project_id =>'1',:total =>'1000'}
+       :operational => 'true',:project_id =>'1'}
   end
   describe "GET viewAllBI" do
     it "assigns all budget_items as @budget_items" do
