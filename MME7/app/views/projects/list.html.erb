@@ -1,0 +1,34 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+	<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div >
+<h2>Projects</h2>
+<%= link_to("Add new projectt",{:action => 'new'}, :class =>'action new') %>
+<table >
+ 	<tr >
+ 		<th>&nbsp;</th>
+ 		<th>Project</th>
+ 		<th>start date</th>
+ 		<th>end date</th>
+ 		<th>description</th>
+ 		<th>private</th>
+ 	</tr>
+ 	
+ 	<% @projects.each do |project| %>
+ 	<tr>
+ 		<td> <%= project.project.name %></td>
+ 		<td > <%= project.start_date %></td>
+ 		<td > <%= project.end_date %></td>
+ 		<td > <%= project.description %></td>
+ 		<td > <%= project.private_or_public %></td> 		
+ 	</tr>
+<% end %>
+</table>
+</div>
+
+
+
+

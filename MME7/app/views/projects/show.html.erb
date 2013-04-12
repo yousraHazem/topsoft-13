@@ -1,39 +1,25 @@
-<%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
+    <%= link_to("Back to list", {:action => 'list', :class => 'back link'} ) %>
 
-<div class="project show">
+    <td class="actions">
+		<%= link_to("Edit Project", {:action => 'edit', :id=> @project_id}, 
+		:class => 'action edit')%>
+	</td>
 
-    <h2>Show Projects</h2>
-
-    <table summary="Project detail view">
-  
- 	 <tr >
- 		<th>name</th>
- 		<td><%= @project.project_name %></td>
- 	 </tr>
- 	
- 	 <tr >
- 		<th>start date</th>
+    <div class="project show">
+    <h1><%= @project.name %></h1>     
+	<table class="table">
+  	<tr class="success">
+ 		<td>start date</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
- 	
- 	 <tr >
- 		<th>end date</th>
+ 	</tr> 	
+ 	<tr class="error">
+ 		<td>end date</td>
  		<td><%= @project.start_date %></td>
- 	 </tr>
+ 	</tr>
 
- 	 <tr >
- 		<th>description</th>
- 		<td><%= @project.description %></td>
- 	 </tr>
+ 	<tr class="success">
+ 		<td>description</td>
 
- 	 <tr >
- 		<th>public or private</th>
- 		<td><%= @project.private_or_public %></td>
- 	 </tr>
- 	 <tr >
- 		<th>admin or member</th>
- 		<td><%= @project.admin_or_member %></td>
- 	 </tr>
- 	
-    </table>
-</div>
+ 	</table>
+ 	<div id = "tablePosts"><%= render 'table' %></div>
+    </div>

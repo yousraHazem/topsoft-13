@@ -4,7 +4,8 @@ class CreatePosts < ActiveRecord::Migration
     	t.text "content"
     	t.references :group
     	t.references :project
-      t.timestamps
+        t.timestamps
     end
+  add_index :post, :group_id
   end
 end
