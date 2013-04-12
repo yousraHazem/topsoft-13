@@ -145,6 +145,11 @@ ActiveRecord::Schema.define(:version => 20130412003037) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
   create_table "receipts", :force => true do |t|
     t.string   "name"
     t.integer  "budget_component_id"
