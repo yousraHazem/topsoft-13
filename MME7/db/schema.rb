@@ -11,27 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(:version => 20130408104319) do
+=======
+ActiveRecord::Schema.define(:version => 20130412003037) do
+>>>>>>> ee79f9796525e283f8d46ea67f9a1461f9865a94
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity"
-    t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
-    t.integer  "total"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
     t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
+    t.integer  "unit_price"
+    t.integer  "total"
   end
 
   create_table "budget_items", :force => true do |t|
     t.integer  "task_id"
-    t.integer  "budget_id"
     t.string   "name"
-    t.integer  "status"
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -147,10 +150,8 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.boolean  "private_or_public"
-    t.boolean  "admin_or_member"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "receipts", :force => true do |t|
@@ -161,12 +162,20 @@ ActiveRecord::Schema.define(:version => 20130408104319) do
     t.string   "image"
   end
 
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "assigned"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "assigned",    :default => false
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
