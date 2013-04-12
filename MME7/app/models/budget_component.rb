@@ -4,7 +4,9 @@
   attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
   belongs_to :budget_item
 
-validates :name, :presence => {:message => "يجب ادخال الاسم" }  
+validates :name, :presence => {:message => "يجب ادخال الاسم" } 
+validates_numericality_of :unit_price, :greater_than => 0,
+                        :allow_blank => false 
 validates_numericality_of :quantity_purchased, :greater_than => 0,
                         :allow_blank => false
 validates_numericality_of :total_quantity, :greater_than => 0,
