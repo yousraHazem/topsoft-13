@@ -13,26 +13,22 @@
         </script>
 </head>
 <body>
-<h3>Total budget:</h3>
-<h3>Amount raised:</h3>
 <% if @budget_items.blank? %>
-<p>There are no current budget items </p>
+<p>ليس لديك أي عناصر حاليا</p>
 <% else %>
-<p>The budget items availble are </p>
+<p>عناصر الميزانية الحالية هي </p>
 <% end %>
 </br>
  	<table>
  	<tr>
- 		<th>Name      </th>
- 		<th>Status    </th>
- 		<th>Total     </th>
- 		<th>Spent     </th>
+ 		<th>اسم عنصر الميزانية     </th>
+ 		<th>مجموع العنصر الميزانية     </th>
+ 		<th>ما الذي تم صرفه     </th>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
 		<tr id = "budget_item">
  		<td><%= budgetitem.name %></td>
- 		<td><%= budgetitem.status %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
  		</tr>
