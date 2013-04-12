@@ -28,9 +28,9 @@
  		<td><%= f.text_field(:admin_or_member) %></td>
  	 </tr>
 
- 	 <p>
+ 	 <tr>
  	 	<%= f.label :user_tokens, "Users" %><br />
         <%= f.text_field :user_tokens, "data-pre" => @project.users.map(&:attributes).to_json %>
- 	 </p>
+ 	 </tr>
 
      </table>
