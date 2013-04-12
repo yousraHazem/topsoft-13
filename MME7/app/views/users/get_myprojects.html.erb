@@ -10,16 +10,16 @@
         </script>
 </head>
 <body>
-<h1>Listing projects</h1>
+<h1>المشروعات</h1>
 <% if @projectusers.blank? %>
-<p>You do not have any projects</p>
+<p>ليس لديك أي مشروعات حاليا</p>
 <% else %>
-<p>These are the current projects you have </p>
+<p>ماشرعاتك الحالية</p>
 <% end %>
 <table>
   <tr>
-    <th>Project Name</th>
-    <th>Project Link</th>
+    <th>اسم المشروع</th>
+    <th>المشروع</th>
  </tr>
 
 <% @projectusers.each do |project_user| %>
