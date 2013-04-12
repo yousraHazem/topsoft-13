@@ -7,8 +7,9 @@
         'EEEE MMMM, d yyyy hh:mm:ss.S a',
         'M/d/yy HH:mm'
       ];
-        </script>
+ </script>
 </head>
+
 <body>
 <h1>المشروعات</h1>
 <% if @projectusers.blank? %>
@@ -20,13 +21,13 @@
   <tr>
     <th>اسم المشروع</th>
     <th>المشروع</th>
- </tr>
+  </tr>
 
 <% @projectusers.each do |project_user| %>
   <tr>
    <td id ="project_name"><%= project_user.project.name %></td>
    <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.id) %></td>
- </tr>
+  </tr>
 <% end %>
 </table>
 
