@@ -10,7 +10,7 @@ describe BudgetItemsController do
     it "assigns all budget_items as @budget_items" do
       budget_item  = BudgetItem.create! valid_attributes
       get :viewAllBI, {:project_id => 1}  
-     #assigns(:budget_items).should eq([budget_item])
+     assigns(:budget_items).should eq([budget_item])
     end
   end
 end
