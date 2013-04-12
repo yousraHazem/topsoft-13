@@ -1,17 +1,17 @@
 
 
-<%= link_to("<< Back to home", {:action => 'home'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'home'}, :class => 'back-link') %>
 </br>
 <%= flash[:notice] %>
 
-<h1>Groups</h1>
+<h1>المجموعات</h1>
 
-<%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+<%= link_to("اضافة مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
 
 <%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
     <p> 
     	<%= text_field_tag :search, params[:search]%>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "بحث", :name => nil %>
     </p>  
 <%end%>
 

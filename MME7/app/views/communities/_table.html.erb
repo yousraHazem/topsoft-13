@@ -3,15 +3,15 @@
 <table class="listing" summary="community list">
 
     <tr class="header">
-      <th>Id</th>
+      <th>الرق</th>
       <th></th>
-      <th>Title</th>
+      <th>الاسم</th>
       <th></th>
-      <th>Social profile info</th>
+      <th>الوصف</th>
       <th></th>
-      <th>Contact info</th>
+      <th>الارقام</th>
       <th></th>
-      <th>Actions</th>
+      <th>الفعل</th>
     </tr>
     <% @communities.each do |community| %>
     <tr>
@@ -26,8 +26,8 @@
         <td></td>
         <td> 
         <%if community.is_dismissed != true %>
-            <%= link_to("Edit", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-            <%= link_to("Delete", {:action => 'destroy', :id => community.id}, :confirm => "Are you sure you want to dismiss this community", :class => 'action delete') %>
+            <%= link_to("التعديل", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
+            <%= link_to("الالغاء", {:action => 'destroy', :id => community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %>
               <% end %> 
         </td>
      

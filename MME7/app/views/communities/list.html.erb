@@ -1,19 +1,19 @@
 
 
-<%= link_to("<< Back to home page", {:action => 'home'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'home'}, :class => 'back-link') %>
 
 
 <div class="community list">
   
-  <h2>Communities</h2>
+  <h2>المجتمعات</h2>
 
-  <%= link_to("Add New Community", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to("اضافة مجتمع جديد", {:action => 'new'}, :class => 'action new') %>
 
 
   <%= form_tag('list', :method => 'get',:id => "search",:remote => true) do %>  
            <p> 
            	<%= text_field_tag :search, params[:search]%>
-           	<%= submit_tag "Search", :name => nil %>
+           	<%= submit_tag "بحث", :name => nil %>
            </p>  
   <%end%>
 

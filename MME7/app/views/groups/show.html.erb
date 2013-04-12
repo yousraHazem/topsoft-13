@@ -1,9 +1,9 @@
-<%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'index'}, :class => 'back-link') %>
 
 
 <table>
 <tr>
-      <th>Name:</th>
+      <th>الاسم:</th>
       <td><%= @group.group_name %></td>
 </tr>
 
@@ -11,7 +11,7 @@
 </br>
 
 <tr>
-      <th>Description:</th>
+      <th>االمعلومات:</th>
       <td><%= @group.description %></td>
 </tr>
 
@@ -19,7 +19,7 @@
 </br>
 
 <tr>
-    <th>Level:</th>
+    <th>المستوة:</th>
     <td><%= @group.levels %></td>
 </tr>
 
@@ -28,10 +28,10 @@
 
 <tr>
 	<%if isGroupCreator(@group.id,2) == true %>
-       <th><%= link_to("Edit", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'action edit') %></th>
+       <th><%= link_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'action edit') %></th>
        <br/> 
        <br/>
-       <th><%= link_to("Delete", {:action => 'delete', :id => @group.id},:helper => GroupUsersHelper, :class => 'action delete') %></th>
+       <th><%= link_to("الغاء", {:action => 'delete', :id => @group.id},:helper => GroupUsersHelper, :class => 'action delete') %></th>
     <%end%>
 </tr>
 

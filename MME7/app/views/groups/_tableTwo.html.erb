@@ -1,17 +1,19 @@
 <tr>
-    <th>name</th>
+    <th>الاسم</th>
     <td><%= f.text_field :group_name %></td>
 </tr>
+</br>
 <tr>
-    <th>description</th>
+    <th>الشرح</th>
     <td><%= f.text_field :description %></td>
 </tr>
+</br>
 <tr>
-    <th>Level</th>
+    <th>المستوة</th>
     <td><%= f.text_field :levels %></td>
 </tr>
 </br>
 <tr>
-  <%= f.label :user_tokens, "Users" %><br />
+  <%= f.label :user_tokens, "الاعضاء" %><br />
   <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json%>
 </tr>

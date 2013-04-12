@@ -1,9 +1,9 @@
 
 <table>
   <tr>
-    <th>Group ID</th>
-    <th>Group Name</th>
-    <th>Action</th>
+    <th>رقم المجموعة</th>
+    <th>اسم المجموعة</th>
+    <th>الفعل</th>
   </tr>
 
   <% if @groups %>
@@ -11,7 +11,7 @@
   <tr>
     <td><%= group.id %></td>
     <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+    <td><%= link_to("اظهار", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
   </tr>
 <% end %>
 <%end%>
