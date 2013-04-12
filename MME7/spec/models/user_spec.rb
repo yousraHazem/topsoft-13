@@ -103,6 +103,16 @@ describe User do
     it { should_not be_valid }
   end
 
+    describe "when phone number is not unique" do
+    before do
+      user_with_same_phone_Nr = @user.dup
+       user_with_same_phone_Nr.phone_Nr = @user.phone_Nr
+      user_with_same_phone_Nr.save
+    end
+
+    it { should_not be_valid }
+  end
+
   describe "when password is not present" do
   before { @user.password = @user.password_confirmation = " " }
   it { should_not be_valid }
