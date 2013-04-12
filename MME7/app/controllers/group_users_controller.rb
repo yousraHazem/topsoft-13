@@ -1,6 +1,2 @@
-﻿
-class GroupUsersController < ApplicationController
-	
+﻿class GroupUsersController < ApplicationController	
 end 
-
-﻿
