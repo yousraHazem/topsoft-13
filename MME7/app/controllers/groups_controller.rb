@@ -39,3 +39,6 @@ def index
         end
     end
 end
+
+﻿
+>>>>>>> master
