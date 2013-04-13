@@ -16,7 +16,6 @@ gem 'rspec-rails'
 #   gem "rspec-rails", "~> 2.0"
 # end
 
-gem 'bootstrap-sass'
 
 # gem 'carrierwave'
 # gem 'rmagick'
@@ -39,10 +38,8 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 
-  gem 'sass-rails',   '~> 3.2.3'
 
 gem 'jquery-rails'
-gem 'bootstrap-sass'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -54,8 +51,6 @@ end
 gem 'jquery-rails'
 gem 'ransack'
 gem 'bcrypt-ruby'
-
-gem 'best_in_place'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
