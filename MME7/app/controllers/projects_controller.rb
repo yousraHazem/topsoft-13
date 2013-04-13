@@ -10,9 +10,6 @@ class ProjectsController < ApplicationController
       @project_id = params[:id]
       @project = Project.find(params[:id])
     end
-
-
-
     
     # Author : Nayera Mohamed 22-3789 , this method creates a project
 
