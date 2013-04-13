@@ -9,8 +9,8 @@ userid= user.id
 group = Group.new(:group_name => "project1" , :description=> "jnhb" , :levels => "3")
 group.save
 groupid = group.id
-member = GroupUser.new(:user_id => userid, :group_id =>groupid ,  :is_creator => true )
+member = GroupUser.new(:user_id => userid, :group_id =>groupid )
 member.save
-member.ifMember(userid , projectid)
+member.ifMember(userid , groupid)
 end
 end 
