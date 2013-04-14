@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 	
 	#Riham Gamal 22-3871
 	#update the post by finding its id and changing the fields
-	respond_to :html, :json
+	    respond_to :html, :json
 	def updatePostProject
 		@project_id = params[:project_id]
 		@post = Post.find(params[:id])
