@@ -1,4 +1,5 @@
-﻿# Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
+﻿class ProjectsController < ApplicationController
+# Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
   def listProjects
     @projects = Project.all
   end
@@ -18,7 +19,7 @@
       @project=Project.new(params[:project])
       if @project.save
          flash[:notice]= "project created"
-         redirect_to(:action => 'listProject')
+         redirect_to(:action => 'listProjects')
       else
          render('newProject')
       end
