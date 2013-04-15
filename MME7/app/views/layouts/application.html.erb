@@ -1,48 +1,144 @@
-<!DOCTYPE html>
-<html dir="rtl">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-  <title>MME7</title>
+    <title></title>
+     <%= stylesheet_link_tag  "style_light", :media => "all" %>
+     <%= javascript_include_tag  "application" , "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
 
- <%= stylesheet_link_tag  "application", :media => "all" %>
- <%= javascript_include_tag "application"  %>
- <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
- <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
-  <%= csrf_meta_tags %>
+    <style type="text/css">
+        .tooltip {
+            width: 250px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background: #444;
+            border: 1px solid #090909;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            position: absolute;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            color:#fff;
+            padding:12px 24px;
+            line-height:18px;
+        }
+
+        .tooltip:after {
+            content: '';
+            position: absolute;
+            border-color: transparent  #444 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+
+        .tooltip:before {
+            content: '';
+            position: absolute;
+            border-color:   transparent #090909 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        
+        body{
+            background: transparent url(images/bg.png) repeat 0 0 scroll;
+        }
+
+        .ttw-notification-menu{
+                width: 276px;
+        }
+
+
+    </style>
 </head>
+<body>
+More script and css style
+: <a href="http://www.htmldrive.net/" title="HTML DRIVE - Free DHMTL Scripts,Jquery 
 
-<body id = "background">
-  <div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>  
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li><%= link_to "About Us" %></li>
-          <li><%= link_to "Contact Us" %></li>
-          <li  class="text-info"><%= link_to "Home"%></li>
-          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
-          <li class="text-info"><%= link_to "مجموعات" %></li>
-          <li class="text-info"><%= link_to "المجتمعات" %></li>
-          <li class="text-info"><%= link_to "امشاريع" %></li>
-          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
-            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %>
-            <% end %>
-        </ul>
-      </div>
- </div>
- </div>
+plugins,Javascript,CSS,CSS3,Html5 Library">www.htmldrive.net </a><ul class="ttw-notification-menu">
+    <li id="projects" class="notification-menu-item first-item"><a href="index.html#">Projects</a></li>
+    <li id="tasks" class="notification-menu-item"><a href="index.html#">Tasks</a></li>
+    <li id="messages" class="notification-menu-item"><a href="index.html#" >Messages</a></li>
+    <li id="clients" class="notification-menu-item last-item">
+        <a href="index.html#">Clients</a>
+    </li>
+</ul>
 
-	<div id ="style"> 
-    <%= yield %>
-  </div>
+<div id="generate-notifications">
+    <div class="TTWForm-container">
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+
+         <form action="index.html#" id="notification-form" class="TTWForm" method="post" novalidate="">
+
+
+              <div id="field3-container" class="field f_100">
+                   <label for="category">
+                        Category
+                   </label>
+                   <select name="field3" id="category" >
+                        <option id="field3-1" value="projects">
+                             Projects
+                        </option>
+                        <option id="field3-2" value="tasks">
+                             Tasks
+                        </option>
+                        <option id="field3-3" value="other">
+                             Other
+                        </option>
+                   </select>
+              </div>
+
+
+              <div id="field4-container" class="field f_100">
+                   <label for="message">
+                        Message
+                   </label>
+                   <textarea rows="2" cols="20" name="field4" id="message" >Sample Notification</textarea>
+              </div>
+
+              <div id="use-icon-container" class="field f_100 checkbox-group required">
+
+                   <div class="option clearfix">
+                        <input name="field5[]" id="use-icon" value="Option 1" type="checkbox">
+                        <span class="option-title">
+                             Use Icon (Image)?
+                        </span>
+                        <br>
+                   </div>
+
+              </div>
+
+
+              <div id="use-icon-url-container" class="field f_100">
+                   <label for="use-icon-url">
+                        Image Url
+                   </label>
+                   <input name="fieldd" id="use-icon-url" type="text" value="images/icon.png">
+              </div>
+
+
+              <div id="form-submit" class="field f_100 clearfix submit">
+                   <input value="Submit" type="submit">
+              </div>
+         </form>
+    </div>
+</div>
 
 </body>
-
 </html>
