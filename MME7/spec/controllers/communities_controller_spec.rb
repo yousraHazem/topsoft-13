@@ -100,7 +100,7 @@ describe "POST create" do
         Community.any_instance.stub(:save).and_return(false)
         put :update, {:id =>community.to_param, :community => invalid_attributes}
         response.should render_template("edit")
-      end
+    end
     end
   end
 
