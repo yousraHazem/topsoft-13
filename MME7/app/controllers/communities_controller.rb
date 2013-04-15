@@ -17,9 +17,9 @@ end
 # Author Mariam, 22-3456
 # creates a new communtity by matching what the admin has entered with the fields in the model
 # takes the community title, social profile info and contact info 
+# returns nothing, it onlu adds a new record of a community in the database 
 def createCommunity
 	@community= Community.new(params[:community])
-	
 	if @community.save
 	 redirect_to(:action => 'list')
     else 
@@ -29,14 +29,16 @@ end
 
 # Author Mariam, 22-3456
 # retrieves the community that the admin wishes to edit  by the id
-
+# it takes the community id
+# returns nothing only amends what the user has edited in that record in the database
 def edit
     @community = Community.find(params[:id])
 end
   
 # Author Mariam, 22-3456
 # edits the already existing fields with wha the admin has entered
-
+# it takes the community id
+# returns nothing only amends what the user has edited in that record in the database
 def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
