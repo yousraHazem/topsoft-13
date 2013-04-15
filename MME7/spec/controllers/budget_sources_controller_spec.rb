@@ -14,18 +14,12 @@ describe BudgetSourcesController do
   {:name => 'Marketing', :amount => 100000}
    end
 
-     describe "GET index" do
+     describe "GET list" do
       it "assigns all sources as @sources" do
       sources = BudgetSource.create! valid_attributes
-      get :index
-<<<<<<< HEAD
+      get :list
       assigns(:sources).should eq([sources])
       end
       end
 end   
-=======
-      assigns(:sourcess).should eq([sources])
-      end
-      end
-end     
->>>>>>> master
+

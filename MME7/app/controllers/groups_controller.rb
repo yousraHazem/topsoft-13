@@ -1,5 +1,3 @@
-
-﻿
 class GroupsController < ApplicationController
 
 

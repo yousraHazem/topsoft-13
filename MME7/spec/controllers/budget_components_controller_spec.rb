@@ -19,8 +19,11 @@ describe BudgetComponentsController do
       item = BudgetItem.new
       BudgetItem.should_receive(:find).and_return(item)
       components = BudgetComponent.create! valid_attributes
-      get :list
+      get :list, {:id => 1}
+      puts "components"
+      puts  :components
       assigns(:components).should eq([components])
+
       end
       end
 
@@ -59,7 +62,7 @@ describe BudgetComponentsController do
         BudgetItem.should_receive(:find).and_return(item)
         #get :find_similar, {:id => '1'}
         post :create, {:component => valid_attributes}
-        response.should redirect_to('list')
+        response.should redirect_to(:action=>'list')
       end
     end
 
@@ -148,7 +151,7 @@ describe "PUT update" do
       BudgetItem.should_receive(:find).and_return(item)
       component = BudgetComponent.create! valid_attributes
       delete :destroy, {:id => component.to_param}
-      response.should redirect_to('list')
+      response.should redirect_to(:action=>'list')
     end
 
   end

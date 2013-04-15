@@ -34,7 +34,7 @@ end
 	def update
 			@project = Project.find(params[:id])
 		if @project.update_attributes(params[:project])
-			flash[:notice] = "تم بنجاح"
+			# flash[:notice] = "تم بنجاح"
 			redirect_to(:action=>'show', :id=> @project.id)
 		else
 		   flash[:notice] = "Project unsuccessfully updated"
