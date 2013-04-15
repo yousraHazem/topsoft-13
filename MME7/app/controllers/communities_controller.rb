@@ -16,7 +16,7 @@ end
 
 # Author Mariam, 22-3456
 # creates a new communtity by matching what the admin has entered with the fields in the model
-
+# takes the community title, social profile info and contact info 
 def createCommunity
 	@community= Community.new(params[:community])
 	
