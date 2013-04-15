@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag 'application' %>
+ <%= javascript_include_tag 'budget_items' %>
+ 
+<head>
+ <title>Operational Budget Items</title>
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body dir="rtl" lang="ar">
+<% if @budget_items.blank? %>
+<p>ليس لديك أي عناصر حاليا</p>
+<% else %>
+<p>عناصر الميزانية الحالية هي </p>
+<% end %>
+</br>
+
+ 	<table>
+ 	<tr>
+ 		<th>اسم عنصر الميزانية </th>
+ 		<th>مجموع العنصر الميزانية</th>
+ 		<th>ما الذي تم صرفه</th>
+ 	</tr>
+
+ 	<% @budget_items.each do |budgetitem| %>
+		<tr id = "budget_item">
+ 		<td><%= budgetitem.name %></td>
+ 		<td><%= budgetitem.total %></td>
+ 		<td><%= budgetitem.spent %></td>
+ 		</tr>
+ 	<% end %>
+ 	</table>
+</body>
