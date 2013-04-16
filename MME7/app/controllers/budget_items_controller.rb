@@ -1,2 +1,2 @@
-﻿class BudgetItemsController < ApplicationController
+class BudgetItemsController < ApplicationController
 end

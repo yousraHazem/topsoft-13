@@ -1,4 +1,4 @@
-﻿# == Schema Information
+# == Schema Information
 #
 # Table name: users
 #
@@ -17,7 +17,7 @@
 #these are all the valdation tests needed for the user model 
 require 'spec_helper'
 
-describe User do
+describe User, scope: true  do
 
   before { @user = User.new(name: "Example User", email: "user@example.com", phone_Nr: "123456788", isAdmin: false,
     	address: "nr st distric city", username: "username", password: "password", password_confirmation: "password") }
@@ -32,12 +32,12 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
-   it { should respond_to(:remember_token) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
-    it { should be_valid }
+  it { should be_valid }
 
-  describe "when name is not present" do
+  context "when name is not present" do
     before { @user.name = " " }
     it { should_not be_valid }
   end
@@ -137,7 +137,7 @@ describe "return value of authenticate method" do
   before { @user.save }
   let(:found_user) { User.find_by_username(@user.username) }
 
-  describe "with valid password" do
+describe "with valid password" do
     it { should == found_user.authenticate(@user.password) }
   end
 #let method provides a convenient way to create local variables inside tests. 

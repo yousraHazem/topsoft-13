@@ -1,4 +1,4 @@
-﻿# == Schema Information
+# == Schema Information
 #
 # Table name: budget_components
 #
@@ -13,6 +13,6 @@
 #
 
 class BudgetComponent < ActiveRecord::Base
-   attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
+   attr_accessible :name , :quantity , :unit_price , :status , :total
   belongs_to :budget_item
 end
