@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   #Author: Donia Amer Shaarwy
   #takes in the username and password to do the login method 
-  #returns a session with the user id and redirect it to the user page
+  #return a session with the user id and redirect it to the user page
   def new
   end
   def create

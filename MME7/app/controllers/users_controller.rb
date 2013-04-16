@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
  #Author: Donia Amer Shaarawy 22-0270
- #show is a method that when you recive the userid  and find the user with this id and return his work
- #and the list of groups he is in 
-	def show
+ #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
+  def show
    @user = User.find(params[:id])
    @current_user = current_user
    @groupusers = GroupUser.find(:all, 
@@ -15,9 +14,9 @@ class UsersController < ApplicationController
    @user = User.new
   end
  #Author: Donia Amer Shaarawy 22-0270
- #create adds a new record in the table with all the attributes also in this create 
- #we make the user sign up so we go to the log in page and like that we created a new user in the database
- #returns all the info needed about the new member
+ #create adds a new record in the table with all the attributes also in this create takes in the attributes of
+ # the user and returns a new record for a new user 
+
   def create
    @user = User.new(params[:user])
     if @user.save
