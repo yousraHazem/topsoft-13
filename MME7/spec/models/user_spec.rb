@@ -42,27 +42,27 @@ describe User, scope: true  do
     it { should_not be_valid }
   end
 
- describe "when email is not present" do
+ context "when email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }
   end
 
-  describe "when username is not present" do
+  context "when username is not present" do
     before { @user.username = " " }
     it { should_not be_valid }
   end
 
-   describe "when name is too long" do
+  context "when name is too long" do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
 
-   describe "when username is too long" do
+  context "when username is too long" do
     before { @user.username = "a" * 21 }
     it { should_not be_valid }
   end
 
-    describe "when email format is invalid" do
+  context "when email format is invalid" do
     it "should be invalid" do
       emailAddresses = %w[user@foo,com user_at_foo.org example.user@foo.
                      foo@bar_baz.com foo@bar+baz.com]
@@ -73,7 +73,7 @@ describe User, scope: true  do
     end
   end
 
-  describe "when email format is valid" do
+  context "when email format is valid" do
     it "should be valid" do
       emailAddresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
       emailAddresses.each do |valid_emailAddress|
@@ -83,7 +83,7 @@ describe User, scope: true  do
     end
   end
 
-    describe "when username is already taken" do
+    context "when username is already taken" do
     before do
       user_with_same_username = @user.dup
        user_with_same_username.username = @user.username.upcase
@@ -93,7 +93,7 @@ describe User, scope: true  do
     it { should_not be_valid }
   end
 
-   describe "when email address is already taken" do
+   context "when email address is already taken" do
     before do
       user_with_same_email = @user.dup
        user_with_same_email.email = @user.email.upcase
@@ -103,7 +103,7 @@ describe User, scope: true  do
     it { should_not be_valid }
   end
 
-    describe "when phone number is not unique" do
+   context "when phone number is not unique" do
     before do
       user_with_same_phone_Nr = @user.dup
        user_with_same_phone_Nr.phone_Nr = @user.phone_Nr
@@ -113,42 +113,42 @@ describe User, scope: true  do
     it { should_not be_valid }
   end
 
-  describe "when password is not present" do
-  before { @user.password = @user.password_confirmation = " " }
-  it { should_not be_valid }
-end
+  context "when password is not present" do
+    before { @user.password = @user.password_confirmation = " " }
+    it { should_not be_valid }
+ end
 
-describe "when password doesn't match confirmation" do
-  before { @user.password_confirmation = "mismatch" }
-  it { should_not be_valid }
-end
+ context "when password doesn't match confirmation" do
+   before { @user.password_confirmation = "mismatch" }
+   it { should_not be_valid }
+ end
 
-describe "when password confirmation is nil" do
-  before { @user.password_confirmation = nil }
-  it { should_not be_valid }
-end
+  context "when password confirmation is nil" do
+   before { @user.password_confirmation = nil }
+   it { should_not be_valid }
+ end
 
- describe "with a password that's too short" do
+ context "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
   end
 
-describe "return value of authenticate method" do
-  before { @user.save }
-  let(:found_user) { User.find_by_username(@user.username) }
+  context "return value of authenticate method" do
+   before { @user.save }
+   let(:found_user) { User.find_by_username(@user.username) }
 
-describe "with valid password" do
+  context"with valid password" do
     it { should == found_user.authenticate(@user.password) }
   end
 #let method provides a convenient way to create local variables inside tests. 
-  describe "with invalid password" do
+  context "with invalid password" do
     let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
     it { should_not == user_for_invalid_password }
     specify { user_for_invalid_password.should be_false }
   end
 end
-describe "remember token" do
+ context "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
