@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412113437) do
+ActiveRecord::Schema.define(:version => 20130416173304) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(:version => 20130412113437) do
   end
 
   create_table "budget_source_projects", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "amount"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "amount",           :default => 0
     t.integer  "budget_source_id"
     t.integer  "project_id"
   end
 
   create_table "budget_sources", :force => true do |t|
-    t.string   "budget_source_name"
+    t.string   "name"
     t.integer  "amount"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|

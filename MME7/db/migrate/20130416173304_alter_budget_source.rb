@@ -1,6 +1,6 @@
 class AlterBudgetSource < ActiveRecord::Migration
   def up
-  	rename_column :budget_sources , :name , :budget_source_name
+  	change_column :budget_source_projects , :amount ,:integer,  :default => 0
   end
 
   def down
