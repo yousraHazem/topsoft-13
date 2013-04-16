@@ -49,20 +49,20 @@ describe "POST create" do
     describe "with valid params" do
       it "updates the requested post" do
         post = Post.create! valid_attributes
-        post :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
+        put :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
       end
 
       it "assigns the requested post as @post" do
         post = Post.create! valid_attributes
-        post :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
+        put :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
         assigns(:post).should eq(post)
       end
 
       it "redirects to the show group" do
         post = Post.create! valid_attributes
-        post :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
+        put :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
         
-        response.should redirect_to(:controller => 'groups',:action => "show")
+        response.should redirect_to("http://test.host/posts/1")
       end
     end
 
@@ -71,7 +71,7 @@ describe "POST create" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
+        put :updatePostGroup, {:id => post.to_param, :post => valid_attributes}
         assigns(:post).should eq(post)
       end
 
@@ -79,8 +79,8 @@ describe "POST create" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :updatePostGroup, {:id =>post.to_param, :post => invalid_attributes}
-        response.should redirect_to(:controller => 'groups',:action => "show")
+        put :updatePostGroup, {:id =>post.to_param, :post => invalid_attributes}
+         response.should redirect_to("http://test.host/posts/1")
       end
     end
   end
