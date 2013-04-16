@@ -5,7 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
-<<<<<<< HEAD
 
 gem 'mail', '~> 2.5.3'
 
@@ -19,10 +18,9 @@ gem 'rspec-rails'
 #   gem "rspec-rails", "~> 2.0"
 # end
 
-gem 'bootstrap-sass'
-
-# gem 'carrierwave'
-# gem 'rmagick'
+gem 'simplecov'
+gem 'carrierwave'
+gem 'rmagick'
 
 
 gem "bcrypt-ruby", :require => "bcrypt"
@@ -30,22 +28,14 @@ gem "bcrypt-ruby", :require => "bcrypt"
  gem 'factory_girl_rails', '4.1.0'
 
 
-#gem 'carrierwave'
-#gem 'rmagick'
-
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 
-
-gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
-
-  gem 'sass-rails',   '~> 3.2.3'
-
+gem 'sass-rails',   '~> 3.2.3'
 gem 'jquery-rails'
-gem 'bootstrap-sass'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -53,12 +43,7 @@ gem 'bootstrap-sass'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby
 gem 'uglifier', '>= 1.0.3'
-end
-gem 'jquery-rails'
 gem 'ransack'
-gem 'bcrypt-ruby'
-
-gem 'best_in_place'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -75,13 +60,10 @@ gem 'best_in_place'
 # gem 'debugger'
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
 end
 
-gem "bootstrap-sass"
 
 group :development, :test do
-  gem 'rspec-rails'
 end
 
 group :test do
