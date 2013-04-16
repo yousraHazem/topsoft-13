@@ -4,8 +4,9 @@
 <br>
 <br>
 <div class="sources contribution">
-		<% @source.budget_source_projects.each do |s| %> 
+	<% @source.budget_source_projects.each do |s| %> 
 		<span class="amount">amount:<%= s.amount %></span>
-	    <%= s.project.name %><br> <br>
-	    <%end%> <hr>
-		</div>
+	    <%= s.project.name %><br><br>
+	<%end%> 
+	<hr>
+</div>
