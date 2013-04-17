@@ -1,9 +1,8 @@
 ﻿class ReceiptsController < ApplicationController
 
-	# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
+# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
 	def list
-		@receipts = Receipt.all
-		#where(:budget_component_id => params[:id])
+		@receipts = Receipt.where(:budget_component_id => params[:id])
 	end
 # Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
 	def new
