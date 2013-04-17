@@ -15,13 +15,15 @@
       </h1>
     </legend> 
     <h3>الاجمالى: <%= @total %></h3> 
+    <h6><i class="icon-tint"></i>اسم المشروع: </h6>
+    <h6><i class="icon-tint"></i>اسم الميزانية: </h6>
     <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
   </fieldset>
   <span class="h3"> 
      <div>
         <% if(isProjectCreator(1, @project_id ) == true) %> 
-          <%= link_to("#",:id=>"create" , class: "btn btn-success") do %>
-          <i class="icon-plus icon-white"></i> 
+          <%= link_to("#",:id=>"create" , class: "btn btn-success pull-left") do %>
+          <i class="icon-plus icon-white"></i> اضافة عنصر 
           <% end %>
         <% end %> العناصر 
      </div>
