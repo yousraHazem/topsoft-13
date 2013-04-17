@@ -19,10 +19,6 @@ class PostsController < ApplicationController
 		@post.user_id = @user_id
 		@post.save
 		respond_to do |format|
-			if(:check => true)
-		format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
-		format.js
-	else 
 		format.html {redirect_to(:controller => 'projects',:action => 'show', :id =>params[:id])}
 		format.js
 		end

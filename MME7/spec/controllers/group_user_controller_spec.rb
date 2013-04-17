@@ -15,8 +15,8 @@ describe "POST create" do
 
       it "assigns a newly created groupuser as @groupuser" do
         post :join, {:groupuser => valid_attributes}
-        assigns(:groupuser).should be_a(GroupUser)
-        assigns(:groupuser).should be_persisted
+        assigns(:newuser).should be_a(GroupUser)
+        assigns(:newuser).should be_persisted
       end
 
       it "redirects to the group show" do

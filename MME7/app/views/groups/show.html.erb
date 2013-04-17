@@ -57,7 +57,7 @@
   </div>
   <div>
   <% if ifMember(params[:id],1)==true %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id], :check => true }) do |f| %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id]}) do |f| %>
     <table summary = "The Post">
      <tr>
       <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
