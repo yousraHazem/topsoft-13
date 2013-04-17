@@ -20,9 +20,9 @@ describe BudgetItemsController do
 		end
 	end
 	describe "GET edit" do
-			it "assigns the requested budget_item as @budget_item" do
+			it "assigns the requested budget_source as @budget_item" do
 				budget_item = BudgetItem.create! valid_attributes
-				get :edit, {:id => budget_item.to_param}
+				get :edit, {:item => budget_item.to_param}
 				assigns(:budget_item).should eq(budget_item)
 			end
 	end
@@ -62,17 +62,17 @@ describe BudgetItemsController do
 		describe "with valid params" do
 			it "updates the requested budget_item" do
 				budget_item = BudgetItem.create! valid_attributes
-				put :update, {:id => budget_item.to_param, :budget_item => update_attributes }
+				put :update, {:item => budget_item.to_param, :budget_item => update_attributes }
 			end
 			it "assigns the requested budget_item as @budget_item" do
 				budget_item = BudgetItem.create! valid_attributes
-				put :update, {:id => budget_item.to_param, :budget_item => valid_attributes}
+				put :update, {:item => budget_item.to_param, :budget_item => valid_attributes}
 				assigns(:budget_item).should eq(budget_item)
 			end
 
 			it "redirects to the list" do
 				post :create, {:budget_item => valid_attributes}
-				subject { response }
+				response.should redirect_to( 'http://test.host/budget_items/list')
 			end
 	    end
     end
