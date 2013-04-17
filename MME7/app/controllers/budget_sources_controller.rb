@@ -1,5 +1,2 @@
-
-class BudgetSourcesController < ApplicationController
-
-
+﻿class BudgetSourcesController < ApplicationController
 end

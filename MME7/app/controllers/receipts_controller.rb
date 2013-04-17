@@ -1,6 +1,6 @@
 ﻿class ReceiptsController < ApplicationController
 
-# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
+	# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
 	def list
 		@receipts = Receipt.where(:budget_component_id => params[:id])
 	end
@@ -28,7 +28,7 @@ end
 	def update
 		@receipt = Receipt.find(params[:id])
 		if @receipt.update_attributes(params[:receipt])
-			redirect_to(:action => 'list')
+			redirect_to(:action => 'list', :id => @receipt.budget_component_id)
 		else
 			render('edit')
 
