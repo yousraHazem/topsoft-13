@@ -5,7 +5,7 @@
     <%= form_for(:project, :url => {:action => 'updateProject', :id => @project.id}) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %>
  	<div >
-      <%= submit_tag("تغير ") %>
+ 	  <button class="btn btn-large btn-primary" type="submit">تغير</button>
  	</div>
  	<% end %>   
 </div>

@@ -6,12 +6,6 @@
       @projects = Project.all
   end
 
-  # Author : Nayera Mohamed 22-3789 
-  # Args : project id
-  # returns : the project view
-  def show
-      @project = Project.find(params[:id])
-  end
 
   # Author : Nayera Mohamed 22-3789 
   # Args: no args
@@ -27,7 +21,7 @@
       @project=Project.new(params[:project])
       if @project.save
          flash[:notice]= "project created"
-         redirect_to(:action => 'listProjects')
+         redirect_to(:action => 'show')
       else
          render('newProject')
       end

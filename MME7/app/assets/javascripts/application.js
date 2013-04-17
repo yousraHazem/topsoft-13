@@ -19,3 +19,4 @@ $(function() {
   $("#project_start_date").datepicker( { format:  "dd/mm/yyyy" } );
   $("#project_end_date").datepicker( { format: "dd/mm/yyyy" } );
 });
+
