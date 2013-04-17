@@ -9,7 +9,6 @@ describe "stub_model(Project) with a hash of stubs" do
     project.name.should eql("Proj1a")
   end
   
-  
   it "stubs :description" do
     project.description.should eql("blablablablabla")
   end

@@ -14,8 +14,6 @@ describe ProjectsController do
     {:name => 'proj11a', :start_date => "7/8/2013" , :end_date => "7/8/2014", :description => "blablablablabla"}
   end
 
- 
-
   describe "GET index" do
     it "assigns all projects as @projects" do
       project = Project.create! valid_attributes
@@ -47,8 +45,6 @@ describe ProjectsController do
     end
   end
 
-  
-
   describe "POST createProject" do
     describe "with valid params" do
       it "creates a new project" do
@@ -65,7 +61,7 @@ describe ProjectsController do
 
       it "redirects to the created project" do
         post :createProject, {:project => valid_attributes}
-        response.should redirect_to("http://test.host/projects/listProject")
+        response.should redirect_to("http://test.host/projects/show")
       end
     end
 
@@ -101,7 +97,7 @@ describe ProjectsController do
       it "redirects to the project" do
         project = Project.create! valid_attributes
         put :updateProject, {:id => project.to_param, :@project => valid_attributes}
-        response.should redirect_to("http://test.host/projects/listProjects/1")
+        response.should redirect_to("http://test.host/projects/show/1")
       end
     end
 

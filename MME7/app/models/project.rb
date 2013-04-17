@@ -13,7 +13,7 @@
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date
-                errors.add(:end_date," تاريخ الانتهاء لا ىجب ان ىكون قبل تاريخ البداىة")
+                errors.add(:end_date,"#{start_date} تاريخ الانتهاء لا ىجب ان ىكون قبل تاريخ البداىة")
                
             end
         end
@@ -22,10 +22,10 @@
     # Author : Nayera Mohamed 22-3789 , this method checks if the start date is earlier than the current date
     validate :validate_start_date_before_current_date
     def validate_start_date_before_current_date
-        @current_date = DateTime.now
+        @current_date = Date.today
         if start_date && @current_date
            if start_date < @current_date
-                errors.add(:start_date," تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")
+                errors.add(:start_date," #{start_date}تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")
               
             end
         end
