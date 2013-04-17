@@ -31,7 +31,7 @@
 		@project = params[:id]  
 		@budget_item  = BudgetItem.find(params[:item])
 	end
-# Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
+ # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
 	def update
 		@item = params[:item]
 		@project = params[:id]
