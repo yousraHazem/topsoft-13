@@ -1,0 +1,5 @@
+ <% @nots.each do |t|%>
+ <div class="notify" data-time="<%= t.created_at.to_i %>">
+<%= t.not.content %>
+</div>	  
+<%end%>

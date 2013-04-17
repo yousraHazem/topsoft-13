@@ -1,5 +1,6 @@
 ﻿class NotsController < ApplicationController
  def index
- 	
- end	
+ 	@nots = NotUser.where(:user_id=> 1)
+ end
+
 end
