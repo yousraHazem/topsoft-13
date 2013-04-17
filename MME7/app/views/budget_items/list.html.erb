@@ -3,7 +3,7 @@
 <div>
 	<h2>عناصر الميزانية</h2>
     
-	<%= link_to("عنصر جديد" ,{:action=>'new' , :id => @projectid}, class: "btn btn-success") %>
+	<%= link_to("عنصر جديد" ,{:action=>'new' , :id => @project}, class: "btn btn-success") %>
 
  <table class ="table">
 	<tr>
@@ -14,7 +14,7 @@
 	<% @items.each do |item|%>
 	<tr>
 		<td><%= item.name %></td>
-	  <% if isProjectCreator(1, @projectid) == true %>
+	  <% if isProjectCreator(1, @project) == true %>
 		<td><%= link_to("Edit", {:action=>'edit' , :item=>item.id , :id => item.project_id},:class=>"btn btn-small")%></td>
 		
     <%end%>

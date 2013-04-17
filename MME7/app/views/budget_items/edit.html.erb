@@ -1,7 +1,7 @@
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
 <h2>تعديل عنصر الميزنية</h2>
-<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @projectid}) do |f| %>
+<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project}) do |f| %>
 <table>
 	<tr>
 		<th><%= f.label(:Name ,"إسم") %></th>
