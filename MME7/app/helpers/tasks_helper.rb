@@ -4,6 +4,4 @@
 	def get_tasks (p_id)
 	return Task.find(:all, :conditions => {:project_id =>p_id})
     end
-
-
 end

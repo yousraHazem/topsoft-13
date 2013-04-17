@@ -17,5 +17,4 @@
    def ifMember(group_id,user_id)
       GroupUser.where(:group_id => group_id, :user_id => user_id).exists? #change to current_user_id  
    end
-
 end

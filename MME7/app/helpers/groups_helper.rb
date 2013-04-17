@@ -1,5 +1,2 @@
-﻿module GroupsHelper
-
-
+module GroupsHelper
 end
-	
