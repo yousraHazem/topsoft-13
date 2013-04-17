@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe PostsController do
 
   def valid_attributes
@@ -84,6 +85,23 @@ describe "POST create" do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+  before :each do
+    @post = FactoryGirl(:post)
+  end
+  
+  it "deletes the post" do
+    expect{
+      delete :destroy, id: @post        
+    }.to change(Post,:count).by(-1)
+  end
+    
+  it "redirects to groups#" do
+    delete :destroy, id: @post
+    response.should redirect_to groups_url
+  end
+end
 end
 
 
