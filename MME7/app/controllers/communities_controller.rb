@@ -17,13 +17,12 @@ end
 # Author Mariam, 22-3456
 # creates a new communtity by matching what the admin has entered with the fields in the model
 
-def createCommunity
+def create
 	@community= Community.new(params[:community])
-	
-	if @community.save
-	 redirect_to(:action => 'list')
+	   if @community.save
+	render ('create')
     else 
-	 render('new')
+	render ('new')
     end
 end
 
@@ -40,15 +39,14 @@ end
 def update
     @community = Community.find(params[:id])    
     if @community.update_attributes(params[:community])
-	 redirect_to(:action => 'list')
-    else 	
-    render('edit')
+   render ('update')
+    else 
+render ('edit')
     end
 end
 
-def show
-	@community_id = params[:id]
-	@communities = Community.find(params[:id])
+def list
+		@communities = Community.order("communities.title ASC")
 end
 
 #Author: May Badr 22-0579
@@ -66,6 +64,4 @@ def delete
 		redirect_to(:action => 'list')
 
 	end
-
 end
-

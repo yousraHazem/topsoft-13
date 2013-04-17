@@ -1,20 +1,22 @@
-﻿<% if !flash[:notice].blank? %>
-<div class="notice">
-  <%= flash[:notice] %>
-</div>
-<% end %>
-
-<div >
+﻿<div >
   <h2>comments</h2>
+  
+  
+
   <table >
-  <tr>
+    <tr>
       <th></th>
       <th>Comments List</th>
-      <%= @post.content %>      
-  </tr>
-    <% @post.comments.each do |comment| %>
-  <tr>
+      
+    </tr>
+    <% @comment.each do |comment| %>
+    <tr>
      <td> <%= comment.comment %></td>
-  </tr>
-  <% end %>
-  </div>
+      <td>
+       
+        <%= link_to("Delete", {:action => 'delete', :id => comment.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

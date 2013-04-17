@@ -1,8 +1,11 @@
-﻿<% if object.errors.any? %>
+﻿<% if object && object.errors.size > 0%>
 <div id="errorExplanation">
-    <h2> الاخطاء  </h2>
-    <p>يوجد بعض الاخطاء:</p>
- <% object.errors.messages.each do |message| %>
-   <div class="message"><%= message.last.last.html_safe %></div>
- <% end %>
+<h2><%=pluralize(object.errors.size, "خطاء")%>حظر هذا السجل من يتم حفظه </h2> 
+<p>كانت هناك مشاكل مع الحقول التالية:</p>
+<ul>
+<% object.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
 <% end %>

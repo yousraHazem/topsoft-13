@@ -1,46 +1,24 @@
-<div class="style">
-<% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id],:class =>'pull-left'} ) %>
+﻿<% @page_title = "Budget_Item List"%>
 
-<form action="">
-<fieldset>
+<div>
+	<h2>عناصر الميزانية</h2>
+    
+	<%= link_to("عنصر جديد" ,{:action=>'new' , :id => @projectid}, class: "btn btn-success") %>
 
-<h2>الميزانية <%= @total_budget %></h2> 
-<h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
+ <table class ="table">
+	<tr>
+		<th>إسم</th>
+		<th>فعل</th>	
+	</tr>
 
-<h6><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
-</fieldset>
-</form>
-
-<h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
-    <i class="icon-plus icon-white"></i> 
-      <% end %>  العناصر</h4>
- <% if @items.blank? %>
-<p>There are no current budget items </p>
-<% end %>
-
-<div id="item-form" style="display:none;" >
-<%= form_for(:budget_item, :url=>{:action=>'create' , :project_id => params[:project_id] }) do |f| %>
-	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
-	<td><%= f.submit("حفظ") %></td>
-<% end %>
-
-</div>
-</br></br>
- <table class="table" summary="Subject List">
-<tr class="header">
-	<th>الاسم</th>
-	<th>فعل</th>
-</tr>
-<% @items.each do |item|%>
-
-<tr>
-	<td><%= item.name %></td>
-
-	<td class="actions">
-		<%= link_to("تعديل", {:action=>'edit' ,:id=>item.id , :project_id => item.project_id},:class=>"btn btn-small")%>
-		<%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>	
-	</td>
-
-</tr>
-<%end%>
+	<% @items.each do |item|%>
+	<tr>
+		<td><%= item.name %></td>
+	  <% if isProjectCreator(1, @projectid) == true %>
+		<td><%= link_to("Edit", {:action=>'edit' , :item=>item.id , :id => item.project_id},:class=>"btn btn-small")%></td>
+		
+    <%end%>
+	</tr>
+	<%end%>
+</table>
 </div>
