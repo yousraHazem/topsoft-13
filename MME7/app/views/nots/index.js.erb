@@ -1,4 +1,4 @@
-//<% unless @nots.empty? %>
-//$("#notify").append("<%=raw escape_javascript(render ('notification')) %>");
-// $("#article h2").text($(".comment").length + " comments");
-//<% end %>
+<% unless @nots.empty? %>
+$("#notify").append("<%=raw escape_javascript(render('notification')) %>");
+//$("#article h2").text($(".comment").length + " comments");
+<% end %>

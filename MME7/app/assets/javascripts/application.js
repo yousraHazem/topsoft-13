@@ -23,8 +23,13 @@ $(function(){
 });
 
 function updateNot() {
-    var user_id = $("#current-user").attr("data-id");
+    var user_id = $("#current-user").attr("data-id");  
+  if ($(".notify").length > 0) {
     var after = $(".notify:last-child").attr("data-time");
+  } else {
+    var after = "0";
+  }
+
     $.getScript("/nots.js?user_id=" + user_id + "&after=" + after)
     setTimeout(updateNot, 10000); 
 }
