@@ -1,8 +1,8 @@
-﻿<% provide(:title, @user.name) %>
-<div>
-	<h1>
-     <%= gravatar_for @user %>
-     <%= @user.name %>
-    </h1>
-</div>
+<% provide(:title, @user.name) %>
+	<div>
+		<h1>
+     	 <%= gravatar_for @user %>
+       	 <%= @user.name %>
+   		 </h1>
+	</div>
 <%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %>
