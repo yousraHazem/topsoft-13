@@ -1,5 +1,2 @@
 module GroupsHelper
-
-
 end
-	

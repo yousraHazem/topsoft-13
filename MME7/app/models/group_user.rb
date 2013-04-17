@@ -1,19 +1,13 @@
-# == Schema Information
-#
-# Table name: group_users
-#
-#  id         :integer          not null, primary key
-#  group_id   :integer
-#  user_id    :integer
-#  isCreator  :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
 
 class GroupUser < ActiveRecord::Base
+
    attr_accessible :group_id , :user_id , :isCreator
-   belongs_to :group 
-   belongs_to :user
+
+    belongs_to :group 
+  belongs_to :user
+  attr_accessible :group_id , :user_id , :isCreator
+  belongs_to :group 
+  belongs_to :user
    #Author: Donia Amer Shaarawy 22-0270 
    #this is a method that shows if the current user the person 
    #who is loged in is the creator of the group or not. returns boolean

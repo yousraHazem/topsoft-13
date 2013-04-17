@@ -1,20 +1,6 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  phone_Nr   :string(255)
-#  address    :string(255)
-#  username   :string(255)
-#  isAdmin    :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
 class User < ActiveRecord::Base
 
-  #Author: Donia Amer Shaarawy 22-0270
+ #Author: Donia Amer Shaarawy 22-0270
   #these are the attributes needed for a user also though are out valdiations that are need for the input of sign up 
   attr_accessible :address, :email, :name, :isAdmin, :phone_Nr, :username, :password, :password_confirmation
   has_secure_password
@@ -28,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :projects , :through => :project_users
   has_many :groups_users 
   has_many :groups , :through => :group_users 
+   has_many :task_users
+  has_many :tasks , :through => :task_users
 
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
