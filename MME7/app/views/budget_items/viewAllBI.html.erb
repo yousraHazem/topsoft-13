@@ -1,24 +1,26 @@
-<%= stylesheet_link_tag 'application' %>
-<%= javascript_include_tag 'budget_items' %>
- 
+<%= stylesheet_link_tag 'application' %> 
 <head>
   <title>Budget Items</title>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 
 <body dir="rtl" lang="ar">
+<h2>اسم المشروع <%= @project.name %></h2>
 <% if @budget_items.blank? %>
 <p> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
 <p>عناصر الميزانية الحالية هي</p>
 <% end %>
 </br>
- 	<table>
+ 	<table class ='table'>
  	<tr>
  		<th>اسم عنصر الميزانية</th>
  		<th>مجموع</th>
  		<th>ما الذي تم صرفه</th>
-    <th>تعديل الميزانية</th>
+ 		<% if @projectuser.is_creator =='true'%>
+        <th>تعديل الميزانية</th>
+ 		<% else %>
+ 		<% end %>
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
@@ -26,8 +28,11 @@
  		<td><%= budgetitem.name %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
-    <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
+ 		<% if @projectuser.is_creator =='true'%>
+        <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
  		</tr>
+ 		<% else %>
+ 		<% end %> 
  	<% end %>
  	</table>
 </body>
