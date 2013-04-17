@@ -1,12 +1,14 @@
 <%= stylesheet_link_tag 'application' %>
- <%= javascript_include_tag 'budget_items' %>
- 
 <head>
  <title>Operational Budget Items</title>
+ <%= stylesheet_link_tag    "application", :media => "all" %>
+ <%= javascript_include_tag "application" %>
+ <%= csrf_meta_tags %>
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 
-<body dir="rtl" lang="ar">
+<body>
+<h2>اسم المشروع <%= @project.name %></h2>
 <% if @budget_items.blank? %>
 <p>ليس لديك أي عناصر حاليا</p>
 <% else %>
@@ -14,7 +16,7 @@
 <% end %>
 </br>
 
- 	<table>
+ 	<table class="table">
  	<tr>
  		<th>اسم عنصر الميزانية </th>
  		<th>مجموع العنصر الميزانية</th>

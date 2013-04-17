@@ -9,6 +9,7 @@ class BudgetItemsController < ApplicationController
    #Inputs:no input and Outputs:operational budgetitems 
    #Returs: Array of Budget Items
     def viewoperationalBI
+      @project = Project.find(1)
     	@budget_items = BudgetItem.find(:all,:conditions => {:operational =>true,:project_id => 1})
     end
 end
