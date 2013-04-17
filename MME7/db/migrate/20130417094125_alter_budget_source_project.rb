@@ -1,7 +1,6 @@
 class AlterBudgetSourceProject < ActiveRecord::Migration
   def up
-  	add_column :budget_source_projects , :amount , :integer
-  	
+  	change_column :budget_source_projects , :amount , :integer , :default => 0
   end
 
   def down
