@@ -1,1 +1,2 @@
-﻿
+require 'spec_helper'
+
