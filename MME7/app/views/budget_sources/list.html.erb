@@ -1,24 +1,18 @@
 ﻿<% @page_title = "Budget_Source List"%>
 
-
-
 <div>
 	<h2>مصدر الميزاني</h2>
     
 	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
        <i class="icon-plus icon-white"></i>
       <% end %>
-
-
  <table>
 <tr>
 	<th>إسم</th>
 	<th>كمية</th>
 	<th>مشروع</th>
 	<th>الكمية للمشروع</th>
-	<th>فعل</th>
-	
-	
+	<th>فعل</th>	
 </tr>
 <% @budget_sources.each do |budget_source|%>
 <tr>
