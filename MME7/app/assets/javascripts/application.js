@@ -16,6 +16,12 @@
 //= require best_in_place
 //= require_tree .
  
+ $(function(){
+ $("#Budget-serach input").keyup(function (){
+    $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
+    return false;
+  });
+});
 
 $(function() {
     $("#price, #total").keyup(function() {
