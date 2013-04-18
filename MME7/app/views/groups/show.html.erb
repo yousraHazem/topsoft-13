@@ -5,9 +5,7 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-
 <%= link_to("Back to View All Groups", {:action => 'index'}, :class => 'back-link') %>
-
 <div>
     <p>
       <b>Group Name:</b>
@@ -30,13 +28,29 @@
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => 1}, :class => 'btn btn-inverse') %>
   <% end %>
   <% if ifMember(@group.id, 1) == true && isGroupCreator(@group.id, 1) != true %>
-     <%= button_to("leave Group",{:controller => 'group_users', :action =>'leave', :id  => @group.id}, :class => 'action show') %>               
-  <% end %>
-  <% if isGroupCreator(@group.id, 1) == true %>
-     <%= button_to("Delete Group", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'Are you sure you want to delete this group?', :class => 'action delete') %>
-  <% end %>
+        <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
+        <% end %>
+
+        <% if isGroupCreator(@group.id, 1) == true %>
+        <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
+        <% end %>
 </div>
 </div>
+  <div>
+  <% if ifMember(params[:id],1)==true %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id]}) do |f| %>
+    <table summary = "The Post">
+     <tr>
+      <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
+     </tr>
+      <tr>
+        <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
+      </tr>
+    </table> 
+  <div class="form-buttons">
+  <%= submit_tag("اضف تعبير") %>
+  </div>
+  <%end%>
 <div>
 <div id = "allpostsborder">
  <% @group.posts.each do |post| %>
@@ -55,21 +69,7 @@
     </b>
     </b>    
   </div>
-  <div>
-  <% if ifMember(params[:id],1)==true %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id]}) do |f| %>
-    <table summary = "The Post">
-     <tr>
-      <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
-     </tr>
-      <tr>
-        <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
-      </tr>
-    </table> 
-  <div class="form-buttons">
-  <%= submit_tag("اضف تعبير") %>
-  </div>
-  <%end%>
+
   <%end%>
   </div>
   </div>
