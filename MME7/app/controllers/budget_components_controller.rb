@@ -1,2 +1,2 @@
-﻿class BudgetComponentsController < ApplicationController
+class BudgetComponentsController < ApplicationController
 end

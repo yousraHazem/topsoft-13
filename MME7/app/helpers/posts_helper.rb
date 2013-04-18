@@ -1,4 +1,4 @@
-﻿module PostsHelper
+module PostsHelper
 
 
 	#Authored by Toka Omar  id:22-1925

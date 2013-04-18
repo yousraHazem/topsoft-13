@@ -1,4 +1,4 @@
-﻿<% if object.errors.any? %>
+<% if object.errors.any? %>
     <h2 id = "errorExplanation" , class="text-error"> الاخطاء  </h2>
     <em class="text-error">يوجد بعض الاخطاء:</em></br>
 	  <% object.errors.messages.each do |message| %>

@@ -1,4 +1,4 @@
-﻿class BudgetSource < ActiveRecord::Base
+class BudgetSource < ActiveRecord::Base
   attr_accessible :name, :amount
 
  has_many :budget_source_projects

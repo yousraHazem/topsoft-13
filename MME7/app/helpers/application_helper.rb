@@ -1,4 +1,5 @@
-﻿module ApplicationHelper
+#encoding: utf-8
+module ApplicationHelper
 
 
 	# Author : Nayera Mohamed 22-3789 

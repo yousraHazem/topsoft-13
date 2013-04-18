@@ -1,4 +1,4 @@
-﻿module ProjectsHelper
+module ProjectsHelper
 
 
 	#Author: Donia Amer Shaarawy 22-0270 

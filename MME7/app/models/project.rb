@@ -1,4 +1,5 @@
-﻿class Project < ActiveRecord::Base
+#encoding: utf-8
+class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description  
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
