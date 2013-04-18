@@ -1,5 +1,6 @@
 ﻿module ApplicationHelper
 
+
 	# Author : Nayera Mohamed 22-3789 
 	# Args : an object
 	# retunrs : error messages if there was any 
