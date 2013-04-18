@@ -1,4 +1,4 @@
-#encoding: utf-8
+﻿#encoding: utf-8
 class BudgetItemsController < ApplicationController
 
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
