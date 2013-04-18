@@ -8,4 +8,6 @@ class AdminController < ApplicationController
 	def new
 		@admin = User.new
   end
+ end
+
 
