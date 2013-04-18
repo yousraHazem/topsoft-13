@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417094125) do
+ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -118,8 +118,9 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "is_frozen",   :default => false
   end
 
   create_table "receipts", :force => true do |t|
