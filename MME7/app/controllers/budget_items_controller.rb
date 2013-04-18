@@ -36,7 +36,9 @@ class BudgetItemsController < ApplicationController
 		@budget_item = BudgetItem.new
 
 	end 
-# Author :Yasmin Mahmoud 22-1787 , Method create takes attributes from the new form and enters it in the table 
+ # Author :Yasmin Mahmoud 22-1787 , Method create takes attributes from the new form and enters it in the table 
+ # Author: Sarah Ahmed 22-1278 , enter the selected task from the drop down table and assign it to true 
+ #parameters: none , returns :none 
 	def create 
 
 		@project = params[:project_id]
@@ -63,7 +65,7 @@ class BudgetItemsController < ApplicationController
 	end
 
 	# Author :Yasmin Mahmoud 22-1787 , Method edit finds the budgetitem with the id taken from the params 
-
+    # Author: Sarah Ahmed 22-1278 , gets the tasks that aren't assigned to any item and adds to it the previously selected one
 	def edit  
 		@budget_item = BudgetItem.find(params[:id])
 		@project = params[:project_id]
@@ -77,6 +79,8 @@ class BudgetItemsController < ApplicationController
 	end
 
    # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table 
+   # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown 
+   # parameters: none , returns :none 
 	def update
 		@project = params[:project_id]
 		@budget_item = BudgetItem.find(params[:id])
