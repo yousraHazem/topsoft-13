@@ -1,4 +1,4 @@
-class BudgetSourcesController < ApplicationController
+﻿class BudgetSourcesController < ApplicationController
 	def list
     #authorized by sarah ahmed id:22-1278
     #description : searches for all the budget sources , or specific ones if specified in the serach textbox
