@@ -48,6 +48,9 @@ class Project < ActiveRecord::Base
     end
 
    
+    # Author: Riham Gamal 22-3871
+    # Arguments: user ids 
+    # return users
     def user_tokens=(ids)
       self.user_ids = ids.split(",")
     end

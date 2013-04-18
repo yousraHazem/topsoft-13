@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+﻿class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
   #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
   def show
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
     format.html
     format.json { render :json => @users.map(&:attributes) }
   end
-end
+  end
 
 end
