@@ -1,19 +1,8 @@
-# == Schema Information
-#
-# Table name: groups
-#
-#  id           :integer          not null, primary key
-#  group_name   :string(50)
-#  description  :text
-#  levels       :string(255)
-#  created_at   :datetime         default => false
-#  updated_at   :datetime         not null
-#  community_id :integer
-#
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels
 
     has_many :groups_users 
+
   has_many :users, :through => :group_users
   belongs_to :communities
   validates_presence_of :description

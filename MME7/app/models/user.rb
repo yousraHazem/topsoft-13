@@ -1,9 +1,10 @@
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
 
  #Author: Donia Amer Shaarawy 22-0270
   #these are the attributes needed for a user also though are out valdiations that are need for the input of sign up 
   attr_accessible :address, :email, :name, :isAdmin, :phone_Nr, :username, :password, :password_confirmation
   has_secure_password
+
 
   has_many :posts
   has_many :comments
@@ -14,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :projects , :through => :project_users
   has_many :groups_users 
   has_many :groups , :through => :group_users 
+
    has_many :task_users
   has_many :tasks , :through => :task_users
 
@@ -48,5 +50,6 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end   
+
 end
 
