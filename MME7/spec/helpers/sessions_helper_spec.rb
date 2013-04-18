@@ -1,5 +1,0 @@
-﻿require 'spec_helper'
-
-
-
-

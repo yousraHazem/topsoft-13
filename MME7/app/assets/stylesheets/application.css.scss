@@ -22,13 +22,13 @@
  text-align: right;
  }
 
+ .alignright {
+	float: right;
+}
 
-
-#background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 900px 600px;
- }
+.aligncenter {
+	text-align: center;
+}
 
 
 .sources{
@@ -53,11 +53,6 @@ margin: 50px;
  }
 
 
- #login{
- background-color: #F0F0F0;
- position:fixed;
- margin: 20px;
- }
  
   #style{
  height: 500px;
