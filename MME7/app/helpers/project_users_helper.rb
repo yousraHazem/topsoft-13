@@ -1,4 +1,4 @@
-﻿module ProjectUsersHelper
+module ProjectUsersHelper
 
 	
 

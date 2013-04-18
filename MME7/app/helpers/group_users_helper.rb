@@ -1,3 +1,3 @@
-﻿module GroupUsersHelper
+module GroupUsersHelper
 
 end

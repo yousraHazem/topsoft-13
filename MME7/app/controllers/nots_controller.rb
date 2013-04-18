@@ -1,3 +1,3 @@
-﻿class NotsController < ApplicationController
+class NotsController < ApplicationController
  	
 end

@@ -1,4 +1,4 @@
-﻿class BudgetComponentsController < ApplicationController
+class BudgetComponentsController < ApplicationController
   	
 
 	def index
