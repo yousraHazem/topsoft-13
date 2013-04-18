@@ -1,4 +1,5 @@
-﻿class BudgetSource < ActiveRecord::Base
+class BudgetSource < ActiveRecord::Base
+  attr_accessible :name, :amount
 
 
 def self.search(search)
@@ -19,6 +20,5 @@ end
   def project_tokens=(ids)
     self.project_ids = ids.split(",")
   end
-
 
 end

@@ -1,4 +1,8 @@
-﻿class Post < ActiveRecord::Base
+class Post < ActiveRecord::Base
+
+    attr_accessible :content , :group_id , :project_id
+	belongs_to :user  #posts creator 
+	has_many :comments, :dependent => :destroy
 
     attr_accessible :content , :group_id , :project_id , :user_id
 	belongs_to :user  

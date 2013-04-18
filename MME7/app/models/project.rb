@@ -26,6 +26,7 @@
         end
     end
 
+
     has_many :posts
     has_many :tasks 
     has_and_belongs_to_many :users
@@ -35,23 +36,15 @@
     has_and_belongs_to_many :communities
     has_many :budget_source_projects
     has_many :budget_sources , :through => :budget_source_projects
-    has_many :budget_items
-    has_and_belongs_to_many :communities
-    has_and_belongs_to_many :budget_sources
-    has_many :budget_source_projects
-    has_many :budget_sources , :through => :budget_source_projects
-    attr_reader :user_tokens
 
     def self.get_projectmembers(project_id)
      @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
     end
 
-
    
     def user_tokens=(ids)
       self.user_ids = ids.split(",")
     end
-
 
 
     #Author: Donia Amer Shaarawy 22-0270 
@@ -62,6 +55,5 @@
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
       @users = User.where("id NOT IN (?)" , b)
     end 
-end
-    
 
+end

@@ -18,7 +18,7 @@
   # Args : project params
   # returns :creates a new project 
   def createProject
-      @project = Project.new(params[:project])
+      @project=Project.new(params[:project])
       if @project.save
          flash[:notice]= "project created"
          redirect_to(:action => 'show')
@@ -50,4 +50,3 @@
   end
   
 end
-
