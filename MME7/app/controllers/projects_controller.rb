@@ -49,4 +49,32 @@
       end
   end
   
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : no return
+  def delete
+    @project = Project.find(params[:id])
+  end
+
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : no return
+  def destroy
+    @budgetSourceProject = BudgetSourceProject.where(:project_id => params [:id])
+    @budgetItems = BudgetItem.where(:project_id => params[:id])
+    @budgetSourceProject.each do |budgetSourceProject| 
+       if budgetSourceProject.amount == 0 
+         @budgetItems.each do |budgetItems| 
+          if budgetItems.total == 0
+             Project.find(params[:id]).destroy
+             flash[:notice]= "project destroyed"
+             redirect_to(:action => 'listProjects')
+          end
+      else
+        :confirm => "go to budgetsources"
+      end
+
+    
+  end
+
 end

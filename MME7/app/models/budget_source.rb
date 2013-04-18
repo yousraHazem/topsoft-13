@@ -1,6 +1,4 @@
-class BudgetSource < ActiveRecord::Base
-  attr_accessible :name, :amount
-
+class BudgetSource < ActiveRecord::Baseu
 
 def self.search(search)
   if search
