@@ -1,2 +1,2 @@
-﻿class CommunitiesController < ApplicationController
+class CommunitiesController < ApplicationController
 end

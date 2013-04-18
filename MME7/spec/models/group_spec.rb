@@ -1,4 +1,4 @@
-﻿require 'spec_helper'
+require 'spec_helper'
  describe Group do
 
  	it"should return list of members  not in a group" do
