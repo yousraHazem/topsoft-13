@@ -7,9 +7,9 @@
 <body dir="rtl" lang="ar">
 <h1>المشروعات</h1>
 <% if @projectusers.blank? %>
-<p>ليس لديك أي مشروعات حاليا</p>
+	<p>ليس لديك أي مشروعات حاليا</p>
 <% else %>
-<p>ماشرعاتك الحالية</p>
+	<p>ماشرعاتك الحالية</p>
 <% end %>
 <table>
   <tr>
@@ -19,13 +19,9 @@
 
 <% @projectusers.each do |project_user| %>
   <tr>
-   <td id ="project_name"><%= project_user.project.name %></td>
-   <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.id) %></td>
+    <td id ="project_name"><%= project_user.project.name %></td>
+    <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.id) %></td>
   </tr>
 <% end %>
 </table>
-
-</br>
- 	</br>
- </br>
 </body>
