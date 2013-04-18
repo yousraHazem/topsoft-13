@@ -11,7 +11,7 @@
 #  isAdmin    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+#encoding: UTF-8
 class User < ActiveRecord::Base
 
   #Author: Donia Amer Shaarawy 22-0270
