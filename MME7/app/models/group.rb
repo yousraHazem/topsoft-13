@@ -1,17 +1,4 @@
-﻿# == Schema Information
-#
-# Table name: groups
-#
-#  id           :integer          not null, primary key
-#  group_name   :string(50)
-#  description  :text
-#  levels       :string(255)
-#  created_at   :datetime         default => false
-#  updated_at   :datetime         not null
-#  community_id :integer
-#
-
-class Group < ActiveRecord::Base
+﻿class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :community_id
 
   has_many :posts 

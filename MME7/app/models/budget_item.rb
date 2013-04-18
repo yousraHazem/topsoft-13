@@ -1,3 +1,4 @@
+﻿#encoding: utf-8
 class BudgetItem < ActiveRecord::Base
 
    attr_accessible :name, :operational , :task_id ,  :total , :spent , :project_id
