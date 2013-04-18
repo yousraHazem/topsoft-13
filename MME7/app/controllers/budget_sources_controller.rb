@@ -31,7 +31,7 @@ def list
       flash[:notice] = "Project successfully updated"
       redirect_to(:action => 'list') 
     else
-       flash[:notice] = "Project could not be updated"
+       render('edit')
         
     end
   end
