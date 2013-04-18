@@ -16,9 +16,8 @@
 		@add = BudgetSourceProject.where(:budget_source_id => @id , :project_id  => key)
 		@add.update_all(:amount => value)
 
-		redirect_to(:controller => 'budget_sources', :action => 'list')
 
 		end
-	
+	redirect_to(:controller => 'budget_sources', :action => 'list')
 	end
 end

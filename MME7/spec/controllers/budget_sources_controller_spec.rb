@@ -36,7 +36,8 @@ describe BudgetSourcesController do
 
 			it "redirects to the list" do
 				post :create, {:budget_source => valid_attributes}
-				response.should redirect_to( 'http://test.host/budget_sources/list')
+				response.should redirect_to( 'http://test.host/budget_source_projects/addamount/1')
+
 			end
 		end
 
@@ -72,7 +73,7 @@ describe BudgetSourcesController do
 
 			it "redirects to the list" do
 				post :create, {:budget_source => valid_attributes}
-				response.should redirect_to( 'http://test.host/budget_sources/list')
+				response.should redirect_to( 'http://test.host/budget_source_projects/addamount/1')
 			end
 	    end
     end

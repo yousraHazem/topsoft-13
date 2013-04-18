@@ -14,7 +14,7 @@ def list
 	def create 
 		@budget_source = BudgetSource.new(params[:budget_source])
 		if @budget_source.save
-			redirect_to(:action => 'list')
+			redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id)
 		else
 			render('new')
 
@@ -28,8 +28,7 @@ def list
   	def update
       @budget_source = BudgetSource.find(params[:id])
     if @budget_source.update_attributes(params[:budget_source])
-      flash[:notice] = "Project successfully updated"
-      redirect_to(:action => 'list') 
+      redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id) 
     else
        render('edit')
         
