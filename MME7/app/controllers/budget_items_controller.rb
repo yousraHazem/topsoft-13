@@ -3,9 +3,9 @@ class BudgetItemsController < ApplicationController
   #Inputs:project_id and Outputs:all  budgetitems 
   #Returs: Array of Budget Items
   def viewAllBI 
-      @project = Project.find(1)
-    	@budget_items = BudgetItem.find(:all,:conditions => {:project_id => 1})
-      @projectuser = ProjectUser.find(1)
+      @project = Project.find(params[:id])
+    	@budget_items = BudgetItem.find(:all,:conditions => {:project_id => params[:id]})
+      @projectuser = ProjectUser.find(:all,:conditions => {:project_id => params[:id],:user_id => 5})  #change to current user 
   end
 end
 

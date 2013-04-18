@@ -10,8 +10,7 @@
 	<p> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
 	<p>عناصر الميزانية الحالية هي</p>
-<% end %>
-</br>
+	</br>
 <table class ='table'>
  	<tr>
  		<th>اسم عنصر الميزانية</th>
@@ -19,6 +18,7 @@
  		<th>ما الذي تم صرفه</th>
  		<% if @projectuser.is_creator =='true'%>
         	<th>تعديل الميزانية</th>
+ 		<% else %>
  		<% end %>
  	</tr>
 
@@ -33,4 +33,5 @@
  		<% end %> 
  	<% end %>
 </table>
+<% end %>
 </body>
