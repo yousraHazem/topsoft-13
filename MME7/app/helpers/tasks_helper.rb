@@ -1,4 +1,4 @@
-﻿module TasksHelper
+module TasksHelper
 
 
 	#Authored by Toka Omar  id:22-1925

@@ -1,4 +1,4 @@
-﻿class Group < ActiveRecord::Base
+class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels
 
 
