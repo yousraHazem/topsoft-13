@@ -1,7 +1,12 @@
-class Group < ActiveRecord::Base
+﻿class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels
 
-    has_many :groups_users 
+
+  has_many :posts 
+  has_many :groups_users 
+  has_many :users , :through => :group_users
+
+
 
   has_many :users, :through => :group_users
   belongs_to :communities

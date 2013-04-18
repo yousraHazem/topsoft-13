@@ -5,8 +5,10 @@ class Comment < ActiveRecord::Base
 	belongs_to :post
 
 	validates_presence_of :comment
-   
-    # Author : Nayera Mohamed 22-3789 , this project takes user and comment id and returns a boolean if this user is the comment creator or not
+
+   #Author: Nayera Mohamed 22-3789 
+    # Args : current user and comment id
+    # returns : boolean
     def isCommentCreator(current_user, comment_id)
         Comment.where(:user_id => current_user, :id => comment_id).exists?  
     end
