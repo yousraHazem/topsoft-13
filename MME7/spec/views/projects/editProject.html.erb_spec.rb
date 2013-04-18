@@ -1,4 +1,4 @@
-﻿require "spec_helper"
+require "spec_helper"
 #Author : Nayera Mohamed 22-3789
 describe "projects/editProject.html.erb" do
   before(:each) do
