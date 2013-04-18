@@ -10,13 +10,13 @@
 <body>
 <h2>اسم المشروع <%= @project.name %></h2>
 <% if @budget_items.blank? %>
-<p>ليس لديك أي عناصر حاليا</p>
+	<p>ليس لديك أي عناصر حاليا</p>
 <% else %>
-<p>عناصر الميزانية الحالية هي </p>
+	<p>عناصر الميزانية الحالية هي </p>
 <% end %>
 </br>
 
- 	<table class="table">
+<table class="table">
  	<tr>
  		<th>اسم عنصر الميزانية </th>
  		<th>مجموع العنصر الميزانية</th>
@@ -24,11 +24,11 @@
  	</tr>
 
  	<% @budget_items.each do |budgetitem| %>
-		<tr id = "budget_item">
+	<tr id = "budget_item">
  		<td><%= budgetitem.name %></td>
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
- 		</tr>
+ 	</tr>
  	<% end %>
- 	</table>
+</table>
 </body>
