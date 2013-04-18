@@ -7,19 +7,18 @@
 <body dir="rtl" lang="ar">
 <h2>اسم المشروع <%= @project.name %></h2>
 <% if @budget_items.blank? %>
-<p> لا يوجد عناصر ميزانية حاليا</p>
+	<p> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
-<p>عناصر الميزانية الحالية هي</p>
+	<p>عناصر الميزانية الحالية هي</p>
 <% end %>
 </br>
- 	<table class ='table'>
+<table class ='table'>
  	<tr>
  		<th>اسم عنصر الميزانية</th>
  		<th>مجموع</th>
  		<th>ما الذي تم صرفه</th>
  		<% if @projectuser.is_creator =='true'%>
-        <th>تعديل الميزانية</th>
- 		<% else %>
+        	<th>تعديل الميزانية</th>
  		<% end %>
  	</tr>
 
@@ -29,10 +28,9 @@
  		<td><%= budgetitem.total %></td>
  		<td><%= budgetitem.spent %></td>
  		<% if @projectuser.is_creator =='true'%>
-        <td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
+        	<td><%= link_to("edit", {:action=>'edit', :id=>budgetitem.id})%></td>
  		</tr>
- 		<% else %>
  		<% end %> 
  	<% end %>
- 	</table>
+</table>
 </body>

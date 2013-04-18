@@ -7,6 +7,5 @@ class BudgetItemsController < ApplicationController
     	@budget_items = BudgetItem.find(:all,:conditions => {:project_id => 1})
       @projectuser = ProjectUser.find(1)
   end
-
 end
 
