@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
    #Author: Donia Amer Shaarawy 22-0270
    #it takes userid in a session and save it in a variable current_user returns current user id 
   def current_user

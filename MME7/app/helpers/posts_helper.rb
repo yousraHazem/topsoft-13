@@ -9,4 +9,5 @@
     def isPostCreator(current_user, post_id)
         Post.where(:user_id => current_user, :id => post_id).exists?  
     end 
+
 end
