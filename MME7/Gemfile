@@ -4,12 +4,21 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'sqlite3'
-gem 'mail', '~> 2.5.3'
 
-gem 'best_in_place'
+gem 'sqlite3'
 gem 'bootstrap-sass'
-gem 'rspec-rails'
+gem 'mail', '~> 2.5.3'
+gem 'carrierwave'
+#gem 'rmagick'
+gem "rspec-rails", "~> 2.0"
+gem 'bootstrap-sass'
+
+#gem "rspec-rails", "~> 2.0"
+gem 'best_in_place'
+# gem 'carrierwave'
+# gem 'rmagick'
+
+
 
 
 # group :test, :development do
@@ -17,40 +26,38 @@ gem 'rspec-rails'
 # end
 
 
-# gem 'carrierwave'
-# gem 'rmagick'
-
-
 
 gem "bcrypt-ruby", :require => "bcrypt"
  gem 'annotate', '2.5.0'
  gem 'factory_girl_rails', '4.1.0'
-
-
-#gem 'carrierwave'
-#gem 'rmagick'
+gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 
-
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
-
-
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
+end
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+
+gem 'bootstrap-datepicker-rails'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby
-gem 'uglifier', '>= 1.0.3'
+
 
 gem 'jquery-rails'
 gem 'ransack'
 gem 'bcrypt-ruby'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -65,9 +72,10 @@ gem 'bcrypt-ruby'
 
 # To use debugger
 # gem 'debugger'
-group :development, :test do
-  gem 'rspec-rails'
-end
+
+
+
+
 
 group :test do
   gem 'faker'
@@ -75,4 +83,3 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
 end
-

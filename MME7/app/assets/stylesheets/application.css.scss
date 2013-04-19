@@ -11,6 +11,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap-datepicker
  */
 
  .comments{
@@ -29,6 +30,13 @@
 .aligncenter {
 	text-align: center;
 }
+
+#background {
+ background-image: url(bg.jpg);
+ background-repeat: no-repeat;
+ background-size: 1365px 730px;
+ }
+
 
 
 .sources{
@@ -53,15 +61,21 @@ margin: 50px;
  }
 
 
- 
-  #style{
- height: 500px;
- width: 1365px;
- overflow: auto;
+
+ #login{
+ background-color: #F0F0F0;
+ position:fixed;
+ margin: 20px;
  }
 
- .progress {
- height: 29px;
- width:540px;
-  text-align: center;
+
+
+.style {
+	margin: 20px;
+}
+
+.progress {
+	height: 29px;
+	width:500px;
+	 text-align: center;
 }

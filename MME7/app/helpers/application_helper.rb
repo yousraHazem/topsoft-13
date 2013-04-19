@@ -1,20 +1,17 @@
-﻿module ApplicationHelper
+module ApplicationHelper
 
-	# def getMembersNotInProject (project_id)
- #     b = Project.get_projectmembers(project_id)
- #     notProjectUser = User.find(:all, :conditions => :user_id != b)
- #    end
+	def error_messages_for(object)
+		render(:partial=>'shared/error_messages', :locals=>{:object=> object})
+	end
 
- #    def get_projectmembers(project_id)
- # 	     @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
- #    end 
-
-
-  def error_messages_for( object )
-    render(:partial => 'shared/error_messages', :locals => {:object => object})
+	def flash_message
+  types = { :notice => 'success', :alert => 'error', :info => 'info' }
+  flash.inject("") do |sum, message|
+    content_tag :div, :class => "alert alert-#{types[message[0]]}" do
+      button_tag('&#215;'.html_safe, :type => 'button', :class => 'close', :'data-dismiss' => 'alert', :name => nil) +
+      message[1]
+    end
+    end
   end
 
 end
-
-
-
