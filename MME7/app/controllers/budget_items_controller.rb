@@ -29,13 +29,9 @@ class BudgetItemsController < ApplicationController
 
 
 	end 
-# Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem
-	def new 
 
-		#@id = params[:id]
-		@budget_item = BudgetItem.new
 
-	end 
+
  # Author :Yasmin Mahmoud 22-1787 , Method create takes attributes from the new form and enters it in the table 
  # Author: Sarah Ahmed 22-1278 , enter the selected task from the drop down table and assign it to true 
  #parameters: none , returns :none 
