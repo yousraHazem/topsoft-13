@@ -80,4 +80,5 @@ class CommentsController < ApplicationController
     @comment = Comment.all
   end
 
+>>>>>>> master
 end

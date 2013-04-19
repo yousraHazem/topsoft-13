@@ -1,7 +1,13 @@
 class ProjectsController < ApplicationController
   layout "project"
 
-
+def index
+    @projects = Project.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.map(&:attributes) }
+    end
+  end
 #Author Riham Gamal id = 22-3871
 #Arguments project.id
 #return non

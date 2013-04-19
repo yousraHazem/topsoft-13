@@ -1,6 +1,4 @@
 ﻿class BudgetComponentsController < ApplicationController
-
-  
 	def index
      list
      render('list')
