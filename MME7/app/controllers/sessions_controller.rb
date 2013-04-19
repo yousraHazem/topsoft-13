@@ -1,4 +1,3 @@
-
 class SessionsController < ApplicationController
   #Author: Donia Amer Shaarwy
   #takes in the username and password to do the login method 
