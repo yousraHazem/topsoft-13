@@ -8,6 +8,7 @@ class UsersController < ApplicationController
    @groupusers = GroupUser.find(:all, 
    :conditions => {:user_id => @current_user}, 
    :order => "group_id ASC")
+   @projectusers = ProjectUser.find(:all,:conditions => {:user_id => @current_user})
   end
   #Author: Donia Amer Shaarawy 22-0270
   #new just calls on a new record returns a new record 
