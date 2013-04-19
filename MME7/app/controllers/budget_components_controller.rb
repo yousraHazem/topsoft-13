@@ -1,6 +1,6 @@
-﻿class BudgetComponentsController < ApplicationController
-  	
-
+﻿#encoding: utf-8
+class BudgetComponentsController < ApplicationController
+  
 	def index
      list
      render('list')
@@ -98,11 +98,8 @@
 	    @total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
-		if @budget_item.update_attributes(:total=>@total, :spent=>@spent)
-			flash[:notice] = "Item successfully updated"
-		else
-		  flash[:notice] = "Item unsuccessfully updated"	
-	    end
+		@budget_item.update_attributes(:total=>@total, :spent=>@spent)
+		
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
 

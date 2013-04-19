@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'spec_helper'
 
 describe BudgetSourcesController do
@@ -22,3 +23,5 @@ describe BudgetSourcesController do
       end
       end
 end  
+=======
+>>>>>>> master

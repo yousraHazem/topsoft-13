@@ -1,5 +1,7 @@
-﻿class BudgetSourcesController < ApplicationController
-	def list
+#encoding: utf-8
+class BudgetSourcesController < ApplicationController
+
+def list
     #authorized by sarah ahmed id:22-1278
     #description : searches for all the budget sources , or specific ones if specified in the serach textbox
     #returns: list of budget sources 
@@ -10,5 +12,4 @@ end
 def show
 	@source = BudgetSource.find(params[:source_id])
 end
-
 end

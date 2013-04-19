@@ -1,5 +1,4 @@
-﻿module GroupsHelper
-
+module GroupsHelper
 
 
  #Author: Donia Amer Shaarawy 22-0270 
@@ -21,4 +20,3 @@
   end 
 
 end
-	
