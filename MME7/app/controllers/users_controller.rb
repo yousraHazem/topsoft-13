@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
   #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
@@ -25,4 +26,5 @@ class UsersController < ApplicationController
      render "new"
     end
  end 
+
 end
