@@ -11,8 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416173304) do
 
+ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -45,9 +45,17 @@ ActiveRecord::Schema.define(:version => 20130416173304) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+<<<<<<< HEAD
+
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "amount"
+
+=======
     t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+>>>>>>> master
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -79,6 +87,11 @@ ActiveRecord::Schema.define(:version => 20130416173304) do
     t.integer "project_id"
   end
 
+  create_table "communities_projects", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "project_id"
+  end
+
   create_table "group_users", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
@@ -94,6 +107,12 @@ ActiveRecord::Schema.define(:version => 20130416173304) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+   end
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+
   end
 
   create_table "posts", :force => true do |t|
@@ -136,6 +155,25 @@ ActiveRecord::Schema.define(:version => 20130416173304) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "is_frozen",   :default => false
+ end
+
+  create_table "receipts", :force => true do |t|
+    t.string   "name"
+    t.integer  "budget_component_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "image"
+
+  end
+
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tasks", :force => true do |t|
@@ -143,8 +181,10 @@ ActiveRecord::Schema.define(:version => 20130416173304) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+
     t.string   "title"
     t.boolean  "assigned",    :default => false
+
   end
 
   create_table "users", :force => true do |t|

@@ -4,20 +4,21 @@
 
 
 <table>
-  <tr>
-    <th>Name</th>
-  </tr>
+    <tr>
+      <th>Name</th>
+    </tr>
 
-  <% if @groups %>
-  <% @groups.each do |group| %>
-  <tr>
-    <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
-  </tr>
-<% end %>
+    <% if @groups %>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.group_name %></td>
+        <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+        <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
+      </tr>
+  <% end %>
 </table>
 
 <br />
+
 
 <% end %>

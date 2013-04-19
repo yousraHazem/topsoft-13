@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+﻿class CommentsController < ApplicationController
 
   #Author Riham Gamal 22-3871
   # add a new comment
@@ -68,6 +68,7 @@ class CommentsController < ApplicationController
   end
   
 
+
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to(:action => 'list')
@@ -80,5 +81,4 @@ class CommentsController < ApplicationController
     @comment = Comment.all
   end
 
->>>>>>> master
 end

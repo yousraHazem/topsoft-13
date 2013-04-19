@@ -101,5 +101,4 @@
 		
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
-
 end
