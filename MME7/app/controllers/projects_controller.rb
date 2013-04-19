@@ -13,7 +13,9 @@ def index
 #return non
 def show
   @project = Project.find(params[:id])
+  @isCreator = ProjectUser.where(:user_id => current_user.id, :project_id => @project.id, :is_creator => true).exists? 
 end
+
   # Author : Nayera Mohamed 22-3789 
   # Args : no args
   # retuns : list of projects
