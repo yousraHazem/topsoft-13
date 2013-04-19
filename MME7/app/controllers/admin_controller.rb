@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+﻿class AdminController < ApplicationController
 	layout "admin_master"
  def show 
   @admin = User.find(params[:id])

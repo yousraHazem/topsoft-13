@@ -1,0 +1,20 @@
+﻿ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+ 
+<div class="post edit">
+  <h2>تغير مهمة </h2>
+
+  <%= form_for(:task, :url => {:action => 'update', :id =>params[:id], :project_id => params[:project_id]}) do |f| %>
+  <%= error_messages_for(@task) %>
+    <table>
+      <tr>
+        <th>المهمة</th>
+        <td><%= f.text_field(:description) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("تغير") %>
+    </div>
+    
+  <% end %>
+</div>

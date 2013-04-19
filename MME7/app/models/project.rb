@@ -1,4 +1,4 @@
-#encoding: utf-8
+﻿#encoding: utf-8
 class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description  
     validates_presence_of :name, :message => "يجب اضافة اسم"

@@ -1,4 +1,4 @@
-class Task < ActiveRecord::Base
+﻿class Task < ActiveRecord::Base
 
 
   attr_accessible :description , :project_id

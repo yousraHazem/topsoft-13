@@ -1,0 +1,8 @@
+﻿<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+  <h2>الغاء المهمة</h2>
+  <%= form_for(:task, :url => {:action => 'destroy', :id => @task.id, :project_id => params[:id]}) do |f| -%>
+    <div >
+      <%= submit_tag("الغاء ") %>
+    </div> 
+  <% end %>

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
 
 
  #Author: Donia Amer Shaarawy 22-0270
