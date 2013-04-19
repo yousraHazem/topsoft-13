@@ -1,5 +1,5 @@
-#encoding: utf-8
-class BudgetComponentsController < ApplicationController
+﻿class BudgetComponentsController < ApplicationController
+
   
 	def index
      list

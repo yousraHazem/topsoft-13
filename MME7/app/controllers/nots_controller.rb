@@ -1,3 +1,0 @@
-﻿class NotsController < ApplicationController
- 	
-end

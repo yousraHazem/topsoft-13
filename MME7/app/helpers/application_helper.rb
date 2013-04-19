@@ -1,4 +1,3 @@
-#encoding: utf-8
 module ApplicationHelper
 
 	def error_messages_for(object)
@@ -16,6 +15,3 @@ module ApplicationHelper
   end
 
 end
-
-
-
