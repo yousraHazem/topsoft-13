@@ -1,6 +1,5 @@
 module ProjectUsersHelper
 
-	
 
 # Author :Yasmin Mahmoud 22-1787 This method add the member to the user_project table with the id of the project opened in the view and the selected user id and if this member is a creator
 	def addMember(project_id, user_id,creator)

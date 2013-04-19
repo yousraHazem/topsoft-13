@@ -1,4 +1,3 @@
-
 class ApplicationController < ActionController::Base
   protect_from_forgery  
    #Author: Donia Amer Shaarawy 22-0270
