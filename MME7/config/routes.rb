@@ -4,6 +4,10 @@ MME7::Application.routes.draw do
 
   get "home/index"
 
+match 'auth/:provider/callback', to: 'sessions#createFacebook'
+match 'auth/failure', to: redirect('/')
+match 'signout', to: 'sessions#destroyFacebook', as: 'signout'
+
  get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 get "sign_up" => "users#new", :as => "sign_up"

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #it takes userid in a session and save it in a variable current_user returns current user id 
   def current_user
    return @current_user = User.find(session[:user_id])  if session[:user_id]
+   puts @current_user
   end
   helper_method :current_user
   include SessionsHelper
