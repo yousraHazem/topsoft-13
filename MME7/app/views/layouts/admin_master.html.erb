@@ -8,6 +8,7 @@
  <%= content_tag :div, msg, :id => "flash_#{name}" %>
  <% end %>
  <div id="style">
+ 	<%= link_to ("انشاء مصدر الميزانية"  ,{:controller => 'budget_source',:action => 'new'})%> 
 <%= yield %>
 
 </html>
