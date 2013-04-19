@@ -1,4 +1,4 @@
-﻿#Author: Donia Amer Shaarawy 22-0270
+#Author: Donia Amer Shaarawy 22-0270
 #theses are the tests for the create and delete for log in and log out 
 require 'spec_helper'
 

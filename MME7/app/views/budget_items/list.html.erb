@@ -1,4 +1,4 @@
-<div class="style">
+﻿<div class="style">
 <% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id],:class =>'pull-left'} ) %>
 
 <form action="">
@@ -19,7 +19,7 @@
 <% end %>
 
 <div id="item-form" style="display:none;" >
-<%= form_for(:budget_item, :url=>{:action=>'create' , :project_id => params[:project_id] }) do |f| %>
+<%= form_for(:budget_item, :url=>{:action=>'create' , :id => params[:id] }) do |f| %>
 	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
 	<td><%= f.submit("حفظ") %></td>
 <% end %>
@@ -37,7 +37,7 @@
 	<td><%= item.name %></td>
 
 	<td class="actions">
-		<%= link_to("تعديل", {:action=>'edit' ,:id=>item.id , :project_id => item.project_id},:class=>"btn btn-small")%>
+		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
 		<%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>	
 	</td>
 

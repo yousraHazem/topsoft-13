@@ -1,0 +1,21 @@
+
+﻿<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
+<h1>Create New Group</h1>
+
+<%= form_for(:group, :url => {:action => 'create'}) do |f| %>
+
+  <tr>
+    <th> *اسم المجموعة</th>
+    <td><%= f.text_field :group_name %></td>
+  </tr>
+  <tr>
+    <th>* وصف</th>
+    <td><%= f.text_area :description %></td>
+  </tr>
+  <div>
+    <%= submit_tag("إنشاء المجموعة") %>
+  </div>
+<% end %>
