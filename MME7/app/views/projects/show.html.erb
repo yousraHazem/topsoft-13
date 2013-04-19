@@ -11,6 +11,7 @@
               <button type="submit">ميزانية المشروع</button>
           <% end %>
         </td>
+        <%= current_user.id%>
         <% if @isCreator %>
         <td>
           <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
