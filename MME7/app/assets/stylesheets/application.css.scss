@@ -14,6 +14,23 @@
  *= require bootstrap-datepicker
  */
 
+ .comments{
+ background-color: #F0F0F0;
+ text-align: right;
+ }
+
+.posts{
+ text-align: right;
+ }
+
+ .alignright {
+	float: right;
+}
+
+.aligncenter {
+	text-align: center;
+}
+
 #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
@@ -41,6 +58,7 @@ margin: 50px;
  h1 , h2 , h3 , h4, h5 , h6 {
  color: #000066;
  }
+
 
 
  #login{
