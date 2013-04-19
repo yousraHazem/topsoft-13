@@ -8,13 +8,13 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'bootstrap-sass'
 gem 'mail', '~> 2.5.3'
-gem 'carrierwave'
-gem 'rmagick'
+#gem 'carrierwave'
+#gem 'rmagick'
 gem "rspec-rails", "~> 2.0"
 gem 'bootstrap-sass'
 
 #gem "rspec-rails", "~> 2.0"
-gem 'best_in_place'
+#gem 'best_in_place'
 # gem 'carrierwave'
 # gem 'rmagick'
 
@@ -43,7 +43,7 @@ end
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+ # gem 'uglifier', '>= 1.0.3'
 
 gem 'bootstrap-datepicker-rails'
 
@@ -72,9 +72,9 @@ gem 'ransack'
 
 
 
-group :test do
-  gem 'faker'
-  gem 'capybara'
-  gem 'guard-rspec'
-  gem 'launchy'
-end
+#group :test do
+  #gem 'faker'
+  #gem 'capybara'
+ # gem 'guard-rspec'
+ # gem 'launchy'
+#end
