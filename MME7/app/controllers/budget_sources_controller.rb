@@ -13,6 +13,11 @@ def list
   @source = BudgetSource.find(params[:source_id])
 end 
 
+
+def show
+	@source = BudgetSource.find(params[:source_id])
+end
+
 #Author :yasmin Mahmoud This method creates a new instance of budget source and it has no arguments and return nothing 
 	def new
 		@budget_source = BudgetSource.new

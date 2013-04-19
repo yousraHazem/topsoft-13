@@ -60,5 +60,4 @@ class Project < ActiveRecord::Base
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
       @users = User.where("id NOT IN (?)" , b)
     end 
-
 end
