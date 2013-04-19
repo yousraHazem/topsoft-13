@@ -1,4 +1,12 @@
+﻿
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+
+<br>
+<br>
+<br>
+
+<div class = "offset2">
+
 <div> 
 <h2>تعديل عنصر الميزنية</h2>
 <%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project}) do |f| %>
@@ -20,4 +28,5 @@
 	</p>
 <% end %>
 </div>
+<div>
 

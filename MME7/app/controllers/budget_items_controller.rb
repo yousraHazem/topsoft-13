@@ -1,5 +1,6 @@
-﻿class BudgetItemsController< ApplicationController
-	respond_to :html, :json
+﻿class BudgetItemsController < ApplicationController
+
+# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 
 	def list 
 		@project =params[:id]
@@ -37,9 +38,12 @@
 		@project = params[:id]
 		@budget_item  = BudgetItem.find(params[:item])
 		if @budget_item.update_attributes(params[:budget_item])
+
 			redirect_to(:action => 'list', :id => @project)
+
 		else
 			render('edit')
 		end
 	end
 end
+
