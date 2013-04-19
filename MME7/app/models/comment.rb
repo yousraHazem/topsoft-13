@@ -12,5 +12,4 @@ class Comment < ActiveRecord::Base
         Comment.where(:user_id => current_user, :id => comment_id).exists?  
     end
 
-
 end

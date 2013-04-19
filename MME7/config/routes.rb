@@ -1,9 +1,13 @@
 MME7::Application.routes.draw do
+
   #The priority is based upon order of creation:
 
 
-  get "admin/index"
+  get "comments/editComment"
 
+  # get "posts/editPost"
+  # get "comments/newComment"
+  # get "posts/newPost"
 
   get "posts/editPost"
 
@@ -20,6 +24,7 @@ MME7::Application.routes.draw do
   get "users/new"
   resources :users
   resources :sessions
+
 
   # The priority is based upon order of creation:
 
@@ -79,17 +84,10 @@ MME7::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
 
 
+  match ':controller(/:action(/:id))(.:format)'
 
 
-match ':controller(/:action(/:id))(.:format)'
-
-
-resources :posts do
-  resources :comments
-end
-get "/CommentsController/destroy"
-#POST "/posts/45/comments/46"
-
+ 
 
 end
 

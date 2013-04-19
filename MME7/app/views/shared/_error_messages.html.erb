@@ -1,9 +1,11 @@
-<% if object.errors.any? %>
-    <h2 id = "errorExplanation" , class="text-error"> الاخطاء  </h2>
-    <em class="text-error">يوجد بعض الاخطاء:</em></br>
-	  <% object.errors.messages.each do |message| %>
-	    <em class="text-error" ><%= message.last.last.html_safe %></em></br>
-	  <% end %>
-<% end %>
-
-
+<% if object && object.errors.size > 0 %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(object.errors.size, "خطأ") %> يمنع هذا العنصر من الحفظ</h2>
+    <p>اخطاء بالبنود الاتية</p>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<%end%>
