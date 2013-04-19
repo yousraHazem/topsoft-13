@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 
-
 ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
@@ -26,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "quantity_purchased", :default => 0
     t.integer  "unit_price"
     t.integer  "total"
-
   end
 
   create_table "budget_items", :force => true do |t|
@@ -36,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "spent"
-    t.integer  "project_id"
     t.integer  "total"
   end
 
@@ -48,11 +45,17 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+<<<<<<< HEAD
 
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "amount"
 
+=======
+    t.integer  "amount",           :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+>>>>>>> master
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -69,8 +72,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -118,9 +119,10 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
   end
 
   create_table "project_users", :force => true do |t|
@@ -156,8 +158,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
-
-  end
+ end
 
   create_table "receipts", :force => true do |t|
     t.string   "name"
@@ -166,6 +167,13 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at",          :null => false
     t.string   "image"
 
+  end
+
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tasks", :force => true do |t|

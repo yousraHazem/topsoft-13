@@ -8,10 +8,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.boolean :isAdmin ,:default => false
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       t.timestamps
 =======
      t.timestamps
+>>>>>>> master
+=======
+      t.timestamps
 >>>>>>> master
     end
   end

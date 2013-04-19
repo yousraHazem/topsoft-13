@@ -1,7 +1,6 @@
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels
 
-
   has_many :posts 
   has_many :groups_users 
   belongs_to :communities

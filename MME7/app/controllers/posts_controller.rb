@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
- #  def delete
+#  def delete
  #    @post = Post.find(params[:id])
  #  end
   
@@ -80,6 +80,4 @@ class PostsController < ApplicationController
 	    end
 
 		
-
-
 end
