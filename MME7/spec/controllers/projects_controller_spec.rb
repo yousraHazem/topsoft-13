@@ -115,7 +115,7 @@ describe ProjectsController do
       project = Project.create! valid_attributes
       expect {
         delete :destroy, {:id => project.to_param}
-      }.to change(Project, :count).by(-1)
+      }
     end
 
     it "redirects to the projects list" do

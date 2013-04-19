@@ -42,7 +42,27 @@ describe Project do
      project = Project.new(:name => "Project1", :start_date => "7/8/2013" , :end_date => "7/8/2014" , :description => "blablabla" )
      project.save
      projectid = project.id
+     budgetItem = BudgetItem.new(:name => "budgetItem", :operational => false , :task_id => 1 ,  :total => 10, :spent => 100 , :project_id => projectid)
+     budgetItem.save
+     budgetItemid= budgetItem.id
+     project.budgetItems(projectid)
+  end
+
+  it "should see whether th project has budget sources" do
+     project = Project.new(:name => "Project1", :start_date => "7/8/2013" , :end_date => "7/8/2014" , :description => "blablabla" )
+     project.save
+     projectid = project.id
      budgetSourceProject = BudgetSourceProject.new(:budget_source_id => 1 , :project_id => projectid, :amount => 0)
+     budgetSourceProject.save
+     budgetSourceProjectid= budgetSourceProject.id
+     project.budgetSourceProject(projectid)
+  end
+
+  it "should see whether th project has budget sources" do
+     project = Project.new(:name => "Project1", :start_date => "7/8/2013" , :end_date => "7/8/2014" , :description => "blablabla" )
+     project.save
+     projectid = project.id
+     budgetSourceProject = BudgetSourceProject.new(:budget_source_id => 1 , :project_id => projectid, :amount => 10)
      budgetSourceProject.save
      budgetSourceProjectid= budgetSourceProject.id
      project.budgetSourceProject(projectid)
