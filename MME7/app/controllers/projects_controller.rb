@@ -1,5 +1,5 @@
 ﻿class ProjectsController < ApplicationController
-
+layout "project"
   # Author : Nayera Mohamed 22-3789 
   # Args : no args
   # retuns : list of projects
