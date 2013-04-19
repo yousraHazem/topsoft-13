@@ -3,21 +3,20 @@
 <div>  
 <%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
 <%= error_messages_for(@community) %>
-    <div><table>
+   <table class="table table-striped" >
       <tr>
-        <p class="paragraph">اسم المجتمع 
-        <%= t.text_field(:title) %></p>
+        <th><%="اسم المجتمع"%></th>
+        <td><%= t.text_field(:title) %><td>
       </tr>
       <tr>
-        <p class="paragraph">وصف المجتمع 
-        <%= t.text_field(:social_profile_info) %></p>
+        <th><%="وصف المجتمع" %> </th>
+        <td><%= t.text_field(:social_profile_info) %></td>
       </tr>
       <tr>
-       <p class="paragraph">رقم التليفون 
-       <%= t.text_field(:contact_info) %></p>
+       <th><%="رقم التليفون" %> </th>
+       <td><%= t.text_field(:contact_info) %></td>
       </tr>
     </table>
-  </div>
    <p class="text-right">
 <button class="btn btn-info" type="submit">تسجيل </button>
 </p>

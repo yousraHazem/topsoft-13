@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class CommunitiesController < ApplicationController
 
 # Author : Mariam, 22-3456
