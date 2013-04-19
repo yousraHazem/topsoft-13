@@ -30,5 +30,3 @@ class UsersController < ApplicationController
  end 
 
 end
-
->>>>>>> master
