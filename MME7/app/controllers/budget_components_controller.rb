@@ -1,4 +1,5 @@
 ﻿class BudgetComponentsController < ApplicationController
+
   
 	def index
      list

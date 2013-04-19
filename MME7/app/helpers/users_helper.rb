@@ -1,4 +1,5 @@
 module UsersHelper
+
    #Author: Donia Amer Shaarawy 22-0270
    # Returns the Gravatar (http://gravatar.com/) for the given user. returns the picture of the user
    def gravatar_for(user)
