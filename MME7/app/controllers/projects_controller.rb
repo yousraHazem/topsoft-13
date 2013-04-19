@@ -1,4 +1,2 @@
 class ProjectsController < ApplicationController
-  
 end
-

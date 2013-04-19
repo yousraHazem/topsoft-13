@@ -6,13 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone_Nr
       t.string :address
       t.string :username
-<<<<<<< HEAD
-      t.boolean :isAdmin ,:default => false
-=======
-
-      t.boolean :isAdmin ,:default => false
-
->>>>>>> master
+      t.boolean :isAdmin :default => false
 
       t.timestamps
     end

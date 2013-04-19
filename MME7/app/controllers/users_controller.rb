@@ -1,19 +1,6 @@
-﻿class UsersController < ApplicationController
-<<<<<<< HEAD
-
-=======
-	# Riham Gamal 22-3871
-	def index
-		 @users = User.where("name like ?", "%#{params[:q]}%")
-		 respond_to do |format|
-		 format.html
-		 format.json { render :json => @users.map(&:attributes)}
-         end		
-	end
->>>>>>> master
+class UsersController < ApplicationController
  #Author: Donia Amer Shaarawy 22-0270
- #show is a method that when you recive the userid  and find the user with this id and display his work
- #and the list of groups he is in 
+ #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
 	def show
    @user = User.find(params[:id])
    @current_user = current_user
@@ -22,13 +9,14 @@
    :order => "group_id ASC")
   end
  #Author: Donia Amer Shaarawy 22-0270
- #new just calls on a new record
+ #new just calls on a new record returns a new record 
   def new
    @user = User.new
   end
  #Author: Donia Amer Shaarawy 22-0270
- #create adds a new record in the table with all the attributes also in this create 
- #we make the user sign up so we go to the log in page and like that we created a new user in the database
+ #create adds a new record in the table with all the attributes also in this create takes in the attributes of
+ # the user and returns a new record for a new user 
+
   def create
    @user = User.new(params[:user])
     if @user.save
@@ -39,4 +27,3 @@
     end
  end 
 end
-

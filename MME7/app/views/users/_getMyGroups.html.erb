@@ -1,4 +1,4 @@
-﻿<html dir="rtl">
+<html dir="rtl">
   <head>
     <script type="text/javascript">
     </script>
@@ -17,7 +17,7 @@
      <% end %>
      <% @groupusers.each do |group_user| %>
      <tr>
-       <td id ="group_name"><%= group_user.group.group_name %></td>
+       <td id ="group_name"><%= group_user.group.name %></td>
        <td><%= link_to("view this group",:controller => 'groups',:action=>'show', :id=> group_user.id) %></td>
      </tr>
      <% end %>

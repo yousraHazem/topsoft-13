@@ -1,24 +1,19 @@
-<<<<<<< HEAD
-﻿<div class="flash">
-=======
-﻿<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="flash">
->>>>>>> master
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-<h2>إنشاء مجموعة</h2>
+<h1>Create New Group</h1>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
 
-  <p>
-    <%= f.text_field :group_name %>
-    <b dir="rtl" lang="ar">اسم المجموعة *</b>
-  </p>
-  <p>
-    <%= f.text_area :description%>
-    <b dir="rtl" lang="ar">وصف *</b>
-  </p>
+  <tr>
+    <th> *اسم المجموعة</th>
+    <td><%= f.text_field :group_name %></td>
+  </tr>
+  <tr>
+    <th>* وصف</th>
+    <td><%= f.text_area :description %></td>
+  </tr>
   <div>
     <%= submit_tag("إنشاء المجموعة") %>
   </div>
