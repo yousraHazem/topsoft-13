@@ -109,6 +109,21 @@ describe ProjectsController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    it "destroys the requested project" do
+      project = Project.create! valid_attributes
+      expect {
+        delete :destroy, {:id => project.to_param}
+      }.to change(Project, :count).by(-1)
+    end
+
+    it "redirects to the projects list" do
+      project = Project.create! valid_attributes
+      delete :destroy, {:id => project.to_param}
+      response.should redirect_to(:action => 'listProjects')
+    end
+  end
 end
 
 
