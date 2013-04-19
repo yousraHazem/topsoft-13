@@ -17,6 +17,13 @@
 //= require_tree .
 
 $(function(){
+    $(".notification-bubble").click(function(){
+        $("#notify").toggle();
+    });
+});
+
+
+$(function(){
   if ($("#notify").length > 0) {
     setTimeout(updateNot, 10000);
   }
