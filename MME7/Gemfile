@@ -5,15 +5,16 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
-
-gem 'mail', '~> 2.5.3'
-
-
-
-
-gem 'best_in_place'
 gem 'bootstrap-sass'
+gem 'mail', '~> 2.5.3'
+#gem "rspec-rails", "~> 2.0"
+gem 'best_in_place'
+# gem 'carrierwave'
+# gem 'rmagick'
+
+
 gem 'rspec-rails'
+
 
 
 # group :test, :development do
@@ -33,10 +34,11 @@ gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
-
-gem 'coffee-rails', '~> 3.2.1'
-gem 'sass-rails',   '~> 3.2.3'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
+end
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 

@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20130417094125) do
-
+ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -43,21 +41,13 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.integer "budget_item_id"
     t.integer "user_id"
   end
+
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+    t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
-    t.integer  "amount",           :default => 0
-
-  end
-
-  create_table "budget_source_projects", :force => true do |t|
-    t.integer  "budget_source_id"
-    t.integer  "project_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "amount"
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -75,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
   create_table "communities", :force => true do |t|
     t.string   "title"
     t.text     "social_profile_info"
@@ -82,11 +74,6 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.boolean  "is_dismissed"
-  end
-
-  create_table "communities_projects", :id => false, :force => true do |t|
-    t.integer "community_id"
-    t.integer "project_id"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -109,13 +96,6 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-
-  end
-
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-
   end
 
   create_table "posts", :force => true do |t|
@@ -140,8 +120,9 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "is_frozen",   :default => false
   end
 
   create_table "receipts", :force => true do |t|
@@ -164,8 +145,8 @@ ActiveRecord::Schema.define(:version => 20130417094125) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "assigned",    :default => false
     t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|
