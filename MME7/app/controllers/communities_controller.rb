@@ -1,4 +1,4 @@
-﻿class CommunitiesController < ApplicationController
+class CommunitiesController < ApplicationController
 
 # Author : Mariam, 22-3456
 # This method lists all communities in the database
@@ -65,3 +65,4 @@ def delete
 
 	end
 end
+

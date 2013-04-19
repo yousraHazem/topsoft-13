@@ -1,4 +1,4 @@
-﻿class PostsController < ApplicationController
+class PostsController < ApplicationController
 
  #  def delete
  #    @post = Post.find(params[:id])
@@ -37,9 +37,6 @@
 		end
 
 	end
-
-
-	
 	# Riham Gamal 22-3871
 	# find the post you want to edit
 	def editPost

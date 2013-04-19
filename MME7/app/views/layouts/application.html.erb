@@ -1,16 +1,14 @@
-﻿
-<!DOCTYPE html>
+﻿<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <html dir="rtl">
 <head>
-  <title>MME7</title>
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook" %>
-    <%= javascript_include_tag "application", "jquery.tokeninput" %>
+<title>MME7</title>
+ <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook", :media=>"all" %>
+ <%= javascript_include_tag "application", "jquery.tokeninput" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
-	<div class="navbar navbar-inverse">
+  <div class="navbar navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -19,23 +17,36 @@
       
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Home"%></li>
-          <li><%= link_to "About Us" %></li>
-          <li><%= link_to "Contact Us" %></li>
+
+          <li  class="text-info"><%= link_to "Home"%></li>
+          <li class="text-info"><%= link_to "About Us" %></li>
+          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
+          <li class="text-info"><%= link_to "مجموعات" %></li>
+          <li class="text-info"><%= link_to "المجتمعات" %></li>
+          <li class="text-info"><%= link_to "امشاريع" %></li>
+          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
+            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
+
         </ul>
       </div>
-    </div>
   </div>
 </div>
+
+
 <div class="container">
-	<div class="row"></div>
-	<div class="span9"> 
-    <%= yield %>
-  </div>
-	
+
+  <div class="row"></div>
+  <div class="span9"> </div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<div>
+<%= yield %>
+</div>
 
 </div>
-<div>
-</div>
+  
 </body>
 </html>

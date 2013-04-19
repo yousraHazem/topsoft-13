@@ -1,47 +1,60 @@
-﻿class ProjectsController < ApplicationController
+class ProjectsController < ApplicationController
+  layout "project"
 
 
-  # Author : Nayera Mohamed 22-3789 , this method lists the projects occuring
+#Author Riham Gamal id = 22-3871
+#Arguments project.id
+#return non
+def show
+  @project = Project.find(params[:id])
+end
+  # Author : Nayera Mohamed 22-3789 
+  # Args : no args
+  # retuns : list of projects
   def listProjects
-    @projects = Project.all
+      @projects = Project.all
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method shows a project occuring
-  def show
-      @project = Project.find(params[:id])
-  end
-
-  # Author : Nayera Mohamed 22-3789 , this method puts a new project
+  # Author : Nayera Mohamed 22-3789 
+  # Args: no args
+  # returns : a new project 
   def newProject
       @project = Project.new
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method takes its' input from the params and creates a new project
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project params
+  # returns :creates a new project 
   def createProject
       @project=Project.new(params[:project])
       if @project.save
          flash[:notice]= "project created"
-         redirect_to(:action => 'listProject')
+         redirect_to(:action => 'show', :id => @project.id)
       else
          render('newProject')
       end
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method takes a project id in order to edit its attributes 
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : doesnot return anything  
   def editProject
       @project = Project.find(params[:id])
       @project_count = Project.count 
   end
 
-  # Author : Nayera Mohamed 22-3789 , this method takes aproject id and takes the updated attributes in order to change them
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : the project with updated attributes 
   def updateProject
       @project = Project.find(params[:id])
       if @project.update_attributes(params[:project])
-       flash[:notice]= "project updated"
-         redirect_to(:action => 'listProjects', :id => @project.id)
+         flash[:notice]= "project updated"
+         redirect_to(:action => 'show', :id => @project.id)
       else
          @project_count = Project.count 
          render('editProject')
       end
   end
+
 end

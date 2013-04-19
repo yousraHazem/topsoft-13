@@ -1,4 +1,3 @@
-
 @import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -12,7 +11,9 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap-datepicker
  */
+ 
 
  #background {
  background-image: url(bg.jpg);
@@ -21,3 +22,70 @@
  padding-top: 60px;
 
  }
+
+ 
+
+ .comments{
+ background-color: #F0F0F0;
+ text-align: right;
+ }
+
+.posts{
+ text-align: right;
+ }
+
+ .alignright {
+	float: right;
+}
+
+.aligncenter {
+	text-align: center;
+}
+
+#background {
+ background-image: url(bg.jpg);
+ background-repeat: no-repeat;
+ background-size: 1365px 730px;
+ }
+
+
+.sources{
+	background-color: #F0F0F0 ;
+}
+
+.search {
+	display: inline;
+	margin-right: 60px;
+}
+
+.contribution {
+	margin : 20px;
+}
+ .amount {
+
+margin: 50px;
+ }
+
+ h1 , h2 , h3 , h4, h5 , h6 {
+ color: #000066;
+ }
+
+
+
+ #login{
+ background-color: #F0F0F0;
+ position:fixed;
+ margin: 20px;
+ }
+
+
+
+.style {
+	margin: 20px;
+}
+
+.progress {
+	height: 29px;
+	width:500px;
+	 text-align: center;
+}

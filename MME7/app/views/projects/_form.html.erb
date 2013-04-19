@@ -1,20 +1,17 @@
-﻿<%= error_messages_for(@project) %>
+<%= error_messages_for(@project) %>
 <table class="table table-striped" >
- 	 <tr>
+ 	 <tr >
  		<th><%= "الاسم " %></th>
  		<td><%= f.text_field(:name) %></td>
  	 </tr>
- 	
- 	 <tr>
+ 	 <tr >
  		<th><%=  "تاريخ البداية" %> </th>
- 		<td><%= f.datetime_select(:start_date, :order => [:day, :month, :year]) %></td>
+ 		<td><%= f.text_field :start_date %></td>
  	 </tr>
-
- 	 <tr>
+ 	 <tr >
  		<th><%=  "تاريخ النهاىة" %> </th>
- 		<td><%= f.datetime_select(:end_date, :order => [:day, :month, :year]) %></td>
+ 		<td><%= f.text_field :end_date %></td>
  	 </tr>
-
  	 <tr>
  		<th><%=  "التفاصيل " %></th>
  		<td><%= f.text_field(:description) %></td>

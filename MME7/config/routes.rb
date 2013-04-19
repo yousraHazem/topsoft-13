@@ -2,9 +2,33 @@ MME7::Application.routes.draw do
   #The priority is based upon order of creation:
 
 
+  
+root :to => "home#index"
+
+  #The priority is based upon order of creation:
+
+
+  get "comments/editComment"
   # get "posts/editPost"
   # get "comments/newComment"
   # get "posts/newPost"
+
+  get "posts/editPost"
+
+  get "posts/newPost"
+
+  get "home/index"
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "log_in" => "admin#new", :as => "log_in"
+  root :to => "home#index"
+ 
+  get "users/new"
+  resources :users
+  resources :sessions
+
 
   # The priority is based upon order of creation:
 
@@ -68,3 +92,4 @@ MME7::Application.routes.draw do
 
 
 end
+
