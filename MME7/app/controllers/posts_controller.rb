@@ -58,4 +58,4 @@ class PostsController < ApplicationController
 	    @commentsList = Post.getPostComments(params[:id])
 	end
 
-	end
+end

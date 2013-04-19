@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe PostsController do
 
   def valid_attributes

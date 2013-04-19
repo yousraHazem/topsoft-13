@@ -16,3 +16,4 @@ class GroupUsersController < ApplicationController
     redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
   end
 end 
+

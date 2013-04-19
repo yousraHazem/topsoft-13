@@ -2,8 +2,8 @@
 <html dir="rtl">
 <head>
   <title>MME7</title>
- <%= stylesheet_link_tag    "application", "token-input-facebook", :media => "all" %>
-  <%= javascript_include_tag "application", "jquery.tokeninput" %>
+ <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
+    <%= javascript_include_tag "application", "jquery.tokeninput","http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
@@ -18,25 +18,42 @@
       
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Home"%></li>
-          <li><%= link_to "About Us" %></li>
-          <li><%= link_to "Contact Us" %></li>
+          <li  class="text-info"><%= link_to "Home"%></li>
+          <li class="text-info"><%= link_to "About Us" %></li>
+          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
+          <li class="text-info"><%= link_to "مجموعات" %></li>
+          <li class="text-info"><%= link_to "المجتمعات" %></li>
+          <li class="text-info"><%= link_to "امشاريع" %></li>
+          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
+            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
         </ul>
       </div>
     </div>
   </div>
 </div>
-<div>
+
+
+<div class="container">
+
   <div class="row"></div>
-  <div> 
-    <div id="style">
-    <%= yield %>
-  </div>
-  </div>
-
-
+  <div class="span9"> 
+ 
 </div>
-<div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+<div id="style">
+<%= yield %>
 </div>
+  </div>
+</body>
+</html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+</head>
 </body>
 </html>

@@ -3,19 +3,11 @@ class ProjectUser < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
- 
-
-  # def get_projectmembers(project_id)
- 	#  @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
-  # end
-
-  # def saveUser (project_id, user_id)
-  # 	ProjcetUser
-  # end
-
-    def getMembersNotInProject (project_id)
-     b = get_projectmembers(project_id)
-     return notProjectUser = User.where("id NOT IN (?)" , b)
-    end 
-
+    #Author: Nayera Mohamed 22-3789 
+    # Args : project id
+    # returns : an array of memebers in a project
+	def get_projectmembers(project_id)
+ 	     @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
+    end
+    
 end

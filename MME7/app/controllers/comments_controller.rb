@@ -1,17 +1,5 @@
 class CommentsController < ApplicationController
 
-  #Author Riham Gamal 22-3871
-  # create a new comment  
-  def createCommentProject
-    @project_id = params[:project_id]
-    @comment = Comment.new(params[:comment]) 
-    @comment.post_id = params[:id]
-    @comment.save
-    respond_to do |format|
-    format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id]) }
-    format.js
-    end
-  end
   # sama updated
   #Author: Sama Akram 22-555 
   #redirection changed to
@@ -40,9 +28,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
     @comment.post_id = params[:post_id]
-    flash[:notice] = "Comment successfully updated"
-    respond_with @comment 
-  end
+    respond_with @comment
+end
  
   def destroyCommentProject
     @project_id = params[:project_id]
@@ -63,10 +50,5 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
   
-  # Salma El -Ruby 22-4649
-  # displays the available comments
-  def list 
-    @post = Post.find(params[:id])
-  end
 
 end

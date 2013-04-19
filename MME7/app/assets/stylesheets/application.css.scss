@@ -1,5 +1,4 @@
-@import "bootstrap";
-
+@import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,29 +11,29 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap-datepicker
  */
-
- .comments{
- background-color: #F0F0F0;
- }
-
 
  
  #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 730px;
- padding-top: 60px;
+ padding-top: 10px;
+ }
+
+ div.allpostsborder{
+ margin: 500px;
+ border: 300px;
  }
  
-  #style{
- height: 450px;
- width: 1360px;
- overflow: auto;
- }
 
  .progress {
  height: 29px;
  width:500px;
   text-align: center;
 }
+
+ .comments{
+ background-color: #F0F0F0;
+ }
