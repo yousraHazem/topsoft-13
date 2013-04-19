@@ -3,30 +3,22 @@
       <tr>
         <td>
           <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
-            <ul class="nav nav-list">
-              <button type="submit"><i class=" icon-th-list"></i>قائمة المشاريع</button>
-           </ul>
+              <button type="submit">قائمة المشاريع</button>
            <% end %>
         </td>
         <td>
           <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
-            <ul class="nav nav-list">
-              <button type="submit"><i class="icon-tasks"></i>ميزانية المشروع</button>
-           </ul>
+              <button type="submit">ميزانية المشروع</button>
            <% end %>
         </td>
         <td>
           <%= form_for(:project, :url => {:action => 'editProject',:id=> @project_id}) do |f| %>
-           <ul class="nav nav-list">
-              <button type="submit"><i class="icon-edit"></i>تعديل المشروع</button>
-           </ul>
+              <button type="submit">تعديل المشروع</button>
           <% end %>
         </td>
         <td>
            <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project_id}) do |f| %>
-            <ul class="nav nav-list">
-              <button type="submit"><i class="icon-tasks"></i>المهمات</button>
-           </ul>
+              <button type="submit">لمهمات</button>
            <% end %>
         </td>
       </tr>
@@ -39,22 +31,16 @@
 </div>    
 <div class="alignright">
   <table class="table table-hover" align="right">
-  	<tr>      
-      <ul class="nav nav-list">
-      <td><i class="icon-th"></i> تاريخ البداية</td>
-      </ul>
+  	<tr> 
+      <td>تاريخ البداية</td>
    		<td><%= @project.start_date %></td>
  	  </tr> 	
  	  <tr >
-      <ul class="nav nav-list">
-      <td><i class="icon-th"></i> تاريخ النهاية</td>
-      </ul>
+      <td>تاريخ النهاية</td>
    		<td><%= @project.start_date %></td>
  	  </tr>
   	<tr >
-      <ul class="nav nav-list">
-      <td><i class="icon-pencil"></i>تفاصيل المشروع</td>
-      </ul>
+      <td>تفاصيل المشروع</td>
       <td><%= @project.description %></td>
     </tr>
  	</table>
