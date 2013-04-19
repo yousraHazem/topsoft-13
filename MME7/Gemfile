@@ -10,6 +10,7 @@ gem 'mail', '~> 2.5.3'
 
 
 
+
 gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
@@ -64,6 +65,7 @@ gem 'ransack'
 
 # To use debugger
 # gem 'debugger'
+
 
 
 

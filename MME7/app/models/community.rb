@@ -8,4 +8,5 @@ class Community < ActiveRecord::Base
 
    validates_uniqueness_of :title
    validates_presence_of :social_profile_info
+
 end

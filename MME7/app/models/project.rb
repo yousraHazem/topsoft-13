@@ -1,7 +1,9 @@
-﻿class Project < ActiveRecord::Base
+#encoding: utf-8
+class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description  
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
+
     validate :validate_end_date_before_start_date
 
 
@@ -20,11 +22,14 @@
         @current_date = Date.today
         if start_date && @current_date
            if start_date < @current_date
+
                 errors.add(:start_date,"تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")
+
               
             end
         end
     end
+
 
 
     has_many :posts
