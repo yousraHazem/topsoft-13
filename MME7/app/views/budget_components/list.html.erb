@@ -22,7 +22,7 @@
   </fieldset>
   <span class="h3"> 
      <div>
-        <% if(isProjectCreator(1, @project_id ) == true) %> 
+        <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
           <%= link_to("#",:id=>"create" , class: "btn btn-success pull-left") do %>
           <i class="icon-plus icon-white"></i> اضافة عنصر 
           <% end %>
