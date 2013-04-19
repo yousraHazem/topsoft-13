@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :community_id
 
@@ -9,6 +10,7 @@ class Group < ActiveRecord::Base
   belongs_to :communities
   validates_presence_of :description
   validates_presence_of :group_name
+  validates_presence_of :levels
   validates_uniqueness_of :group_name, :case_sensitive => false
 
 	

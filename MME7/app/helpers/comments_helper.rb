@@ -1,6 +1,5 @@
+#encoding: UTF-8
 module CommentsHelper
-
-
     #Author: Nayera Mohamed 22-3789 
     # Args : current user and comment id
     # returns : boolean
