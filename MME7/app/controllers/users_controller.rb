@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
+   #Author: Toka Abdelgabar 22-1925
   #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
   def show
    @user = User.find(params[:id])
