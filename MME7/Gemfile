@@ -9,13 +9,12 @@ gem 'sqlite3'
 gem 'bootstrap-sass'
 gem 'mail', '~> 2.5.3'
 gem 'carrierwave'
-
-gem 'rmagick'
+#gem 'rmagick'
 gem "rspec-rails", "~> 2.0"
 gem 'bootstrap-sass'
 
 #gem "rspec-rails", "~> 2.0"
-gem 'best_in_place'
+#gem 'best_in_place'
 # gem 'carrierwave'
 # gem 'rmagick'
 
@@ -30,9 +29,9 @@ gem 'best_in_place'
 
 
 gem "bcrypt-ruby", :require => "bcrypt"
- gem 'annotate', '2.5.0'
- gem 'factory_girl_rails', '4.1.0'
-gem 'omniauth-facebook'
+ #gem 'annotate', '2.5.0'
+# gem 'factory_girl_rails', '4.1.0'
+#gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required
@@ -75,9 +74,9 @@ gem 'ransack'
 
 
 
-group :test do
-  gem 'faker'
-  gem 'capybara'
-  gem 'guard-rspec'
-  gem 'launchy'
-end
+#group :test do
+#  gem 'faker'
+#  gem 'capybara'
+ # gem 'guard-rspec'
+ # gem 'launchy'
+#end

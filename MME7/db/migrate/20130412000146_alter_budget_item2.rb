@@ -1,6 +1,6 @@
 class AlterBudgetItem2 < ActiveRecord::Migration
   def up
-  	add_column :budget_items , :project_id , :integer
+    remove_column  :budget_items ,:budget_id
   end
 
   def down
