@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
       @projects = Project.all
   end
 
-
   # Author : Nayera Mohamed 22-3789 
   # Args: no args
   # returns : a new project 
@@ -51,5 +50,5 @@ class ProjectsController < ApplicationController
          render('editProject')
       end
   end
-  
+
 end

@@ -14,3 +14,4 @@ class ApplicationController < ActionController::Base
    super
   end
 end
+
