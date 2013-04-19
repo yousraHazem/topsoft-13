@@ -1,13 +1,8 @@
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :community_id
-
-
   has_many :posts 
   has_many :groups_users 
   has_many :users , :through => :group_users
-
-
-
   has_many :users, :through => :group_users
   belongs_to :communities
   validates_presence_of :description
