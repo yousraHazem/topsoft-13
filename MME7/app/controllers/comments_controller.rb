@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   #redirection changed to
   def createCommentGroup
     @comment = Comment.new(params[:comment])
-    @comment.user_id = @user_id
+    @comment.user_id = 1 #@user_id
     @comment.save
     respond_to do |format|
     format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}

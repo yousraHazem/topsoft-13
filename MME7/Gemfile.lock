@@ -36,6 +36,8 @@ GEM
     best_in_place (2.1.0)
       jquery-rails
       rails (~> 3.1)
+    bootstrap-datepicker-rails (1.0.0.3)
+      railties (>= 3.0)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -205,6 +207,7 @@ DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby
   best_in_place
+  bootstrap-datepicker-rails
   bootstrap-sass
   capybara
   carrierwave
