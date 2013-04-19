@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
 #return non
 def show
   @project = Project.find(params[:id])
+  @isCreator = ProjectUser.where(:user_id => current_user.id, :project_id => @project.id, :is_creator => true).exists? 
 end
+
   # Author : Nayera Mohamed 22-3789 
   # Args : no args
   # retuns : list of projects
@@ -31,7 +33,7 @@ end
          @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
          @projectuser.save
          flash[:notice]= "project created"
-         redirect_to(:action => 'show')
+         redirect_to(:action => 'show', :id => @project.id)
       else
          render('newProject')
       end

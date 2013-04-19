@@ -4,22 +4,24 @@
         <td>
           <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
               <button type="submit">قائمة المشاريع</button>
-           <% end %>
+          <% end %>
         </td>
         <td>
           <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
               <button type="submit">ميزانية المشروع</button>
-           <% end %>
+          <% end %>
         </td>
+        <% if @isCreator %>
         <td>
           <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
               <button type="submit">تعديل المشروع</button>
           <% end %>
         </td>
+        <% end %>
         <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
+          <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
               <button type="submit">المهمات</button>
-           <% end %>
+          <% end %>
         </td>
       </tr>
     </table>
