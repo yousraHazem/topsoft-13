@@ -1,4 +1,4 @@
-﻿require 'spec_helper'
+require 'spec_helper'
 
 
 describe BudgetSourcesController do
@@ -58,6 +58,13 @@ describe BudgetSourcesController do
 	end
 
 	
+	describe "GET list" do
+      it "assigns all sources as @sources" do
+      	sources = BudgetSource.create! valid_attributes
+      	get :list
+      	assigns(:sources).should eq([sources])
+      end
+     end
 
 	describe "PUT update" do
 		describe "with valid params" do
@@ -78,3 +85,4 @@ describe BudgetSourcesController do
 	    end
     end
 end
+

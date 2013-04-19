@@ -3,4 +3,5 @@
 
   belongs_to :budget_component
   mount_uploader :image , ImageUploader
+
 end

@@ -1,0 +1,35 @@
+﻿
+﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+<div> 
+<h2>إنشاء عنصر مزانية</h2>
+ 	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project }) do |f| %>
+<table>
+	<tr>
+		<th><%= f.label(:Name , "إسم") %></th>
+			<td><%= f.text_field(:name)%></td>
+	</tr>
+	</br>
+	<tr>
+		<th><%= f.label("تشغيل") %></th>
+			<td><%= f.check_box(:operational)%></td>
+	</tr>
+</br>
+
+    <tr id = "connect" >
+  		<th><%= f.label(:task_id, "المهمة")%></th>
+  		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
+    </tr>
+
+	<tr> 
+		<td><%= f.hidden_field :project_id , :value=> @project %></td>
+	</tr>
+</table>
+</br>
+	<p>
+		<td><%= f.submit("تسجيل") %></td>
+	</p>
+<% end %>
+
+</div>
+
+	

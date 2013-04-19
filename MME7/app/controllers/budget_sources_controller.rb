@@ -1,10 +1,17 @@
-﻿class BudgetSourcesController < ApplicationController
+class BudgetSourcesController < ApplicationController
 
 
 def list 
-		@budget_sources = BudgetSource.all
+		#authorized by sarah ahmed id:22-1278
+    #description : searches for all the budget sources , or specific ones if specified in the serach textbox
+    #returns: list of budget sources 
+    #arguments: none
+  @sources = BudgetSource.search(params[:search])
     
-	end 
+	end
+  def show
+  @source = BudgetSource.find(params[:source_id])
+end 
 
 #Author :yasmin Mahmoud This method creates a new instance of budget source and it has no arguments and return nothing 
 	def new
@@ -46,3 +53,4 @@ def list
     end
 
 end
+

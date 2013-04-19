@@ -1,1 +1,17 @@
-﻿
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div>
+  <h2>Delete group</h2>
+  
+  <%= form_for(:group, :url => {:action => 'destroy', :id => @group.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete this group?</p>
+  
+    <p><%= @group.group_name %></p>
+  
+    <div>
+      <%= submit_tag("Delete group") %>
+    </div>
+    
+  <% end %>
+</div>

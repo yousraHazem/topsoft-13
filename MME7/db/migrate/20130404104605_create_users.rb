@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :address
       t.string :username
       t.boolean :isAdmin ,:default => false
-
       t.timestamps
     end
   end
