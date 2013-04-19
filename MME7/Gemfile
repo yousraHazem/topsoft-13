@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'bootstrap-sass'
 gem 'mail', '~> 2.5.3'
 gem 'carrierwave'
-gem 'rmagick'
+#gem 'rmagick'
 gem "rspec-rails", "~> 2.0"
 gem 'bootstrap-sass'
 
