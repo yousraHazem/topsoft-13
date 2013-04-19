@@ -1,7 +1,8 @@
 ﻿class TasksController < ApplicationController
  
-  #Author salma el ruby 22-4649
-  # takes as parameter the task id and get the project members who are not assigned to this particular task
+  #Author :salma el ruby 22-4649
+  # Args : user_id, task_id, project_id
+  # gets the poject members who are not assigned to this task
 
   def getProjectMembers
       @user = params[:user_id]
@@ -21,15 +22,12 @@
     @task = Task.where(:project_id=>params[:id])
   end
 
- 
-  #Author salma el ruby 22-4649
-  # create a new task
+  #Author :salma el ruby 22-4649
+  # Args : --
+  # creates a new task
   def new
   @task = Task.new
   end
-
-  #Author salma el ruby 22-4649
-  # create a new task takes the project id as the parameter , and creates the task with the same project_id as the taken from user
 
   def create
     @project_id = params[:id]
@@ -48,9 +46,10 @@
     @task = Task.search(params[:search])
     @task =Task.find
   end
-  
-  # Author: Salma El -Ruby 22-4649
-  # this method takes the task-id as the input parameter and deletes the record from the data base after the user confirms the delete 
+
+  #Author :salma el ruby 22-4649
+  # Args : task_id
+  # deletes the task
   def destroy
     Task.find(params[:id]).destroy
     redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
@@ -58,10 +57,10 @@
 
   
 
-
-  # Author: Salma El -Ruby 22-4649
-  # these two methods(edit and update) takes the task-id as the input parameter and edits the record and update the record after the user confirms the new changes
-  def edit
+  #Author :salma el ruby 22-4649
+  # Args : task_id 
+  # edit the task
+    def edit
      @task_id = params[:task_id]
      @task = Task.find(params[:id])
   end
