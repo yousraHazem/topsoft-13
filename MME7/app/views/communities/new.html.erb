@@ -1,0 +1,25 @@
+<h1 class="text-center">من فضلك ادخل معلومات عن المجتمع الذي تريد اضافاته </h1>
+<%= link_to("<< الروجع إلى القائمة الرئيسية", {:action => 'list'}, :class => 'back-link') %>
+<div>  
+<%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
+<%= error_messages_for(@community) %>
+    <div><table>
+      <tr>
+        <p class="paragraph">اسم المجتمع 
+        <%= t.text_field(:title) %></p>
+      </tr>
+      <tr>
+        <p class="paragraph">وصف المجتمع 
+        <%= t.text_field(:social_profile_info) %></p>
+      </tr>
+      <tr>
+       <p class="paragraph">رقم التليفون 
+       <%= t.text_field(:contact_info) %></p>
+      </tr>
+    </table>
+  </div>
+   <p class="text-right">
+<button class="btn btn-info" type="submit">تسجيل </button>
+</p>
+  <% end %>
+</div>

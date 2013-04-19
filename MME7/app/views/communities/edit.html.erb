@@ -1,0 +1,24 @@
+
+<%= link_to("<< روجوع", {:action => 'list'}, :class => 'back-link') %>
+<div>
+<%= form_for(:community, :url => {:action => 'update', :id => @community.id}) do |t| %>
+<%= error_messages_for(@community) %>
+    <table>
+      <tr>
+        <p class= "paragraph">اسم المجتمع
+        <%= t.text_field(:title) %></p>
+      </tr>
+      <tr>
+        <p class= "paragraph">وصف عن المجتمع 
+     <%= t.text_field(:social_profile_info) %></p>
+      </tr>
+      <tr>
+        <p class= "paragraph">رقم التليفون 
+        <%= t.text_field(:contact_info) %></p>
+      </tr>
+    </table>
+    <p class="paragraph">
+<button class="btn btn-info" type="submit">تسجيل</button>
+    </p>
+  <% end %>
+</div>
