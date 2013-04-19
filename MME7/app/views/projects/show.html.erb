@@ -12,12 +12,12 @@
            <% end %>
         </td>
         <td>
-          <%= form_for(:project, :url => {:action => 'editProject',:id=> @project_id}) do |f| %>
+          <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
               <button type="submit">تعديل المشروع</button>
           <% end %>
         </td>
         <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project_id}) do |f| %>
+           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
               <button type="submit">المهمات</button>
            <% end %>
         </td>
