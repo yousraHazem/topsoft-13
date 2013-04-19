@@ -69,74 +69,16 @@
 </head>
 <body>
   <%= yield %>
+
 <ul class="ttw-notification-menu">
-    <li id="projects" class="notification-menu-item first-item"><a href="index.html#">Projects</a></li>
+    <li id="projects" class="notification-menu-item first-item"><a href="index.html#">Projects</a>
+      <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(1) %></span></li>
     <li id="tasks" class="notification-menu-item"><a href="index.html#">Tasks</a></li>
     <li id="messages" class="notification-menu-item"><a href="index.html#" >Messages</a></li>
     <li id="clients" class="notification-menu-item last-item">
         <a href="index.html#">Clients</a>
     </li>
 </ul>
-
-<div id="generate-notifications">
-    <div class="TTWForm-container">
-
-
-         <form action="index.html#" id="notification-form" class="TTWForm" method="post" novalidate="">
-
-
-              <div id="field3-container" class="field f_100">
-                   <label for="category">
-                        Category
-                   </label>
-                   <select name="field3" id="category" >
-                        <option id="field3-1" value="projects">
-                             Projects
-                        </option>
-                        <option id="field3-2" value="tasks">
-                             Tasks
-                        </option>
-                        <option id="field3-3" value="other">
-                             Other
-                        </option>
-                   </select>
-              </div>
-
-
-              <div id="field4-container" class="field f_100">
-                   <label for="message">
-                        Message
-                   </label>
-                   <textarea rows="2" cols="20" name="field4" id="message" >Sample Notification</textarea>
-              </div>
-
-              <div id="use-icon-container" class="field f_100 checkbox-group required">
-
-                   <div class="option clearfix">
-                        <input name="field5[]" id="use-icon" value="Option 1" type="checkbox">
-                        <span class="option-title">
-                             Use Icon (Image)?
-                        </span>
-                        <br>
-                   </div>
-
-              </div>
-
-
-              <div id="use-icon-url-container" class="field f_100">
-                   <label for="use-icon-url">
-                        Image Url
-                   </label>
-                   <input name="fieldd" id="use-icon-url" type="text" value="images/icon.png">
-              </div>
-
-
-              <div id="form-submit" class="field f_100 clearfix submit">
-                   <input value="Submit" type="submit">
-              </div>
-         </form>
-    </div>
-</div>
 
 </body>
 </html>

@@ -14,4 +14,9 @@ module ApplicationHelper
     end
   end
 
+
+ def notification_count(current_user)
+ @nots = NotUser.where("user_id = ?", current_user).size
+ end
+
 end
