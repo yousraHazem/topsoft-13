@@ -1,4 +1,5 @@
-﻿class Project < ActiveRecord::Base
+#encoding: utf-8
+class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description  
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
@@ -34,7 +35,7 @@
     has_many :project_users
     has_many :users , :through => :project_users
     has_and_belongs_to_many :communities
-    has_many :budget_source_projects
+    has_many :budget_source_projects , :dependent => :destroy
     has_many :budget_sources , :through => :budget_source_projects
 
     def self.get_projectmembers(project_id)
@@ -56,4 +57,12 @@
       @users = User.where("id NOT IN (?)" , b)
     end 
 
+
+    def budgetSourceProject(project_id)
+     @budgetSourceProject = BudgetSourceProject.where(:project_id => project_id , :amount => 0).exists?
+    end
+
+    def budgetItems(project_id)
+     @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?
+    end
 end

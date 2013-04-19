@@ -22,7 +22,7 @@
 			   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
 			</td>
 			<td >
-			   <li><%= link_to("الغاء", {:action => 'deleteProject', :id => project.id} , :confirm => "delete") %><i class="icon-remove"></i> </li>
+			   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}) %><i class="icon-remove"></i> </li>
 			</td>
 	 	</tr>
 	 	<% end %>
