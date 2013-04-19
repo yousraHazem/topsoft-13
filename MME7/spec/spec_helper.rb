@@ -37,5 +37,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+<<<<<<< HEAD
+end
+=======
 
 end
+>>>>>>> master

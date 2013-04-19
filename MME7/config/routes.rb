@@ -1,4 +1,6 @@
 MME7::Application.routes.draw do
+  
+root :to => "home#index"
 
   #The priority is based upon order of creation:
 
@@ -20,6 +22,7 @@ MME7::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_in" => "admin#new", :as => "log_in"
   root :to => "home#index"
+
  
   get "users/new"
   resources :users

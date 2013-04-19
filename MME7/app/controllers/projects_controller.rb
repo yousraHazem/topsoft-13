@@ -1,5 +1,14 @@
 class ProjectsController < ApplicationController
-  layout "project"
+layout "project"
+
+#Author Riham Gamal id = 22-3871
+#Arguments project.id
+#return non
+def show
+  @project = Project.find(params[:id])
+end
+
+  
   # Author : Nayera Mohamed 22-3789 
   # Args : no args
   # retuns : list of projects
