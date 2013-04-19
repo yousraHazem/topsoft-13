@@ -61,6 +61,4 @@ class Project < ActiveRecord::Base
       @users = User.where("id NOT IN (?)" , b)
     end 
 
-
-
 end

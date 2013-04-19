@@ -4,10 +4,7 @@ class Post < ActiveRecord::Base
    
 	has_many :comments, :dependent => :destroy
 
-
-    
 	belongs_to :user  
-
 	belongs_to :project
 	belongs_to :group 
 
