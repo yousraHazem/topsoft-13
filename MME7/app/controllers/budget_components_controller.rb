@@ -11,6 +11,7 @@
 		#Description: calculates progress bar percentage and gets all the budget components of a certain budget item 
 		#returns: a list of budget components
 		#Arguments: none
+		@current_user = current_user
 		@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		@item = params[:id]
