@@ -1,6 +1,5 @@
 class BudgetItemsController < ApplicationController
 
-
 # Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
 
 	def list 
