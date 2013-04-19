@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+﻿# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  email      :string(255)
+#  phone_Nr   :string(255)
+#  address    :string(255)
+#  username   :string(255)
+#  isAdmin    :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#encoding: UTF-8
+=======
+>>>>>>> master
 class User < ActiveRecord::Base
 
 
@@ -26,6 +43,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
   before_save :create_remember_token
+
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"

@@ -1,3 +1,4 @@
+
 class SessionsController < ApplicationController
   #Author: Donia Amer Shaarwy
   #takes in the username and password to do the login method 
@@ -25,6 +26,7 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "logged out"
   end
+
 end
 
 
