@@ -1,17 +1,12 @@
 #encoding: UTF-8
 class User < ActiveRecord::Base
-
-
-
  #Author: Donia Amer Shaarawy 22-0270
   #these are the attributes needed for a user also though are out valdiations that are need for the input of sign up 
   attr_accessible :address, :email, :name, :isAdmin, :phone_Nr, :username, :password, :password_confirmation
   has_secure_password
 
 
-
-
-  has_many :posts
+has_many :posts
   has_many :comments
   belongs_to :task
   belongs_to :group
@@ -21,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :groups_users 
   has_many :groups , :through => :group_users 
+
 
 
    has_many :task_users
@@ -33,6 +29,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"
+
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

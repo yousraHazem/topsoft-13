@@ -22,7 +22,7 @@ end
 def createCommunity
 	@community= Community.new(params[:community])
 	if @community.save
-		flash[:notice]= "Community successfully created"
+		flash[:notice]= "تم انشاء المجتمع بنجاح "
 	 redirect_to(:action => 'list')
     else 
 	 render('new')
@@ -33,6 +33,7 @@ end
 # retrieves the community that the admin wishes to edit  by the id
 # it takes the community id
 # returns nothing only amends what the user has edited in that record in the database
+
 def edit
     @community = Community.find(params[:id])
 end
@@ -56,6 +57,7 @@ def show
 	@communities = Community.find(params[:id])
 end
 
+
 #Author: May Badr 22-0579
 #find record to be deleted
 	
@@ -72,4 +74,6 @@ def delete
 
 	end
 end
+
+
 

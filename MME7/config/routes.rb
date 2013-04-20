@@ -1,10 +1,14 @@
 MME7::Application.routes.draw do
+  #The priority is based upon order of creation:
+
+
+  
+root :to => "home#index"
 
   #The priority is based upon order of creation:
 
 
   get "comments/editComment"
-
   # get "posts/editPost"
   # get "comments/newComment"
   # get "posts/newPost"
@@ -86,8 +90,6 @@ MME7::Application.routes.draw do
 
   match ':controller(/:action(/:id))(.:format)'
 
-
- 
 
 end
 

@@ -1,6 +1,5 @@
-﻿class BudgetComponentsController < ApplicationController
-
-  
+﻿#encoding: UTF-8
+class BudgetComponentsController < ApplicationController
 	def index
      list
      render('list')
@@ -103,5 +102,4 @@
 		
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
-
 end

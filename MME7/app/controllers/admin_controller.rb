@@ -10,4 +10,3 @@ class AdminController < ApplicationController
 		@admin = User.new
   end
  end
-

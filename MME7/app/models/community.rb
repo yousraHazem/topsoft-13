@@ -6,4 +6,7 @@ class Community < ActiveRecord::Base
    validates_presence_of :title , :message => "يجب أن تدخل اسم "
    validates_uniqueness_of :title, :message => "عفوا هذا الاسم قد استخدم من قبل "
    validates_presence_of :social_profile_info, :message => "يجب أن تدخل وصف "
+  validates_numericality_of :contact_info, :on => :create, :message => "من فضلك ادخل رقم "
+ 
+
 end
