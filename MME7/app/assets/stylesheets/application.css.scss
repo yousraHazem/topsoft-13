@@ -13,7 +13,22 @@
  *= require_self
  *= require_tree .
  */
+  .pull {
+  margin: 225px;
+  color: #bbb;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  }
 
+  .created {
+   font-size: 8px;
+  }
+
+  .image {
+  position:fixed;
+  top:120px;
+  right:767px;
+  }
 
  .menu {
     background: #f2f2f2;

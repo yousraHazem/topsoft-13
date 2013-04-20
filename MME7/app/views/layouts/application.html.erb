@@ -68,7 +68,6 @@
     </style>
 </head>
 <body>
-  <%= yield %>
 
 <ul class="ttw-notification-menu">
     <li id="projects" class="notification-menu-item first-item"><a href="index.html#">Projects</a>
@@ -79,6 +78,17 @@
         <a href="index.html#">Clients</a>
     </li>
 </ul>
+
+<div id="current-user" data-id="1">
+<div id="notify"  class="notification-list-wrapper" style="top: 136px; left: 447px; display:block; opacity: 1;">
+        <span><%= link_to("all",{:controller => 'nots', :action=>'list'} , :class=>"pull" , :id=>'all-link') %></span>
+       <% @nots = notifications %>
+       <%= render(:partial => "nots/notification" , :locals => {:@nots=> @nots})%>
+</div>
+<div class="container">
+  <%= yield %>
+</div>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,5 @@
+<% @notifications.each do |t|%>
+<div class="notification-list" data-time="<%= t.created_at.to_i %>"> 
+<%= t.not.content %><span class="created pull-right"><%= t.created_at %></span><br><br>	
+</div>  
+<%end%>

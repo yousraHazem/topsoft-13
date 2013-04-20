@@ -19,4 +19,8 @@ module ApplicationHelper
  @nots = NotUser.where("user_id = ?", current_user).size
  end
 
+  def notifications
+    @nots = NotUser.where("user_id = ?", 1)#.order('created_at DESC')
+  end
+
 end

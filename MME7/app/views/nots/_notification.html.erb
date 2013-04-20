@@ -1,7 +1,8 @@
- <% @nots.each do |t|%>
- <div class="notify notification-list-item" data-time="<%= t.created_at.to_i %>">
-<%= t.not.content %>
+<% @nots.each do |t|%>
+<div class="notify notification-list-item" data-time="<%= t.created_at.to_i %>">
+<%= t.not.content %>  <%= t.created_at %>
 </div>	  
 <%end%>
+
 
 
