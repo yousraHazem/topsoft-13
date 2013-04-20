@@ -3,11 +3,11 @@ require 'spec_helper'
 describe CommunitiesController do
 
   def valid_attributes
-   {:title => "put valid attributes", :social_profile_info => "valid", :contact_info => "555"}
+   {:title => "put valid attributes", :social_profile_info => "valid", :contact_info => "user@example.com"}
   end
-
+  
   def invalid_attributes
-   {:title => "", :social_profile_info => "", :contact_info => "jjjj"}
+   {:title => "", :social_profile_info => "", :contact_info => "jjj"}
   end
  
  describe "GET new" do

@@ -3,47 +3,25 @@
 <div>
 <%= form_for(:community, :url => {:action => 'update', :id => @community.id}) do |t| %>
 <%= error_messages_for(@community) %>
-    <table>
+    <table class="table table-striped" >
       <tr>
-        <p class= "paragraph">اسم المجتمع
-        <%= t.text_field(:title) %></p>
+        <th>اسم المجتمع</th>
+        <td><%= t.text_field(:title) %></td>
       </tr>
+
       <tr>
-        <p class= "paragraph">وصف عن المجتمع 
-     <%= t.text_field(:social_profile_info) %></p>
+        <th>وصف عن المجتمع</th> 
+     <td><%= t.text_field(:social_profile_info) %></td>
       </tr>
+
       <tr>
-        <p class= "paragraph">رقم التليفون 
-        <%= t.text_field(:contact_info) %></p>
+        <th>البريد الالكتروني </th> 
+        <td><%= t.text_field(:contact_info) %></td>
       </tr>
+
     </table>
     <p class="paragraph">
 <button class="btn btn-info" type="submit">تسجيل</button>
     </p>
-<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
-
-<div>
-  <h2>Update Community</h2>
-
-  <%= form_for(:community, :url => {:action => 'update', :id => @community.id}) do |t| %>
-  
-    <table>
-      <tr>
-        <th>Title</th>
-        <td><%= t.text_field(:title) %></td>
-      </tr>
-      <tr>
-        <th>Social_profile_info</th>
-        <td><%= t.text_field(:social_profile_info) %></td>
-      </tr>
-      <tr>
-        <th>Contact info</th>
-        <td><%= t.text_field(:contact_info) %></td>
-      </tr>
-    </table>
-    
-    <div>
-      <%= submit_tag("update community") %>
-    </div>
   <% end %>
 </div>
