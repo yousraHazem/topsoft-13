@@ -1,21 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="flash">
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-<h1>Create New Group</h1>
+
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+
+<h2 class = 'text-center'>إنشاء مجموعة</h2>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
-
+   <table class="table table-striped" >
   <tr>
-    <th> *اسم المجموعة</th>
+    <th dir="rtl" lang="ar">اسم المجموعة *</th>
     <td><%= f.text_field :group_name %></td>
   </tr>
   <tr>
-    <th>* وصف</th>
-    <td><%= f.text_area :description %></td>
+    <th dir="rtl" lang="ar">وصف *</th>
+    <td class = "ta"><%= f.text_area :description%></td>
   </tr>
+   <tr>
+    <th dir="rtl" lang="ar">مستوى المجموعة *</th>
+    <td><%= f.text_field :levels %></td>
+  </tr>
+  </table>
   <div>
-    <%= submit_tag("إنشاء المجموعة") %>
+    <button class="btn btn-info" type="submit">إنشاء المجموعة</button>
   </div>
-
 <% end %>
