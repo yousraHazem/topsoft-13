@@ -36,8 +36,9 @@ include GroupUsersHelper
     # with currend user_id & and current group_id then sets att. isCreator = true since he's the creator
     def create
         @group = Group.new(params[:group])
+        #@current_user = current_user
         if @group.save
-            @m = GroupUser.new(:group_id => @group.id, :user_id => 1)
+            @m = GroupUser.new(:group_id => @group.id, :user_id => @current_user )
             @m.isCreator = 'true'
             @m.save
             flash[:notice] = "تم انشاء المجتمع بنجاح"

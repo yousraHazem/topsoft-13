@@ -4,7 +4,6 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 
 <div>
@@ -23,40 +22,39 @@
         <%= @group.levels %>
       </p>
 <div>
-  <% if ifMember(@group.id, 1) == false %>
+  <% if ifMember(@group.id, current_user.id) == false %>
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => 1}, :class => 'btn btn-inverse') %>
   <% end %>
-  <% if ifMember(@group.id, 1) == true && isGroupCreator(@group.id, 1) != true %>
+  <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
         <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
         <% end %>
 
-        <% if isGroupCreator(@group.id, 1) == true %>
+        <% if isGroupCreator(@group.id, current_user.id) == true %>
         <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
         <% end %>
 </div>
 </div>
   <div>
-  <% if ifMember(params[:id],1)==true %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id]}) do |f| %>
+  <% if ifMember(params[:id],current_user.id)==true %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id], :user_id => current_user.id}) do |f| %>
     <table summary = "The Post">
-     <tr>
+     
       <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
-     </tr>
-      <tr>
-        <th><%= f.hidden_field :group_id, :value => @group_id%> </th>
-      </tr>
+        <%= f.hidden_field :group_id, :value => @group_id%> 
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      
     </table> 
   <div class="form-buttons">
-  <%= submit_tag("اضف تعبير") %>
+ 
   </div>
   <%end%>
 <div>
 <div id = "allpostsborder">
  <% @group.posts.each do |post| %>
       <b id = "postaya">
-  <% if isPostCreator(1,post.id ) == true %>
-      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id, } %>
-      <b><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id, },:confirm => 'هل انتى متأكد') %></b>
+  <% if isPostCreator(current_user.id,post.id ) == true %>
+      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id} %>
+    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
       <b>
   <%else%>
       <p> التعبير:

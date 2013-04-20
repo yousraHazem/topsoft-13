@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :user 
 	belongs_to :post
 
-	validates_presence_of :comment
+	validates_presence_of :comment, :message => "يجب ألا تكون خالية "
 
    #Author: Nayera Mohamed 22-3789 
     # Args : current user and comment id
