@@ -6,7 +6,6 @@ class CreateBudgetComponents < ActiveRecord::Migration
     	t.integer "unit_price"
     	t.boolean "status"
     	t.integer "total"
-    	#t.image "attachment"
       t.timestamps
     end
   end

@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+﻿class CommentsController < ApplicationController
 
   #Author Riham Gamal 22-3871
   # add a new comment
@@ -67,6 +67,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
   
+
 
   def destroy
     Comment.find(params[:id]).destroy
