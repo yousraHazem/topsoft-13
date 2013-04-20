@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   layout "project"
-
 def index
     @projects = Project.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|
