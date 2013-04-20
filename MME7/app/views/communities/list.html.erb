@@ -22,8 +22,10 @@
         <td> 
              <%= link_to("مسح", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
            </br></br>
-             <%= link_to("تعديل ", {:action => 'edit', :id => community.id}, :class => 'action edit') %>
-              </br>
+           <td >
+         <li><%= link_to("تعدىل", {:action => 'edit', :id => community.id}) %><i class="icon-pencil"></i> </li>
+      </td>
+          </br>
         </td>
       </tr>
     <%end%>
