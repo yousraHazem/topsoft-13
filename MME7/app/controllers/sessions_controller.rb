@@ -34,7 +34,8 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     redirect_to @user, :notice => "logged in"
   end
-
+#Donia Amer Shaarawy 22-0270 
+#sgin out of facebook and the site 
   def destroyFacebook
     session[:user_id] = nil
     redirect_to root_url, :notice => "logged out"
