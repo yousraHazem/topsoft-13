@@ -79,11 +79,11 @@ describe TasksController do
           post :create, {:task => invalid_attributes}
           assigns(:task).should be_a_new(Task)
         end
-        it "re-renders the 'listTask' template" do
+        it "re-renders the 'listTasks' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
           post :create, {:task => invalid_attributes}
-          response.should render_template("listTasks")
+          response.should render_template("create")
         end
       end
   end

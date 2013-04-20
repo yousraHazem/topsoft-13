@@ -1,42 +1,35 @@
 ﻿class TasksController < ApplicationController
-
-  #Author salma el ruby 22-4649
-  # takes as parameter the task id and get the project members who are not assigned to this particular task
-
+ 
+  # Author : Salma El -Ruby 22-4649
+  # Args : takes task_id , user_id , project_id
+  # Returns : redirects to page with all members in project 
+  # Explanation : this method gets all members not assigned to this task 
   def getProjectMembers
       @user = params[:user_id]
       @task_id = params[:task_id]
-      #@user = params[:user_id]
       @project_id =params[:project_id]
-      
-     #@projectmembersid=ProjectUser.find(:all, :conditions => {:project_id => @project_id })
-
       @assignedppl  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id})
-      #@notassigned = ProjectUser.all
       @assigned  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id}).collect(&:user_id)
-      if @assigned.empty?
-      @notassigned = ProjectUser.where(:project_id=>@project_id)  
-      else
-      @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , @project_id , @assigned)
+       if @assigned.empty?
+        @notassigned = ProjectUser.where(:project_id=>@project_id)  
+       else
+        @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , @project_id , @assigned)
       end
-      
-      #@new = TaskUser.find(:all , :conditions => {:task_id => @task_id , :user_id =>@user , :assigned = false})
-    end
+  end
 
  #Author : Nayera Mohamed 22-3789 , this method takes the project id as params and outputs the taksks for this project
 	def listTasks
 		@tasks = Task.where(:project_id=>params[:id])
 	end
 
- 
-  #Author salma el ruby 22-4649
-  # create a new task
+  
+  # Author : Salma El -Ruby 22-4649
+  # Args : project_d , task_id
+  # Returns : redirects to page with new tasks added 
+  # Explanation : this method creates a new task
   def new
   @task = Task.new
   end
-
-  #Author salma el ruby 22-4649
-  # create a new task takes the project id as the parameter , and creates the task with the same project_id as the taken from user
 
   def create
     @project_id = params[:project_id]
@@ -46,7 +39,7 @@
      
    redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
       else
-         render('listTasks')
+         render('create')
       end
   end
 
@@ -55,9 +48,13 @@
     @task = Task.search(params[:search])
     @task =Task.find
   end
-  
-  # Author: Salma El -Ruby 22-4649
-  # this method takes the task-id as the input parameter and deletes the record from the data base after the user confirms the delete 
+ 
+
+
+  # Author : Salma El -Ruby 22-4649
+  # Args : takes task_id 
+  # Returns : project_id, and redirects to page with tasks available 
+  # Explanation : this method deletes unwanted tasks
   def destroy
     Task.find(params[:id]).destroy
     redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
@@ -65,9 +62,11 @@
 
   
 
-
-  # Author: Salma El -Ruby 22-4649
-  # these two methods(edit and update) takes the task-id as the input parameter and edits the record and update the record after the user confirms the new changes
+ 
+  # Author : Salma El -Ruby 22-4649
+  # Args : takes task_id 
+  # Returns : redirects to page with edited task 
+  # Explanation : this method edits task
   def edit
      @task_id = params[:task_id]
      @task = Task.find(params[:id])
