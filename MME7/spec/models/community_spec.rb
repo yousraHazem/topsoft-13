@@ -8,12 +8,12 @@ it "is invalid without a title" do
   FactoryGirl.build(:community, title: nil).should_not be_valid
 end
 
-it "is invalid without a social_proile_info" do
+it "is invalid without a social_profile_info" do
   FactoryGirl.build(:community, social_profile_info: nil).should_not be_valid
 end
 
 it "is invalid with any other format of contact_info  other than integer" do
-  FactoryGirl.build(:community, contact_info: nil).should_not be_valid
+  FactoryGirl.build(:community, contact_info: "ggg").should_not be_valid
 end
 
 let(:community) { FactoryGirl.build(:community) }    
