@@ -53,6 +53,7 @@ class ProjectsController < ApplicationController
   # Author : Nayera Mohamed 22-3789 
   # Args : project id
   # returns : no return
+  #this method deletes projects
   def destroy
       @project = Project.find(params[:id])
       @projectid = Project.find(params[:id]).id
