@@ -41,7 +41,7 @@ describe TasksController do
 
   describe "GET newTask" do
     it "assigns a new task as @task" do
-      get :new
+      get :create
       assigns(:task).should be_a_new(Task)
     end
   end
@@ -79,11 +79,11 @@ describe TasksController do
           post :create, {:task => invalid_attributes}
           assigns(:task).should be_a_new(Task)
         end
-        it "re-renders the 'newTask' template" do
+        it "re-renders the 'listTask' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
           post :create, {:task => invalid_attributes}
-          response.should render_template("new")
+          response.should render_template("listTasks")
         end
       end
   end

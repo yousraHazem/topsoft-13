@@ -46,7 +46,7 @@
      
    redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
       else
-         render('new')
+         render('listTasks')
       end
   end
 
