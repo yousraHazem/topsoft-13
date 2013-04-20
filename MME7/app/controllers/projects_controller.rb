@@ -54,17 +54,16 @@ class ProjectsController < ApplicationController
   # Args : project id
   # returns : no return
   def destroy
-    @project = Project.find(params[:id])
-    @projectid = Project.find(params[:id]).id
-    if @project.budgetSourceProject(@projectid) == true && @project.budgetItems(@projectid) == true
-      Project.find(params[:id]).destroy
-      flash[:notice]= "project destroyed"
-      redirect_to(:action => 'listProjects')
-    else
-      flash[:notice]= "الرجاء النظر الى الموارد المالىة"
-      redirect_to(:action => 'listProjects')
-    end  
-   
+      @project = Project.find(params[:id])
+      @projectid = Project.find(params[:id]).id
+      if @project.budgetSourceProject(@projectid) == true && @project.budgetItems(@projectid) == true
+        Project.find(params[:id]).destroy
+        flash[:notice]= "project destroyed"
+        redirect_to(:action => 'listProjects')
+      else
+        flash[:notice]= "الرجاء النظر الى الموارد المالىة"
+        redirect_to(:action => 'listProjects')
+      end  
   end
    
 
