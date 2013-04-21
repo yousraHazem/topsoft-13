@@ -2,8 +2,9 @@
 <html dir="rtl">
 <head>
   <title>MME7</title>
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" , :media=>"all" %>
-    <%= javascript_include_tag "application", "jquery.tokeninput","http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" %>
+ <%= stylesheet_link_tag "application", "token-input-facebook", :media => "all" %>
+<%= javascript_include_tag  "jquery.tokeninput"  %>
+
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
@@ -53,19 +54,17 @@
 
 </body>
 </html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+  <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
   <title><%= yield :name %></title>
   <title><%= yield :start_date %></title>
   <title><%= yield :end_date %></title>
   <title><%= yield :descritption %></title>
 </head>
-
-
-
-
 </body>
 </html>
