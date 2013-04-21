@@ -7,13 +7,15 @@
   def getProjectMembers
       @user = params[:user_id]
       @task_id = params[:task_id]
-      @project_id =params[:project_id]
+      @project_id = params[:project_id]
       @assignedppl  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id})
       @assigned  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id}).collect(&:user_id)
        if @assigned.empty?
-        @notassigned = ProjectUser.where(:project_id=>@project_id)  
+       @notassigned = ProjectUser.where(:project_id => @project_id)  
+       
        else
-        @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)" , @project_id , @assigned)
+       @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)", @project_id , @assigned)
+       
       end
   end
 
