@@ -5,37 +5,26 @@
   <%= flash[:error] %>
 </div>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
-
 <div>
       <p>
         <b>اسم المجموعة</b>
         <%= @group.group_name %>
       </p>
-
       <p>
         <b>وصف</b>
         <%= @group.description %>
       </p>
-
       <p>
         <b>مستوى المجموعة</b>
         <%= @group.levels %>
       </p>
 <div>
   <% if ifMember(@group.id, current_user.id) == false %>
-    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
-       
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>    
   <% end %>
 </div>
 </div>
-  <div>
-<div>
-  
-  </div>
-  </div>
-  </div>
-
-  
+</div> 
 </div> 
     <footer>
       <p>
