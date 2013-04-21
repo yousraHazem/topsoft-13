@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GroupUsersController do
   def valid_attributes
-   {:group_id => 1, :user_id => 1, :is_creator => false}
+   {:group_id => 4, :user_id => 4, :is_creator => false}
   end
 
 describe "POST create" do

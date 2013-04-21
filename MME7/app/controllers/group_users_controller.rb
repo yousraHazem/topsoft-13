@@ -7,7 +7,9 @@ class GroupUsersController < ApplicationController
     @group_id = params[:id]
     @user_id = current_user.id
     @newuser= GroupUser.new(:group_id => @group_id, :user_id => @user_id)
-    @newuser.save
+    if @newuser.save
+    	flash[:notice] = "أنت الآن عدو في هذه المجموعة "
+    end
     redirect_to(:controller => 'groups', :action => 'show', :id => @group_id)
   end
 end
