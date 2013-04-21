@@ -91,6 +91,11 @@ margin: 50px;
 	 text-align: center;
 }
 
+<<<<<<< HEAD
+td.ta textarea {
+	resize: vertical; max-height:200px;
+}
+=======
 .notice {text-align: center; background:#e6efc2;color:#264409;border-color:#c6d880; font-weight: bold; }
 
 p.paragraph{
@@ -100,7 +105,4 @@ p.paragraph{
      border: 30px solid white;
 }
 
-td.ta textarea {
-	resize: vertical; max-height:200px;
-}
-
+>>>>>>> 06e29d2030c88593297831200de122ca61fbf5d5
