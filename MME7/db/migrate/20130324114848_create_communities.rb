@@ -4,6 +4,7 @@ class CreateCommunities < ActiveRecord::Migration
     t.string "title"
     t.text "social_profile_info"
     t.text "contact_info"
+    #t.image "attachments"
       t.timestamps
     end
   end

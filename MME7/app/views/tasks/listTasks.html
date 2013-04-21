@@ -2,11 +2,12 @@
 <h2>المهام</h2>
 
    <table class="table table-striped">
-	 	
+
 	 	<% @tasks.each do |task| %>
 		 	<tr>
 		 		<td> <%= task.description %></td>
 		 	</tr>
 
 	 	<% end %>
+
     </table>
