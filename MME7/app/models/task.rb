@@ -8,6 +8,4 @@ has_many :task_users
 belongs_to :project
  
 
-  
-
 end
