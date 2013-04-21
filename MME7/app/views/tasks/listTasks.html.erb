@@ -5,26 +5,26 @@
 		 	<tr>
 		 		<td> <%= task.description %>  </td>
 				<td>	
-			 	<%= link_to("تعديل", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %>
-			 	<b> <%= link_to "الغاء", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
-
-				<b> <%= link_to("تعيين عضو لمهمة  ", {:controller =>'tasks', :action => 'getProjectMembers', :project_id => params[:id] , :task_id => task.id }, :class => 'action getProjectMembers') %> </b>
+	  <%= link_to("  تعديل ", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %>
+			
+	<b> <%= link_to "    الغاء    ", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
+    <b> <%= link_to("   تعيين عضو لمهمة    ", {:controller =>'tasks', :action => 'getProjectMembers', :project_id => params[:id] , :task_id => task.id }, :class => 'action getProjectMembers') %> </b>
 				</td>
 		 	</tr>
 	 	<% end %>
-	 <div >
+<div>
 	<%= form_for(:task, :url => {:action => 'create',:project_id => params[:id]}) do |f| %>
-   <table>
+     <table>
 		<tr>
 			<h2>إضافة مهمة جديدة</h2>
 			<th>تفاصيل المهمة</th>
 			<td><%= f.text_field (:description) %></td>
 		</tr>
-  </table>
+    </table>
 	<div>  
 		<%= submit_tag("إضافة") %>
 	</div>
   <% end %>
 </div>
 	 	
-    </table>
+ </table>
