@@ -71,5 +71,5 @@ describe "POST create" do
       response.should redirect_to(:action =>'index')
     end
   end
- end
+
 end

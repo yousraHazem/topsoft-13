@@ -14,7 +14,7 @@ require 'spec_helper'
 	 groupuser.getMembersNotInGroup (group_id)
 	end 
 
-# Author: Sama Akram 22-555 validations test 
+# Author: Sama Akram 22-555 validations test create group
   before { @group = Group.new(group_name: "Group One", description: "blaaah blaaaah", levels: "parent") }
 
   subject { @group }
