@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130418140510) do
 
-
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity"
@@ -25,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "quantity_purchased", :default => 0
     t.integer  "unit_price"
     t.integer  "total"
-
   end
 
   create_table "budget_items", :force => true do |t|
