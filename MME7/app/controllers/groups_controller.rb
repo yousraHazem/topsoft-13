@@ -43,7 +43,6 @@ include GroupUsersHelper
             flash[:notice] = "تم انشاء المجتمع بنجاح"
             redirect_to :action => 'index'
         else
-            flash[:error] = "يرجى التأكد من إملاء كل الخانات"
             render ('new')
         end
     end

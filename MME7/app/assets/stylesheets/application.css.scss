@@ -13,17 +13,6 @@
  *= require_tree .
  *= require bootstrap-datepicker
  */
- 
-
- #background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding-top: 60px;
-
- }
-
- 
 
  .comments{
  background-color: #F0F0F0;
@@ -88,4 +77,8 @@ margin: 50px;
 	height: 29px;
 	width:500px;
 	 text-align: center;
+}
+
+td.ta textarea {
+	resize: vertical; max-height:200px;
 }

@@ -15,7 +15,7 @@ gem 'bootstrap-sass'
 
 #gem "rspec-rails", "~> 2.0"
 gem 'best_in_place'
-gem 'carrierwave'
+# gem 'carrierwave'
 # gem 'rmagick'
 
 

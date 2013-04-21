@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+<%= render 'form' %>
+=======
+<h1>Create New Group</h1>
+
+<%= form_for(:group, :url => {:action => 'create'}) do |f| %>
+
+  <tr>
+    <th>name</th>
+    <td><%= f.text_field :group_name %></td>
+  </tr>
+  <tr>
+    <th>description</th>
+    <td><%= f.text_field :description %></td>
+  </tr>
+  <div>
+    <%= submit_tag("create Group") %>
+  </div>
+<% end %>
+>>>>>>> a4a59a1e84d0dab93542c73b3640ab50fb0fd769
