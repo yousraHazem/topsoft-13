@@ -1,4 +1,2 @@
-
 class ProjectUsersController < ApplicationController
 end
-

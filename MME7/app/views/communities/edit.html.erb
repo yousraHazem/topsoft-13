@@ -1,4 +1,3 @@
-
 <%= link_to("<< روجوع", {:action => 'list'}, :class => 'back-link') %>
 <div>
 <%= form_for(:community, :url => {:action => 'update', :id => @community.id}) do |t| %>
@@ -11,7 +10,7 @@
 
       <tr>
         <th>وصف عن المجتمع</th> 
-     <td><%= t.text_field(:social_profile_info) %></td>
+     <td class="texta"><%= t.text_area(:social_profile_info) %></td>
       </tr>
 
       <tr>

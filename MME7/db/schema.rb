@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20130419113340) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "amount",           :default => 0
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -64,8 +64,6 @@ ActiveRecord::Schema.define(:version => 20130419113340) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -146,8 +144,8 @@ ActiveRecord::Schema.define(:version => 20130419113340) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.string   "title"
     t.boolean  "assigned",    :default => false
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|

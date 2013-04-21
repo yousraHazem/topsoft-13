@@ -21,6 +21,11 @@
  padding-top: 60px;
  }
 
+ td.texta textarea {
+	resize:vertical; max-height:200px;
+}
+
+
  .comments{
  background-color: #F0F0F0;
  text-align: right;
