@@ -7,6 +7,7 @@ class Group < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :group_name
   validates_uniqueness_of :group_name, :case_sensitive => false
+  validates_presence_of :levels
 
 	
   #Author: Donia Amer Shaarawy 22-0270 
