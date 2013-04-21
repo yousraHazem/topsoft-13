@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   layout "project"
-
+  
 #Author Riham Gamal id = 22-3871
 #Arguments project.id
 #return non

@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 
 describe BudgetSourcesController do
@@ -13,7 +14,6 @@ describe BudgetSourcesController do
   def update_attributes
   {:name => 'Marketing', :amount => 100000}
    end
-
 
      describe "GET list" do
       it "assigns all sources as @sources" do
