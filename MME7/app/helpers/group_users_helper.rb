@@ -21,3 +21,4 @@ module GroupUsersHelper
       GroupUser.where(:group_id => group_id, :user_id => user_id).exists?
    end
 end
+

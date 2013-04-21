@@ -102,5 +102,9 @@ p.paragraph{
 
 td.ta textarea {
 	resize: vertical; max-height:200px;
+	resize:horizontal; max-width:400px;
 }
 
+#show {
+	text-align: right;
+}
