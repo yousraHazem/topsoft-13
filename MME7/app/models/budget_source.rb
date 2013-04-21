@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BudgetSource < ActiveRecord::Base
 
 def self.search(search)
