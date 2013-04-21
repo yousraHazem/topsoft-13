@@ -23,7 +23,7 @@
       </p>
 <div>
   <% if ifMember(@group.id, current_user.id) == false %>
-    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => 1}, :class => 'btn btn-inverse') %>
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
   <% end %>
   <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
         <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
