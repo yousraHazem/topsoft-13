@@ -10,6 +10,6 @@ class GroupUsersController < ApplicationController
     if @newuser.save
     	flash[:notice] = "أنت الآن عدو في هذه المجموعة "
     end
-    redirect_to(:controller => 'groups', :action => 'show', :id => @group_id)
+        redirect_to(:controller => 'groups', :action => 'show', :id => @group_id)
   end
 end
