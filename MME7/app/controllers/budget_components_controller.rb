@@ -1,4 +1,4 @@
-﻿class BudgetComponentsController < ApplicationController
+class BudgetComponentsController < ApplicationController
 
   
 	def index
@@ -100,7 +100,7 @@
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
 		@budget_item.update_attributes(:total=>@total, :spent=>@spent)
-		
+
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
 
