@@ -108,6 +108,7 @@ $(function() {
   $("#project_user_tokens").tokenInput("/users.json", {
     crossDomain: false,
     prePopulate: $("#project_user_tokens").data("pre"),
+    preventDuplicates: true,
     theme: "facebook"
   });
 });
