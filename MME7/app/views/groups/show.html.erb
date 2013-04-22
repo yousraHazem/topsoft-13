@@ -1,17 +1,49 @@
+<div>
+<div>
+  <div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
+<% if current_user %>
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+<% end %>
 
-﻿<%= link_to("<< Back to groups list", {:action => 'index'}, :class => 'back-link') %>
+  <table class="table table-striped" id="show">
+      <tr>
+        <th dir="rtl" lang="ar">اسم المجموعة</th>
+        <td><%= @group.group_name %></td>
+      </tr>
 
-<tr>
-      <th>Name:</th>
-      <td><%= @group.group_name %></td>
-</tr>
+      <tr>
+        <th dir="rtl" lang="ar">وصف</th>
+        <td><%= @group.description %></td>
+      </tr>
 
-<tr>
-      <th>Description:</th>
-      <td><%= @group.description %></td>
-</tr>
+      <tr>
+        <th dir="rtl" lang="ar">مستوى المجموعة</th>
+        <td><%= @group.levels %></td>
+      </tr>
+  </table>
+<div>
+	
+<% if current_user %>
+	<% if ifMember(@group.id, current_user.id) == false %>
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
+    <% end %>
+    <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
+    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
+    <% end %>
+    <% if isGroupCreator(@group.id, current_user.id) == true %>
+    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
+    <% end %>
+<% end %>
+</div>
 
-<tr>
-      <th>created_at:</th>
-      <td><%= @group.created_at %></td>
-</tr>
+<div> 
+    <footer>
+      <p>
+        <b>أنشئت في</b>
+        <%= @group.created_at %>
+      </p>
+    </footer>
+</div>
