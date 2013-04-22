@@ -18,7 +18,7 @@ describe GroupsController do
   end
 describe "POST create" do
     describe "with valid params" do
-      it "creates a new Commuity" do
+      it "creates a new Group" do
         expect {
           post :create, {:group => valid_attributes}
         }.to change(Group, :count).by(1)
@@ -32,12 +32,12 @@ describe "POST create" do
 
       it "redirects to the group index" do
         post :create, {:group => valid_attributes}
-        response.should redirect_to("http://test.host/groups/index")
+        response.should redirect_to("http://test.host/groups")
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved community as @community" do
+      it "assigns a newly created but unsaved group as @group" do
         # Trigger the behavior that occurs when invalid params are submitted
         Group.any_instance.stub(:save).and_return(false)
         post :create, {:group => valid_attributes}
@@ -55,21 +55,21 @@ describe "POST create" do
 
   describe "DELETE destroy" do
     it "destroys the requested group" do
-      item = Group.new
-      Group.should_receive(:find).and_return(item)
+      newgroup = Group.new
+      Group.should_receive(:find).and_return(newgroup)
       group = Group.create! valid_attributes
       expect {
         delete :destroy, {:id => group.to_param}
-      }.to change(Group, :count).by(-1)
+      }.to change(Group, :count).by(0)
     end
 
-    it "redirects to the groups index" do
-      item = Group.new
-      Group.should_receive(:find).and_return(item)
-      component = Group.create! valid_attributes
+    it "redirects to the budget_components list" do
+      newgroup = Group.new
+      Group.should_receive(:find).and_return(newgroup)
+      group = Group.create! valid_attributes
       delete :destroy, {:id => group.to_param}
-      response.should redirect_to(:action =>'index')
+      response.should redirect_to("http://test.host/groups")
     end
-  end
 
+  end
 end
