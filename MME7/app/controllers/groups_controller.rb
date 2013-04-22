@@ -29,7 +29,7 @@ include GroupUsersHelper
         @group = Group.new
     end
 
-   # Author: Sama Akram 22-555
+    # Author: Sama Akram 22-555
     # As a system/admin/member I can create a group issue #157 
     # creates new group and if saved into db it creates a new record in GroupUser
     # with currend user_id & and current group_id then sets att. isCreator = true since he's the creator
