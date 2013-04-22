@@ -1,0 +1,31 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
+
+   
+<div>
+  
+<%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
+
+</div>
+
+
+<table>
+  <tr>
+    <th>اسم المجموعة</th>
+  </tr>
+
+  <% if @groups %>
+  <% @groups.each do |group| %>
+  <tr>
+ 
+    <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% end %>
