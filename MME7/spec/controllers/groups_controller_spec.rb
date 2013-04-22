@@ -60,7 +60,7 @@ describe "POST create" do
       group = Group.create! valid_attributes
       expect {
         delete :destroy, {:id => group.to_param}
-      }.to change(Group, :count).by(-1)
+      }.to change(Group, :count).by(0)
     end
 
     it "redirects to the budget_components list" do
