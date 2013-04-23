@@ -29,8 +29,8 @@
 <div class="aligncenter">
 <h1><%= @project.name %></h1> 
 </div>    
-<div class="alignright">
-  <table class="table table-hover" align="right">
+<div>
+  <table class="table table-hover" >
     <tr>
       <td></i> تاريخ البداية</td>
       <td><%= @project.start_date %></td>
@@ -45,3 +45,38 @@
     </tr>
   </table>
 </div>
+
+  <div>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}) do |f| %>
+    <table summary = "The Post">
+     
+      <td><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
+        <%= f.hidden_field :project_id, :value => @project.id%> 
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+    </table> 
+  <div class="form-buttons">
+ 
+  </div>
+  <%end%>
+      <div id = "allpostsborder">
+ <% @project.posts.each do |post| %>
+      <b id = "postaya">
+  <% if isPostCreator(current_user.id,post.id ) == true %>
+      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %>
+    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
+          <b>
+  <%else%>
+      <p> التعبير:
+        <%= post.content %>
+      </p>
+  <%end%>
+    <%= render :partial => "listcomments", :locals => {:post => post} %>
+  <%end%>
+    </b>
+    </b>    
+  </div>
+
+
+  </div>
+  </div>
+  </div

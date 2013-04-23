@@ -25,9 +25,9 @@
       </tr>
   </table>
 <div>
-	
+
 <% if current_user %>
-	<% if ifMember(@group.id, current_user.id) == false %>
+  <% if ifMember(@group.id, current_user.id) == false %>
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
     <% end %>
     <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
@@ -38,6 +38,59 @@
     <% end %>
 <% end %>
 </div>
+  <div>
+    <% if current_user %>
+  <% if ifMember(params[:id],current_user.id)==true %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}) do |f| %>
+    <table summary = "The Post">
+     
+      <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
+        <%= f.hidden_field :group_id, :value => @group.id%> 
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :is_group, :value => 'true' %>
+      
+    </table> 
+  <%end%>
+  <%end%>
+<div>
+<div id = "allpostsborder">
+ <% @group.posts.each do |post| %>
+ <% if !current_user %>
+<h2>please</h2>
+<p> التعبير:
+  <%= current_user.name %>
+  <%= post.content %>
+</p>
+  <%end%>
+      <b id = "postaya">
+  <% if isPostCreator(current_user.id,post.id) == true %>
+  تعبير من:  <%= current_user.username %></br>
+      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id} %>
+    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
+      <b>
+  <%else%>
+
+      <p> التعبير:
+        <%= current_user.name %>
+        <%= post.content %>
+      </p>
+        <%end%>
+
+
+    <%= render :partial => "listcomments", :locals => {:post => post} %>
+  <%end%>
+    </b>
+    </b>    
+  </div>
+
+  <%end%>
+  </div>
+  </div>
+  </div>
+
+  
+</div>  
+
 
 <div> 
     <footer>
