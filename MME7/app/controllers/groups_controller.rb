@@ -38,7 +38,7 @@ include GroupUsersHelper
         @group = Group.new(params[:group])
         #@current_user = current_user
         if @group.save
-            @m = GroupUser.new(:group_id => @group.id, :user_id => @current_user )
+            @m = GroupUser.new(:group_id => @group.id, :user_id => current_user.id )
             @m.isCreator = 'true'
             @m.save
             flash[:notice] = "تم انشاء المجتمع بنجاح"
