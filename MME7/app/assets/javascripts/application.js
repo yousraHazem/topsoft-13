@@ -17,9 +17,6 @@
 //= require_tree .
 //= require bootstrap-datepicker
 
-
-
-
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {
     $.post(this.action, $(this).serialize(), null, "script");
@@ -40,6 +37,15 @@ $("#comment-form").submit(function(){
 $.comment($(this).attr("action"),$(this).serialize(),null, "script");
 return false;
 });
+
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
+    preventDuplicates: true,
+    crossDomain: false , 
+    prePopulate: $('#budget_source_project_tokens').data('pre') , 
+    theme: 'facebook' , 
+    });
+
 });
 
 
@@ -129,6 +135,18 @@ $(function() {
         $("#item-form").toggle("slow");
     });
 });
+
+
+$(function() {
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#project_user_tokens").data("pre"),
+    preventDuplicates: true,
+    theme: "facebook"
+  });
+});
+
+
 
 // jQuery.ajaxSetup({
 //    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}

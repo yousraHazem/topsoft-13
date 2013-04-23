@@ -14,6 +14,18 @@
  *= require bootstrap-datepicker
  */
 
+ #background {
+ background-image: url(bg.jpg);
+ background-repeat: no-repeat;
+ background-size: 1365px 730px;
+ padding-top: 60px;
+ }
+
+ td.texta textarea {
+	resize:vertical; max-height:200px;
+}
+
+
  .comments{
  background-color: #F0F0F0;
  text-align: right;
@@ -77,4 +89,22 @@ margin: 50px;
 	height: 29px;
 	width:500px;
 	 text-align: center;
+}
+
+.notice {text-align: center; background:#e6efc2;color:#264409;border-color:#c6d880; font-weight: bold; }
+
+p.paragraph{
+   font-weight: bold;
+    text-align: right; 
+    font-size: 25px;
+     border: 30px solid white;
+}
+
+td.ta textarea {
+	resize: vertical; max-height:200px;
+	resize:horizontal; max-width:400px;
+}
+
+#show {
+	text-align: right;
 }

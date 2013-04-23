@@ -1,4 +1,4 @@
-﻿    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+﻿ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <table>
       <tr>
         <td>
@@ -31,47 +31,17 @@
 </div>    
 <div class="alignright">
   <table class="table table-hover" align="right">
-  	<tr>
+    <tr>
       <td></i> تاريخ البداية</td>
-   		<td><%= @project.start_date %></td>
- 	  </tr> 	
- 	  <tr >
+      <td><%= @project.start_date %></td>
+    </tr>   
+    <tr >
       <td>تاريخ النهاية</td>
-   		<td><%= @project.start_date %></td>
- 	  </tr>
-  	<tr >
+      <td><%= @project.start_date %></td>
+    </tr>
+    <tr >
       <td></i>تفاصيل المشروع</td>
       <td><%= @project.description %></td>
     </tr>
- 	</table>
+  </table>
 </div>
-
-
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPostGroup', :id => params[:id], :user_id => current_user.id}) do |f| %>
-    <table summary = "The Post">
-     
-      <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
-        <%= f.hidden_field :project_id, :value => @project_id%> 
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-      
-    </table> 
-  <div class="form-buttons">
- 
-  </div>
- 
-<div>
-<div id = "allpostsborder">
- <% @project.posts.each do |post| %>
-      <b id = "postaya">
-      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %>
-    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
-      <b>
-
-      <p> التعبير:
-        <%= post.content %>
-      </p>
-
- <%= render :partial => "listcomments", :locals => {:post => post} %>
- <%end%>
-
- <%end%>

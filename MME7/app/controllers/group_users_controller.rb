@@ -12,10 +12,12 @@ class GroupUsersController < ApplicationController
     redirect_to(:controller => 'groups', :action => 'show', :id => @group_id)
   end
 
-  def leave
-
-    @newuser= GroupUser.where(:group_id => params[:id], :user_id => current_user.id)#change to current_user_id
-    @newuser.destroy_all
-    redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
-  end
-end 
+	# Author: Sama Akram 22-555
+	# this method allows a group member to leave the group
+  # ARGS: group.id & current_user.id and returns GroupUser Array to destroy
+	def leave
+	    @guser= GroupUser.where(:group_id => params[:id], :user_id => current_user.id)
+	    @guser.destroy_all
+        redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
+    end
+end
