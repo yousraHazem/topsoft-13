@@ -205,6 +205,14 @@
     clear: both;
 }
 
+.unread {
+    background-color: #F0F0F0;
+}
+
+.read {
+    
+}
+
 .notification-list-item {
     color: #666;
     padding: 6px;
@@ -225,6 +233,21 @@
 
 .notification-list-item:last-child {
     border-bottom: none;
+}
+
+.notification-list-item-unread {
+    background-color: #F0F0F0;
+    color: #666;
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #fff;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 16px;
 }
 
 .notification-list-item:hover {

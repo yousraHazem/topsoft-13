@@ -1,4 +1,4 @@
 <% unless @nots.empty? %>
-$("#notify").append("<%=raw escape_javascript(render('notification')) %>");
+$("#notification").prepend("<%=raw escape_javascript(render('notification')) %>");
 $("#count").text($(".notify").length);
 <% end %>

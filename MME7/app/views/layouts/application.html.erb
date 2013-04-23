@@ -1,11 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html dir="rtl">
 <head>
     <title></title>
      <%= stylesheet_link_tag  "application", "style_light", :media => "all" %>
      <%= javascript_include_tag  "application" , "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
-
    <style type="text/css">
         .tooltip {
             width: 250px;
@@ -63,9 +62,7 @@
         .ttw-notification-menu{
                 width: 276px;
         }
-
-
-    </style>
+</style>
 </head>
 <body>
 
@@ -81,9 +78,11 @@
 
 <div id="current-user" data-id="1">
 <div id="notify"  class="notification-list-wrapper" style="top: 136px; left: 447px; display:block; opacity: 1;">
-        <span><%= link_to("all",{:controller => 'nots', :action=>'list'} , :class=>"pull" , :id=>'all-link') %></span>
+        <span><%= link_to("all",{:controller => 'nots', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
+        <div id = "notification">
        <% @nots = notifications %>
        <%= render(:partial => "nots/notification" , :locals => {:@nots=> @nots})%>
+        </div>
 </div>
 <div class="container">
   <%= yield %>

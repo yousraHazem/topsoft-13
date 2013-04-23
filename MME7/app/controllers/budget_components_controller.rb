@@ -59,7 +59,14 @@
 
 			@budget_item.update_attributes(:total=>@total,:spent=>@spent)
 
-            #redirect to the list view after saving
+            #@members = ProjectUser.find(:all , :select=> "user_id" , :conditions=>{:project_id => params[:project_id]}).collect(&:user_id)
+            @members = ProjectUser.where(:project_id => params[:project_id])
+            notification = Not.create(:content=>"sarah has edited budget component")
+            @members.each do |member|
+            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id) 
+            end
+
+            
 			redirect_to(:action=>'list',:id=> @item , :project_id=>@project_id )
 
 		else
