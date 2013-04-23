@@ -1,6 +1,6 @@
 class BudgetItemsController < ApplicationController
   #Authored by Toka Omar  id:22-1925
-  # Author :Yasmin Mahmoud 22-1787
+  #Author :Yasmin Mahmoud 22-1787
   #Inputs:project_id and Outputs:all  budgetitems 
   #Returs: Array of Budget Items
 	def list 
