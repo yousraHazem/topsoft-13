@@ -54,6 +54,3 @@ def delete
 		redirect_to(:action => 'list')
 	end
 end
-
-
-

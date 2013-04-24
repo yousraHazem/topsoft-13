@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => @projects.map(&:attributes) }
+
     end
   end
 
