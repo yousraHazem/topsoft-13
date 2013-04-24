@@ -5,8 +5,8 @@ class Group < ActiveRecord::Base
 
 
   has_many :posts 
-  has_and_belongs_to_many :users
   has_many :groups_users 
+  has_many :users, :through => :group_users
   belongs_to :communities
   validates_presence_of :description, :message => "يرجى إملاء خانة الوصف"
   validates_presence_of :group_name, :message => "يرجى إملاء خانة اسم المجموعة"
