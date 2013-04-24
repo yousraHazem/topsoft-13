@@ -1,16 +1,24 @@
-<div class = "project comments">
+<div class = "well" id="com">
     <%= error_messages_for(@comment) %>
 <% post.comments.each do |c| %>
     
        <% if isCommentCreator(current_user.id,c.id) == true %>
-    <%= best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateCommentGroup', :id=> c.id, :post_id => :post_id, :project_id => @project.id} %>    
-    <%= link_to("x", {:controller => 'comments', :action => 'destroyCommentGroup', :comment_id => c.id, :project_id => @project.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %> </br> 
+ <div class="well well-small" id="eachcom">
+       <p><b id="username">   <%= current_user.username %></b></br>
+    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateCommentGroup', :id=> c.id, :post_id => :post_id, :project_id => @project.id} %>    
+    <%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :project_id => @project.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %> </div></br>
     <%else%>
-    <%= c.comment%> </br>
+     <p class = "well" id="com"><b id="username">   <%= current_user.username %></b></br>
+    <%= c.comment%> </p>
+    </div>
+
+ 
+
+</br>
     <% end %>
 <% end %>
   
-    <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createCommentGroup', :post_id => post.id, :project_id => @project.id, :user_id => current_user.id}, :html => {:id => "comment-form"}) do |f| %>
+    <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :project_id => @project.id, :user_id => current_user.id}, :html => {:id => "comment-form"}) do |f| %>
     <td><%= f.text_field (:comment), :placeholder =>"اضف تعليقك" %></td>
     <%= f.hidden_field :post_id, :value => post.id%>
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -18,3 +26,6 @@
    
 <% end %>  
 </div>
+
+
+

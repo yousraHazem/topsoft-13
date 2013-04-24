@@ -27,10 +27,9 @@
 
 
  .comments{
- background-color: #F0F0F0;
+ 
  text-align: right;
- width: 300px
-
+ width: 300px;
 
  }
 
@@ -112,3 +111,38 @@ td.ta textarea {
 	text-align: right;
 }
 
+div.well{
+	width: 300px;
+
+
+}
+#eachcom{
+	background:#FAFAFA;
+	
+}
+#postaya{
+	margin-right: 20px;
+
+	font-style:italic;
+	font-size: 24px;
+}
+
+i.under{
+	margin-right: 20px;
+}
+#username{
+text-decoration:underline;
+font-size: 14px;
+font-weight: bold;	
+}
+
+#com{
+	width: 400px;
+}
+
+#allpostsborder{
+	
+}
+#posteach{
+	
+}

@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class Comment < ActiveRecord::Base
-    attr_accessible :post_id , :user_id , :comment 
+    attr_accessible :post_id , :user_id , :comment, :is_group 
     belongs_to :user 
     belongs_to :post
 

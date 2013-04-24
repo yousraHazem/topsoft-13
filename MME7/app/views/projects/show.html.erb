@@ -53,6 +53,7 @@
       <td><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
         <%= f.hidden_field :project_id, :value => @project.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
+       
     </table> 
   <div class="form-buttons">
  
@@ -60,21 +61,22 @@
   <%end%>
       <div id = "allpostsborder">
  <% @project.posts.each do |post| %>
-      <b id = "postaya">
+     
   <% if isPostCreator(current_user.id,post.id ) == true %>
-  تعبير من:  <%= current_user.username %></br>
-      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %>
-    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
-          <b>
+   
+   <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> 
+         
+      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %></i>
+      <i id="username" class="under">:<%= current_user.username %></i>
+    
   <%else%>
-      <p> التعبير:
-        <%= post.content %>
-      </p>
+    <p>  <%= current_user.username %></br>
+     <%= post.content %></p>
   <%end%>
     <%= render :partial => "listcomments", :locals => {:post => post} %>
   <%end%>
     </b>
-    </b>    
+</p>    
   </div>
 
 

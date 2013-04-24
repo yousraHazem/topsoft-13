@@ -4,16 +4,21 @@ class CommentsController < ApplicationController
   # sama updated
   #Author: Sama Akram 22-555 
   #redirection changed to
-  def createCommentGroup
+  def createComment
      #@comment_user = current_user
     @comment = Comment.new(params[:comment])
-
     @comment.save
-
-    respond_to do |format|
-    format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
-    format.js
-    end 
+    if (@comment.is_group == true)
+      respond_to do |format|
+        format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+        format.js
+    end
+    else
+      respond_to do |format|
+        format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id]) }
+        format.js
+      end
+    end
   end
 
   respond_to :html, :json
@@ -34,30 +39,19 @@ class CommentsController < ApplicationController
     respond_with @comment
 end
  
-  def destroyCommentProject
-    @project_id = params[:project_id]
-    @post_id = params[:post_id]
-    Comment.find(params[:id]).destroy
-    redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
-  end
-  
-  # Author: Sama Akram 22-555 
-  # updated the redirection
-  def destroyCommentGroup
+  def destroyComment
     @comment = Comment.find(params[:comment_id])
     @comment.destroy
-    redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+     if (@comment.is_group == true)
+        redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])
+      else
+        redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
+      end
   end
 
   def show
     @comment = Comment.find(params[:id])
   end
-
-  def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to(:action => 'list')
-  end
-
 
   # Salma El -Ruby 22-4649
   # displays the available comments

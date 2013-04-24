@@ -58,22 +58,20 @@
  <% if !current_user %>
 <h2>please</h2>
 <p> التعبير:
-  <%= current_user.name %>
+  <%= post.user_username %>
   <%= post.content %>
 </p>
   <%end%>
       <b id = "postaya">
   <% if isPostCreator(current_user.id,post.id) == true %>
-  تعبير من:  <%= current_user.username %></br>
-      <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id} %>
+ التعبير من:  <%= current_user.username %></br>
+       <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id, } %>
     <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
       <b>
   <%else%>
 
-      <p> التعبير:
-        <%= current_user.name %>
-        <%= post.content %>
-      </p>
+     <p> التعبير من:  <%= current_user.username %></br>
+     <%= post.content %></p>
         <%end%>
 
 
@@ -99,5 +97,3 @@
         <%= @group.created_at %>
       </p>
     </footer>
-
-
