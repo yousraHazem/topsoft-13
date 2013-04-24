@@ -15,6 +15,7 @@
         <th>تعديل الميزانية</th>
  		<% end %>
  		<% end %>
+ 		<th>مشاهدة</th>
  	</tr>
 
  	<% @items.each do |item| %>
@@ -26,11 +27,11 @@
  		<% if isProjectCreator(@current_user,@project.id)%>
         <td class="actions">
 		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
-		<%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%>	
 	    </td>
+	    <% end %> 
+	    <% end %>
+	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%></td>
  		</tr>
-    <% end %> 
-    <% end %>
  	<% end %>
 </table>
 <% end %>

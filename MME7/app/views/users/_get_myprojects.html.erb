@@ -19,7 +19,7 @@
 <% @projectusers.each do |project_user| %>
   <tr>
     <td id ="project_name"><%= project_user.project.name %></td>
-    <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.id) %></td>
+    <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.project_id) %></td>
   </tr>
 <% end %>
 </table>
