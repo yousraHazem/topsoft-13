@@ -1,4 +1,4 @@
-class AlterBudgetItem2 < ActiveRecord::Migration
+class AlterBudgetItem5 < ActiveRecord::Migration
   def up
   	remove_column  :budget_items ,:budget_id
   end
