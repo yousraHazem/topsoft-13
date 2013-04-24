@@ -3,7 +3,6 @@
 
   belongs_to :budget_component
   mount_uploader :image , ImageUploader
-
   validates_presence_of :image , :message => "يرجا إدخال الوصل"
   validates_presence_of :name , :message => "يرجا أدخال الإسم"
 end

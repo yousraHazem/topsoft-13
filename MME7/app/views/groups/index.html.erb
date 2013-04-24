@@ -1,19 +1,29 @@
-﻿<h1>Groups</h1>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
 
-<%= link_to("Add New Group", {:action => 'new'}, :class => 'action new') %>
+   
+<div>
+  <% if current_user %>
+<%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
+<% end %>
+</div>
 
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>اسم المجموعة</th>
   </tr>
 
   <% if @groups %>
   <% @groups.each do |group| %>
   <tr>
-    <td><%= group.group_name %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %></td>
+
+ 
+    <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+
   </tr>
 <% end %>
 </table>

@@ -1,51 +1,70 @@
-﻿class ProjectsController < ApplicationController
+class ProjectsController < ApplicationController
+  layout "project"
 
-# Author : Nayera Mohamed 22-3789 , this method lists the projects  occuring
-def list
-	@projects = Project.all
-end
-# Author : Nayera Mohamed 22-3789 , this method shows the projects  occuring
+  def index
+    @projects = Project.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.map(&:attributes) }
+
+    end
+  end
+
+#Author Riham Gamal id = 22-3871
+#Arguments project.id
+#return non
 def show
-	@project = Project.find(params[:id])
+  @project = Project.find(params[:id])
 end
-
-## Author : Nayera Mohamed 22-3789 , this method puts a new project
-def new
-	@project = Project.new
-end
-# Author : Nayera Mohamed 22-3789 , this method creates a project
-def create
- @project=Project.new(params[:project])
- 	 if @project.save
- 	 	flash[:notice]= "project created"
-  		redirect_to(:action => 'list')
-
-  	else
-   		 render('new')
-    end
-
-end
-
-# authorized by sarah ahmed id:22-1278
-#gets the project that need to be edited
- def edit
-    @project = Project.find(params[:id])
+  # Author : Nayera Mohamed 22-3789 
+  # Args : no args
+  # retuns : list of projects
+  def listProjects
+      @projects = Project.all
   end
 
+  # Author : Nayera Mohamed 22-3789 
+  # Args: no args
+  # returns : a new project 
+  def newProject
+      @project = Project.new
+  end
 
-    # authorized by sarah ahmed id:22-1278
-    #update the selected project with the new submitted values
-  def update
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project params
+  # returns :creates a new project 
+  def createProject
+      @project=Project.new(params[:project])
+      if @project.save
+         @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
+         @projectuser.save
+         flash[:notice]= "project created"
+         redirect_to(:action => 'show', :id => @project.id)
+      else
+         render('newProject')
+      end
+  end
+
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : doesnot return anything  
+  def editProject
       @project = Project.find(params[:id])
-    if @project.update_attributes(params[:project])
-      flash[:notice] = "Project successfully updated"
-      #redirect_to(:action=>'ed', :id=>)
-      render('edit')
-    else
-       flash[:notice] = "Project could not be updated"
-          # render('edit')
-    end
+      @project_count = Project.count 
   end
 
-	
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : the project with updated attributes 
+  def updateProject
+      @project = Project.find(params[:id])
+      if @project.update_attributes(params[:project])
+         flash[:notice]= "project updated"
+         redirect_to(:action => 'show', :id => @project.id)
+      else
+         @project_count = Project.count 
+         render('editProject')
+      end
+  end
+
 end

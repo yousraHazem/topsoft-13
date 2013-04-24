@@ -1,51 +1,40 @@
-﻿<% @page_title = "Subjects List"%>
+<p class="link pull-left">
+  <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %>
+  <i class=" icon-chevron-left"></i>
+</p>
 
-<form action="">
-<fieldset>
-<legend><h1>Marketing</h1></legend>
-<h3>Total: <%= @total %></h3> 
-<h4>Spent: <%= @spent %></h4>
-</fieldset>
-</form>
-<hr>
-<div class= "Subject List">
-	<h4>     <%= link_to({:action=>'new', :id=> @item}, class: "btn btn-mini btn-success") do %>
-      <i class="icon-plus icon-white"></i>
-      <% end %>  Components </h4>
- 
-
-<br>
-<br>
- <table class="table" summary="Subject List">
-<tr class="header">
-	<th>Name</th>
-	<th>Unit Price</th>
-	<th>Quantity Purchased</th>
-	<th>Total Quantity</th>
-	<th>Total Spent</th>
-	<th>Status</th>
-	<th>Action</th>
-</tr>
-<% @components.each do |component|%>
-<tr class="<%= component.status == "Approved" ? 'success' : 'error' %>">
-	<td><%= component.name %></td>
-	<td><%= component.unit_price %></td>
-	<td><%= component.quantity_purchased %></td>
-	<td><%= component.total_quantity %></td>
-	<td><%= component.spent %></td>
-	<td><%= component.status %></td>
-	<td class="actions">
-	<!--:data_toggle=>"modal", :data_target=>"#myModal"-->
-	   <%= link_to("Edit", {:action=>'edit' ,:id=>component.id, :item_id=>@item},:class=>"btn btn-small")%>
-	   <%= link_to("add attachement", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
-	   <%= link_to("view attachement", {:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
-		<%= link_to("Delete", {:action=>'destroy',:id=>component.id,:item_id=>@item}, :confirm=>"Are you sure?", :class=>"btn btn-danger btn-small")%>
-
-
-	</td>
-	
-</tr>
-<%end%>
-	</table>
-
-
+<% @page_title = "عنلصر الميزانية"%>
+<div class="style">
+  <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
+  <fieldset class="header"> 
+    <legend>
+      <h1><%= @name %>
+        <div class="progress pull-left" id="progressouter">
+          <div class="bar" id="progress"></div>
+        </div>
+      </h1>
+    </legend> 
+    <h3>الاجمالى: <%= @total %></h3> 
+    <h6><i class="icon-tint"></i>اسم المشروع: </h6>
+    <h6><i class="icon-tint"></i>اسم الميزانية: </h6>
+    <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
+  </fieldset>
+  <span class="h3"> 
+     <div>
+        <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
+          <%= link_to("#",:id=>"create" , class: "btn btn-success pull-left") do %>
+          <i class="icon-plus icon-white"></i> اضافة عنصر 
+          <% end %>
+        <% end %> العناصر 
+     </div>
+  <span> 
+  <div id="comp" style="display:none;" >
+    <%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}, :html =>{:id =>"component-form"}) do |f| %>
+      <%= render(:partial => "form" , :locals => {:f=> f})%>
+      <%= submit_tag("احفظ")%>
+    <% end %>
+  </div>
+</div>
+<div id="table2">
+<%= render(:partial => "table" )%> 
+</div>

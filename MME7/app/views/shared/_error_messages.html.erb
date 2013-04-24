@@ -1,11 +1,11 @@
-﻿<% if object && object.errors.size > 0%>
-<div id="errorExplanation">
-<h2><%=pluralize(object.errors.size, "أخطاء")%>حظر هذا السجل من يتم حفظ</h2> 
-<p>كانت هناك مشاكل مع الحقول التالية:</p>
-<ul>
-<% object.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-</div>
-<% end %>
+<% if object && object.errors.size > 0 %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(object.errors.size, "خطأ") %> </h2>
+    <p>اخطاء بالبنود الاتية</p>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<%end%>

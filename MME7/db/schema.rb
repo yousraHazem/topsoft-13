@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407183405) do
+ActiveRecord::Schema.define(:version => 20130418140510) do
+
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity"
-    t.integer  "unit_price"
     t.string   "status",             :default => "Pending"
     t.integer  "total"
     t.datetime "created_at",                                :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.integer  "budget_item_id"
     t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
+
   end
 
   create_table "budget_items", :force => true do |t|
@@ -34,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "project_id"
     t.integer  "spent"
+    t.integer  "project_id"
     t.integer  "total"
   end
 
@@ -47,9 +48,9 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "amount",           :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -57,17 +58,6 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "budgets", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "amount"
-    t.integer  "raised"
-    t.integer  "noot_raised"
-    t.integer  "spent"
-    t.integer  "not_spent"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -130,10 +120,10 @@ ActiveRecord::Schema.define(:version => 20130407183405) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.boolean  "private_or_public"
-    t.boolean  "admin_or_member"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "is_frozen",   :default => false
   end
 
   create_table "receipts", :force => true do |t|
