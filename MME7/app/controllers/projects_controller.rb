@@ -66,4 +66,11 @@ end
       end
   end
 
+
+  def viewMembers
+      @project = Project.find(params[:id])
+      @members = ProjectUser.where(:project_id => params[:id])
+  end
+
+
 end

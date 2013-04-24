@@ -1,31 +1,19 @@
-﻿      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <table>
-      <tr>
-        <td>
-          <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
-              <button type="submit">قائمة المشاريع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
-              <button type="submit">ميزانية المشروع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
-              <button type="submit">تعديل المشروع</button>
-          <% end %>
-        </td>
-        <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
-              <button type="submit">المهمات</button>
-           <% end %>
-        </td>
-      </tr>
-    </table>
+﻿<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<table>
 
-
-
+<td>
+<div id="floatMenu">  
+   <ul>  
+        <li><%= link_to("make creator", {:action =>'viewMembers',:id=> @project.id}) %></li>  
+        <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
+        <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
+        <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
+        <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
+    </ul>  
+</div> 
+</td>
+  
+<td>
 <div class="aligncenter">
 <h1><%= @project.name %></h1> 
 </div>    
@@ -45,3 +33,10 @@
     </tr>
   </table>
 </div>
+</td>
+
+
+
+</table> 
+
+

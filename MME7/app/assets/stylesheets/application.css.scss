@@ -108,3 +108,33 @@ td.ta textarea {
 #show {
 	text-align: right;
 }
+
+
+
+
+#floatMenu {  
+	position:relative;
+	top:10px;
+	left: 350px;  
+} 
+
+#floatMenu { 
+	width:250px;
+    margin-right:100px;    
+} 
+
+ 
+
+#floatMenu ul li a {  
+    display:block;  
+    border:1px solid #999;  
+    background-color:#222;  
+    border-left:6px solid #999;  
+    text-decoration:none;  
+    color:#ccc;  
+    padding:5px 5px 5px 25px;  
+} 
+
+#floatMenu li :hover {  
+    border-color:#9f0;  
+}  
