@@ -20,6 +20,25 @@ class PostsController < ApplicationController
 	    end
 	end
 
+respond_to :html, :json
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html {
+          flash[:success] = "Profile updated"
+          sign_in @user
+          redirect_to @user
+        }
+        format.json { respond_with_bip(@user) }
+      else
+        format.html { render 'edit' }
+        format.json { respond_with_bip(@user) }
+      end
+    end
+  end
+
+
 	#Riham Gamal 22-3871
 	#update the post by finding its id and changing the fields
 	respond_to :html, :json
