@@ -1,9 +1,10 @@
+#encoding: UTF-8
 class GroupUser < ActiveRecord::Base
 
    attr_accessible :group_id , :user_id , :isCreator
 
     belongs_to :group 
- belongs_to :user
+  belongs_to :user
   attr_accessible :group_id , :user_id , :isCreator
 
    #Author: Donia Amer Shaarawy 22-0270 

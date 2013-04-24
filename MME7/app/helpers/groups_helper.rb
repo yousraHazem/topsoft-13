@@ -1,4 +1,6 @@
-﻿module GroupsHelper
+﻿#encoding: utf-8
+module GroupsHelper
+
 
  #Author: Donia Amer Shaarawy 22-0270 
  #this method is done to return the member of a specific 
@@ -21,4 +23,5 @@
 
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
+
 end

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module GroupUsersHelper
 
    #Author: Donia Amer Shaarawy 22-0270 
@@ -20,4 +21,6 @@ module GroupUsersHelper
       GroupUser.where(:group_id => group_id, :user_id => user_id).exists? #change to current_user_id  
    end
 
+
 end
+
