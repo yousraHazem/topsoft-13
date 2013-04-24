@@ -1,0 +1,25 @@
+﻿<% @page_title = "Recipts List"%>
+
+<div>
+	<h2>إيصالات</h2>
+    
+	<%= link_to({:action=>'new'}, class: "btn btn-success") do %>
+       <i class="icon-plus icon-white"></i>
+      <% end %>
+
+
+ <table class = "table">
+<tr>
+	<th>إسم</th>
+	<th>ألأيصال</th>
+</tr>
+<% @receipts.each do |receipt|%>
+<tr>
+	<td><%= receipt.name %></td>	
+	<td><%= image_tag receipt.image_url(:thumb).to_s %></td>	
+	<td><%= link_to("تعديل", {:action=>'edit', :id=>receipt.id})%></td>
+</tr>
+
+<%end%>
+</table>
+</div>
