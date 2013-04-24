@@ -1,4 +1,4 @@
-﻿#encoding: UTF-8
+#encoding: UTF-8
 class BudgetComponent < ActiveRecord::Base
 
 
@@ -23,5 +23,4 @@ validates_length_of :total_quantity , :maximum=> 4 , :too_long=> "الحد ال�
 validates_length_of :name , :maximum=> 12 , :too_long=> "الحد الاقصى 12 ارقام"
 
   has_many :receipts
-
 end

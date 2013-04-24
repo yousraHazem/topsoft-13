@@ -20,8 +20,8 @@ include GroupUsersHelper
     # Author: Sama Akram 22-555
     # ARGS the group_id i want to view
     def show
-        @group_id = params[:id]
         @group = Group.find(params[:id])
+
         @postlist = Group.getposts (params[:id])
     end
 
@@ -29,14 +29,12 @@ include GroupUsersHelper
         @group = Group.new
     end
 
-    # Author: Sama Akram 22-555
-    # As a system/admin/member I can create a group issue #157 
-    # creates new group and if saved into db it creates a new record in GroupUser
-    # with currend user_id & and current group_id then sets att. isCreator = true since he's the creator
+    # Author: Sama Akram 22-555 As a system I can create a group, calls after new method to save into db
     def create
         @group = Group.new(params[:group])
         @current_user = current_user
         if @group.save
+
             @groupuser = GroupUser.new(:group_id => @group.id, :user_id => @current_user.id )
             @groupuser.isCreator = 'true'
             @groupuser.save
