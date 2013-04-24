@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
 
 
 
-  has_many :posts 
+  has_many :posts, :order => 'created_at DESC'
   has_and_belongs_to_many :users
   has_many :groups_users 
   belongs_to :communities

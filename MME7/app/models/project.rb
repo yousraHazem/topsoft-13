@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
 
 
 
-    has_many :posts
+    has_many :posts, :order => 'created_at DESC'
     has_many :tasks 
     has_and_belongs_to_many :users
     has_one :budget 
@@ -60,5 +60,6 @@ class Project < ActiveRecord::Base
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
        @users = User.where("id NOT IN (?)" , b)
     end 
+
 
 end

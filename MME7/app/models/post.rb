@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class Post < ActiveRecord::Base
-    attr_accessible :content , :group_id , :project_id , :user_id, :is_group
+    attr_accessible :content , :group_id , :project_id , :user_id, :is_group, :name
 	has_many :comments, :dependent => :destroy
 	belongs_to :user  
 	belongs_to :project
