@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424101627) do
+ActiveRecord::Schema.define(:version => 20130424110730) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -96,6 +96,12 @@ ActiveRecord::Schema.define(:version => 20130424101627) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
