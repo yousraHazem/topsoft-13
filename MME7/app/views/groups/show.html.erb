@@ -48,32 +48,28 @@
         <%= f.hidden_field :group_id, :value => @group.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :is_group, :value => 'true' %>
+           <%= f.hidden_field :name, :value => current_user.name %>  
         
       
     </table> 
   <%end%>
   <%end%>
-<div>
-<div id = "allpostsborder">
- <% @group.posts.each do |post| %>
- <% if !current_user %>
-<h2>please</h2>
-<p> التعبير:
-  <%= post.user_username %>
-  <%= post.content %>
-</p>
-  <%end%>
-      <b id = "postaya">
-  <% if isPostCreator(current_user.id,post.id) == true %>
- التعبير من:  <%= current_user.username %></br>
-       <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id, } %>
-    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
-      <b>
-  <%else%>
+ <div id = "allpostsborder">
+ <% @group.posts.each do |post| %> 
 
-     <p> التعبير من:  <%= current_user.username %></br>
-     <%= post.content %></p>
-        <%end%>
+  <% if isPostCreator(current_user.id,post.id ) == true %>
+   
+   <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> 
+         
+      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id} %></i>
+      <i id="username" class="under">:<%= post.name %></i>
+    
+  <%else%>
+   <p>
+    <%= post.content %> 
+    <i id="username" class="under">:<%= post.name %></i>
+  </p>
+  <%end%>
 
 
     <%= render :partial => "listcomments", :locals => {:post => post} %>
