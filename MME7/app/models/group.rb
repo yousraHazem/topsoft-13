@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
 
 
   has_many :posts, :order => 'created_at DESC'
-  has_and_belongs_to_many :users
+  #has_and_belongs_to_many :users
   has_many :groups_users 
   belongs_to :communities
   validates_presence_of :description, :message => "يرجى إملاء خانة الوصف"
