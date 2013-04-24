@@ -62,6 +62,7 @@
  <% @project.posts.each do |post| %>
       <b id = "postaya">
   <% if isPostCreator(current_user.id,post.id ) == true %>
+  تعبير من:  <%= current_user.username %></br>
       <%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %>
     <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </br>
           <b>
