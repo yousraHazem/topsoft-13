@@ -4,16 +4,22 @@ class CommentsController < ApplicationController
   # sama updated
   #Author: Sama Akram 22-555 
   #redirection changed to
-  def createCommentGroup
+  def createComment
      #@comment_user = current_user
     @comment = Comment.new(params[:comment])
 
     @comment.save
-
-    respond_to do |format|
-    format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
-    format.js
-    end 
+    if (:post_is_group == true)
+      respond_to do |format|
+        format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+        format.js
+    end
+    else
+      respond_to do |format|
+        format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
+        format.js
+      end
+    end
   end
 
   respond_to :html, :json
