@@ -35,6 +35,7 @@
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
     <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
+    <li><%= button_to("make creator", {:controller => 'group_users',:action =>'index',:id=> @group.id}) %></li>
     <% end %>
 <% end %>
 </div>
