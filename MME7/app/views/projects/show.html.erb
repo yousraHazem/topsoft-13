@@ -1,4 +1,4 @@
-      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <table>
       <tr>
         <td>
@@ -26,9 +26,11 @@
 
 
 <div class="project show">
+
 <div class="aligncenter">
 <h1><%= @project.name %></h1> 
 </div>    
+
 <div>
   <table class="table table-hover" >
     <tr>
@@ -47,37 +49,45 @@
 </div>
 
   <div>
+
+    <% if current_user %>
    <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},) do |f| %>
+
     <table summary = "The Post">
       <td class="cin"><%= f.text_area (:content),:placeholder =>"اضيف تعبيرك " %></td>
         <%= f.hidden_field :project_id, :value => @project.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :name, :value => current_user.name %>
     </table> 
-    <button id="bpost" class="btn btn-primary" type="submit">نشر التعبير</button> 
+
+    <button id="bpost" class="btn btn-primary" type="submit">نشر التعبير</button>
+        <% end %>
+    <% end %>
+
  <div id = "allpostsborder">
   <p>
- <% @project.posts.each do |post| %>
+  <% @project.posts.each do |post| %>
+  <% if current_user %>
   <% if isPostCreator(current_user.id,post.id ) == true %>
    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %>   
       <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i>
       <i id="username" class="under">:<%= post.name %></i></br>
       <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
-    </p>
+  </p>
+  <% end %>
   <%else%>
-  <p>
+
     <%= post.content %>  
     <i id="username" class="under">:<%= post.name %></i></br>
     <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
-  </p>
+
   <%end%>
+
   <%= render :partial => "listcomments", :locals => {:post => post} %>
   <%end%>
     </b>
     </b>    
   </div>
-
-  <%end%>
   </div>
   </div>
   </div>
