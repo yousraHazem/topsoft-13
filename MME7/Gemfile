@@ -19,8 +19,8 @@ gem 'rspec-rails'
 # end
 
 gem 'simplecov'
+gem 'rmagick', '~> 2.13.2', :require => 'RMagick'
 gem 'carrierwave'
-#gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"

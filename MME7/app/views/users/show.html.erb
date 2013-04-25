@@ -1,10 +1,21 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <% provide(:title, @user.name) %>
 	<div>
+
 		<h1>
-     	 <%= gravatar_for @user %>
+		 <%= image_tag @user.image_url(:thumb).to_s %>
        	 <%= @user.name %>
-   		 </h1>
+   		</h1>
+
 	</div>
 <%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %>
+
+<%= form_for(:user, :url => {:action => 'addImage', :id => @user.id}, :html => {:multipart => true}) do |f| %>
+	 <p>
+	    <%= f.file_field :image %>
+	 </p>
+	<div>
+		<button class="btn btn-large btn-primary" type="submit">اضف صورة شخصية</button>
+	</div>
+<% end %>
 
