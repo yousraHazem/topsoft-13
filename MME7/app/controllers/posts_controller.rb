@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 	end
 
 	# Author: Mariam Ismail
-	# updates the group post
+	# updates the post
 	# ARGS the updated attributes
 	# returns the updated post
 	respond_to :html, :json
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 	end
 
 	# Author Mariam Ismail
-	# delete a post from a group with its comments
+	# deletes a post with its comments
 	# ARGS post_id
 	# returns nothing, deletes this post from the database 
 	def destroyPost

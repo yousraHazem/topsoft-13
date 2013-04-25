@@ -43,13 +43,13 @@
   <% if ifMember(params[:id],current_user.id)==true %>
    <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},) do |f| %>
     <table summary = "The Post">
-     
-      <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
+      <td class="cin"><%= f.text_area (:content),:placeholder =>"اضيف تعبيرك " %></td>
         <%= f.hidden_field :group_id, :value => @group.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :is_group, :value => 'true' %>
-        <%= f.hidden_field :name, :value => current_user.name %> 
+        <%= f.hidden_field :name, :value => current_user.name %>
     </table> 
+    <button id="bpost" class="btn btn-primary" type="submit">نشر التعبير</button> 
   <%end%>
   <%end%>
  <div id = "allpostsborder">

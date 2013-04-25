@@ -10,21 +10,27 @@
 <h2 class = 'text-center'>إنشاء مجموعة</h2>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
-   <table class="table table-striped" >
+  <table class="table table-striped" >
+
   <tr>
     <th dir="rtl" lang="ar">اسم المجموعة *</th>
     <td><%= f.text_field :group_name %></td>
   </tr>
+
   <tr>
     <th dir="rtl" lang="ar">وصف *</th>
     <td class = "ta"><%= f.text_area :description%></td>
   </tr>
-   <tr>
+
+  <tr>
     <th dir="rtl" lang="ar">مستوى المجموعة *</th>
     <td><%= f.text_field :levels %></td>
   </tr>
+
   </table>
+
   <div>
     <button class="btn btn-info" type="submit">إنشاء المجموعة</button>
   </div>
+
 <% end %>

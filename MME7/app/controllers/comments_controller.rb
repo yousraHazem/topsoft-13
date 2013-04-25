@@ -1,11 +1,12 @@
 #encoding: UTF-8
 class CommentsController < ApplicationController
 
-  # sama updated
-  #Author: Sama Akram 22-555 
-  #redirection changed to
+  # Author: Sama Akram
+  # creates a new comment and redirect to group/project path
+  # ARGS: comment.comment, comment.group_id or comment.project_id, comment.is_group,
+  # comment.user_id, comment.username
+  # returns newly created comment
   def createComment
-     #@comment_user = current_user
     @comment = Comment.new(params[:comment])
     @comment.save
     if (@comment.is_group == true)
@@ -21,7 +22,10 @@ class CommentsController < ApplicationController
     end
   end
 
-
+  # Author: Sama Akram
+  # updates the comment
+  # ARGS the updated attributes
+  # returns the updated comment
   respond_to :html, :json
   def updateComment
     @group_id = params[:group_id]
@@ -29,8 +33,13 @@ class CommentsController < ApplicationController
     @comment.update_attributes(params[:comment])
     @comment.post_id = params[:post_id]
     respond_with @comment
-end
+  end
  
+  
+  # Author Sama Akram
+  # deletes a comment
+  # ARGS comment_id
+  # returns nothing, deletes this comment record from db
   def destroyComment
     @comment = Comment.find(params[:comment_id])
     @comment.destroy
@@ -40,15 +49,4 @@ end
         redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
       end
   end
-
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-  # Salma El -Ruby 22-4649
-  # displays the available comments
-  def list 
-    @comment = Comment.all
-  end
-
 end
