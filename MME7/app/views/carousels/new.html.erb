@@ -6,10 +6,6 @@
 <th><%= f.label(:Title)%></th>
 <td><%= f.text_field(:title)%></td>
 </tr>
-<tr>
-<th><%= f.label(:Description)%></th>
-<td><%= f.text_field(:description)%></td>
-</tr>
 </br>
 <tr>
 <th><%= f.label(:Project)%></th>
@@ -24,6 +20,12 @@
 <tr>
 <th><%= f.label(:News)%></th>
 <td><%= f.file_field(:news)%></td>
+</tr>
+</br>
+</br>
+<tr>
+<th><%= f.label(:Description)%></th>
+<td class = "text"><%= f.text_area(:description)%></td>
 </tr>
 </table>
 </br>
