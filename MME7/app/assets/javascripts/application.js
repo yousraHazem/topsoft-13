@@ -31,21 +31,11 @@ $(function() {
 });
 
 
-
 $(document).ready(function(){
 $("#comment-form").submit(function(){
 $.comment($(this).attr("action"),$(this).serialize(),null, "script");
 return false;
 });
-});
-
-$(function () {
-  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
-    preventDuplicates: true,
-    crossDomain: false , 
-    prePopulate: $('#budget_source_project_tokens').data('pre') , 
-    theme: 'facebook' , 
-    });
 });
 
  $(function() {
@@ -127,11 +117,11 @@ $(function() {
 });
 
 
-$(function() {
-  $("#project_user_tokens").tokenInput("/users.json", {
-    crossDomain: false,
-    prePopulate: $("#project_user_tokens").data("pre"),
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
     preventDuplicates: true,
-    theme: "facebook"
-  });
+    crossDomain: false , 
+    prePopulate: $('#budget_source_project_tokens').data('pre') , 
+    theme: 'facebook' , 
+    });
 });

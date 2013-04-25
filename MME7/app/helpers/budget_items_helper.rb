@@ -1,2 +1,2 @@
-﻿module BudgetItemsHelper
+module BudgetItemsHelper
 end

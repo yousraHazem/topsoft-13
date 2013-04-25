@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class ProjectsController < ApplicationController
   layout "project"
 
