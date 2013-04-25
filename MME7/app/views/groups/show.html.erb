@@ -41,7 +41,7 @@
   <div>
     <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}) do |f| %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},  :html => {:id => "post-form"}) do |f| %>
     <table summary = "The Post">
      
       <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
