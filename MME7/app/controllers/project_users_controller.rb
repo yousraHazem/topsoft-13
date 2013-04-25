@@ -1,4 +1,12 @@
-class ProjectUsersController < ApplicationController	
+class ProjectUsersController < ApplicationController
+
+	 def index
+      @project = Project.find(params[:id])
+      @members = ProjectUser.where(:project_id => params[:id])
+  	end
+
+
+
 	# Author Riham Gamal 22-3871
 	# Arguments project_id, user_id
 	# return ProjectUser
@@ -13,7 +21,7 @@ class ProjectUsersController < ApplicationController
 		end
 
 		if @user.save
-			redirect_to(:controller => 'projects', :action => 'viewMembers', :id => params[:project_id])
+			redirect_to(:controller => 'project_users', :action => 'index', :id => params[:project_id])
 		else
 			redirect_to(:controller => 'projects', :action => 'show', :id => params[:project_id])
 		end				

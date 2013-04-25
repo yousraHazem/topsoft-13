@@ -15,5 +15,7 @@ class ProjectUser < ActiveRecord::Base
 	def get_projectmembers(project_id)
  	     @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
     end
+
+   
     
 end

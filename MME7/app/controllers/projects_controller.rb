@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => @projects.map(&:attributes) }
+
     end
   end
 
@@ -67,10 +68,5 @@ end
   end
 
 
-  def viewMembers
-      @project = Project.find(params[:id])
-      @members = ProjectUser.where(:project_id => params[:id])
-  end
-
-
+ 
 end
