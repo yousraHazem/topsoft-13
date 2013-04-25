@@ -1,4 +1,4 @@
-﻿// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -12,21 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.purr
-//= require best_in_place
 //= require_tree .
+//= require bootstrap-datepicker
 
 $(function(){
     $(".notification-bubble").click(function(){
         $("#notify").toggle();
+        //$("#count").text("0");
+        $.ajax({
+            url: "/nots/read",
+            type: "GET",
+            dataType: "script"
+        });
     });
-});
+}); 
+
+// $(function(){
+//    $("#projects").click(function(){
+//         $("#notify").toggle();
+//   }); 
+// });
 
 $(function(){
   if ($("#notification-list").length > 0 ) {
     $(".notification-bubble").hide();
     $("#notify").hide();
-    setTimeout(updateList, 10000);
+    setTimeout(updateList, 5000);
   }
 });
 
@@ -38,12 +49,12 @@ function updateList() {
      var after2 = "0";
    }
     $.getScript("/nots/list.js?userid=" + userid + "&after2=" + after2 )
-    setTimeout(updateList, 10000); 
+    setTimeout(updateList, 5000); 
 }
 
 
 $(function(){
-    setTimeout(updateNot, 10000);
+    setTimeout(updateNot, 5000);
 }); 
 
 function updateNot() {
@@ -54,10 +65,26 @@ function updateNot() {
   var after = "0";
    }
     $.getScript("/nots.js?user_id=" + user_id + "&after=" + after)
-    setTimeout(updateNot, 10000); 
+    setTimeout(updateNot, 5000); 
 }
  
 
+
+
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
+    preventDuplicates: true,
+    crossDomain: false , 
+    prePopulate: $('#budget_source_project_tokens').data('pre') , 
+    theme: 'facebook' , 
+    });
+});
+
+
+$(function() {
+  $("#project_start_date").datepicker( { format:  "dd/mm/yyyy" } );
+  $("#project_end_date").datepicker( { format: "dd/mm/yyyy" } );
+});
 
 
 $(function(){
@@ -66,6 +93,7 @@ $(function(){
     return false;
   });
 });
+
 
 $(function() {
     $("#price, #total").keyup(function() {
@@ -93,6 +121,7 @@ $(function() {
         $("#spent").val(q * p);
     });
 });
+
 
 
 $(function(){
@@ -134,3 +163,16 @@ $(function() {
         $("#item-form").toggle("slow");
     });
 });
+
+
+$(function() {
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#project_user_tokens").data("pre"),
+    preventDuplicates: true,
+    theme: "facebook"
+  });
+});
+
+
+

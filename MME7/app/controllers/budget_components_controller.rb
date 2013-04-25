@@ -1,25 +1,24 @@
-﻿class BudgetComponentsController < ApplicationController
-  	
+#encoding: UTF-8
+class BudgetComponentsController < ApplicationController
 
+  
 	def index
      list
      render('list')
 	end 
 
 	def list
-		#authorized by: sarah ahmed id=22-1278
-		#calculates the total amount of the passed budget item
+		#authorized by: sarah ahmed id=22-1278 
+		#Description: calculates progress bar percentage and gets all the budget components of a certain budget item 
+		#returns: a list of budget components
+		#Arguments: none
+		@current_user = current_user
 		@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
-		#calculated the total spent amount of the passed budget item
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
-		#gets the passed id of the budget item
 		@item = params[:id]
 		@name = BudgetItem.find(@item).name
 		@project_id = params[:project_id]
-		#gets all the components of the passed budget item
-		#@components = BudgetComponent.search(params[:search], @item)
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
-		#calculating the progress bar percentage
 		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"اكتمل")
 		all = BudgetComponent.where(:budget_item_id=>params[:id])
 		count_size = counts.size
@@ -31,46 +30,38 @@
 	    end
 	end
 
-	# def new
-	# 	#authorized by: sarah ahmed id=22-1278
-    #   gets the passed id of the budget item 
-    #   @project_id = params[:project_id]
-	# 	@item = params[:id]
-	# 	#initializes a new component
-	# 	@component = BudgetComponent.new
-
-	# end
-
 	def create
 		#authorized by: sarah ahmed id=22-1278
-		# get the passed id of the budget item
+		#Description: instantiate a new budget component and then updates the spent and total attributes of its budget item
+		#returns: none
+		#Arguments: none
 		@project_id = params[:project_id]
 	    @item = params[:id]
-	    # finds this budget item
 	    @budget_item= BudgetItem.find(@item)
-	    # takes the submitted values from the form and creates a new component
 		@component = BudgetComponent.new(params[:component])
 
 
 		if @component.save
-            #if the component was successfully saved,it calculates the new total and spent amounts of all the budget components,and update the attributes of the associated budget item with these values
 			@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 			@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
 			@budget_item.update_attributes(:total=>@total,:spent=>@spent)
 
-            #@members = ProjectUser.find(:all , :select=> "user_id" , :conditions=>{:project_id => params[:project_id]}).collect(&:user_id)
+            
+            project_name = Project.find(@project_id).name
             @members = ProjectUser.where(:project_id => params[:project_id])
-            notification = Not.create(:content=>"sarah has edited budget component")
+            notification = Not.create(:content=>"#{current_user.name}  قام بانشاء عنصر جديد للميزانية '#{@component.name}' لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"create budget") 
+            current_id = current_user.id
             @members.each do |member|
-            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id) 
+	            if 	member.user_id == current_id
+	             
+	            else
+	            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+	            end
             end
-
             
 			redirect_to(:action=>'list',:id=> @item , :project_id=>@project_id )
-
 		else
-		   #if the component was not saved, render the "new" page
            render('new')
 		end
 
@@ -78,61 +69,145 @@
 
 	def edit
 		#authorized by: sarah ahmed id=22-1278
-		#gets the passed id of the budget item
+		#Description: gets the budget component of the passed id and view its details in the edit form
+		#returns: none
+		#Arguments: none
 		@item = params[:item_id]
 		@project_id = params[:project_id]
-		#gets the component values
 		@component = BudgetComponent.find(params[:id])
-		#@component = BudgetComponent.find(:all, :conditions=>{:id=>params[:id], :budget_item_id=>@item})
+
+		@old_name = @component.name
+		@old_unit_price = @component.unit_price
+		@old_quantity_purchased = @component.quantity_purchased
+		@old_total_quantity = @component.total_quantity
+	
 	end
 
 	def update
 		#authorized by: sarah ahmed id=22-1278
-		#gets the budget item of the passed id
+		#Description: updates the budget component with the new submitted values and then updates the spent and total attributes of the associated budget
+		#returns: none
+		#Arguments: none
 		@item = params[:item_id]
 		@project_id = params[:project_id]
 		@budget_item= BudgetItem.find(@item)
-		# takes the submitted values from the form and creates a new component
 		@component = BudgetComponent.find(params[:id])
 
+		@old_name = params[:old_name]
+		@old_unit_price = params[:old_unit_price]
+		@old_quantity_purchased = params[:old_quantity_purchased]
+		@old_total_quantity = params[:old_total_quantity]
+
+
 		if @component.update_attributes(params[:component])
-        #if updating the component attributes was successful,it recalculates the new total and spent amounts of all the budget components,and update the attributes of the associated budget item with these values
 			@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 			@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
             @budget_item.update_attributes(:total=>@total, :spent=>@spent)
 
-			redirect_to(:action=>'list', :id=> @item , :project_id=>@project_id )
+            
+            project_name = Project.find(@project_id).name
+            @members = ProjectUser.where(:project_id => params[:project_id])
+            current_id = current_user.id
+           
+            @new_name = @component.name
+		    @new_unit_price = @component.unit_price
+		    @new_quantity_purchased = @component.quantity_purchased
+		    @new_total_quantity = @component.total_quantity
+
+
+		    if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i != @new_total_quantity.to_i)) 
+		    
+			    notification = Not.create(:content=>"#{current_user.name} قام بتعديل اجمالى الكمية لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+	            @members.each do |member|
+		            if 	member.user_id == current_id     
+		            else
+		            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+		            end
+	            end
+
+	        else 
+	        	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i != @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
+	                notification = Not.create(:content=>"#{current_user.name} قام بتعديل الكمية المشتراة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+		            @members.each do |member|
+			            if 	member.user_id == current_id     
+			            else
+			            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+			            end
+		            end
+
+		        else
+		        	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i != @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
+                    	notification = Not.create(:content=>"#{current_user.name} قام بتعديل سعر الوحدة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+		                @members.each do |member|
+				            if 	member.user_id == current_id     
+				            else
+				            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+				            end
+		                end
+
+		            else
+		            	if((@old_name.to_s != @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
+	                        notification = Not.create(:content=>"#{current_user.name} قام بتعديل الاسم لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+			                @members.each do |member|
+					            if 	member.user_id == current_id     
+					            else
+					            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+					            end
+			                end
+			            else
+			            	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
+		                    else
+		                    	notification = Not.create(:content=>"#{current_user.name} قام بتعديل عنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+				                @members.each do |member|
+						            if 	member.user_id == current_id     
+						            else
+						            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+						            end
+				                end
+		                    end
+			            end    
+			        end
+		        end
+		    end        
+		   redirect_to(:action=>'list', :id=> @item , :project_id=>@project_id )
 		else
            render('edit')
 		end
 
     end
 
-	def delete
-		#authorized by: sarah ahmed id=22-1278
-		#finds the component with the passed id
-		@item = params[:item_id]
-		@component = BudgetComponent.find(params[:id])
-	end
-
 	def destroy
 		#authorized by: sarah ahmed id=22-1278
+		# Description :deletes the component with the passed id and then updates the spent and total attributes of the associated budget
+	    #Arguments: none
+	    #returns: none
 	    @item = params[:item_id]
-        #deletes the component with the passed id
-	    BudgetComponent.find(params[:id]).destroy
-        #gets the budget item of this component, and recalculates the new total and spent amounts of all the budget components,and update the attributes of the associated budget item with these values
+	    @project_id = params[:project_id]
+       
+	    @component = BudgetComponent.find(params[:id])
+	    @name = @component.name
+	    @component.destroy
+
+        project_name = Project.find(params[:project_id]).name
+        @members = ProjectUser.where(:project_id => params[:project_id])
+        notification = Not.create(:content=>"#{current_user.name} قام بالغاء عنصر '#{@name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"delete budget") 
+        current_id = current_user.id
+        @members.each do |member|
+            if 	member.user_id == current_id
+             
+            else
+            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+            end
+        end
+        
 	    @budget_item= BudgetItem.find(@item)
 	    @total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
-		if @budget_item.update_attributes(:total=>@total, :spent=>@spent)
-			flash[:notice] = "Item successfully updated"
-		else
-		  flash[:notice] = "Item unsuccessfully updated"	
-	    end
+		@budget_item.update_attributes(:total=>@total, :spent=>@spent)
+
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
 
 end
-

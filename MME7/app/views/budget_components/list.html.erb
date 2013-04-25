@@ -1,11 +1,12 @@
-﻿<p class="link pull-left">
+﻿
+<p class="link pull-left">
   <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %>
   <i class=" icon-chevron-left"></i>
 </p>
+
 <% @page_title = "عنلصر الميزانية"%>
 <div class="style">
   <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
-
   <fieldset class="header"> 
     <legend>
       <h1><%= @name %>
@@ -15,17 +16,19 @@
       </h1>
     </legend> 
     <h3>الاجمالى: <%= @total %></h3> 
+    <h6><i class="icon-tint"></i>اسم المشروع: </h6>
+    <h6><i class="icon-tint"></i>اسم الميزانية: </h6>
     <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
   </fieldset>
-   <span class="h3"> 
-    <div>
-    <% if(isProjectCreator(1, @project_id ) == true) %> 
-   <%= link_to("#",:id=>"create" , class: "btn btn-success") do %>
-    <i class="icon-plus icon-white"></i> 
-      <% end %>
-     <% end %> 
-     العناصر  </div><span>
-
+  <span class="h3"> 
+     <div>
+        <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
+          <%= link_to("#",:id=>"create" , class: "btn btn-success pull-left") do %>
+          <i class="icon-plus icon-white"></i> اضافة عنصر 
+          <% end %>
+        <% end %> العناصر 
+     </div>
+  <span> 
   <div id="comp" style="display:none;" >
     <%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}, :html =>{:id =>"component-form"}) do |f| %>
       <%= render(:partial => "form" , :locals => {:f=> f})%>

@@ -20,7 +20,7 @@ module ApplicationHelper
  end
 
   def notifications
-    @nots = NotUser.where("user_id = ?", 1).order('created_at DESC')
+    @nots = NotUser.where("user_id = ?", current_user.id ).order('created_at DESC')
   end
 
 end

@@ -1,6 +1,11 @@
-﻿class BudgetComponent < ActiveRecord::Base
+﻿#encoding: UTF-8
+class BudgetComponent < ActiveRecord::Base
+
+
    attr_accessible :name , :total_quantity , :unit_price , :status , :total , :budget_item_id ,:quantity_purchased , :spent
+
   belongs_to :budget_item
+
 
 validates :name, :presence => {:message => "يجب ادخال الاسم" } 
 validates_numericality_of :unit_price, :greater_than => 0,
@@ -16,5 +21,7 @@ validates_length_of :unit_price , :maximum=> 4 , :too_long=> "الحد الاق�
 validates_length_of :quantity_purchased , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
 validates_length_of :total_quantity , :maximum=> 4 , :too_long=> "الحد الاقصى 4 ارقام"
 validates_length_of :name , :maximum=> 12 , :too_long=> "الحد الاقصى 12 ارقام"
+
+  has_many :receipts
 
 end

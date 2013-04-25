@@ -1,5 +1,8 @@
 <% @notifications.each do |t|%>
+<% url = t.not.url %>
+<a href="<%= url %>" style="text-decoration: none;">
 <div class="<%= t.read == false ? 'notification-list unread' : 'notification-list read' %>"  data-time="<%= t.created_at.to_i %>"> 
-<%= t.not.content %><span class="created pull-right"><%= t.created_at %></span><br><br><hr>
-</div>  
+<%= t.not.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i><br><br><hr>
+</div> 
+</a> 
 <%end%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421152824) do
+ActiveRecord::Schema.define(:version => 20130424100924) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20130421152824) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "amount",           :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(:version => 20130421152824) do
     t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "url"
+    t.string   "image"
   end
 
   create_table "posts", :force => true do |t|
@@ -156,9 +158,10 @@ ActiveRecord::Schema.define(:version => 20130421152824) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "title"
+    t.boolean  "is_frozen",   :default => false
   end
 
   create_table "projects_users", :id => false, :force => true do |t|
