@@ -1,0 +1,22 @@
+﻿<div >
+  <h2>comments</h2>
+  
+  
+
+  <table >
+    <tr>
+      <th></th>
+      <th>Comments List</th>
+      
+    </tr>
+    <% @comment.each do |comment| %>
+    <tr>
+     <td> <%= comment.comment %></td>
+      <td>
+       
+        <%= link_to("Delete", {:action => 'delete', :id => comment.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
