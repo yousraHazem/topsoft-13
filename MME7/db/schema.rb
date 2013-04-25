@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "amount",           :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "budget_sources", :force => true do |t|
