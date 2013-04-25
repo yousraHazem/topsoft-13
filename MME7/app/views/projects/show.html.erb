@@ -64,7 +64,7 @@
    
    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> 
          
-      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:project_id => @project.id} %></i>
+      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i>
       <i id="username" class="under">:<%= post.name %></i>
     
   <%else%>

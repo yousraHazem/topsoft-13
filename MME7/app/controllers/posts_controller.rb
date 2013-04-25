@@ -38,21 +38,10 @@ respond_to :html, :json
     end
   end
 
-
-	#Riham Gamal 22-3871
-	#update the post by finding its id and changing the fields
-	respond_to :html, :json
-	def updatePost
-		@project_id = params[:project_id]
-		@post = Post.find(params[:id])
-		@post.update_attributes(params[:post])			       		
-		respond_with @post			
-	end
-
 	#Author 22-3456
 	#updates the group post
 	respond_to :html, :json
-	def updatePostGroup
+	def updatePost
 		 @group_id = params[:group_id]
 		 @post = Post.find(params[:id])	
 		 @post.group_id = params[:group_id]     
@@ -60,6 +49,8 @@ respond_to :html, :json
 	     respond_with @post
 	end
 
+
+ 
 	#Author Mariam Ismail 22-3456
 	# delete a post from a group with its comments
 	def destroyPost

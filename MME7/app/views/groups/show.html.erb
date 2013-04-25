@@ -41,7 +41,7 @@
   <div>
     <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},  :html => {:id => "post-form"}) do |f| %>
+   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},) do |f| %>
     <table summary = "The Post">
      
       <td ><%= f.text_field (:content),:placeholder =>"اضيف تعبيرك " %></td>
@@ -61,7 +61,7 @@
    
    <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> 
          
-      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePostGroup', :id=>post.id,:group_id => @group.id} %></i>
+      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></i>
       <i id="username" class="under">:<%= post.name %></i>
     
   <%else%>

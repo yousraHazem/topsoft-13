@@ -21,17 +21,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  respond_to :html, :json
-  def updateCommentProject
-    @project_id = params[:project_id]
-    @comment = Comment.find(params[:id])
-    @comment.update_attributes(params[:comment])
-    @comment.post_id = params[:post_id]
-    respond_with @comment  
-  end
 
   respond_to :html, :json
-  def updateCommentGroup
+  def updateComment
     @group_id = params[:group_id]
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
