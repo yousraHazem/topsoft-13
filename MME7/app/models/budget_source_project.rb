@@ -4,4 +4,5 @@ class BudgetSourceProject < ActiveRecord::Base
    belongs_to :project
    belongs_to :budget_source
 
+validates_numericality_of :amount , :greater_than_or_equal => 0
 end

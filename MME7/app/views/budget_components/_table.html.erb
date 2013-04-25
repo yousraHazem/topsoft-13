@@ -23,10 +23,10 @@
 		<% if(isProjectCreator(@current_user, @project_id ) == true) %>
         <%= link_to("تعديل", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
 	    <%= link_to("إلغاء", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"المدفوع #{component.spent}  هل تريد الغاء هذا العنصر؟", :id=>"delete",:class=>"btn btn-danger btn-small")%>
-	    <%= link_to("إضافة وصل", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
-	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+	    <%= link_to("إضافة وصل", {:controller => 'receipts', :action=>'new' ,:id=>component.id  ,:project_id=> @project_id},:class=>"btn btn-small")%>
+	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id  ,:project_id=> @project_id},:class=>"btn btn-small")%>
 	    <%else%>
-	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id  ,:project_id=> @project_id},:class=>"btn btn-small")%>
         <% end %>
 	</td>
 

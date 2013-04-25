@@ -1,6 +1,6 @@
 class AlterUsers < ActiveRecord::Migration
-  def ups
-  	remove_column :users, :username
+  def up
+  	remove_column :users , :project_id
   end
 
   def down

@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class PostsController < ApplicationController
-	
+
 	#Author Mariam Ismail 22-3456
 	#creates a new post on a group
 	def createPost
