@@ -120,7 +120,8 @@ td.ta textarea {
 
 #floatMenu { 
 	width:250px;
-    margin-right:100px;    
+    margin-right:100px; 
+    margin-top:40px;    
 } 
 
  
@@ -138,3 +139,33 @@ td.ta textarea {
 #floatMenu li :hover {  
     border-color:#9f0;  
 }  
+
+
+#main-wrap > div { min-height: 450px; }
+
+
+#header,
+#footer {
+    min-height: 40px;
+}
+
+
+#main-wrap {
+	margin-top:60px;  
+    overflow: hidden;
+}
+
+#sidebar {
+    float: right;
+    width: 30%;
+}
+
+#content-wrap {
+    float: right;
+    width: 70%;
+}  
+
+#addMargin{
+	margin-right:50px;
+	margin-left:150px;
+} 

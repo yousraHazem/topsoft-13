@@ -1,42 +1,43 @@
 ﻿<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<table>
-
+<div class="aligncenter">
+    <h1><%= @project.name %></h1> 
+</div> 
+<div id="sidebar">
   <td>
-    <div id="floatMenu">  
-       <ul> 
+   <div id="floatMenu">  
+      <ul> 
           <% if isProjectCreator(current_user.id, @project.id)%> 
-          <li><%= link_to("make creator", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
-           <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
+                <li><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
+                <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
            <% end %>  
           <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
-          <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
+          <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li> 
           <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
-        </ul>  
-    </div> 
-  </td>
-  
-  <td>  
-    <div class="project show">
-      <div class="aligncenter">
-      <h1><%= @project.name %></h1> 
-      </div>    
-      <div class="alignright">
-        <table class="table table-hover" align="right">
-          <tr>
-            <td></i> تاريخ البداية</td>
-            <td><%= @project.start_date %></td>
-          </tr>   
-          <tr >
-            <td>تاريخ النهاية</td>
-            <td><%= @project.start_date %></td>
-          </tr>
-          <tr >
-            <td></i>تفاصيل المشروع</td>
-            <td><%= @project.description %></td>
-          </tr>
-        </table>
-      </div>
-  </td>
-</table> 
+      </ul>
+    </div>     
+  </td> 
+ </div>
 
-
+<div id="main-wrap">
+  <div id="content-wrap">
+    <td>  
+        <div class="project show">   
+          <div class="alignright">
+            <table class="table table-striped">
+              <tr>
+                <td><div id = "addMargin"> تاريخ البداية</div></td>
+                <td><%= @project.start_date %></td>
+              </tr>   
+              <tr >
+                <td><div id = "addMargin">تاريخ النهاية</div></td>
+                <td><%= @project.start_date %></td>
+              </tr>
+              <tr >
+                <td><div id = "addMargin">تفاصيل المشروع</div></td>
+                <td><%= @project.description %></td>
+              </tr>
+            </table>
+          </div>
+      </td>
+  </div>
+</div>
