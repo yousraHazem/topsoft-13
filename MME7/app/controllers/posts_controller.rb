@@ -1,11 +1,13 @@
 #encoding: UTF-8
 class PostsController < ApplicationController
 
-	#Author Mariam Ismail 22-3456
-	#creates a new post on a group
+	# Author Mariam Ismail
+	# creates a new post and redirect to group/project path
+	# ARGS: post.content, post.group_id or post.project_id, post.is_group,
+	# post.user_id, post.username
+	# returns newly created post
 	def createPost
 		@post = Post.new(params[:post])
-		#@post.user_id =  @user_id
 		@post.save
 		if (@post.is_group == true)
 			respond_to do |format|
@@ -20,26 +22,10 @@ class PostsController < ApplicationController
 	    end
 	end
 
-respond_to :html, :json
-  def update
-    @post = Post.find(params[:id])
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html {
-          flash[:success] = "Profile updated"
-          sign_in @user
-          redirect_to @user
-        }
-        format.json { respond_with_bip(@user) }
-      else
-        format.html { render 'edit' }
-        format.json { respond_with_bip(@user) }
-      end
-    end
-  end
-
-	#Author 22-3456
-	#updates the group post
+	# Author: Mariam Ismail
+	# updates the group post
+	# ARGS the updated attributes
+	# returns the updated post
 	respond_to :html, :json
 	def updatePost
 		 @group_id = params[:group_id]
@@ -49,10 +35,10 @@ respond_to :html, :json
 	     respond_with @post
 	end
 
-
- 
-	#Author Mariam Ismail 22-3456
+	# Author Mariam Ismail
 	# delete a post from a group with its comments
+	# ARGS post_id
+	# returns nothing, deletes this post from the database 
 	def destroyPost
 		@group_id = params[:group_id]
         @post=Post.find(params[:post_id])
@@ -63,9 +49,4 @@ respond_to :html, :json
 	    	redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id])
 	    end
 	end
-
-	def getComments
-	    @commentsList = Post.getPostComments(params[:id])
-	end
-
 end
