@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
+ActiveRecord::Schema.define(:version => 20130425182259) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -73,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
