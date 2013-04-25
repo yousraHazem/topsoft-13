@@ -1,7 +1,8 @@
 ﻿class NotsController < ApplicationController
-
+ include ApplicationHelper
 	
  def index
+    @count = notification_count(current_user.id)
  	@nots = NotUser.where("user_id = ? and created_at > ?", params[:user_id], Time.at(params[:after].to_i + 1)).order('created_at DESC')
  end
 
@@ -21,6 +22,7 @@
     @notifications.each do |notification|
       notification.update_attributes(:read=>true)
     end
+    @count = notification_count(current_user.id)
  	respond_to do |format|
     format.js 
     end

@@ -18,7 +18,7 @@
 $(function(){
     $(".notification-bubble").click(function(){
         $("#notify").toggle();
-        //$("#count").text("0");
+        // $(".notification-bubble").hide();
         $.ajax({
             url: "/nots/read",
             type: "GET",
