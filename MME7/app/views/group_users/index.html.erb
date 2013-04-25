@@ -2,22 +2,20 @@
   <% @members.each do |m| %>
   <table class="table table-striped">    
     <% if m.user_id != current_user.id %>        
-    <tr>
-      <td>
-      <%= m.user.name %> 
-      </td>         
-      <td>        
+    <tr>      
+      <th class = "right">
+        <td><%= m.user.name %></td>          
+      </th>              
+      <td>             
         <% if m.isCreator == true %>
-        <%= link_to("creator",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله ناشئ للمجموعة؟") %>
-      </td>
-      <td>
+        <%= link_to("مشرف",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله عضو فقط؟") %>
         <% else %>     
-          <%= link_to("not creator",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعلهو عضو عادي؟") %>
+          <%= link_to("عضو",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله مشرف للمجموعة؟") %>
+        <% end %>  
       </td>
-        <% end %>
-        <% end %>
-    </tr> <br>
-     <% end %>
+    </tr> <br> 
+    <% end %>    
+    <% end %>
   </table>
 </div> 
 

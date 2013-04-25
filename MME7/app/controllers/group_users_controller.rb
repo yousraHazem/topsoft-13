@@ -23,6 +23,9 @@ class GroupUsersController < ApplicationController
         redirect_to(:controller => 'groups', :action => 'show', :id => params[:id])
     end
 
+  #Author Riham Gamal 22-3871
+  #Arguments group_id
+  #return all GroupUsers in @members array
   def index
       @group = Group.find(params[:id])
       @members = GroupUser.where(:group_id => params[:id])
