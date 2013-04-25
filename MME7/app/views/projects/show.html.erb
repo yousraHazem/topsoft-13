@@ -3,11 +3,13 @@
 
   <td>
     <div id="floatMenu">  
-       <ul>  
-          <li><%= link_to("make creator", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>  
+       <ul> 
+          <% if isProjectCreator(current_user.id, @project.id)%> 
+          <li><%= link_to("make creator", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
+           <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
+           <% end %>  
           <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
           <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
-          <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
           <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
         </ul>  
     </div> 

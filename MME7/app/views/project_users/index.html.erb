@@ -1,22 +1,21 @@
 <div id="dialog-form" title="Promote Member">
-	
-
   <% @members.each do |m| %>
-
-  <table class="table table-striped">
+  <table class="table table-striped">    
+    <% if m.user_id != current_user.id %>      	 
     <tr>
       <td>
-      	<%= m.user.name %>
-        
-      </td>
+    	<%= m.user.name %> 
+      </td>  	      
       <td>
+      	
         <% if m.is_creator == true %>
-        <%= link_to("creator",{:action => 'promoteMembers', :project_id=> @project.id,   :user_id => m.user_id}, :class =>'btn btn-primary') %>
+        <%= link_to("creator",{:action => 'promoteMembers', :project_id=> @project.id,   :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "are??") %>
       </td>
       <td>
         <% else %>     
-          <%= link_to("not creator",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+          <%= link_to("not creator",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "are??") %>
       </td>
+        <% end %>
         <% end %>
     </tr> <br>
      <% end %>
