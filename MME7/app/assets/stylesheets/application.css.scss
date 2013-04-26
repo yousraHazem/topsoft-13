@@ -14,11 +14,57 @@
  *= require bootstrap-datepicker
  */
 
+  .pull {
+  margin: 225px;
+  color: #bbb;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  }
+
+  .kay {
+  padding: 0 !important;
+  height: 20px !important;
+  }
+
+  .no {
+ margin: 79px;
+  }
+  
+  .date {
+  color: #686868;
+  font-size: 9px;
+
+  }
+
+
+  .created {
+   font-size: 10px;
+  }
+
+  .image {
+  position:fixed;
+  top:120px;
+  right:767px;
+  }
+
+ .menu {
+    background: #f2f2f2;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px; 
+    display: block;
+    margin: 80px auto;
+}
+
  #background {
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 730px;
- padding-top: 60px;
+ padding: 20px;
+ 
  }
 
  td.texta textarea {
@@ -46,11 +92,7 @@
 	text-align: center;
 }
 
-#background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- }
+
 
 
 .sources{

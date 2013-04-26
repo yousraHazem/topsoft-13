@@ -7,18 +7,48 @@ class CommentsController < ApplicationController
   # comment.user_id, comment.username
   # returns newly created comment
   def createComment
+    @position = params[:position].to_i
     @comment = Comment.new(params[:comment])
     @comment.save
-    if (@comment.is_group == true)
-      respond_to do |format|
-        format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
-        format.js
+
+    post_creator = Post.find(@comment.post_id).user_id
+    creator_name = Post.find(@comment.post_id).user.name
+    if current_user.id != post_creator
+    notification = Notification.create(:content=>"#{current_user.name}  كام بالتعليق على تعبيرك" , :url =>"/posts/show/#{@comment.post_id}" , :image=>"post") 
+    NotificationUser.create(:user_id=>post_creator , :notification_id=> notification.id)
+    end   
+    
+    comment_notification = Notification.create(:content=>"#{current_user.name}  كام بالتعليق على تعبير #{creator_name}" , :url =>"/posts/show/#{@comment.post_id}" , :image=>"post") 
+    @post = Post.find(@comment.post_id)
+    @post.comments.each do |comment|
+    if ((@comment.user_id != comment.user_id) && (comment.user_id != post_creator))
+       sent_notifications = NotificationUser.find(:all , :conditions=>{:user_id=>comment.user_id , :notification_id=> comment_notification.id})
+       if sent_notifications.empty?
+       NotificationUser.create(:user_id=>comment.user_id , :notification_id=> comment_notification.id)
+       end
     end
-    else
-      respond_to do |format|
-        format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id]) }
-        format.js
+    end
+
+    if (@comment.is_group == true)
+        respond_to do |format|
+          format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+          format.js
       end
+    else
+
+      if @position == 0
+        respond_to do |format|
+          format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id] , :p=>@position) }
+          format.js
+        end
+      end
+      if @position == 1
+          respond_to do |format|
+          format.html { redirect_to(:controller =>'posts' ,:action => 'show', :id =>@comment.post_id , :p=>@position)}
+          format.js
+        end
+      end
+
     end
   end
 

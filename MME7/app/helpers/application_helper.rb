@@ -14,4 +14,13 @@ module ApplicationHelper
     end
   end
 
+
+ def notification_count(current_user)
+ @nots = NotificationUser.where("user_id = ? AND read = ? ", current_user , false).size
+ end
+
+  def notifications
+    @nots = NotificationUser.where("user_id = ?", current_user.id ).order('created_at DESC')
+  end
+
 end

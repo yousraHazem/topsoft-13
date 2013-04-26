@@ -92,6 +92,8 @@ GEM
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    launchy (2.2.0)
+      addressable (~> 2.3)
     listen (0.7.3)
     lumberjack (1.0.3)
     mail (2.5.3)

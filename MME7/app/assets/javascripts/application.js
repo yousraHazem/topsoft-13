@@ -5,6 +5,60 @@
 //= require_tree .
 //= require bootstrap-datepicker
 
+$(function(){
+    $(".notification-bubble").click(function(){
+        $("#notify").toggle();
+        $.ajax({
+            url: "/notifications/read",
+            type: "GET",
+            dataType: "script"
+        });
+    });
+}); 
+
+// $(function(){
+//    $("#projects").click(function(){
+//         $("#notify").toggle();
+//   }); 
+// });
+
+$(function(){
+  if ($("#notification-list").length > 0 ) {
+    $(".notification-bubble").hide();
+    $("#notify").hide();
+    setTimeout(updateList, 5000);
+  }
+});
+
+function updateList() {
+    var userid = $("#current-user").attr("data-id");  
+   if ($(".notification-list").length > 0) {
+    var after2 = $(".notification-list:first").attr("data-time");
+   } else {
+     var after2 = "0";
+   }
+    $.getScript("/notifications/list.js?userid=" + userid + "&after2=" + after2 )
+    setTimeout(updateList, 5000); 
+}
+
+
+$(function(){
+    setTimeout(updateNot, 5000);
+}); 
+
+function updateNot() {
+  var user_id = $("#current-user").attr("data-id");  
+   if ($(".notify").length > 0) {
+  var after = $(".notify:first").attr("data-time");
+   } else {
+  var after = "0";
+   }
+    $.getScript("/notifications.js?user_id=" + user_id + "&after=" + after)
+    setTimeout(updateNot, 5000); 
+}
+ 
+
+
 
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {
@@ -50,7 +104,9 @@ return false;
   });
 });
 
- $(function() {
+
+
+$(function() {
     $("#price, #total").keyup(function() {
         var p = $("#price").val();
         var q = $("#total").val();
@@ -78,7 +134,10 @@ return false;
     });
 });
 
- $(function(){
+
+
+
+$(function(){
     var p = $("#data").val();
 $("#progress").css('width',p+'%');
 $("#progress").html(p+'%');
@@ -125,3 +184,4 @@ $(function () {
     theme: 'facebook' , 
     });
 });
+

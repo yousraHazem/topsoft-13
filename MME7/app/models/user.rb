@@ -28,6 +28,14 @@ class User < ActiveRecord::Base
   has_many :tasks , :through => :task_users
 
 
+  has_many :notification_users
+  has_many :notifications ,:through => :notification_users
+
+  before_save { |user| user.email = email.downcase }
+  before_save { |user| user.username = username.downcase }
+  before_save :create_remember_token
+
+
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"
