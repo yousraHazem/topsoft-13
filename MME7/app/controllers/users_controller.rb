@@ -41,6 +41,9 @@ class UsersController < ApplicationController
   end
 end
 
+# Author Riham Gamal 22-3871
+# Arguments: user.id
+# Return update the user attributes (image)
 def addImage
    @user = User.find(params[:id])
    @user.update_attributes(params[:user])
