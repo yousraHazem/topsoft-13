@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class Receipt < ActiveRecord::Base
   attr_accessible :budget_component_id, :image , :name
 
