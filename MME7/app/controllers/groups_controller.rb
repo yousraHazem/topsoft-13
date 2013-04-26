@@ -23,6 +23,7 @@ include GroupUsersHelper
         @group_id = params[:id]
         @group = Group.find(params[:id])
         @postlist = Group.getposts (params[:id])
+        @position = 0
     end
 
     def new
