@@ -1,4 +1,4 @@
-#encoding: utf-8
+#encoding: UTF-8
 class Post < ActiveRecord::Base
 
     attr_accessible :content , :group_id , :project_id , :user_id

@@ -1,27 +1,32 @@
 require 'spec_helper'
-# Author : Nayera Mohamed 22-3789
-describe ProjectUsersController do
 
-describe "POST promoteMembers" do
+ def valid_attributes
+    {:group_id => 1, :user_id => 1, :isCreator => true}
+  end
+
+  def invalid_attributes
+   {:group_id => 'a', :user_id => 'a', :isCreator => 'a'}
+  end
+
+
+
+describe GroupUsersController do
+  describe "POST promoteMembers" do
     describe "with valid params" do
-      it "creates a new Group" do
-        expect {
-          post :create, {:group => valid_attributes}
-        }.to change(Group, :count).by(1)
-      end
-
-      it "assigns a newly created group as @group" do
-        post :create, {:group => valid_attributes}
-        assigns(:group).should be_a(Group)
-        assigns(:group).should be_persisted
-      end
-
-      it "redirects to the group index" do
-        post :create, {:group => valid_attributes}
-        response.should redirect_to("http://test.host/groups")
-      end
+        it "promotes a group user to be a group creatot" do
+          @user = GroupUser.create!
+          u = GroupUser.should_receive(:find).and_return(@user)
+          put :promoteMembers, {:id => u.to_param}
+        redirect_to(:controller => 'group_users', :action => 'index')
+        end
     end
-end    
-   
-
-end
+    describe "with invalid params" do
+        it "promotes a group user to be a group creatot" do
+          @user = GroupUser.create!
+          u = GroupUser.should_receive(:find).and_return(@user)
+          put :promoteMembers, {:id => u.to_param}
+        redirect_to(:controller => 'groups', :action => 'show')
+        end
+    end
+    end
+end 

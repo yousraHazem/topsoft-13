@@ -8,9 +8,9 @@
       </th>              
       <td>             
         <% if m.isCreator == true %>
-        <%= link_to("مشرف",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله عضو فقط؟") %>
+        <%= link_to("مشرف",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-primary') %>
         <% else %>     
-          <%= link_to("عضو",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله مشرف للمجموعة؟") %>
+          <%= link_to("عضو",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
         <% end %>  
       </td>
     </tr> <br> 
