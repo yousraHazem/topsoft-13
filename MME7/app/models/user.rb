@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
    has_many :task_users
   has_many :tasks , :through => :task_users
 
-  has_many :not_users
-  has_many :nots ,:through => :not_users
+  has_many :notification_users
+  has_many :notifications ,:through => :notification_users
 
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }

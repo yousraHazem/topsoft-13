@@ -1,5 +1,5 @@
-﻿class NotsController < ApplicationController
- include ApplicationHelper
+class NotificationsController < ApplicationController
+	 include ApplicationHelper
 	
  def index
     @count = notification_count(current_user.id)
@@ -27,5 +27,4 @@
     format.js 
     end
  end
-
 end

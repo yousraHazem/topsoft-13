@@ -41,13 +41,13 @@ class ProjectsController < ApplicationController
          flash[:notice]= "project created"
 
          @members = User.all
-         notification = Not.create(:content=>"#{current_user.name}  قام بانشاء مشروع جديد '#{@project.name}'" , :url =>"/projects/show/#{@project.id}" , :image=>"create project") 
+         notification = Notification.create(:content=>"#{current_user.name}  قام بانشاء مشروع جديد '#{@project.name}'" , :url =>"/projects/show/#{@project.id}" , :image=>"create project") 
          current_id = current_user.id
          @members.each do |member|
             if  member.id == current_id
                
             else
-            NotUser.create(:user_id=>member.id , :not_id=> notification.id)
+            NotificationUser.create(:user_id=>member.id , :notification_id=> notification.id)
             end
           end
 
@@ -86,13 +86,13 @@ class ProjectsController < ApplicationController
          flash[:notice]= "project updated"
 
         @members = ProjectUser.where(:project_id=>@project.id)
-        notification = Not.create(:content=>"#{current_user.name}  قام بتعديل مشروع '#{@project.name}'" , :url =>"/projects/show/#{@project.id}" , :image=>"edit budget") 
+        notification = Notification.create(:content=>"#{current_user.name}  قام بتعديل مشروع '#{@project.name}'" , :url =>"/projects/show/#{@project.id}" , :image=>"edit budget") 
         current_id = current_user.id
         @members.each do |member|
             if  member.user_id == current_id
                
             else
-            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
             end
         end
 

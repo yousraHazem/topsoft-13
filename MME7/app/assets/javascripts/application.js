@@ -20,7 +20,7 @@ $(function(){
         $("#notify").toggle();
         // $(".notification-bubble").hide();
         $.ajax({
-            url: "/nots/read",
+            url: "/notifications/read",
             type: "GET",
             dataType: "script"
         });
@@ -48,7 +48,7 @@ function updateList() {
    } else {
      var after2 = "0";
    }
-    $.getScript("/nots/list.js?userid=" + userid + "&after2=" + after2 )
+    $.getScript("/notifications/list.js?userid=" + userid + "&after2=" + after2 )
     setTimeout(updateList, 5000); 
 }
 
@@ -64,7 +64,7 @@ function updateNot() {
    } else {
   var after = "0";
    }
-    $.getScript("/nots.js?user_id=" + user_id + "&after=" + after)
+    $.getScript("/notifications.js?user_id=" + user_id + "&after=" + after)
     setTimeout(updateNot, 5000); 
 }
  

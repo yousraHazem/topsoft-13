@@ -16,11 +16,11 @@ module ApplicationHelper
 
 
  def notification_count(current_user)
- @nots = NotUser.where("user_id = ? AND read = ? ", current_user , false).size
+ @nots = NotificationUser.where("user_id = ? AND read = ? ", current_user , false).size
  end
 
   def notifications
-    @nots = NotUser.where("user_id = ?", current_user.id ).order('created_at DESC')
+    @nots = NotificationUser.where("user_id = ?", current_user.id ).order('created_at DESC')
   end
 
 end

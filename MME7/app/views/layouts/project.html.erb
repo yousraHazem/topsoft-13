@@ -47,11 +47,11 @@
 </ul>
 <%  user =  current_user.id %>
 <div id="current-user" data-id="<%= user %>">
-<div id="notify"  class="notification-list-wrapper" style="top: 230px; left: 447px; display:none; opacity: 1;">
-        <span><%= link_to("all",{:controller => 'nots', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
+<div id="notify"  class="notification-list-wrapper" style="top: 90px; left: 800px; display:none; opacity: 1;">
+        <span><%= link_to("all",{:controller => 'notifications', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
         <div id = "notification">
        <% @nots = notifications %>
-       <%= render(:partial => "nots/notification" , :locals => {:@nots=> @nots})%>
+       <%= render(:partial => "notifications/notification" , :locals => {:@nots=> @nots})%>
         </div>
 </div>
 

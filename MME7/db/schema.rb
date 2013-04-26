@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424100924) do
+ActiveRecord::Schema.define(:version => 20130426030203) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -119,21 +119,20 @@ ActiveRecord::Schema.define(:version => 20130424100924) do
 
   add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
 
-  create_table "not_users", :force => true do |t|
+  create_table "notification_users", :force => true do |t|
+    t.integer  "notification_id"
     t.integer  "user_id"
-    t.integer  "not_id"
-    t.string   "category"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "read",       :default => false
+    t.boolean  "read",            :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
-  create_table "nots", :force => true do |t|
+  create_table "notifications", :force => true do |t|
     t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.string   "url"
     t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|

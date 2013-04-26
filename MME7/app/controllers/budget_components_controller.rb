@@ -50,13 +50,13 @@ class BudgetComponentsController < ApplicationController
             
             project_name = Project.find(@project_id).name
             @members = ProjectUser.where(:project_id => params[:project_id])
-            notification = Not.create(:content=>"#{current_user.name}  قام بانشاء عنصر جديد للميزانية '#{@component.name}' لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"create budget") 
+            notification = Notification.create(:content=>"#{current_user.name}  قام بانشاء عنصر جديد للميزانية '#{@component.name}' لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"create budget") 
             current_id = current_user.id
             @members.each do |member|
 	            if 	member.user_id == current_id
 	             
 	            else
-	            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+	            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 	            end
             end
             
@@ -118,51 +118,51 @@ class BudgetComponentsController < ApplicationController
 
 		    if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i != @new_total_quantity.to_i)) 
 		    
-			    notification = Not.create(:content=>"#{current_user.name} قام بتعديل اجمالى الكمية لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+			    notification = Notification.create(:content=>"#{current_user.name} قام بتعديل اجمالى الكمية لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 	            @members.each do |member|
 		            if 	member.user_id == current_id     
 		            else
-		            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+		            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 		            end
 	            end
 
 	        else 
 	        	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i != @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
-	                notification = Not.create(:content=>"#{current_user.name} قام بتعديل الكمية المشتراة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+	                notification = Notification.create(:content=>"#{current_user.name} قام بتعديل الكمية المشتراة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 		            @members.each do |member|
 			            if 	member.user_id == current_id     
 			            else
-			            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+			            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 			            end
 		            end
 
 		        else
 		        	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i != @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
-                    	notification = Not.create(:content=>"#{current_user.name} قام بتعديل سعر الوحدة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+                    	notification = Notification.create(:content=>"#{current_user.name} قام بتعديل سعر الوحدة لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'." , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 		                @members.each do |member|
 				            if 	member.user_id == current_id     
 				            else
-				            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+				            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 				            end
 		                end
 
 		            else
 		            	if((@old_name.to_s != @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
-	                        notification = Not.create(:content=>"#{current_user.name} قام بتعديل الاسم لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+	                        notification = Notification.create(:content=>"#{current_user.name} قام بتعديل الاسم لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 			                @members.each do |member|
 					            if 	member.user_id == current_id     
 					            else
-					            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+					            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 					            end
 			                end
 			            else
 			            	if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i == @new_total_quantity.to_i)) 
 		                    else
-		                    	notification = Not.create(:content=>"#{current_user.name} قام بتعديل عنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
+		                    	notification = Notification.create(:content=>"#{current_user.name} قام بتعديل عنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 				                @members.each do |member|
 						            if 	member.user_id == current_id     
 						            else
-						            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+						            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 						            end
 				                end
 		                    end
@@ -191,13 +191,13 @@ class BudgetComponentsController < ApplicationController
 
         project_name = Project.find(params[:project_id]).name
         @members = ProjectUser.where(:project_id => params[:project_id])
-        notification = Not.create(:content=>"#{current_user.name} قام بالغاء عنصر '#{@name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"delete budget") 
+        notification = Notification.create(:content=>"#{current_user.name} قام بالغاء عنصر '#{@name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"delete budget") 
         current_id = current_user.id
         @members.each do |member|
             if 	member.user_id == current_id
              
             else
-            NotUser.create(:user_id=>member.user_id , :not_id=> notification.id)
+            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
             end
         end
         
