@@ -9,8 +9,8 @@ describe GroupsController do
   def invalid_attributes
    {:group_name => "", :description => "", :levels => ""}
   end
- 
- describe "GET new" do
+
+describe "GET new" do
     it "assigns a new group as @group" do
       get :new
       assigns(:group).should be_a_new(Group)
