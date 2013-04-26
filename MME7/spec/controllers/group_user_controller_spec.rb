@@ -45,7 +45,5 @@ describe "POST create" do
         post :leave, {:groupuser => valid_attributes}
         response.should redirect_to(:controller => 'groups',:action => "show")
       end
-
- 
   end
 end

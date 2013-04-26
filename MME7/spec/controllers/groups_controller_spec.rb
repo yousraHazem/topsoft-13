@@ -32,7 +32,7 @@ describe "POST create" do
 
       it "redirects to the group index" do
         post :create, {:group => valid_attributes}
-        response.should redirect_to("http://test.host/groups")
+        response.should redirect_to("http://test.host/groups/show/1")
       end
     end
 
