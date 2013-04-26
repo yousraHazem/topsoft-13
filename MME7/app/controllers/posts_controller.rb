@@ -25,13 +25,14 @@ class PostsController < ApplicationController
           else
            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
           end
-    end
+        end
 		if (@post.is_group == true)
 			respond_to do |format|
-				format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>params[:id])}
+				format.html {redirect_to(:controller => 'groups',:action => 'show', :id =>@post.group_id)}
 				format.js
 		    end
-	    else
+		end
+	    if (@post.is_group == false)
 	    	respond_to do |format|
 	    		format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:id]) }
 	    		format.js
