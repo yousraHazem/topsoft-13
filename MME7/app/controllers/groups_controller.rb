@@ -40,7 +40,7 @@ include GroupUsersHelper
             @groupuser.isCreator = 'true'
             @groupuser.save
             flash[:notice] = "تم انشاء المجتمع بنجاح"
-            redirect_to :action => 'index'
+            redirect_to :action => 'show', :id => @group.id
         else
             render ('new')
         end
