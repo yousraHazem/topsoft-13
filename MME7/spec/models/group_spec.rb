@@ -35,18 +35,18 @@ require 'spec_helper'
        group_with_same_name= @group.dup
        group_with_same_name.group_name = @group.group_name
        group_with_same_name.save
-  	end
-  	it { should_not be_valid }
+    end
+    it { should_not be_valid }
   end
 
   describe "when group description is not present" do
-	    before { @group.description = " " }
-	    it { should_not be_valid }
+      before { @group.description = " " }
+      it { should_not be_valid }
   end
 
   describe "when group level is not present" do
-	    before { @group.levels = " " }
-	    it { should_not be_valid }
+      before { @group.levels = " " }
+      it { should_not be_valid }
   end
 
 end
