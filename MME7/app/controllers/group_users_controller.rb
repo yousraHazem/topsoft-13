@@ -27,8 +27,8 @@ class GroupUsersController < ApplicationController
   #Arguments group_id
   #return all GroupUsers in @members array
   def index
-      @group = Group.find(params[:id])
-      @members = GroupUser.where(:group_id => params[:id])
+    @group = Group.find(params[:id])
+    @members = GroupUser.where(:group_id => params[:id])
   end
 
   #Author Riham Gamal 22-3871
@@ -37,22 +37,16 @@ class GroupUsersController < ApplicationController
   def promoteMembers
     @groupuser = GroupUser.where(:group_id => params[:group_id], :user_id => params[:user_id])
     @user = GroupUser.find(@groupuser)
-
     if @user.isCreator == true
       @user.isCreator = false
     else 
       @user.isCreator = true
     end
-
     if @user.save
       redirect_to(:controller => 'group_users', :action => 'index', :id => params[:group_id])
     else
       redirect_to(:controller => 'groups', :action => 'show', :id => params[:group_id])
-    end       
-          
+    end           
   end
-
-
-
   
 end
