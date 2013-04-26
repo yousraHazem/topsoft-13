@@ -4,6 +4,26 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+<div>
+      <p>
+        <b>اسم المجموعة</b>
+        <%= @group.group_name %>
+      </p>
+      <p>
+        <b>وصف</b>
+        <%= @group.description %>
+      </p>
+      <p>
+        <b>مستوى المجموعة</b>
+        <%= @group.levels %>
+      </p>
+<div>
+</div>
+</div>
+</div> 
+</div> 
+
 <% if current_user %>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 <% end %>
@@ -47,3 +67,6 @@
       </p>
     </footer>
 </div>
+
+</div>
+

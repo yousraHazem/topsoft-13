@@ -1,3 +1,3 @@
-﻿class ProjectUsersController < ApplicationController
+class ProjectUsersController < ApplicationController
 	
 end
