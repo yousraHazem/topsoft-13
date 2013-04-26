@@ -5,8 +5,6 @@ class CommentsController < ApplicationController
   def newComment
     @comment = Comment.new
   end
-
-
   #Author Riham Gamal 22-3871
   # create a new comment
   def createComment
@@ -72,7 +70,6 @@ class CommentsController < ApplicationController
     Comment.find(params[:id]).destroy
     redirect_to(:action => 'list')
   end
-
 
   # Salma El -Ruby 22-4649
   # displays the available comments

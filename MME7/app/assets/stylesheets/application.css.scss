@@ -79,8 +79,6 @@ margin: 50px;
  margin: 20px;
  }
 
-
-
 .style {
 	margin: 20px;
 }
@@ -100,3 +98,11 @@ p.paragraph{
      border: 30px solid white;
 }
 
+td.ta textarea {
+	resize: vertical; max-height:200px;
+	resize:horizontal; max-width:400px;
+}
+
+#show {
+	text-align: right;
+}

@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :projects , :through => :project_users
 
+
   has_many :groups_users 
   has_many :groups , :through => :group_users 
 
@@ -26,9 +27,6 @@ class User < ActiveRecord::Base
    has_many :task_users
   has_many :tasks , :through => :task_users
 
-  before_save { |user| user.email = email.downcase }
-  before_save { |user| user.username = username.downcase }
-  before_save :create_remember_token
 
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"

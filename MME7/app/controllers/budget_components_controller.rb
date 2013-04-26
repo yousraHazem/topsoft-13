@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BudgetComponentsController < ApplicationController
 
   
@@ -53,6 +54,7 @@ class BudgetComponentsController < ApplicationController
 	end
 
 	def edit
+
 		#authorized by: sarah ahmed id=22-1278
 		#Description: gets the budget component of the passed id and view its details in the edit form
 		#returns: none
