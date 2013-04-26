@@ -91,11 +91,14 @@ class BudgetItemsController < ApplicationController
 	end
 	
 	def assign_member
+	@budget_item = BudgetItem.find(params[:id])
 	@users = User.where("name like ?", "%#{params[:q]}%")  
     respond_to do |format|  
       format.html  
       format.json { render :json => @users.map(&:attributes) }  
-    end  
+    end
+    @user=User.find(params[:q])
+    @assign_member = @budget_item.users.push(@user)  
 	end 
 end
 
