@@ -13,11 +13,17 @@
  *= require_tree .
  *= require bootstrap-datepicker
  */
+
   .pull {
   margin: 225px;
   color: #bbb;
   border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
+  }
+
+  .kay {
+  padding: 0 !important;
+  height: 20px !important;
   }
 
   .no {
@@ -57,7 +63,8 @@
  background-image: url(bg.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 730px;
- padding-top: 60px;
+ padding: 20px;
+ 
  }
 
  td.texta textarea {
@@ -82,11 +89,7 @@
 	text-align: center;
 }
 
-#background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- }
+
 
 
 .sources{

@@ -65,51 +65,50 @@
         }
 </style>
 </head>
-<body>
 <body id = "background">
-  <div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
-          <li class="text-info"><%= link_to "مجموعات" %></li>
-          <li class="text-info"><%= link_to "المجتمعات" %></li>
-          <li class="text-info"><%= link_to "امشاريع" %></li>
-          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
-            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
 
+  <div class="navbar navbar">
+  <div class="navbar-inner kay">    
+      <div class="nav-collapse">
+        <ul class="nav pull-right" >
+          <% if current_user %>
+          <li id="projects" class="notification-menu-item first-item"><a>اشعارات</a>
+          <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(current_user.id) %></span></li><%end%>
+          <li class="notification-menu-item "><%= link_to "الاتصال بنا" %></li>
+          <li class="notification-menu-item "><%= link_to "مجموعات" %></li>
+          <li class="notification-menu-item "><%= link_to "المجتمعات" %></li>
+          <li class="notification-menu-item "><%= link_to "امشاريع" %></li>
+          <li class="notification-menu-item ">
+          <%= link_to({:controller=>'home', :action=>'index'}) do %>
+          <i class="icon-home"></i> الصفحة الرئيسية
+          <% end %>
+
+          </li>
+          <li  class="text-info">
+        </ul>
+        <ul class="nav pull-left">
+            <% if current_user %>
+            <li><%= link_to "خروج", log_out_path %></li>
+            <% else %>
+            <li><%= link_to "اشتراك", sign_up_path , :id=>"signup" %></li><li><%= link_to " دخول", log_in_path , :id=>"signin" %>
+            </li>
+            <% end %>
+          </li>
         </ul>
       </div>
   </div>
 </div>
-
-<% if current_user %>
-<ul class="ttw-notification-menu">
-    <li id="projects" class="notification-menu-item first-item"><a>Projects</a>
-      <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(current_user.id) %></span></li>
-    <li id="tasks" class="notification-menu-item"><a href="index.html#">Tasks</a></li>
-    <li id="messages" class="notification-menu-item"><a href="index.html#" >Messages</a></li>
-    <li id="clients" class="notification-menu-item last-item">
-        <a href="index.html#">Clients</a>
-    </li>
-</ul>
+ <% if current_user %>
 <%  user =  current_user.id %>
 <div id="current-user" data-id="<%= user %>">
-<div id="notify"  class="notification-list-wrapper" style="top: 230px; left: 447px; display:none; opacity: 1;">
+<div id="notify"  class="notification-list-wrapper" style="top: 90px; left: 800px; display:none; opacity: 1;">
         <span><%= link_to("all",{:controller => 'nots', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
         <div id = "notification">
        <% @nots = notifications %>
        <%= render(:partial => "nots/notification" , :locals => {:@nots=> @nots})%>
         </div>
 </div>
-
-<% end %>
+<%end%>
 <div class="container">
   <%= yield %>
 </div>
