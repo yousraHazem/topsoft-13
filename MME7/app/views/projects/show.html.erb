@@ -4,7 +4,6 @@
 <td>
 <div id="floatMenu">  
    <ul>  
-        <li><%= link_to("make creator", {:action =>'viewMembers',:id=> @project.id}) %></li>  
         <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
         <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
         <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
