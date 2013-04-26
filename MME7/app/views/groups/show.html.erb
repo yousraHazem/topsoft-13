@@ -59,7 +59,7 @@
       <i id="username" class="under">:<%= post.name %></i></br>
       <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
     </p>
-  <% end %>
+
   <%else%>
   <p>
     <%= post.content %>  
@@ -67,6 +67,14 @@
     <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
   </p>
   <%end%>
+  <%else%>
+  <p>
+    <%= post.content %>  
+    <i id="username" class="under">:<%= post.name %></i></br>
+    <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+  </p>
+  <%end%>
+
   <%= render :partial => "listcomments", :locals => {:post => post} %>
   <%end%>  
   </div>
