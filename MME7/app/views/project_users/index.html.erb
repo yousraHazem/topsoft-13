@@ -7,10 +7,10 @@
       <div id="floatMenu">  
          <ul> 
             <% if isProjectCreator(current_user.id, @project.id)%> 
-            <li><%= link_to("صحفة المشروع", {:controller => 'project_users',:action =>'show',:id=> @project.id}) %></li>
-             <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li> 
+            <li><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
+             <li><%= link_to("تعديل المشروع", {:controller => 'projects', :action => 'editProject', :id=> @project.id}) %></li> 
              <% end %>  
-            <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
+            <li><%= link_to("قائمة المشاريع", {:controller => 'projects', :action => 'listProjects', :class => 'back link'})%></li>  
             <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
             <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
           </ul>  
@@ -18,8 +18,6 @@
     </td>
 </div>
 </div>
-
-
 <div id="main-wrap">
   <div id="content-wrap"> 
     <td>
@@ -32,9 +30,9 @@
               </td>         
               <td>        
                 <% if m.is_creator == true %>
-                   <%= link_to("مشرف",{:action => 'promoteMembers', :project_id=> @project.id,   :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله عضو فقط؟") %>
+                   <%= link_to("مشرف",{:action => 'promoteMembers', :project_id=> @project.id,   :user_id => m.user_id}, :class =>'btn btn-primary') %>
                 <% else %>     
-                   <%= link_to("عضو",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary', :confirm => "هل تريد جعله مشرف للمجموعة؟") %>
+                   <%= link_to("عضو",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
                 <% end %>
               </td>
             </tr> <br>
