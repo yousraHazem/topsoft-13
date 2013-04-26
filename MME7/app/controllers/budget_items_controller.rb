@@ -89,5 +89,13 @@ class BudgetItemsController < ApplicationController
 			render('edit')
 		end
 	end
+	
+	def assign_member
+	@users = User.where("name like ?", "%#{params[:q]}%")  
+    respond_to do |format|  
+      format.html  
+      format.json { render :json => @users.map(&:attributes) }  
+    end  
+	end 
 end
 

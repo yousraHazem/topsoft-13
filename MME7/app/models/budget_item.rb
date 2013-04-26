@@ -8,6 +8,11 @@ class BudgetItem < ActiveRecord::Base
   has_many :members
   has_and_belongs_to_many :users
   belongs_to :project
+  attr_reader :user_tokens  
+    
+  def user_tokens=(ids)  
+    self.user_ids = ids.split(",")  
+  end  
 
    validates_presence_of :name , :message => "يرجى أدخال الأسم"
    

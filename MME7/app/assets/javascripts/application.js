@@ -123,7 +123,9 @@ $(function() {
   });
 });
 
-
+$(function () {  
+  $('#budget_item_user_tokens').tokenInput('/users.json', { crossDomain: false });  
+});
 
 // jQuery.ajaxSetup({
 //    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
