@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :levels , :community_id
 

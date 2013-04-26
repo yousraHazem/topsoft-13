@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class GroupUser < ActiveRecord::Base
 
    attr_accessible :group_id , :user_id , :isCreator

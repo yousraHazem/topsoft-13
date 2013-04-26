@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class Community < ActiveRecord::Base
    attr_accessible :title , :social_profile_info , :contact_info ,:is_dismissed
    has_many :groups, :dependent => :destroy

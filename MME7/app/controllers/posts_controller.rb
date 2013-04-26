@@ -1,3 +1,4 @@
-﻿class PostsController < ApplicationController
+#encoding: utf-8
+class PostsController < ApplicationController
 
 end

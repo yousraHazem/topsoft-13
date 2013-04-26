@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class BudgetSource < ActiveRecord::Base
 
 attr_accessible :name, :amount , :project_tokens

@@ -1,4 +1,4 @@
-﻿#encoding: UTF-8
+#encoding: utf-8
 class BudgetSourceProject < ActiveRecord::Base
   attr_accessible :budget_source_id , :project_id , :amount
    belongs_to :project

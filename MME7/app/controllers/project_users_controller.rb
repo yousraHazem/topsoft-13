@@ -1,3 +1,4 @@
-﻿class ProjectUsersController < ApplicationController
+#encoding: utf-8
+class ProjectUsersController < ApplicationController
 	
 end
