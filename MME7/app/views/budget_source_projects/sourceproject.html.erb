@@ -1,0 +1,7 @@
+<p class="pull-right"></p>
+<% @budget_sources.each do |budget_source| %>
+    <h4>
+    	<i class="icon-tint"> </i> 
+    	 <%= budget_source.budget_source.name %> <%= budget_source.budget_source.amount%> 
+    </h4>
+<%end%> 
