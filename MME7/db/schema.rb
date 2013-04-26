@@ -13,25 +13,22 @@
 
 ActiveRecord::Schema.define(:version => 20130418140510) do
 
-
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
-    t.integer  "total"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
     t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
-
+    t.integer  "unit_price"
+    t.integer  "total"
   end
 
   create_table "budget_items", :force => true do |t|
     t.integer  "task_id"
-    t.integer  "budget_id"
     t.string   "name"
-    t.integer  "status"
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -60,6 +57,11 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -68,12 +70,15 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
   create_table "communities", :force => true do |t|
     t.string   "title"
     t.text     "social_profile_info"
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -120,7 +125,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
@@ -134,12 +138,20 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.string   "image"
   end
 
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "assigned"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|
