@@ -8,24 +8,16 @@
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 <% end %>
 
-  <table class="table table-striped" id="show">
-      <tr>
-        <th dir="rtl" lang="ar">اسم المجموعة</th>
-        <td><%= @group.group_name %></td>
-      </tr>
+<h2 class="aligncenter"><%= @group.group_name %></h2>
+</br>
+</br>
 
-      <tr>
-        <th dir="rtl" lang="ar">وصف</th>
-        <td><%= @group.description %></td>
-      </tr>
-
-      <tr>
-        <th dir="rtl" lang="ar">مستوى المجموعة</th>
-        <td><%= @group.levels %></td>
-      </tr>
+  <table class="table table-hover" id="show">
+      <tr dir="rtl" lang="ar">وصف</tr>
+      <th style="text-align: center" ><%= @group.description %></th>
   </table>
-<div>
 
+<div>
 <% if current_user %>
   <% if ifMember(@group.id, current_user.id) == false %>
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
@@ -38,6 +30,8 @@
     <% end %>
 <% end %>
 </div>
+</br>
+</br>
   <div>
   <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
