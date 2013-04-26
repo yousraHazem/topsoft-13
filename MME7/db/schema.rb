@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425182259) do
+ActiveRecord::Schema.define(:version => 20130425233341) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -133,6 +133,9 @@ ActiveRecord::Schema.define(:version => 20130425182259) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "receipts", :force => true do |t|

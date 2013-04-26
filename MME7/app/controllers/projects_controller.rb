@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 #Arguments project.id
 #return non
 def show
+  @json = Project.all.to_gmaps4rails
   @project = Project.find(params[:id])
 end
   # Author : Nayera Mohamed 22-3789 
