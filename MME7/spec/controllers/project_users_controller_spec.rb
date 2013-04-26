@@ -20,9 +20,6 @@ describe ProjectUsersController do
 			  redirect_to(:controller => 'project_users', :action => 'index')
     		end
 		end
-
-
-
 		describe "with invalid params" do
 		    it "promotes a project user to be a project creatot" do
 		      @user = ProjectUser.create!
@@ -31,7 +28,5 @@ describe ProjectUsersController do
 			  redirect_to(:controller => 'projects', :action => 'show')
     		end
 		end
-
-
   	end
 end	
