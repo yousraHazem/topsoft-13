@@ -24,6 +24,26 @@ describe "POST create" do
         response.should redirect_to(:controller => 'groups',:action => "show")
       end
     end
+  end
 
+    describe "DELETE leave" do
+      it "should destroy groupuser as member " do
+        user = User.new(:name => "name 1", :email => "name@hotmail" , :phone_Nr =>"123456" , :address => "aaaaa" , :username => "yasmin1" , :isAdmin => false)
+        user.save
+        userid= user.id
+        group = Group.new
+        group.save
+        groupid = group.id
+        member = GroupUser.new(:user_id => userid, :group_id =>groupid,  :isCreator => true )
+        member.save
+        expect {
+        delete :leave, {:id => member.to_param}
+      }.to change(GroupUser, :count).by(0)
+      end
+
+      it "redirects to the group show" do
+        post :leave, {:groupuser => valid_attributes}
+        response.should redirect_to(:controller => 'groups',:action => "show")
+      end
   end
 end

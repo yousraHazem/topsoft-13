@@ -4,48 +4,22 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
+
+<div>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
-<div>
-      <p>
-        <b>اسم المجموعة</b>
-        <%= @group.group_name %>
-      </p>
-      <p>
-        <b>وصف</b>
-        <%= @group.description %>
-      </p>
-      <p>
-        <b>مستوى المجموعة</b>
-        <%= @group.levels %>
-      </p>
-<div>
 </div>
-</div>
-</div> 
-</div> 
 
-<% if current_user %>
-<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
-<% end %>
 
-  <table class="table table-striped" id="show">
-      <tr>
-        <th dir="rtl" lang="ar">اسم المجموعة</th>
-        <td><%= @group.group_name %></td>
-      </tr>
+<h2 class="aligncenter"><%= @group.group_name %></h2>
+</br>
+</br>
 
-      <tr>
-        <th dir="rtl" lang="ar">وصف</th>
-        <td><%= @group.description %></td>
-      </tr>
+<table class="table table-hover" id="show">
+    <tr dir="rtl" lang="ar">وصف</tr>
+    <th style="text-align: center" ><%= @group.description %></th>
+</table>
 
-      <tr>
-        <th dir="rtl" lang="ar">مستوى المجموعة</th>
-        <td><%= @group.levels %></td>
-      </tr>
-  </table>
 <div>
-	
 <% if current_user %>
 	<% if ifMember(@group.id, current_user.id) == false %>
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
