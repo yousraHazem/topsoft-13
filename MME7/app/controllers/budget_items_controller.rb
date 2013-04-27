@@ -55,13 +55,18 @@ class BudgetItemsController < ApplicationController
 		@item = params[:item]
 		@project = params[:id]  
 		@budget_item  = BudgetItem.find(params[:item])
-
 		@tasks = Task.find(:all,:conditions=>{:project_id=> 1 , :assigned=>false })
 		@task_id = @budget_item.task_id
 		@oldtask = Task.find_by_id(@task_id)
 		if !@oldtask.nil?
 		@tasks << @oldtask
 	    end
+	    @users = User.where("name like ?", "%#{params[:q]}%")  
+    	respond_to do |format|  
+     	format.html  
+     	format.json { render :json => @users.map(&:attributes) }  
+    	end
+
 	end
 
 
@@ -87,16 +92,10 @@ class BudgetItemsController < ApplicationController
 			task = Task.find_by_id(taskid)
 			task.update_attributes(:assigned=>true)
 			end
-
-			@users = User.where("name like ?", "%#{params[:q]}%")  
-    		respond_to do |format|  
-     		format.html  
-     		format.json { render :json => @users.map(&:attributes) }  
-    		end
-
 			redirect_to(:action => 'list', :id => @project)
 
 		else
+
 			render('edit')
 		end
 	end
