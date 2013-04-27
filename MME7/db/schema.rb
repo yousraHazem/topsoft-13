@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
+    t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
-    t.integer  "amount",           :default => 0
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -73,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.boolean  "is_group",   :default => false
     t.string   "name"
   end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -176,8 +183,8 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "assigned",    :default => false
     t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|
