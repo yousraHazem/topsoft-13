@@ -198,6 +198,7 @@ font-size: 10px;
 
 #bcom{
 	margin-right: 18px;
+
 }
 
 #bpost{
@@ -206,3 +207,145 @@ margin-right: 370px;
 
 
 
+.speech-bubble {
+    position:relative;
+    width: 320px;
+    padding: 10px;
+    margin: 1em;
+    margin-right: 15em;
+    background-color:#FFF;
+    color: #1E90FF;
+    font: normal 14px "Segoe UI", Arial, Sans-serif;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 10px solid rgba(0,0,0,0.095);
+
+}
+.speech-bubble p {
+    font-size: 1.25em;
+
+}
+
+.speech-bubble:before,
+.speech-bubble:after {
+    content: "\0020";
+    display:block;
+    position:absolute;
+    top:-20px;  /* Offset top the height of the pointer's border-width */
+    left:35px;
+    z-index:2;
+    width: 0;
+    height: 0;
+    overflow:hidden;
+    border: solid 20px transparent;
+    border-top: 0;
+    border-bottom-color:#FFF;
+}
+.speech-bubble:before {
+    top:-30px; /* Offset of pointer border-width + bubble border-width */
+    z-index:1;
+    border-bottom-color:rgba(0,0,0,0.095);
+}
+
+
+
+.triangle-isosceles {
+   position:relative;
+   padding:20px;
+   margin:1em 0 3em;
+   margin-left: 30em;
+   color:#000;
+   background:#87CEEB;
+
+   /* css3 */
+   -moz-border-radius:10px;
+   -webkit-border-radius:10px;
+   border-radius:10px;
+   background:-moz-linear-gradient(top, #f9d835, #f3961c);
+   background:linear-gradient(top, #f9d835, #f3961c);
+}
+
+
+.triangle-isosceles:after {
+   content:"";
+   display:block; /* reduce the damage in FF3.0 */
+   position:absolute;
+   bottom:-15px;
+   left:50px;
+   width:0;
+   border-width:15px 15px 0;
+   border-style:solid;
+   border-color:#87CEEB transparent;
+}
+
+.triangle-create {
+   position:relative;
+   padding:20px;
+   margin:1em 0 3em;
+   margin-right: 15em;
+   margin-left: 15em;
+   color:#000;
+   background:#87CEEB;
+
+   /* css3 */
+   -moz-border-radius:10px;
+   -webkit-border-radius:10px;
+   border-radius:10px;
+   background:-moz-linear-gradient(top, #f9d835, #f3961c);
+   background:linear-gradient(top, #f9d835, #f3961c);
+}
+
+
+.triangle-create:after {
+   content:"";
+   display:block; /* reduce the damage in FF3.0 */
+   position:absolute;
+   bottom:-15px;
+   left:50px;
+   width:0;
+   border-width:15px 15px 0;
+   border-style:solid;
+   border-color:#87CEEB transparent;
+}
+
+.speech-bubble-create {
+    position:relative;
+    width: 320px;
+    padding: 10px;
+    margin: 1em;
+    margin-right: 20em;
+    background-color:#FFF;
+    color: #1E90FF;
+    font: normal 14px "Segoe UI", Arial, Sans-serif;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 10px solid rgba(0,0,0,0.095);
+
+}
+.speech-bubble-create p {
+    font-size: 1.25em;
+
+}
+
+.speech-bubble-create:before,
+.speech-bubble-create:after {
+    content: "\0020";
+    display:block;
+    position:absolute;
+    top:-20px;  /* Offset top the height of the pointer's border-width */
+    left:20px;
+    z-index:2;
+    width: 0;
+    height: 0;
+    overflow:hidden;
+    border: solid 20px transparent;
+    border-top: 0;
+    border-bottom-color:#FFF;
+}
+.speech-bubble-create:before {
+    top:-30px; /* Offset of pointer border-width + bubble border-width */
+    z-index:1;
+    border-bottom-color:rgba(0,0,0,0.095);
+}

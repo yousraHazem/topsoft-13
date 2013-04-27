@@ -36,14 +36,15 @@
   <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},) do |f| %>
-    <table summary = "The Post">
-      <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك " %></td>
+    <div class="triangle-create">
+      <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
         <%= f.hidden_field :group_id, :value => @group.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :is_group, :value => 'true' %>
-        <%= f.hidden_field :name, :value => current_user.username %>
-    </table> 
-    <button id="bpost" class="btn btn-primary" type="submit">نشر التعبير</button> 
+        <%= f.hidden_field :name, :value => current_user.username %></br>
+        <button  class="btn btn-info" type="submit">نشر التعبير</button> 
+    </div> 
+    
   <%end%>
   <%end%>
   <%end%>
@@ -53,16 +54,20 @@
  <% @group.posts.each do |post| %>
  <% if current_user %> 
   <% if isPostCreator(current_user.id,post.id ) == true %>
-  <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد') %>   
+  <div class="triangle-isosceles">
+  <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد') %></span>
       <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></i>
       <i id="uname" class="under">:<%= post.name %></i></br>
       <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
 </p>
+</div>
   <%else%>
   <p>
+    <div class="triangle-isosceles">
     <%= post.content %>  
     <i id="uname" class="under">:<%= post.name %></i></br>
     <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+  </div>
   </p>
   <%end%>
   <%else%>
@@ -72,7 +77,7 @@
     <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
   </p>
   <%end%>
-  <%= render :partial => "listcomments", :locals => {:post => post} %>
+  <%= render :partial => "listcomments", :locals => {:post => post, :position=>0} %>
   <%end%>  
   </div>
   </div>
@@ -90,3 +95,4 @@
         <%= @group.created_at %>
       </p>
     </footer>
+

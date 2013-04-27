@@ -32,8 +32,6 @@ class CommentsController < ApplicationController
           end
           end
 
-
-
         respond_to do |format|
           format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
           format.js
