@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   # returns newly created comment
   def createComment
     @position = params[:position].to_i
+    @p = params[:p].to_i
     @comment = Comment.new(params[:comment])
     @comment.save
 
@@ -32,10 +33,21 @@ class CommentsController < ApplicationController
           end
           end
 
+          if (@position == 0 && @comment.is_group == true )
+
         respond_to do |format|
-          format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])}
+          format.html {redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id], :p=>@position)}
           format.js
+        end
       end
+
+         if (@position == 1 && @comment.is_group == true )
+          respond_to do |format|
+          format.html { redirect_to(:controller =>'posts' ,:action => 'showGroup', :id =>@comment.post_id , :p=>@position)}
+          format.js
+        end
+      end
+      
     else
 
           post_creator = Post.find(@comment.post_id).user_id
@@ -56,18 +68,21 @@ class CommentsController < ApplicationController
           end
           end
 
-      if @position == 0
+      if (@position == 0 && @comment.is_group == false )
         respond_to do |format|
           format.html { redirect_to(:controller =>'projects' ,:action => 'show', :id => params[:project_id] , :p=>@position) }
           format.js
         end
       end
-      if @position == 1
+      if (@position == 1 && @comment.is_group == false )
           respond_to do |format|
           format.html { redirect_to(:controller =>'posts' ,:action => 'showProject', :id =>@comment.post_id , :p=>@position)}
           format.js
         end
       end
+
+       
+   
 
     end
   end

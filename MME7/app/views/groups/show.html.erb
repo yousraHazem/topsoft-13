@@ -80,7 +80,7 @@
     <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
   </p>
   <%end%>
-  <%= render :partial => "listcomments", :locals => {:post => post, :position=>1} %>
+  <%= render :partial => "listcomments", :locals => {:post => post, :position=>0} %>
   <%end%>  
   </div>
   </div>
