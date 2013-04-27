@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.string   "name"
     t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
-    t.integer  "total"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
     t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
-
+    t.integer  "unit_price"
+    t.integer  "total"
   end
 
   create_table "budget_item_users", :force => true do |t|
@@ -35,9 +35,7 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
 
   create_table "budget_items", :force => true do |t|
     t.integer  "task_id"
-    t.integer  "budget_id"
     t.string   "name"
-    t.integer  "status"
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -89,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -170,6 +169,13 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "image"
+  end
+
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tasks", :force => true do |t|

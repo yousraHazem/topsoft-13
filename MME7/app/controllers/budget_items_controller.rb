@@ -61,7 +61,8 @@ class BudgetItemsController < ApplicationController
 	end
 
 
-   # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown 
+   # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown
+   # Author: Toka Abdelgabar 22-1925 , 
    # parameters: none , returns :none 
    # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table no returns or arguments 
 	def update
@@ -83,24 +84,17 @@ class BudgetItemsController < ApplicationController
 			task.update_attributes(:assigned=>true)
 			end
 
+			@users = User.where("name like ?", "%#{params[:q]}%")  
+    		respond_to do |format|  
+     		format.html  
+     		format.json { render :json => @users.map(&:attributes) }  
+    		end
+
 			redirect_to(:action => 'list', :id => @project)
 
 		else
 			render('edit')
 		end
 	end
-	
-	def assign_member
-	#authorized by Toka Abdelgabar id:22-1925
-    #description : 
-    #returns: 
-    #arguments:
-	@budget_item = BudgetItem.find(params[:id])
-	@users = User.where("name like ?", "%#{params[:q]}%")  
-    respond_to do |format|  
-      format.html  
-      format.json { render :json => @users.map(&:attributes) }  
-    end
-	end 
 end
 

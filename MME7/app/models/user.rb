@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   has_many :comments
   belongs_to :task
   belongs_to :group
-  has_and_belongs_to_many :budget_items
   has_many :project_users
   has_many :projects , :through => :project_users
 
@@ -28,9 +27,6 @@ class User < ActiveRecord::Base
   has_many :tasks , :through => :task_users
   has_many :budget_item_users
   has_many :budget_items, :through => :budget_item_users
-end
-
-
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"

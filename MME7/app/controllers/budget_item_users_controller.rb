@@ -1,0 +1,3 @@
+class BudgetItemUsersController < ApplicationController
+	
+end
