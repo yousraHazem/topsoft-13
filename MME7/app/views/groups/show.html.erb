@@ -41,7 +41,7 @@
         <%= f.hidden_field :group_id, :value => @group.id%> 
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :is_group, :value => 'true' %>
-        <%= f.hidden_field :name, :value => current_user.username %></br>
+        <%= f.hidden_field :name, :value => current_user.username %>
         <button  class="btn btn-info" type="submit">نشر التعبير</button> 
     </div> 
     
@@ -59,6 +59,9 @@
       <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></i>
       <i id="uname" class="under">:<%= post.name %></i></br>
       <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+
+  </p>
+  
 </p>
 </div>
   <%else%>
@@ -77,7 +80,7 @@
     <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
   </p>
   <%end%>
-  <%= render :partial => "listcomments", :locals => {:post => post, :position=>0} %>
+  <%= render :partial => "listcomments", :locals => {:post => post, :position=>1} %>
   <%end%>  
   </div>
   </div>
