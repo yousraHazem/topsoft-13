@@ -13,7 +13,6 @@
 
 
 ActiveRecord::Schema.define(:version => 20130418140510) do
-
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity",     :default => 0
