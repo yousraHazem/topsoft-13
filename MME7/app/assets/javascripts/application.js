@@ -18,6 +18,7 @@
 $(function(){
     $(".notification-bubble").click(function(){
         $("#notify").toggle();
+        $(".pic").toggle();
         // $(".notification-bubble").hide();
         $.ajax({
             url: "/notifications/read",
