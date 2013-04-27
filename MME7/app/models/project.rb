@@ -1,12 +1,12 @@
 #encoding: utf-8
 class Project < ActiveRecord::Base
-    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
+    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  ,:gallery_id,  :image, :remote_image_url
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
 
     validate :validate_end_date_before_start_date
-
-
+  belongs_to :gallery
+  mount_uploader :image, ImageUploader
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date

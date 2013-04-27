@@ -23,6 +23,8 @@
 			</td>
 	 	</tr>
 	 	<% end %>
+	 	<%= image_tag project.image_url(:thumb) if project.image? %>
+
     </table>
 </div>
 

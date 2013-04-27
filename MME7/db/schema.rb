@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20130424110730) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -45,9 +58,9 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "amount",           :default => 0
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -61,11 +74,11 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -73,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -97,13 +111,21 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "community_id"
   end
 
+  create_table "images", :force => true do |t|
+    t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "project_users", :force => true do |t|
@@ -144,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.string   "title"
     t.boolean  "assigned",    :default => false
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
