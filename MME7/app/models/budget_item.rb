@@ -6,4 +6,6 @@
   has_many :budget_components
   has_and_belongs_to_many :users
   belongs_to :project
+  has_many :budget_item_users
+  has_many :users, :through => :budget_item_users
 end

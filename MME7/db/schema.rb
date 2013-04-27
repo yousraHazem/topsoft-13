@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424110730) do
+ActiveRecord::Schema.define(:version => 20130427074104) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20130424110730) do
     t.integer  "quantity_purchased", :default => 0
     t.integer  "unit_price"
     t.integer  "total"
+  end
+
+  create_table "budget_item_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "budget_item_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "budget_items", :force => true do |t|
@@ -100,6 +107,22 @@ ActiveRecord::Schema.define(:version => 20130424110730) do
 
   create_table "images", :force => true do |t|
     t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notification_users", :force => true do |t|
+    t.integer  "notification_id"
+    t.integer  "user_id"
+    t.boolean  "read",            :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "content"
+    t.string   "url"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

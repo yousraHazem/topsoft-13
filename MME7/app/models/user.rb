@@ -16,5 +16,7 @@ class User < ActiveRecord::Base
   has_many :groups , :through => :group_users 
   has_many :task_users
   has_many :tasks , :through => :task_users
+  has_many :budget_item_users
+  has_many :budget_items, :through => :budget_item_users
 end
 
