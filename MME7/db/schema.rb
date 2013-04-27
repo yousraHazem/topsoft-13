@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427074104) do
+
+ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
