@@ -20,6 +20,10 @@ td.text textarea{
 	resize:horizontal; width:400px;
 }
 
+.head {
+	padding-top:30px;
+}
+
  #background {
  background-image:url(final.jpg);
  background-repeat: no-repeat;
@@ -29,7 +33,7 @@ td.text textarea{
  }
 
  #back {
- background-image:url(final.jpg);
+ background-image:url(bg1.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 700px;
  padding: 10px;
@@ -69,7 +73,6 @@ div.style2{
 }
 
 .sources{
-	background-color: #F0F0F0 ;
 }
 
 .search {
@@ -138,11 +141,20 @@ td.ta textarea {
 	padding-top: 30px;
 }
 .body2{
-	padding: -100px;
 	color:#ffffff;
 	font:bold;
 }
 
 .item{
 padding-top: -100px;
+}
+
+.budgetsource{
+	
+	padding-top: 40px;
+}
+
+.budgetsourcelist{
+	
+	padding-top: 100px;
 }
