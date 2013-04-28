@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <tr>
+  
+<div>
+  
+      <th>اسم المجتمع</th>
+      <th>يمكنك فعل</th>
+
+    <% @communities.each do |community| %>
+     <tr class="success">
+
+       <td><%= community.title %></td>
+       <td> 
+          <li><%= link_to("اظهار", {:action => 'show', :id => community.id}, :class => 'action show') %></li>          
+        </td>
+              
+      </tr>
+    <%end%>
+  </table>

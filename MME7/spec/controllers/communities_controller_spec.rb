@@ -9,6 +9,24 @@ describe CommunitiesController do
   def invalid_attributes
    {:title => "", :social_profile_info => "", :contact_info => "jjj"}
   end
+
+   describe "GET list" do
+    it "assigns all communities as @communities" do
+      community  = Community.create! valid_attributes
+      puts community
+      get :list, {}
+      #assigns(Community).should eq([community])
+    end
+  end
+
+  describe "GET show" do
+it "assigns the requested community as @communities " do
+community = Community.create! valid_attributes
+get :show, {:id => community.to_param}
+assigns(:community ).should eq(community)
+end
+end
+
  
  describe "GET new" do
     it "assigns a new community as @community" do

@@ -4,8 +4,24 @@ class CommunitiesController < ApplicationController
 # Author : Mariam, 22-3456
 # This method lists all communities in the database
 # It returns all communities
+#May update
+# Author : May Atef Badr 22-0579
+# this method lists the communities 
+#and if user uses the search, it will filter the list
+# args: community title
+# returns: similar or wanted community
+
 def list
-		@communities = Community.order("communities.title ASC")
+		@communities= Community.search(params[:search])
+end
+
+# May Atef Badr 22-0579
+# this moethod shows a community with it's info and edit and delete button
+# args: community id
+#returns community title, social profile info and contact info
+
+def show
+         @community = Community.find(params[:id])
 end
 
 def new
@@ -41,17 +57,27 @@ def update
         render('edit')
     end
 end
+
+
 #Author: May Badr 22-0579
 #find record to be deleted	
+# Args : community  id
+# retuns : returns nothing	
 def delete 
+	@community = Community.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+end
+
+#Author:May Atef Badr 22-0579
+#finds record, sets is_dismissed true and removes the delete-link from the view, the user
+# can only see the community info
+# Args : community  id
+# retuns : returns the community without the edit and delete links
+def destroy 
 		@community = Community.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-	end
-	#Author:May Badr 22-0579
-	#deletes record chosen
-	def destroy 
-		Community.find(params[:id]).destroy
-		rescue ActiveRecord::RecordNotFound
+		@community.is_dismissed = 'true'
+		@community.save
 		redirect_to(:action => 'list')
-	end
+end
+
 end

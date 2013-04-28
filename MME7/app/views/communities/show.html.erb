@@ -1,29 +1,37 @@
-<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'list'}, :class => 'back-link') %>
 
-<div>
-  <h2>Show Community</h2>
+
+  <h2>المجتمع</h2>
 
   <table>
+    
     <tr>
-      <th>Title</th>
-      <td><%= @Community.title %></td>
+      <th>اسم المجتمع:</th>
+      <td><%= @community.title %></td>
     </tr>
     <tr>
-      <th>social_profile_info</th>
-      <td><%= @Community.social_profile_info %></td>
+      <th>وصف عن المجتمع:</th>
+      <td><%= @community.social_profile_info %></td>
     </tr>
     <tr>
-      <th>contact_info</th>
-      <td><%= @Community.contact_info  %></td>
+      <th>البريد الالكتروني: </th>
+      <td><%= @community.contact_info  %></td>
     </tr>
-    <tr>
-      <th>Created</th>
-      <td><%= @Community.created_at %></td>
-    </tr>
-    <tr>
-      <th>Updated</th>
-      <td><%= @Community.updated_at %></td>
-    </tr>
+    
+     <tr> 
+        
+        <%if @community.is_dismissed != true %>
+          <th>يمكنك فعل:</th>
+           <td>
+            <li><%= link_to("تعدىل", {:action => 'edit', :id => @community.id}) %><i class="icon-pencil"></i> </li>
+            </td>
+            </br>
+            <td>
+            <li><%= link_to("مسح", {:action => 'destroy', :id => @community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %></li>
+            </td>
+        <%end%>
+        
+      </tr>
+     
   </table>
   
-</div>
