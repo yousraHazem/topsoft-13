@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class AdminController < ApplicationController
-	layout "admin_master"
+	layout "admin"
  def show 
   @admin = User.find(params[:id])
  end 
