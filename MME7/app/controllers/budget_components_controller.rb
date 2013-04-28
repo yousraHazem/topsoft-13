@@ -28,6 +28,16 @@ class BudgetComponentsController < ApplicationController
 		else
 			@percent = 100*count_size / all_size
 	    end
+	   # <div class="progress pull-left" id="progressouter">
+       #    <div class="bar" id="progress"></div>
+       #  </div>
+
+	end
+
+	def new
+		@component = BudgetComponent.new
+		@project_id = params[:project_id]
+		@item = params[:id]
 	end
 
 	def create

@@ -132,11 +132,11 @@ $("#progress").html(p+'%');
 });
 
 
-$(function() {
-    $("#create").click(function(){
-        $("#comp").toggle("slow");
-    });
-});
+// $(function() {
+//     $("#create").click(function(){
+//         $("#comp").toggle("slow");
+//     });
+// });
 
 
 
