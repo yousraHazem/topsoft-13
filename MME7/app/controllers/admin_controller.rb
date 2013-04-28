@@ -6,7 +6,9 @@ class AdminController < ApplicationController
  end 
   #Author: Donia Amer Shaarawy 22-0270
   #it takes the id and it shows the user retuns the admin
-	def new
+  def new
 		@admin = User.new
   end
- end
+
+end
+
