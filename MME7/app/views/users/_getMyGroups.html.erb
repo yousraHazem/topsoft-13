@@ -18,8 +18,12 @@
           <% end %>
             <% @groupusers.each do |group_user| %>
               <tr>
-                <td id ="group_name"><%= group_user.group.name %></td>
-               <td><%= link_to("view this group",:controller => 'groups',:action=>'show', :id=> group_user.id) %></td>
+              <td id ="project_name"><%= group_user.group.group_name %></td>
+               <td><%= link_to("view this group",:controller => 'groups',:action=>'show', :id=> group_user.group_id) %></td>
+
+
+  
+
               </tr>
            <% end %>
         </table>
