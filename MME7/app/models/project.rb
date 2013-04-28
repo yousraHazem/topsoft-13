@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Project < ActiveRecord::Base
-    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens , :location, :latitude, :longitude 
-    validates_presence_of :name, :message => "يجب اضافة اسم"
+   attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
+   validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
 
     validate :validate_end_date_before_start_date
@@ -36,7 +36,7 @@ class Project < ActiveRecord::Base
     has_many :project_users
     has_many :users , :through => :project_users
     has_and_belongs_to_many :communities
-    has_many :budget_source_projects
+    has_many :budget_source_projects , :dependent => :destroy
     has_many :budget_sources , :through => :budget_source_projects
     attr_reader :user_tokens
 
@@ -61,5 +61,14 @@ class Project < ActiveRecord::Base
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
        @users = User.where("id NOT IN (?)" , b)
     end 
+
+
+    def budgetSourceProject(project_id)
+     @budgetSourceProject = BudgetSourceProject.where(:project_id => project_id , :amount => 0).exists?
+    end
+
+    def budgetItems(project_id)
+     @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?
+    end
 
 end

@@ -1,0 +1,3 @@
+class ProjectUsersController < ApplicationController
+	
+end

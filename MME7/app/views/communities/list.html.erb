@@ -1,3 +1,4 @@
+
 <% if !flash[:notice].blank? %>
 <div class= "notice">
   <%= flash[:notice] %>
@@ -16,10 +17,12 @@
       <th>يمكنك فعل</th>
     <% @communities.each do |community| %>
      <tr class="success">
+
        <td><%= community.title %></td>
        <td><%= community.social_profile_info %></td>
         <td><%= community. contact_info %></td>
         <td> 
+
              <%= link_to("مسح", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
            </br></br>
            <td >
@@ -31,4 +34,3 @@
     <%end%>
   </table>
 </div>
-

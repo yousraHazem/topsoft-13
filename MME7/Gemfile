@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
 gem 'sqlite3'
 
 gem 'mail', '~> 2.5.3'
@@ -19,19 +20,19 @@ gem 'geocoder'
 #   gem "rspec-rails", "~> 2.0"
 # end
 
-gem 'simplecov'
+#gem 'simplecov'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
- gem 'annotate', '2.5.0'
- gem 'factory_girl_rails', '4.1.0'
-gem 'omniauth-facebook'
-
+ #gem 'annotate', '2.5.0'
+ #gem 'factory_girl_rails', '4.1.0'
+#gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
+
 
 gem 'coffee-rails', '~> 3.2.1'
 gem 'sass-rails',   '~> 3.2.3'
@@ -63,12 +64,15 @@ group :test, :development do
 end
 
 
-group :development, :test do
-end
-
 group :test do
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
 end
+#group :test do
+ # gem 'faker'
+  #gem 'capybara'
+  #gem 'guard-rspec'
+  #gem 'launchy'
+#end

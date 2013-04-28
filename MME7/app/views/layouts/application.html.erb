@@ -12,13 +12,11 @@
   <div class="navbar-inner kay">    
       <div class="nav-collapse">
         <ul class="nav pull-right" >
-          <% if current_user %>
-          <li id="projects" class="notification-menu-item first-item"><a>اشعارات</a>
-          <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(current_user.id) %></span></li><%end%>
           <li class="notification-menu-item "><%= link_to "الاتصال بنا" %></li>
           <li class="notification-menu-item "><%= link_to "مجموعات" %></li>
           <li class="notification-menu-item "><%= link_to "المجتمعات" %></li>
-          <li class="notification-menu-item " id="not"><%= link_to ("امشاريع") %></li>
+          <li class="notification-menu-item " id="not"><%= link_to ("مشاريع") %></li>
+          <li class="notification-menu-item "><%= link_to(" مصادر الميزانية ",{ :controller=>"budget_sources" , :action=>'list'})%></li>
           <li class="notification-menu-item ">
           <%= link_to({:controller=>'carousels', :action=>'index'}) do %>
           <i class="icon-home"></i> الصفحة الرئيسية
@@ -30,6 +28,7 @@
         <ul class="nav pull-left">
             <% if current_user %>
             <li><%= link_to "خروج", log_out_path %></li>
+            <li><%= link_to(current_user.name , {:controller=>'users', :action=>'show' ,:id => current_user.id} )%> </li>
             <% else %>
             <li><%= link_to "اشتراك", sign_up_path , :id=>"signup" %></li><li><%= link_to " دخول", log_in_path , :id=>"signin" %>
             </li>
@@ -45,16 +44,13 @@
   <div class="row"></div>
   <div class="span9"> </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+
 
 <div class="body">
 <%= yield %>
 </div>
 
 </div>
-  
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+<%= render(:partial => 'shared/error_messages' , :locals => {:object => @receipt}) %>
+<div> 
+	<h2>تعديل الأيصال</h2>
+	<%= form_for(:receipt, :url=>{:action=>'update' , :id => @receipt.id , :project_id=> @project_id}) do |f| %>
+<table>
+
+	<tr>
+		<th><%= f.label(:Name ,"إسم")%></th>
+			<td><%= f.text_field(:name)%></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:Attachment , "الأيصال")%></th>
+			<td><%= f.file_field(:image)%></td>
+	</tr>
+</table>
+</br>
+	<p>
+			<td><%= f.submit ("إحفظ")%></td>
+	</p>
+<% end %>
+</div>
+

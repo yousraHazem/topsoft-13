@@ -21,10 +21,14 @@ end
 	def create 
 		@budget_source = BudgetSource.new(params[:budget_source])
 		if @budget_source.save
-			redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id)
+    @project = BudgetSourceProject.where(:budget_source_id => @budget_source.id)
+    if @project.size == 0
+      redirect_to(:action => 'list')
+    else
+        redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id)
+        end 
 		else
 			render('new')
-
 		end
 	end
 #Author :yasmin Mahmoud 22-1787 This method finds budget source with a given id and it has no arguments and return nothing 
@@ -35,7 +39,12 @@ end
   	def update
       @budget_source = BudgetSource.find(params[:id])
     if @budget_source.update_attributes(params[:budget_source])
-      redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id) 
+      @project = BudgetSourceProject.where(:budget_source_id => @budget_source.id)
+    if @project.size == 0
+      redirect_to(:action => 'list')
+    else
+        redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id)
+        end 
     else
        render('edit')
         

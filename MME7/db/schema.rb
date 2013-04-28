@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
     t.datetime "updated_at", :null => false
   end
 
+
   create_table "carousels", :force => true do |t|
     t.string   "title"
     t.string   "description"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
     t.datetime "updated_at",                    :null => false
     t.string   "news"
     t.integer  "project_id"
+
   end
 
   create_table "comments", :force => true do |t|
