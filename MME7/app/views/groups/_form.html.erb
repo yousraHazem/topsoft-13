@@ -8,23 +8,38 @@
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 
 <h2 class = 'text-center'>إنشاء مجموعة</h2>
+</br>
+</br>
+<b text-align="center" ><%= render @group.parent if @group.parent %></b>
+</br>
+</br>
 
 <%= form_for(:group, :url => {:action => 'create'}) do |f| %>
    <table class="table table-striped" >
+	   <%= f.hidden_field :parent_id %>
+	   <% if @group.is_root? %>
+	   <%= f.hidden_field :level, :value => 1 %>
+	   <% end %>
+	   <% if @group.parent.level == 1 %>
+	   <%= f.hidden_field :level, :value => 2 %>
+	   <% end %>
+	   <% if @group.parent.level == 2 %>
+	   <%= f.hidden_field :level, :value => 3 %>
+	   <% end %>    
   <tr>
     <th dir="rtl" lang="ar">اسم المجموعة *</th>
     <td><%= f.text_field :group_name %></td>
   </tr>
   <tr>
     <th dir="rtl" lang="ar">وصف *</th>
-    <td class = "ta"><%= f.text_area :description%></td>
-  </tr>
-   <tr>
-    <th dir="rtl" lang="ar">مستوى المجموعة *</th>
-    <td><%= f.text_field :levels %></td>
+    <td dir="rtl" class = "ta"><%= f.text_area :description, "rows" => 6 %></td>
   </tr>
   </table>
   <div>
-    <button class="btn btn-info" type="submit">إنشاء المجموعة</button>
+    <span class="pull-left"><button class="btn btn-info" type="submit">إنشاء المجموعة</button><span>
   </div>
 <% end %>
+</br>
+</br>
+</br>
+</br>

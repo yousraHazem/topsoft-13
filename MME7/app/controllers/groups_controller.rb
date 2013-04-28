@@ -25,7 +25,7 @@ include GroupUsersHelper
     end
 
     def new
-        @group = Group.new
+        @group = Group.new(:parent_id => params[:parent_id])
     end
 
     # Author: Sama Akram 22-555
