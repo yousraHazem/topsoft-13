@@ -1,3 +1,12 @@
 // Place all the styles related to the Carousels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#back {
+ background-image:url("bg1.jpg");
+ background-repeat: no-repeat;
+ background-size: 1365px 700px;
+ padding: 20px;
+ height: 600px;
+ }

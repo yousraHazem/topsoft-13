@@ -13,6 +13,7 @@ gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
 gem 'gmaps4rails'
+gem 'geocoder'
 
 # group :test, :development do
 #   gem "rspec-rails", "~> 2.0"

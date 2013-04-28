@@ -21,15 +21,33 @@ td.text textarea{
 }
 
  #background {
- background-image: url(bg.jpg);
+ background-image:url(bg4.jpg);
  background-repeat: no-repeat;
- background-size: 1365px 900px;
- padding-top: 60px;
+ background-size: 1365px 950px;
+ padding: 20px;
  height: 900px;
+ }
+
+ #back {
+ background-image:url(bg1.jpg);
+ background-repeat: no-repeat;
+ background-size: 1365px 700px;
+ padding: 20px;
+ height: 600px;
  }
 
  td.texta textarea {
 	resize:vertical; max-height:200px;
+}
+
+
+div.style2{
+	
+	padding: 40px;
+}
+
+.blue{
+	background-color: #295f9d;
 }
 
 
@@ -69,6 +87,7 @@ margin: 50px;
 
  h1 , h2 , h3 , h4, h5 , h6 {
  color: #000066;
+ padding: 0 px;
  }
 
 
@@ -107,4 +126,19 @@ td.ta textarea {
 
 #show {
 	text-align: right;
+}
+
+.body{
+	padding: 100px;
+	color:#ffffff;
+	font:bold;
+}
+
+.title{
+	margin: 100px;
+}
+.body2{
+	padding: 0px;
+	color:#ffffff;
+	font:bold;
 }

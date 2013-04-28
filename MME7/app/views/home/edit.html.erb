@@ -1,0 +1,34 @@
+<%= render(:partial => 'shared/error_messages' , :locals => {:object => @carousel}) %>
+<div> 
+	<%= form_for(:carousel, :url=>{:action=>'update' , :id => @carousel.id , :project_id => @project}) do |f| %>
+	<table>
+<tr>
+<th><%= f.label(:Title)%></th>
+<td><%= f.text_field(:title)%></td>
+</tr>
+<tr>
+<th ><%= f.label(:Description)%></th>
+<td  class = "text"><%= f.text_area(:description)%></td>
+</tr>
+</br>
+<tr>
+<th><%= f.label(:Project)%></th>
+<td><%= f.select(:project_id, @projects.collect {|i| [i.name,i.id]},{:include_blank => true}) %></td>
+</tr>
+</br>
+<tr>
+<th><%= f.label(:Show)%></th>
+<td><%= f.check_box(:show)%></td>
+</tr>
+</br>
+<tr>
+<th><%= f.label(:News)%></th>
+<td><%= f.file_field(:news)%></td>
+</tr>
+</table>
+</br>
+<p>
+<td><%= f.submit %></td>
+</p>
+<% end %>
+</div>

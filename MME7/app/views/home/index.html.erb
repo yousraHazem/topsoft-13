@@ -1,1 +1,36 @@
-<%= link_to(" اظهار مصادر الميزانية ",{ :controller=>"budget_sources" , :action=>'list'})%
+
+<div id="ca-container" class="ca-container">
+    <div class="ca-nav">
+        <span class="ca-nav-prev">Previous</span>
+        <span class="ca-nav-next">Next</span>
+    </div>
+    <div class="ca-wrapper"> 
+          <% @carousels.each do |carousel|%>
+        <div class="ca-item">
+            <div class="ca-item-main">
+                <div class="ca-icon">
+                    <%= image_tag carousel.news_url(:thumb).to_s %>
+                </div>
+                    <a href="#" class="ca-more">more...</a>
+            </div>
+            
+            <div class="ca-content-wrapper">
+                <div class="ca-content">
+                    <h6><%= carousel.title %></h6>
+                    <a href="#" class="ca-close"></a>
+                    <div class="ca-content-text">
+                        <p><%= carousel.description %></p>
+                    </div>
+                    <ul>
+                        <% @projectid = carousel.project_id%>
+                        <% if !@projectid.nil? %>
+                        <li><%= link_to("Read More", {:controller => 'projects', :action=>'show' ,:id=> carousel.project_id})%></li>
+                        <% end%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+   <% end %>
+    </div>
+
+</div>

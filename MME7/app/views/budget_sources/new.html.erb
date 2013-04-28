@@ -1,11 +1,12 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_source}) %>
-<div class = body> 
+<div> 
 	<div class="navbar" "container"></div>
 	<h2>إنشاء مصدر الميزانية</h2>
+	<br>
 	<%= form_for(:budget_source, :url=>{:action=>'create'}) do |f| %>
-	<table>
+	<table class="body">
 <tr>
-<th><%= f.label(:Company_Name , "إسم الشركة") %></th>
+<th><b><%= f.label(:Company_Name , "إسم الشركة") %></b></th>
 <td><%= f.text_field(:name)%></td>
 </tr>
 </br>

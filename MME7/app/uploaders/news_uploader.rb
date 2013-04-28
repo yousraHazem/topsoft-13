@@ -36,7 +36,7 @@ class NewsUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-     process :resize_to_fit => [350, 900]
+     process :resize_to_fill => [310, 330]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
