@@ -1,7 +1,7 @@
 ﻿
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
-<h2>إنشاء عنصر مزانية</h2>
+<h2 class ="item">إنشاء عنصر مزانية</h2>
  	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project }) do |f| %>
 <table>
 	<tr>

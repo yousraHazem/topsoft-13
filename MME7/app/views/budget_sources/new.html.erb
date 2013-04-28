@@ -3,25 +3,28 @@
 	<div class="navbar" "container"></div>
 	<h2>إنشاء مصدر الميزانية</h2>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<%= form_for(:budget_source, :url=>{:action=>'create'}) do |f| %>
 	<table class="body">
 <tr>
 <th><b><%= f.label(:Company_Name , "إسم الشركة") %></b></th>
-<td><%= f.text_field(:name)%></td>
+<td><%= f.text_field(:name)%><br><br></td>
 </tr>
 </br>
 <tr>
 <th><%= f.label(:Amount , "الكمية")%></th>
-<td><%= f.text_field(:amount)%></td>
+<td><%= f.text_field(:amount)%><br><br></td>
 </tr>
 </br>
 <tr>
 <th><%= f.label ("المشروع")%></th>
-<td><%= f.text_field (:project_tokens)%> </td>
+<td><%= f.text_field (:project_tokens)%></td>
 </tr>
-
 </table>
-</br>
+<br>
 <p>
 <td class = "btn"><%= f.submit ("أحفظ") %></td>
 </p>

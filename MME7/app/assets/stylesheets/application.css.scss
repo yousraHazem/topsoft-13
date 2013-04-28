@@ -21,18 +21,18 @@ td.text textarea{
 }
 
  #background {
- background-image:url(bg4.jpg);
+ background-image:url(final.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 950px;
- padding: 20px;
+ padding: 10px;
  height: 900px;
  }
 
  #back {
- background-image:url(bg1.jpg);
+ background-image:url(final.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 700px;
- padding: 20px;
+ padding: 10px;
  height: 600px;
  }
 
@@ -87,6 +87,7 @@ margin: 50px;
 
  h1 , h2 , h3 , h4, h5 , h6 {
  color: #000066;
+ margin-right: 0px;
  padding: 0 px;
  }
 
@@ -129,16 +130,19 @@ td.ta textarea {
 }
 
 .body{
-	padding: 100px;
-	color:#ffffff;
+	color:#CFECEC;
 	font:bold;
 }
 
 .title{
-	margin: 100px;
+	padding-top: 30px;
 }
 .body2{
-	padding: 0px;
+	padding: -100px;
 	color:#ffffff;
 	font:bold;
+}
+
+.item{
+padding-top: -100px;
 }
