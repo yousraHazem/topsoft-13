@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+
+<div class="dialog-form container-fluid offset1">
+	<div class="row-fluid">
+	  <h1 class="offset10">تعديل</h1>
+      <p><%= form_for(:component, :url=>{:action=>'update',:id=>@component.id,:item_id=> @item ,:project_id=> @project_id } ) do |f| %>
+        <div class="span9" id ="table">
+          <%= render(:partial => "form" , :locals => {:f=> f}) %> 
+            <div><%= submit_tag("احفظ")%></div>
+        </div> 
+      <% end %>
+    </div>
+</div> 
+
+
+
+

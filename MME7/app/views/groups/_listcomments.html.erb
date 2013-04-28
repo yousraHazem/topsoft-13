@@ -1,1 +1,38 @@
-﻿
+<div class = "well" id="com">
+<%= error_messages_for(@comment) %>
+<% post.comments.each do |c| %> 
+<% if current_user %>   
+<% if isCommentCreator(current_user.id,c.id) == true %>
+<div class="well well-small" id="eachcom"><b id="username">
+    <%=c.name %></b></br>
+    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %>
+    <%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :group_id => @group.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %>
+    <%= link_to 'Edit', {:controller => 'comments', :action => 'updateComment', :comment_id => c.id, :post_id => :post_id, :group_id => @group.id} %>
+    <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+</div></br>
+<% end %>
+<%else%>
+    <div class = "well well-small" id="eachcom"><b id="username">
+        <%=c.name %></b></br>
+        <%=c.comment%>
+        <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+    </div></br>
+<% end %>
+<% end %>
+
+<% if current_user %>
+<% if ifMember(params[:id],current_user.id)==true %>
+<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :group_id => @group.id, :user_id => current_user.id}, :html => {:id => "comment-form"}) do |f| %>
+    <%= f.text_area (:comment), :placeholder =>"اضف تعليقك", "cols"=> 23, "rows"=> 2 %>
+    <%= f.hidden_field :post_id, :value => post.id%>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :is_group, :value => 'true' %>
+    <%= f.hidden_field :name, :value => current_user.name %>
+    <button id="bcom" class="btn btn-small btn-primary" type="submit">إضافة تعليق</button>
+<% end %>
+<% end %>
+<% end %>  
+</div>
+
+
+

@@ -1,13 +1,28 @@
 #encoding: utf-8
 class ProjectsController < ApplicationController
   layout "project"
+
+  def index
+    @projects = Project.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.map(&:attributes) }
+
+    end
+  end
+
+#Author Riham Gamal id = 22-3871
+#Arguments project.id
+#return non
+def show
+  @project = Project.find(params[:id])
+end
   # Author : Nayera Mohamed 22-3789 
   # Args : no args
   # retuns : list of projects
   def listProjects
       @projects = Project.all
   end
-
 
   # Author : Nayera Mohamed 22-3789 
   # Args: no args
@@ -23,6 +38,10 @@ class ProjectsController < ApplicationController
       @project=Project.new(params[:project])
       if @project.save
          redirect_to(:action => 'show')
+         @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
+         @projectuser.save
+         flash[:notice]= "project created"
+         redirect_to(:action => 'show', :id => @project.id)
       else
          render('newProject')
       end
@@ -48,7 +67,7 @@ class ProjectsController < ApplicationController
          render('editProject')
       end
   end
-  
+ 
 
   # Author : Nayera Mohamed 22-3789 
   # Args : project id

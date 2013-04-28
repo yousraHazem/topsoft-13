@@ -1,0 +1,21 @@
+<% @page_title = "Recipts List"%>
+
+<div>
+	<h2>إيصالات</h2>
+ <table class = "table">
+<tr>
+	<th>إسم</th>
+	<th>ألأيصال</th>
+</tr>
+<% @receipts.each do |receipt|%>
+<tr>
+	<td><%= receipt.name %></td>	
+	<td><%= image_tag receipt.image_url(:thumb).to_s %></td>
+	<% if(isProjectCreator(@current_user, @project_id ) == true) %>
+	<td><%= link_to("تعديل", {:action=>'edit', :id=>receipt.id , :project_id=> @project_id})%></td>
+	<% end %>
+</tr>
+
+<%end%>
+</table>
+</div>

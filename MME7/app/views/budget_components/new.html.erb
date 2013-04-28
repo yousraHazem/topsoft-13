@@ -1,0 +1,15 @@
+
+<div class="style">
+  <h2> عنصر جديد</h2>
+
+  <div id="dialog" >
+	<%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}) do |f| %>
+	  <div> 
+		<%= render(:partial => "form" , :locals => {:f=> f})%> 
+	  </div> 
+	  <div>
+	  	<%= submit_tag("احفظ")%>
+	  </div>
+	<% end %>
+  </div>  
+</div>

@@ -1,0 +1,36 @@
+
+<% if !flash[:notice].blank? %>
+<div class= "notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+<div>
+<div>
+<table class="table table-hover">
+  <tr>
+  <h1 class="text-center">المجتمعات </h1>
+<div>
+  <%= button_to("اضف مجتمع جديد ", {:action => 'new'}, :class => 'btn btn-inverse') %>
+      <th>اسم المجتمع</th>
+      <th>وصف عن المجتمع</th>
+      <th>البريد الالكتروني </th>
+      <th>يمكنك فعل</th>
+    <% @communities.each do |community| %>
+     <tr class="success">
+
+       <td><%= community.title %></td>
+       <td><%= community.social_profile_info %></td>
+        <td><%= community. contact_info %></td>
+        <td> 
+
+             <%= link_to("مسح", {:action => 'delete', :id => community.id}, :class => 'action delete') %>
+           </br></br>
+           <td >
+         <li><%= link_to("تعدىل", {:action => 'edit', :id => community.id}) %><i class="icon-pencil"></i> </li>
+      </td>
+          </br>
+        </td>
+      </tr>
+    <%end%>
+  </table>
+</div>

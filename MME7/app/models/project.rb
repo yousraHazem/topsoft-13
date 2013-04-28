@@ -1,16 +1,16 @@
 #encoding: utf-8
 class Project < ActiveRecord::Base
-    attr_accessible  :name , :start_date , :end_date , :description  
-    validates_presence_of :name, :message => "يجب اضافة اسم"
+   attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
+   validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
+
     validate :validate_end_date_before_start_date
 
 
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date
-                errors.add(:end_date," تاريخ الانتهاء لا ىجب ان ىكون قبل تاريخ البداىة")
-               
+                errors.add(:end_date," تاريخ الانتهاء لا ىجب ان ىكون قبل تاريخ البداىة")               
             end
         end
     end
@@ -21,11 +21,11 @@ class Project < ActiveRecord::Base
         @current_date = Date.today
         if start_date && @current_date
            if start_date < @current_date
-                errors.add(:start_date,"تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")
-              
+                errors.add(:start_date,"تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")              
             end
         end
     end
+
 
 
     has_many :posts
@@ -37,12 +37,16 @@ class Project < ActiveRecord::Base
     has_and_belongs_to_many :communities
     has_many :budget_source_projects , :dependent => :destroy
     has_many :budget_sources , :through => :budget_source_projects
+    attr_reader :user_tokens
 
     def self.get_projectmembers(project_id)
-     @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
+        @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
     end
 
    
+    # Author Riham Gamal 22-3871
+    # Arguments users ids 
+    # Return the users with the input ids
     def user_tokens=(ids)
       self.user_ids = ids.split(",")
     end
@@ -54,7 +58,7 @@ class Project < ActiveRecord::Base
     #get_projectmembers(project_id) method. this is taken from nayera 
     def getMembersNotInProject (project_id)
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
-      @users = User.where("id NOT IN (?)" , b)
+       @users = User.where("id NOT IN (?)" , b)
     end 
 
 
@@ -65,4 +69,5 @@ class Project < ActiveRecord::Base
     def budgetItems(project_id)
      @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?
     end
+
 end

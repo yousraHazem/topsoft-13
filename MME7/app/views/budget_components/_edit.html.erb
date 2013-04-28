@@ -1,0 +1,41 @@
+  
+ <table summary = "subject form fields">
+		<tr>
+	<th><%= f.label(:name, "Name:")%></th>
+	<td><%= f.text_field(:name) %></td>
+</tr>
+<tr>
+	<th><%= f.label(:unit_price)%></th>
+	<td><%= f.text_field(:unit_price, :id=>"price") %></td>
+</tr>
+<tr>
+	<th><%= f.label(:quantity_purchased)%></th>
+	<td><%= f.text_field(:quantity_purchased, :id=>"qty") %></td>
+</tr>
+<tr>
+	<th><%= f.label(:total_quantity)%></th>
+	<td><%= f.text_field(:total_quantity, :id=>"total") %></td>
+</tr>
+<tr>
+	
+	<td><%= f.hidden_field :budget_item_id , :value=>@item %></td>
+</tr>
+
+<tr>
+	<td><%= f.hidden_field :total , :id=>"amount" %></td>
+</tr>
+
+<tr>
+	<td><%= f.hidden_field :status , :id=>"status" %></td>
+</tr>
+
+<tr>
+	<td><%= f.hidden_field :spent , :id=>"spent" %></td>
+</tr>
+
+
+
+	</table> 
+
+
+	

@@ -1,0 +1,29 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Show Community</h2>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <td><%= @Community.title %></td>
+    </tr>
+    <tr>
+      <th>social_profile_info</th>
+      <td><%= @Community.social_profile_info %></td>
+    </tr>
+    <tr>
+      <th>contact_info</th>
+      <td><%= @Community.contact_info  %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @Community.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @Community.updated_at %></td>
+    </tr>
+  </table>
+  
+</div>

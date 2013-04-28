@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <% provide(:title, @user.name) %>
 	<div>
 		<h1>
@@ -6,3 +7,6 @@
    		 </h1>
 	</div>
 <%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %>
+<%= render 'get_myprojects', :locals => {'@projectusers' => @project_users} %>
+
+
