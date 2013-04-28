@@ -61,6 +61,7 @@ class BudgetItemsController < ApplicationController
 		if !@oldtask.nil?
 		@tasks << @oldtask
 	    end
+	    @projectuser = ProjectUser.find(:all,:conditions => {:project_id => @project})
 	    @users = User.where("name like ?", "%#{params[:q]}%")  
     	respond_to do |format|  
      	format.html  
