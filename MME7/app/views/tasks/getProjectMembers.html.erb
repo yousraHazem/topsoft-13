@@ -19,7 +19,7 @@
       <tr>
         <td> <%= p.user.name %></td>
         <td>
-          <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign', :id => params[:project_id] , :task_id => params[:task_id] , :user_id =>p.user.id} %></b>
+          <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
 
        </td>
       </tr>

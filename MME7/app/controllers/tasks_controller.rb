@@ -1,5 +1,5 @@
 ﻿class TasksController < ApplicationController
- 
+   respond_to :html, :json
   # Author : Salma El -Ruby 22-4649
   # Args : takes task_id , user_id , project_id
   # Returns : redirects to page with all members in project 
@@ -12,10 +12,8 @@
       @assigned  = TaskUser.find(:all,:select=> 'user_id', :conditions=>{:task_id=>@task_id}).collect(&:user_id)
        if @assigned.empty?
        @notassigned = ProjectUser.where(:project_id => @project_id)  
-       
        else
        @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)", @project_id , @assigned)
-       
       end
   end
 
@@ -74,17 +72,12 @@
      @task_id = params[:task_id]
      @task = Task.find(params[:id])
   end
-  
+
   def update
-    # Find object using form parameters
     @task = Task.find(params[:id])
-    # Update the object
-    if @task.update_attributes(params[:task])
-      # If update succeeds, redirect to the list action
-      redirect_to(:action => 'listTasks', :id => params[:project_id])
-    else
-      # If save fails, redisplay the form so user can fix problems
-      render('edit')
-    end
-  end 
+    @task.update_attributes(params[:task])
+    respond_with @task
+  end
+
+
 end 
