@@ -1,7 +1,5 @@
 #encoding: UTF-8
 class BudgetComponentsController < ApplicationController
-
-  
 	def index
      list
      render('list')

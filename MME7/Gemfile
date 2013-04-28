@@ -19,15 +19,15 @@ gem 'rspec-rails'
 #   gem "rspec-rails", "~> 2.0"
 # end
 
-gem 'simplecov'
+#gem 'simplecov'
 gem 'carrierwave'
 #gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
- gem 'annotate', '2.5.0'
- gem 'factory_girl_rails', '4.1.0'
-gem 'omniauth-facebook'
+ #gem 'annotate', '2.5.0'
+ #gem 'factory_girl_rails', '4.1.0'
+#gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -63,12 +63,14 @@ group :test, :development do
 end
 
 
-group :development, :test do
-end
-
 group :test do
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
-  #gem 'launchy'
 end
+#group :test do
+ # gem 'faker'
+  #gem 'capybara'
+  #gem 'guard-rspec'
+  #gem 'launchy'
+#end

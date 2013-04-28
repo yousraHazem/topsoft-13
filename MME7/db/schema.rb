@@ -11,11 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130426030203) do
+=======
+ActiveRecord::Schema.define(:version => 20130418140510) do
+>>>>>>> master
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -55,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
   end
 
   create_table "comments", :force => true do |t|
