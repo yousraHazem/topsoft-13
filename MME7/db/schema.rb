@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
+ActiveRecord::Schema.define(:version => 20130428200115) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity",     :default => 0
+    t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -55,11 +55,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -128,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+    t.string   "photo"
   end
 
   create_table "receipts", :force => true do |t|
