@@ -1,4 +1,5 @@
-﻿class NotsController < ApplicationController
+
+class NotsController < ApplicationController
  include ApplicationHelper
 	
  def index

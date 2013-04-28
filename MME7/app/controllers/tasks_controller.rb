@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+#encoding: UTF-8
 	class TasksController < ApplicationController
     # Author : Nayera Mohamed 22-3789 
     #Args : task params
@@ -6,6 +6,4 @@ class TasksController < ApplicationController
 	def listTasks
 		@tasks = Task.where(:project_id=>params[:id])
 	end
-
-end
 end

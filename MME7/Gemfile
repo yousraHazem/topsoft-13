@@ -12,6 +12,7 @@ gem 'mail', '~> 2.5.3'
 gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
+gem 'devise'
 
 
 # group :test, :development do

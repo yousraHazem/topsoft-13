@@ -14,6 +14,17 @@
  *= require bootstrap-datepicker
  */
 
+.bg {
+  border: 1px solid #d1d1d1;
+}
+
+#comp{
+  overflow: hidden
+}
+
+.component {
+  margin-top: 10%;
+}
  .header {
  margin: 20px;
  }

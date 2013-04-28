@@ -1,5 +1,5 @@
-﻿
-<table  class="table pagination" id="table-components">
+
+<table  class="table" id="table-components">
 	<tr class="header">
 		<th>إسم</th>
 		<th>سعر الوحدة</th>
@@ -12,21 +12,25 @@
 
     <% @components.each do |component|%>
     <tbody>
-    <tr class="<%= component.status == "اكتمل" ? 'info' : 'warning' %>">
+    <tr class="">
 	<td><%= component.name %></td>
 	<td><%= component.unit_price %></td>
 	<td><%= component.quantity_purchased %></td>
 	<td><%= component.total_quantity %></td>
 	<td><%= component.spent %></td>
-	<td><%= component.status %></td>
+	<% if component.status.to_s == "اكتمل" %>
+	<td><span class="label label-success">اكتمل</span></td>
+	<%else%>
+	<td><span class="label label-important">معلق</span></td>
+	<%end%>
 	<td class="actions">
 		<% if(isProjectCreator(@current_user, @project_id ) == true) %>
-        <%= link_to("تعديل", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id},:class=>"btn btn-small")%> 
-	    <%= link_to("إلغاء", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"المدفوع #{component.spent}  هل تريد الغاء هذا العنصر؟", :id=>"delete",:class=>"btn btn-danger btn-small")%>
-	    <%= link_to("إضافة وصل", {:controller => 'receipts', :action=>'new' ,:id=>component.id},:class=>"btn btn-small")%>
-	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+        <i class="icon-pencil"></i><%= link_to(" تعديل", {:action=>'edit' ,:id=>component.id, :item_id=>@item , :project_id=> @project_id})%>
+	    <i class="icon-remove"></i><%= link_to(" إلغاء", {:action=>'destroy',:id=>component.id,:item_id=>@item ,:project_id=> @project_id}, :confirm=>"المدفوع #{component.spent}  هل تريد الغاء هذا العنصر؟", :id=>"delete")%> 
+	    <%= link_to(" إضافة وصل", {:controller => 'receipts', :action=>'new' ,:id=>component.id})%>
+	    <%= link_to(" أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id})%> 
 	    <%else%>
-	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id},:class=>"btn btn-small")%>
+	    <%= link_to("أظهار الوصولات",{:controller => 'receipts', :action=>'list' ,:id=>component.id})%>
         <% end %>
 	</td>
 

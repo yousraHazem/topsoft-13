@@ -1,4 +1,5 @@
-﻿class Receipt < ActiveRecord::Base
+#encoding: UTF-8
+class Receipt < ActiveRecord::Base
   attr_accessible :name , :budget_component_id , :image
 
   belongs_to :budget_component

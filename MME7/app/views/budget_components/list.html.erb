@@ -1,4 +1,4 @@
-﻿
+
 <p class="link pull-left">
   <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :project_id=>params[:project_id],:class => 'back link'} ) %>
   <i class=" icon-chevron-left"></i>
@@ -7,19 +7,15 @@
 <% @page_title = "عنلصر الميزانية"%>
 <div class="style">
   <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
-  <fieldset class="header"> 
-    <legend>
       <h1><%= @name %>
         <div class="progress pull-left" id="progressouter">
           <div class="bar" id="progress"></div>
         </div>
       </h1>
-    </legend> 
     <h3>الاجمالى: <%= @total %></h3> 
     <h6><i class="icon-tint"></i>اسم المشروع: </h6>
     <h6><i class="icon-tint"></i>اسم الميزانية: </h6>
     <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
-  </fieldset>
   <span class="h3"> 
      <div>
         <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
