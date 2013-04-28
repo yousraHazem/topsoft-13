@@ -8,6 +8,7 @@
       <td> 
 
         <%= p.user.name %>
+        <b> <%= link_to " X ", {:controller => 'users' ,:action => 'unassign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
          <br/>
       </td>
     </tr>
