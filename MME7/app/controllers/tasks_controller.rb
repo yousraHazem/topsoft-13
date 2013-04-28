@@ -8,8 +8,8 @@
       @user = params[:user_id]
       @task_id = params[:task_id]
       @project_id = params[:project_id]
-      @assignedppl  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id})
-      @assigned  = TaskUser.find(:all,:select=> @user, :conditions=>{:task_id=>@task_id}).collect(&:user_id)
+      @assignedppl  = TaskUser.find(:all, :conditions=>{:task_id=>@task_id})
+      @assigned  = TaskUser.find(:all,:select=> 'user_id', :conditions=>{:task_id=>@task_id}).collect(&:user_id)
        if @assigned.empty?
        @notassigned = ProjectUser.where(:project_id => @project_id)  
        
@@ -22,6 +22,7 @@
  #Author : Nayera Mohamed 22-3789 , this method takes the project id as params and outputs the taksks for this project
 	def listTasks
 		@tasks = Task.where(:project_id=>params[:id])
+    @project_id = params[:id]
 	end
 
   
