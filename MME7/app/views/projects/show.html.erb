@@ -60,7 +60,7 @@
         <%= f.hidden_field :name, :value => current_user.username %>
          <%= f.hidden_field :is_group, :value => 'false' %>
     </table> 
-    <button id="bpost" class="btn btn-primary" type="submit">نشر التعبير</button>
+    <span class="pull-left"><button class="btn btn-info" type="submit">نشر التعبير</button></span>
   </div>
         <% end %>
     <% end %>
@@ -72,10 +72,12 @@
   <% if current_user %>
   <% if isPostCreator(current_user.id,post.id ) == true %>
    <div class="triangle-isosceles">
-  <span> <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </span>
+    <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
+ <span class="pull-left"> <%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل انتى متأكد') %> </span>
       <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i>
       <i id="uname" class="under">:<%= post.name %></i></br>
-      <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+      <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+    </i>
     </div>
   </p>
   <%else%>

@@ -185,3 +185,6 @@ $(function () {
     });
 });
 
+$(function () {
+  $('#edit').popover();
+});
