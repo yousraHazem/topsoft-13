@@ -123,6 +123,22 @@ $(function() {
   });
 });
 
+$(function() {
+  $("#group_user_tokens").tokenInput("/users.json", {
+    crossDomain: false, 
+    theme: 'facebook' ,
+    prePopulate: $('#group_user_tokens').data('pre'),
+    preventDuplicates: true
+  });
+});
+
+$(function(){
+    $("#search input").keyup(function(){
+        $.get($("#search").attr("action"),$("#search").serialize(), null, "script");
+        return false;
+    });
+});
+
 
 
 // jQuery.ajaxSetup({

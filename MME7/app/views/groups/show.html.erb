@@ -28,6 +28,7 @@
     <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
+    <%= link_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'action edit') %>
     <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
     <% end %>
 <% end %>

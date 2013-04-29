@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>اسم المجموعة</th>
+  </tr>
+
+  <% if @groups %>
+  <% @groups.each do |group| %>
+    	<tr> 
+    		<td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+		</tr>
+	<% end %>
+	<% end %>
+</table>

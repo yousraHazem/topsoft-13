@@ -11,7 +11,8 @@ class Group < ActiveRecord::Base
   validates_uniqueness_of :group_name, :case_sensitive => false, :message => "هذا الإسم قد أستخدم من قبل"
   validates_presence_of :levels, :message => "يرجى إملاء خانة مستوى المجموعة"
 
-	
+
+
   #Author: Donia Amer Shaarawy 22-0270 
   #getMembersNotInGroups takes in a paramater group id and then goes to the user table and find all the users that 
   #are not in this group we will subtrack the users in this group from all users this is done by calling on 
@@ -23,5 +24,25 @@ class Group < ActiveRecord::Base
  
  	def  self.getposts (g_id)
 	return Post.find(:all, :conditions => {:group_id =>g_id})
+  end
+
+  # May Atef Badr 22-0579
+  # This method takes the input the user types in the search field
+  # and compares it with the groups' names 
+  # if the name matches the input it will list the results of the filtering
+  # else it won't list anything
+  # args: group name
+  # returns: searched groups or simular group name/s
+  
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['group_name LIKE ?',"%#{search}%"])
+    else 
+      find(:all)
+    end
+  end
+
+  def user_tokens=(ids)
+    self.user_ids = ids.split(",")
   end
 end 

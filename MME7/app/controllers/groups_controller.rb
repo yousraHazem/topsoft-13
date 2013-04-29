@@ -3,9 +3,16 @@ class GroupsController < ApplicationController
 include GroupUsersHelper
     # Author: Sama Akram 22-555, it gets all groups ordered alphabetically by group name
     # returns Group.all ordered by name
+    # update May
+     # May Atef Badr 22-0579
+    # this method lists the groups 
+    #and if user uses the search, it will filter the list
+    # args: group name
+    # returns: searched groups or simular group name/s
     def index
-        @groups = Group.order("groups.group_name ASC")
+        @groups=Group.search(params[:search])
     end
+   
 
     # Author: Sama Akram 22-555 
     # As a creator I can delete a group, destroying method issue #160
@@ -43,6 +50,32 @@ include GroupUsersHelper
             redirect_to :action => 'show', :id => @group.id
         else
             render ('new')
+        end
+    end
+
+    #Author May Badr 22-0579
+    #finds the resord to be edited
+    # args: group id
+    # returns: nothing
+    def edit
+        @group = Group.find(params[:id])
+    end
+
+    # Author May Badr 22-0579
+    # updates the chosen record and returns to the list if succeeded and flashes a msg
+    # and if not will flash a msg of failure and returns to edit page
+    # args: group id
+    # returns: updated group
+    def update
+        @group = Group.find(params[:id])
+        
+        if @group.update_attributes(params[:group])
+            flash[:notice] = "تم التعديل بنجاح"
+            redirect_to(:action => 'index')
+        else
+            flash[:notice] = "فشل التعديل"
+            render ('edit')
+            
         end
     end
 end

@@ -1,0 +1,18 @@
+<%= link_to("<< رجوع", {:action => 'index'}, :class => 'back-link') %>
+</br>
+
+  <div class="group edit">
+      <%= flash[:notice] %>
+  <h2> تعديل المجموعة</h2>
+
+  <%= form_for(:group, :url => {:action => 'update', :id => @group.id}) do |f| %>
+  
+      <div id= "tableTwo"><%= render(:partial => 'tableTwo', :locals => {:f => f}) %><div>
+
+      <div class="form-buttons">
+        <%= submit_tag("تعديل المجموعة") %>
+      </div>
+    
+  <% end %>
+
+</div>

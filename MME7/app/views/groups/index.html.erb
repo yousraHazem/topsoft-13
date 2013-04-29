@@ -7,27 +7,18 @@
    
 <div>
   <% if current_user %>
-<%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
-<% end %>
+          <%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
+  <% end %>
 </div>
 
-
-<table>
-  <tr>
-    <th>اسم المجموعة</th>
-  </tr>
-
-  <% if @groups %>
-  <% @groups.each do |group| %>
-  <tr>
-
- 
-    <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-
-  </tr>
-<% end %>
-</table>
+<%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
+      <p> 
+          <%= text_field_tag :search, params[:search]%>
+          <%= submit_tag "بحث", :name => nil %>
+      </p>  
+<%end%>
 
 <br />
 
-<% end %>
+<div id= "table"><%= render'table' %></div>
+ 
