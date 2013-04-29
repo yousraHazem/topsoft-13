@@ -26,8 +26,10 @@ module GroupsHelper
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
   
+  # Author: Sama Akram
+  # ARGS: groups and returns each group + an array of its subgroups (children)
   def nested_groups(groups)
-    groupss.map do |group, sub_groups|
+    groups.map do |group, sub_groups|
       render(group) + content_tag(:div, nested_groups(sub_groups), :class => "nested_groups")
     end.join.html_safe
   end
