@@ -45,6 +45,8 @@ end
   # Explanation : this method assigns members to task , create a new task user 
 
  def unassign 
+  if loged_in?
+  @current_user = current_user.id
   @task_id = params[:task_id]
   @userid = params[:user_id]
   @projectid = params[:id]
@@ -57,6 +59,8 @@ end
   # Returns : task_id, project_id 
   # Explanation : this method assigns members to task , create a new task user 
    def assign
+  if loged_in?
+  @current_user = current_user.id
   @task_id = params[:task_id]
   @projectid = params[:id]
   @userid = params[:user_id]

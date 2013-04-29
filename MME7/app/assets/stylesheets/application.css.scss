@@ -25,7 +25,9 @@
 	resize:vertical; max-height:200px;
 }
 
-
+.tasks{
+ text-align: right;
+ }
  .comments{
  background-color: #F0F0F0;
  text-align: right;
@@ -105,4 +107,12 @@ td.ta textarea {
 
 #show {
 	text-align: right;
+}
+
+#desc{
+	margin: 20px;
+}
+.description {
+margin: 20px;
+	
 }

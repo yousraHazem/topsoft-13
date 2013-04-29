@@ -69,11 +69,6 @@
   def destroy
     Task.find(params[:id]).destroy
     redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
+   
   end
-
-  
-
- 
-  
-
 end
