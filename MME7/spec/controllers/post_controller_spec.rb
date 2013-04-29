@@ -3,12 +3,13 @@ require 'spec_helper'
 describe PostsController do
 
   def valid_attributes
-   {:content => "put valid attributes"}
+   {:content => "put valid attributes", :is_group => true, :group_id => 24}
   end
 
   def invalid_attributes
    {:content => ""}
   end
+
 
 describe "POST create" do
     describe "with valid params" do
@@ -26,25 +27,13 @@ describe "POST create" do
 
       it "redirects to the created post" do
         post :createPost, {:post => valid_attributes}
+        if(:is_group == true)
         response.should redirect_to(:controller => 'groups',:action => "show")
+      end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved post as @post" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
-        post :createPost, {:post => valid_attributes}
-        assigns(:post).should be_a_new(Post)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
-        post :createPost, {:post => valid_attributes}
-        response.should redirect_to(:controller => 'groups',:action => "show")
-      end
-    end
+    
   end
 
   
