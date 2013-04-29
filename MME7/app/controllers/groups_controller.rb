@@ -68,14 +68,11 @@ include GroupUsersHelper
     # returns: updated group
     def update
         @group = Group.find(params[:id])
-        
         if @group.update_attributes(params[:group])
             flash[:notice]= "تم التعديل بنجاح "
-            redirect_to(:action => 'index')
+            redirect_to :action => 'show', :id => @group.id
         else
-            #flash[:notice] = "فشل التعديل"
             render ('edit')
-            
         end
     end
 end

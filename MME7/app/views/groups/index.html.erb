@@ -1,10 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
-<% if !flash[:notice].blank? %>
-<div class= "notice">
-  <%= flash[:notice] %>
-</div>
-<% end %>
 
 
   
@@ -18,9 +13,14 @@
 <%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
       <p> 
           <%= text_field_tag :search, params[:search]%>
-          <%= submit_tag "بحث", :name => nil %>
+          
+  		<i class="icon-search"></i>
+  	
       </p>  
 <%end%>
+
+
+
 
 <br />
 

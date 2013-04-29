@@ -25,6 +25,14 @@
   </tr>
   </table>
 
+  <table>
+  <tr>
+      <%= f.label :user_tokens, "إضافة أعضاء للمشروع" %><br />
+    <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json %>
+  </tr>
+</table>
+
+
 
   <div>
     <button class="btn btn-info" type="submit">إنشاء المجموعة</button>

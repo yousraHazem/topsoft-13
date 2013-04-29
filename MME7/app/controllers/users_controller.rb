@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # the user and returns a new record for a new user 
   def create
    @user = User.new(params[:user])
-    if @user.save
+     if @user.save
      flash[:success] = "مرحب بيك فى ؤمن االماء حيه"
      redirect_to :controller => 'sessions', :action => 'new'
     else
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
  end 
 
  # Author Riham Gamal 22-3871
+ # Author May Badr 22-0579
  # The index method is used in  the autocomplete search
  # Arguments non 
  # Return all users 

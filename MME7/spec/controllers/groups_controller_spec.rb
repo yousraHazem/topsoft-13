@@ -14,13 +14,13 @@ describe GroupsController do
     {:group_name => "groupOneOne", :description => "blaaaah blaah haaa", :levels => "child"}
   end
  
- describe "GET new" do
+  describe "GET new" do
     it "assigns a new group as @group" do
       get :new
       assigns(:group).should be_a_new(Group)
     end
   end
-describe "POST create" do
+  describe "POST create" do
     describe "with valid params" do
       it "creates a new Group" do
         expect {
@@ -84,46 +84,45 @@ describe "POST create" do
        end
   end
 
-    describe "PUT update" do
-            describe "with valid params" do
-                it "updates the requested group" do
-                    group = Group.create! valid_attributes
-                    put :update, {:id => group.to_param, :group => update_attributes }
-                end
+  describe "PUT update" do
+    describe "with valid params" do
+        it "updates the requested group" do
+              group = Group.create! valid_attributes
+              put :update, {:id => group.to_param, :group => update_attributes }
+        end
 
-                it "assigns the requested group as @group" do
-                    group = Group.create! valid_attributes
-                    put :update, {:id => group.to_param, :group => valid_attributes}
-                    assigns(:group).should eq(group)
-                end
+        it "assigns the requested group as @group" do
+              group = Group.create! valid_attributes
+              put :update, {:id => group.to_param, :group => valid_attributes}
+              assigns(:group).should eq(group)
+        end
 
-                it "redirects to the group" do
-                    group = Group.create! valid_attributes
-                    put :update, {:id => group.to_param, :@group => valid_attributes}
-                    response.should redirect_to( 'http://test.host/groups')
-                end
+        it "redirects to the group" do
+              group = Group.create! valid_attributes
+              put :update, {:id => group.to_param, :@group => valid_attributes}
+              response.should redirect_to( 'http://test.host/groups/show/1')
+        end
 
-            end
+    end
 
-            describe "with invalid params" do
-                it "assigns the group as @group" do
+    describe "with invalid params" do
+        it "assigns the group as @group" do
                     group = Group.create! valid_attributes
                     # Trigger the behavior that occurs when invalid params are submitted
                     Group.any_instance.stub(:save).and_return(false)
                     put :update, {:id => group.to_param, :group => invalid_attributes}
                     assigns(:group).should eq(group)
-                end
-                it "re-renders the 'edit' template" do
+        end
+        it "re-renders the 'edit' template" do
                     group = Group.create! valid_attributes
                     # Trigger the behavior that occurs when invalid params are submitted
                     Group.any_instance.stub(:save).and_return(false)
                     put :update, {:id => group.to_param, :group => invalid_attributes}
                     response.should render_template(:action => "edit")
-                end
-            end
+        end
     end
 
-
+  end
 
 
 end
