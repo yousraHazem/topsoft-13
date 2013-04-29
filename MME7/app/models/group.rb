@@ -34,13 +34,13 @@ class Group < ActiveRecord::Base
 	return Post.find(:all, :conditions => {:group_id =>g_id})
   end
 
-  # May Atef Badr 22-0579
+  # Author: May Atef Badr 22-0579
   # This method takes the input the user types in the search field
   # and compares it with the groups' names 
   # if the name matches the input it will list the results of the filtering
   # else it won't list anything
-  # args: group name
-  # returns: searched groups or simular group name/s
+  # Args: group name
+  # Returns: searched groups or simular group name/s
   
   def self.search(search)
     if search
@@ -49,6 +49,11 @@ class Group < ActiveRecord::Base
       find(:all)
     end
   end
+
+  # Author: May Atef Badr 22-0579
+  # splites the names of add members
+  # Args: user id
+  # Returns: user id splited
 
   def user_tokens=(ids)
     self.user_ids = ids.split(",")

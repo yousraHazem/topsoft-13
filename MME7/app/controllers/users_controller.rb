@@ -28,11 +28,11 @@ class UsersController < ApplicationController
     end
  end 
 
- # Author Riham Gamal 22-3871
- # Author May Badr 22-0579
+ 
+ # Author: May Badr 22-0579
  # The index method is used in  the autocomplete search
- # Arguments non 
- # Return all users 
+ # Args: name 
+ # Returns: the user typed
  def index
     @users = User.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|

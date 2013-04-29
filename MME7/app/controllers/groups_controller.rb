@@ -4,11 +4,11 @@ include GroupUsersHelper
     # Author: Sama Akram 22-555, it gets all groups ordered alphabetically by group name
     # returns Group.all ordered by name
     # update May
-     # May Atef Badr 22-0579
+    # Author: May Atef Badr 22-0579
     # this method lists the groups 
-    #and if user uses the search, it will filter the list
-    # args: group name
-    # returns: searched groups or simular group name/s
+    # and if user uses the search, it will filter the list
+    # Args: group name
+    # Returns: searched groups or simular group name/s
     def index
         @groups=Group.search(params[:search])
     end
@@ -53,19 +53,19 @@ include GroupUsersHelper
         end
     end
 
-    #Author May Badr 22-0579
-    #finds the resord to be edited
-    # args: group id
-    # returns: nothing
+    # Author: May Badr 22-0579
+    # finds the resord to be edited
+    # Args: group id
+    # Returns: nothing
     def edit
         @group = Group.find(params[:id])
     end
 
-    # Author May Badr 22-0579
+    # Author: May Badr 22-0579
     # updates the chosen record and returns to the list if succeeded and flashes a msg
     # and if not will flash a msg of failure and returns to edit page
-    # args: group id
-    # returns: updated group
+    # Args: group id
+    # Returns: updated group
     def update
         @group = Group.find(params[:id])
         if @group.update_attributes(params[:group])
