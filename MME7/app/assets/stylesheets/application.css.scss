@@ -40,9 +40,9 @@ td.text textarea{
  #back {
  background-image:url(yes3.jpg);
  background-repeat: no-repeat;
- background-size: 1365px 750px;
+ background-size: 1365px 950px;
  padding: 10px;
- height: 700px;
+ height: 900px;
  }
 
  td.texta textarea {
@@ -112,7 +112,13 @@ margin: 50px;
 	 text-align: center;
 }
 
-.notice {text-align: center; background:#e6efc2;color:#264409;border-color:#c6d880; font-weight: bold; }
+.notice {
+text-align: center; 
+background:#e6efc2;
+color:#264409;
+border-color:#c6d880; 
+font-weight: bold; 
+}
 
 p.paragraph{
    font-weight: bold;
