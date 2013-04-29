@@ -10,7 +10,10 @@
 <h2 class = 'text-center'>إنشاء مجموعة</h2>
 </br>
 </br>
-<b text-align="center" ><%= render @group.parent if @group.parent %></b>
+<% if @group.parent %>
+ <b> المجموعة الأم: </b>
+ <%= render @group.parent %>
+ <% end %>
 </br>
 </br>
 

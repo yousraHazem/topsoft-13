@@ -10,7 +10,7 @@
 <%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
 <% end %>
 </div>
-
+	<%= nested_groups @groups.arrange() %>
 <table>
   <tr>
     <th>اسم المجموعة</th>
@@ -20,7 +20,6 @@
   <% @groups.each do |group| %>
   <tr> 
     <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-	
   </tr>
 <% end %>
 </table>

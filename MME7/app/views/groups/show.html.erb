@@ -22,24 +22,29 @@
 </table>
 </br>
 </br>
-<b text-align="center" ><%= render @group.parent if @group.parent %></b>
+<% if @group.parent %>
+ <b> المجموعة الأم: </b>
+ <%= render @group.parent %>
+ <% end %>
 </br>
 </br>
 
 <div>
 <% if current_user %>
+<div class="btn-group">
 	<% if ifMember(@group.id, current_user.id) == false %>
-    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn span4') %>
     <% end %>
     <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
-    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
+    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn span4') %>          
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
-    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
+    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn span4') %>
     <% end %>
 	<% if ifMember(@group.id, current_user.id) == true &&  @group.level <= 2 %>	
-	<%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn btn-warning') %>
+	<%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span4') %>
 	<% end %>
+</div>
 <% end %>
 </div>
 </br>
