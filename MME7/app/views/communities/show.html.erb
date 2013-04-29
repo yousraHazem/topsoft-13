@@ -3,7 +3,9 @@
 
   <h2>المجتمع</h2>
 
-  <table>
+  <div class="alignright">
+
+  <table class="table table-hover" align="right"  >
     
     <tr>
       <th>اسم المجتمع:</th>
@@ -20,18 +22,23 @@
     
      <tr> 
         
-        <%if @community.is_dismissed != true %>
+        <%if @community.is_dismissed != true  && current_user.isAdmin == true %>
           <th>يمكنك فعل:</th>
            <td>
             <li><%= link_to("تعدىل", {:action => 'edit', :id => @community.id}) %><i class="icon-pencil"></i> </li>
-            </td>
+            
             </br>
-            <td>
-            <li><%= link_to("مسح", {:action => 'destroy', :id => @community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %></li>
+            
+            <li><%= link_to("مسح", {:action => 'destroy', :id => @community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %><i class="icon-remove"></i></li>
+          </br>
+          <li><%= link_to("المشروعات", {:action => 'listCommunityProject', :id => @community.id}) %><i class="icon-list"></i> </li>
+
+
             </td>
         <%end%>
         
       </tr>
      
   </table>
+  </div>
   

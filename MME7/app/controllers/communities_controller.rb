@@ -15,6 +15,13 @@ def list
 		@communities= Community.search(params[:search])
 end
 
+def listCommunityProject
+	#@comProjects = CommunityProjects.order("projects.name ASC")
+	@comProjects = CommunitiesProjectsJoin.find(:all, 
+   :conditions => {:community_id => @communities_projects.community.id}, 
+   :order => "projects.name ASC")
+end
+
 # May Atef Badr 22-0579
 # this moethod shows a community with it's info and edit and delete button
 # args: community id
