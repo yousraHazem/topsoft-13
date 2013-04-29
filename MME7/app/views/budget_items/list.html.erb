@@ -1,10 +1,15 @@
 <div class="style">
 <% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id],:class =>'pull-left'} ) %>
 
+
 <form action="">
 <fieldset>
 
-<h2>الميزانية <%= @total_budget %></h2> 
+<h2>الميزانية <%= @total_budget %></h2>
+<br>
+ <br>
+ <br>
+ <br> 
 <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
 
 <h6><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
@@ -12,9 +17,8 @@
 </form>
 <% if loged_in? %>
 <% if isProjectCreator(@current_user,@project.id)%>
-<h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
-    <i class="icon-plus icon-white"></i> 
-    <% end %>  العناصر</h4>
+<h4> <%= link_to("العناصر",{:action => 'new',:id=>params[:id] }) %>
+      </h4>
 <% if @items.blank? %>
 <p>There are no current budget items </p>
 <% end %>
