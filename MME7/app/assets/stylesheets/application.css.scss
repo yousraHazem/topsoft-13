@@ -14,16 +14,37 @@
  *= require bootstrap-datepicker
  */
 
+
+.field_with_errors .message {
+ display: inline;
+  color: #d9d9d9;
+  left: 200 px;
+  font-size: 15px;
+margin: 8px 10px;
+}
+
+ .link-source{
+ color: #99CCFF;
+ }
+
+ .source-projects {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+ padding: 10px;
+ }
+
  .info1 {
- margin-top: -100px;
+ margin-top: -50px;
  margin-right: 700px;
  }
   .info2 {
- margin-top: -20px;
+ margin-top: -30px;
  margin-right: 700px;
  }
   .info3 {
- margin-top: 0px;
+ margin-top: -30px;
  margin-right: 700px;
  }
 
@@ -45,6 +66,7 @@
 }
  .header {
  padding-top: -30px;
+ font-family:("adobe arabic");
  }
  .pic{
  position:absolute;
@@ -139,6 +161,7 @@
 .search {
 	display: inline;
 	margin-right: 60px;
+  top:10px;
 }
 
 .contribution {
@@ -161,10 +184,8 @@ margin: 50px;
  margin: 20px;
  }
 
-
-
-.style {
-	margin: 20px;
+.style{
+  margin: 20px; 
 }
 
 .progress {

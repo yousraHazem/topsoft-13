@@ -1,20 +1,20 @@
+
 <% @page_title = "عنلصر الميزانية"%>
   
-  <p class="">
-  <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :id=>params[:project_id] },:class => 'pull-left' ) %>
-  </p>  
+<p class="">
+<%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :id=>params[:project_id] },:class => 'pull-left' ) %>
+</p>  
 <div class="style">
-
   <input style= "display:none; height:100px;" id="data" type="text" name="lname" value= <%= @percent %>>
-      <h1><span class="header"><%= @name %><br><h3>الاجمالى: <%= @total %></h3></span>
-        <h6 class="info1"><i class="icon-tint"></i>اسم المشروع: </h6><br>
-      <h6 class="info2"><i class="icon-tint"></i>اسم الميزانية: </h6>
-      <h6 class="info3"><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
-      </h1>
-      
-    
-
+  <h1><span class="header"><%= @name %><br></span>
+    <div class="style2">
+     <h6 class="info1"><i class="icon-tint"></i>اسم المشروع: <%=@project%>  </h6><br>
+     <h6 class="info2"><i class="icon-tint"></i>الاجمالى: <%= @total %>     </h6><br>
+     <h6 class="info3"><i class="icon-tint"></i>اجمالى المدفوع: <%= @spent %></h6>
+    </div>
+  </h1>
 </div>
+
 <br>
 <br>
 <br>

@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class CommunitiesController < ApplicationController
+
 # Author : Mariam, 22-3456
 # This method lists all communities in the database
 # It returns all communities
@@ -54,6 +55,3 @@ def delete
 		redirect_to(:action => 'list')
 	end
 end
-
-
-

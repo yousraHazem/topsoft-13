@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
   end
 
   create_table "budget_sources_projects", :id => false, :force => true do |t|
+<<<<<<< HEAD
     t.integer "budget_source_id"
     t.integer "project_id"
   end
@@ -71,6 +72,10 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
     t.integer  "not_spent"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+=======
+    t.integer "project_id"
+    t.integer "budget_source_id"
+>>>>>>> master
   end
 
   create_table "comments", :force => true do |t|

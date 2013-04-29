@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class ProjectsController < ApplicationController
   layout "project"
 
@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => @projects.map(&:attributes) }
+
     end
   end
 
@@ -36,6 +37,7 @@ class ProjectsController < ApplicationController
   def createProject
       @project=Project.new(params[:project])
       if @project.save
+         redirect_to(:action => 'show')
          @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
          @projectuser.save
          flash[:notice]= "project created"
@@ -83,6 +85,7 @@ class ProjectsController < ApplicationController
       @old_description = params[:old_description]
 
       if @project.update_attributes(params[:project])
+        
          flash[:notice]= "project updated"
 
         @members = ProjectUser.where(:project_id=>@project.id)
@@ -102,5 +105,24 @@ class ProjectsController < ApplicationController
          render('editProject')
       end
   end
+ 
+
+  # Author : Nayera Mohamed 22-3789 
+  # Args : project id
+  # returns : no return
+  #this method deletes projects
+  def destroy
+      @project = Project.find(params[:id])
+      @projectid = Project.find(params[:id]).id
+      if @project.budgetSourceProject(@projectid) == true && @project.budgetItems(@projectid) == true
+        Project.find(params[:id]).destroy
+        flash[:notice]= "project destroyed"
+        redirect_to(:action => 'listProjects')
+      else
+        flash[:notice]= "الرجاء النظر الى الموارد المالىة"
+        redirect_to(:action => 'listProjects')
+      end  
+  end
+   
 
 end

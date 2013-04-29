@@ -1,7 +1,5 @@
 #encoding: UTF-8
 class BudgetComponentsController < ApplicationController
-
-  
 	def index
      list
      render('list')
@@ -17,6 +15,7 @@ class BudgetComponentsController < ApplicationController
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		@item = params[:id]
 		@name = BudgetItem.find(@item).name
+		@project = Project.find(params[:project_id]).name
 		@project_id = params[:project_id]
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"اكتمل")
@@ -78,6 +77,7 @@ class BudgetComponentsController < ApplicationController
 	end
 
 	def edit
+
 		#authorized by: sarah ahmed id=22-1278
 		#Description: gets the budget component of the passed id and view its details in the edit form
 		#returns: none

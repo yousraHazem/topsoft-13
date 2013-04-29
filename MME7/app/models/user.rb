@@ -13,12 +13,14 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :projects , :through => :project_users
 
+
   has_many :groups_users 
   has_many :groups , :through => :group_users 
 
 
-   has_many :task_users
+  has_many :task_users
   has_many :tasks , :through => :task_users
+
 
   has_many :notification_users
   has_many :notifications ,:through => :notification_users

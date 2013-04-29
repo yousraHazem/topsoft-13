@@ -3,7 +3,7 @@
   <h2 class="header-new"> عنصر جديد</h2>
 
   <div id="dialog" >
-	<%= form_for(:component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id}) do |f| %>
+	<%= form_for(@component, :as => :component, :url=>{:action=>'create', :id=> @item ,:project_id=>@project_id} , :validate=>true) do |f| %>
 	  <div> 
 	  	<br>
 			<br>
@@ -20,5 +20,3 @@
 	<% end %>
   </div>  
 </div>
-
-
