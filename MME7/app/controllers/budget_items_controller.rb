@@ -10,7 +10,6 @@ class BudgetItemsController < ApplicationController
 		# @total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
 		#@project_name = Project.find(params[:id])
 		 @tasks = Task.find(:all,:conditions=>{:project_id=> 1, :assigned=>false})
-		
 		@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
 	end 
 

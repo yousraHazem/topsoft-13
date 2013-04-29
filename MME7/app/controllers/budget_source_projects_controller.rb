@@ -23,5 +23,6 @@ class BudgetSourceProjectsController < ApplicationController
 
 	def sourceproject
 	@budget_sources = BudgetSourceProject.where(:project_id => params[:project_id])
+	@project = Project.find(params[:project_id])
   end
 end

@@ -1,7 +1,11 @@
 <p class="pull-right"></p>
+<%= link_to("رجوع الى العناصر", {:controller=>'budget_items',:action => 'list', :id=>params[:project_id],:class =>'pull-left'} ) %>
+<br>
+<h2> المشروع: <%= @project.name %></h2>
+
 <% @budget_sources.each do |budget_source| %>
     <h4>
     	<i class="icon-tint"> </i> 
-    	 <%= budget_source.budget_source.name %> <%= budget_source.budget_source.amount%> 
+    	 <%= budget_source.budget_source.amount%> : <%= budget_source.budget_source.name %> 
     </h4>
 <%end%> 
