@@ -28,7 +28,7 @@
         <ul class="nav pull-left">
             <% if current_user %>
             <li><%= link_to "خروج", log_out_path %></li>
-            <li> <b><%= link_to(current_user.name , {:controller=>'users', :action=>'show',:id => current_user.id} )%> </b></li>
+            <li><%= link_to(current_user.name , {:controller=>'users', :action=>'show',:id => current_user.id} )%></li>
             <% else %>
             <li><%= link_to "اشتراك", sign_up_path , :id=>"signup" %></li><li><%= link_to " دخول", log_in_path , :id=>"signin" %>
             </li>
