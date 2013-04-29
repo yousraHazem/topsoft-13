@@ -125,10 +125,10 @@ $(function() {
 
 $(function() {
   $("#group_user_tokens").tokenInput("/users.json", {
-    crossDomain: false, 
+    crossDomain: false,
     theme: 'facebook' ,
-    prePopulate: $('#group_user_tokens').data('pre'),
-    preventDuplicates: true
+    preventDuplicates: true,
+    prePopulate: $('#group_user_tokens').data('pre')
   });
 });
 

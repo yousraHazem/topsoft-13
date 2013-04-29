@@ -70,10 +70,10 @@ include GroupUsersHelper
         @group = Group.find(params[:id])
         
         if @group.update_attributes(params[:group])
-            flash[:notice] = "تم التعديل بنجاح"
+            flash[:notice]= "تم التعديل بنجاح "
             redirect_to(:action => 'index')
         else
-            flash[:notice] = "فشل التعديل"
+            #flash[:notice] = "فشل التعديل"
             render ('edit')
             
         end

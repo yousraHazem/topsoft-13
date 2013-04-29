@@ -1,15 +1,19 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<div class="flash">
-  <%= flash[:notice] %>
-  <%= flash[:error] %>
-</div>
 
-   
+<% if !flash[:notice].blank? %>
+<div class= "notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+
+  
 <div>
   <% if current_user %>
           <%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
   <% end %>
 </div>
+</br>
 
 <%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
       <p> 
