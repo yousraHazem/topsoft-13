@@ -1,12 +1,14 @@
 <%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'listProjects', :class => 'back link'} ) %>
  <h2>المهام</h2>
 <table class="table table-striped">
+
    <% @tasks.each do |task| %>
-	<td> <%= task.description %>
+
+	<td>  <div class = "alignright"><%= task.description %> </div>
+
 	<%= link_to(" تعيين عضو لمهمة   ", {:controller =>'tasks', :action =>'getProjectMembers', :project_id => @project_id , :task_id => task.id }, :class => 'action getProjectMembers') %> 
     
-<%= link_to(" - تعديل -", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %>
-<b><%= link_to "X", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
+<%= link_to("-  تعديل  -", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %><b><%= link_to "X", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
     
 </tr>
 	 </td>

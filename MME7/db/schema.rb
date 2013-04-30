@@ -98,6 +98,12 @@ ActiveRecord::Schema.define(:version => 20130428200115) do
     t.integer  "community_id"
   end
 
+  create_table "images", :force => true do |t|
+    t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.text     "content"
     t.integer  "group_id"

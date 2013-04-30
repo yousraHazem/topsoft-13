@@ -1,4 +1,5 @@
-	class TasksController < ApplicationController
+#encoding: UTF-8
+class TasksController < ApplicationController
     # Author : Nayera Mohamed 22-3789 
     #Args : task params
     #returns: list of tasks
@@ -6,21 +7,27 @@
 		@tasks = Task.where(:project_id=>params[:id])
 	end
 
-# Author : Salma El -Ruby 22-4649
-  # Args : takes task_id 
-  # Returns : redirects to page with edited task 
-  # Explanation : this method edits task
-  def edit
+
+  #Author :salma el ruby 22-4649
+  # Args : task_id 
+  # edit the task
+    def edit
      @task_id = params[:task_id]
      @task = Task.find(params[:id])
   end
-
+  
   def update
+    # Find object using form parameters
     @task = Task.find(params[:id])
-    @task.update_attributes(params[:task])
-  end
-
-
+    # Update the object
+    if @task.update_attributes(params[:task])
+      # If update succeeds, redirect to the list action
+      redirect_to(:action => 'listTasks', :id => params[:project_id])
+    else
+      # If save fails, redisplay the form so user can fix problems
+      render('edit')
+    end
+  end 
  
   # Author : Salma El -Ruby 22-4649
   # Args : takes task_id , user_id , project_id
@@ -82,10 +89,5 @@
     Task.find(params[:id]).destroy
     redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
   end
-
-  
-
- 
-  
 
 end

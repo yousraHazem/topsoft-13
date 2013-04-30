@@ -2,25 +2,25 @@ require 'spec_helper'
 
 describe TasksController do
 
-	 def valid_attributes
-	    {:description => 'human resources' , :project_id => 1}
-	 end
+   def valid_attributes
+      {:description => 'human resources' , :project_id => 1}
+   end
    
    def update_attributes
-       {:description => "lol" , :project_id => 1 }
+       {:description => "HR" , :project_id => 1 }
    end
 
    def invalid_attributes
        {:description => "" , :project_id => "" }
   end
 
-	describe "GET listTask" do
-	    it "assigns the requested task as @task " do
-	      task = Task.create! valid_attributes
-	      get :listTasks, {:id => task.id}
-	      assigns(:tasks).should eq([task])
-	    end
-	  end
+  describe "GET listTask" do
+      it "assigns the requested task as @task " do
+        task = Task.create! valid_attributes
+        get :listTasks, {:id => task.id}
+        assigns(:tasks).should eq([task])
+      end
+    end
  
    
   
@@ -79,12 +79,47 @@ describe TasksController do
           post :create, {:task => invalid_attributes}
           assigns(:task).should be_a_new(Task)
         end
-        it "re-renders the 'listTasks' template" do
+        it "re-renders the 'newTask' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
           post :create, {:task => invalid_attributes}
           response.should render_template("create")
         end
       end
+  end
+  describe "PUT updateTask" do
+    describe "with valid params" do
+        it "updates the requested task" do
+          task = Task.create! valid_attributes
+          put :update, {:id => task.to_param, :task => update_attributes }
+        end
+        it "assigns the requested task as @task" do
+          task = Task.create! valid_attributes
+          put :update, {:id => task.to_param, :task => valid_attributes}
+          assigns(:task).should eq(task)
+        end
+
+        it "redirects to the task" do
+          task = Task.create! valid_attributes
+          put :update, {:id => task.to_param, :task => valid_attributes}
+          response.should redirect_to("http://test.host/tasks/listTasks")
+        end
+    end
+    describe "with invalid params" do
+        it "assigns the task as @task" do
+          task = Task.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Task.any_instance.stub(:save).and_return(false)
+          put :update, {:id => task.to_param, :task => invalid_attributes}
+          assigns(:task).should eq(task)
+        end
+        it "re-renders the 'editTask' template" do
+          task = Task.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Task.any_instance.stub(:save).and_return(false)
+          put :update, {:id => task.to_param, :task => invalid_attributes}
+          response.should render_template("edit")
+        end
+    end
   end
 end
