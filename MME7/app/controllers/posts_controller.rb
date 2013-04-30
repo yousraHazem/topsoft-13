@@ -70,6 +70,12 @@ class PostsController < ApplicationController
 	     respond_with @post
 	end
 
+
+
+	def post_url something
+		"test"
+	end
+
 	# Author Mariam Ismail
 	# deletes a post with its comments
 	# ARGS post_id
@@ -77,6 +83,7 @@ class PostsController < ApplicationController
 	def destroyPost
 		@group_id = params[:group_id]
         @post=Post.find(params[:post_id])
+        @post.comments.destroy_all
 	    @post.destroy
 	    if (@post.is_group == true)
 	    	redirect_to(:controller => 'groups',:action => 'show', :id => params[:group_id])

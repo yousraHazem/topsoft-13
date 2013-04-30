@@ -80,11 +80,13 @@ class CommentsController < ApplicationController
           format.js
         end
       end
-
-       
-   
-
     end
+  end
+
+
+
+  def comment_url something
+    "test"
   end
 
   # Author: Sama Akram
