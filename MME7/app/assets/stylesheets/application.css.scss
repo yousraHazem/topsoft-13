@@ -106,3 +106,10 @@ td.ta textarea {
 #show {
 	text-align: right;
 }
+
+.field_with_errors .message {
+  color: #D00;
+  padding-left: 5px;
+  font-size: 12px;
+  display: inline;
+}
