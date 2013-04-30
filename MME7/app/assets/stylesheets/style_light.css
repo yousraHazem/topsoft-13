@@ -216,10 +216,17 @@
 }
 
 .unread {
-    background-color: #F0F0F0;
+    background-color: #D0D0D0 ;
+    color: #888888;
+     border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 .read {
+      border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     
 }
 

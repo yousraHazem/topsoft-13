@@ -1,6 +1,5 @@
 #encoding: utf-8
 class ProjectsController < ApplicationController
-  layout "project"
 
   def index
     @projects = Project.where("name like ?", "%#{params[:q]}%")
@@ -37,7 +36,6 @@ class ProjectsController < ApplicationController
   def createProject
       @project=Project.new(params[:project])
       if @project.save
-         redirect_to(:action => 'show')
          @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
          @projectuser.save
          flash[:notice]= "project created"
@@ -53,7 +51,7 @@ class ProjectsController < ApplicationController
             end
           end
 
-
+         flash[:notice]= "لقد تم تكوين المشروع"
          redirect_to(:action => 'show', :id => @project.id)
       else
          render('newProject')

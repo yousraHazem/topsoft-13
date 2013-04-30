@@ -16,7 +16,7 @@
 	<% if t.notification.image.to_s == "post"%>
 	<%= image_tag('post.png', :alt=>"Rails logo") %>
 	<% end %>
-<%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i><br><br><br>
+<%= t.notification.content %><i class="date2 pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i><br><br><br>
 </div> 
 </a> 
 <%end%>
