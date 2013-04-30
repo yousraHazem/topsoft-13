@@ -1,4 +1,4 @@
-class AlterBudgetItem < ActiveRecord::Migration
+class AlterBudgetItem2 < ActiveRecord::Migration
   def up
   	add_column :budget_items , :spent, :integer
   	add_column :budget_items , :project_id , :integer

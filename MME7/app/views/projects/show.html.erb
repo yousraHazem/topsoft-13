@@ -1,0 +1,47 @@
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <table>
+      <tr>
+        <td>
+          <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
+              <button type="submit">قائمة المشاريع</button>
+           <% end %>
+        </td>
+        <td>
+          <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
+              <button type="submit">ميزانية المشروع</button>
+           <% end %>
+        </td>
+        <td>
+          <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
+              <button type="submit">تعديل المشروع</button>
+          <% end %>
+        </td>
+        <td>
+           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
+              <button type="submit">المهمات</button>
+           <% end %>
+        </td>
+      </tr>
+    </table>
+
+
+<div class="project show">
+<div class="aligncenter">
+<h1><%= @project.name %></h1> 
+</div>    
+<div class="alignright">
+  <table class="table table-hover" align="right">
+    <tr>
+      <td></i> تاريخ البداية</td>
+      <td><%= @project.start_date %></td>
+    </tr>   
+    <tr >
+      <td>تاريخ النهاية</td>
+      <td><%= @project.start_date %></td>
+    </tr>
+    <tr >
+      <td></i>تفاصيل المشروع</td>
+      <td><%= @project.description %></td>
+    </tr>
+  </table>
+</div>

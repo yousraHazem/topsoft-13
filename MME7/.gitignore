@@ -13,6 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+<<<<<<< HEAD
+=======
 
-# Ignore all DS.Store files
 /.DS_Store
+>>>>>>> master

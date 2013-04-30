@@ -5,6 +5,10 @@ class ProjectUser < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
+  def isProjectCreator(current_user, project_id)
+  ProjectUser.where(:user_id => current_user, :project_id => project_id, :is_creator => true).exists?  
+ end 
+
     #Author: Nayera Mohamed 22-3789 
     # Args : project id
     # returns : an array of memebers in a project

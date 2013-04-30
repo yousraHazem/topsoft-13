@@ -22,14 +22,6 @@ describe ProjectsController do
     end
   end
 
-  describe "GET showProject" do
-    it "assigns the requested project as @project " do
-      project = Project.create! valid_attributes
-      get :show, {:id => project.to_param}
-      assigns(:project ).should eq(project)
-    end
-  end
-
   describe "GET newProject" do
     it "assigns a new project as @project" do
       get :newProject
@@ -115,6 +107,21 @@ describe ProjectsController do
         put :updateProject, {:id => project.to_param, :project => invalid_attributes}
         response.should render_template("editProject")
       end
+    end
+  end
+
+  describe "DELETE destroy" do
+    it "destroys the requested project" do
+      project = Project.create! valid_attributes
+      expect {
+        delete :destroy, {:id => project.to_param}
+      }
+    end
+
+    it "redirects to the projects list" do
+      project = Project.create! valid_attributes
+      delete :destroy, {:id => project.to_param}
+      response.should redirect_to(:action => 'listProjects')
     end
   end
 end
