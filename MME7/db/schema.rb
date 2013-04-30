@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
   end
 
   create_table "budget_sources_projects", :id => false, :force => true do |t|
-<<<<<<< HEAD
     t.integer "budget_source_id"
     t.integer "project_id"
   end
@@ -72,18 +71,16 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
     t.integer  "not_spent"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-=======
-    t.integer "project_id"
-    t.integer "budget_source_id"
->>>>>>> master
   end
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "communities", :force => true do |t|
@@ -144,9 +141,11 @@ ActiveRecord::Schema.define(:version => 20130426030203) do
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "project_users", :force => true do |t|
