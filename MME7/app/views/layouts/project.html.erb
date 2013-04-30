@@ -3,7 +3,7 @@
 <head>
   <title>MME7</title>
  <%= stylesheet_link_tag "application", "token-input-facebook", :media => "all" %>
-<%= javascript_include_tag  "jquery.tokeninput"  %>
+<%= javascript_include_tag  "jquery.tokeninput" ,"rails.validations" %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -60,7 +60,7 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" %>
   <title><%= yield :name %></title>
   <title><%= yield :start_date %></title>
   <title><%= yield :end_date %></title>

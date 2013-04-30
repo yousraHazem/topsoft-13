@@ -48,6 +48,7 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    client_side_validations (3.2.5)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -60,6 +61,11 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
     formatador (0.2.4)
@@ -180,7 +186,9 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   carrierwave
+  client_side_validations
   coffee-rails (~> 3.2.1)
+  factory_girl_rails (= 4.1.0)
   faker
   guard-rspec
   jquery-rails
