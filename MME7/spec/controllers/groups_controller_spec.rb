@@ -32,7 +32,7 @@ describe "POST create" do
 
       it "redirects to the group index" do
         post :create, {:group => valid_attributes}
-        response.should redirect_to("http://test.host/groups")
+        response.should redirect_to("http://test.host/groups/show/1")
       end
     end
 
@@ -63,13 +63,12 @@ describe "POST create" do
       }.to change(Group, :count).by(0)
     end
 
-    it "redirects to the budget_components list" do
+    it "redirects to the group show" do
       newgroup = Group.new
       Group.should_receive(:find).and_return(newgroup)
       group = Group.create! valid_attributes
       delete :destroy, {:id => group.to_param}
       response.should redirect_to("http://test.host/groups")
     end
-
   end
 end
