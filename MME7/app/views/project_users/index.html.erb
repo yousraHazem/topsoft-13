@@ -2,9 +2,10 @@
 <div class="aligncenter">
     <h1><%= @project.name %></h1> 
 </div> 
- <div id="sidebar">
+<div class = "alignleft">
+ <div id="sidebar" class = "pull-left">
       <td>
-      <div id="floatMenu">  
+      <div id="floatMenu" class = "pull-left">  
          <ul> 
             <% if isProjectCreator(current_user.id, @project.id)%> 
             <li><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
@@ -16,6 +17,7 @@
           </ul>  
       </div> 
     </td>
+</div>
 </div>
 </div>
 <div id="main-wrap">
@@ -31,12 +33,12 @@
               </td>         
               <td>        
                 <% if m.is_creator == true %>
-                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id,   :user_id => m.user_id}, :class =>'btn btn-danger') %>
+                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id,         :user_id => m.user_id}, :class =>'btn btn-danger') %>
                 <% else %>     
-                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id,       :user_id => m.user_id}, :class =>'btn btn-primary') %>
                 <% end %>
               </td>
-            </tr> <br>
+            </tr> 
           <% end %>     
         </table>
       <% end %>

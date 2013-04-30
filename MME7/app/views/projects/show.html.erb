@@ -2,6 +2,7 @@
 <div class="aligncenter">
     <h1><%= @project.name %></h1> 
 </div> 
+<div class = "pull-left">
 <div id="sidebar">
   <td>
    <div id="floatMenu">  
@@ -17,6 +18,7 @@
     </div>     
   </td> 
  </div>
+ </div>
 
 <div id="main-wrap">
   <div id="content-wrap">
@@ -25,15 +27,15 @@
           <div class="alignright">
             <table class="table table-striped">
               <tr>
-                <th><div id = "addMargin1"> تاريخ البداية</div></th>
-                <th><div id = "addMargin"><%= @project.start_date %></div></th>
+                <th><div> تاريخ البداية</div></th>
+                <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
               </tr>   
               <tr >
-                <th><div id = "addMargin1">تاريخ النهاية</div></th>
-                <th><div id = "addMargin"><%= @project.start_date %></div></th>
+                <th><div>تاريخ النهاية</div></th>
+                <th><div  id = "addMargin"><%= @project.start_date %></div></th>
               </tr>
               <tr >
-                <th><div id = "addMargin1">تفاصيل المشروع</div></th>
+                <th><div>تفاصيل المشروع</div></th>
                 <th><div id = "addMargin"><%= @project.description %></div></th>
               </tr>
             </table>

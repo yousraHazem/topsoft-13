@@ -15,10 +15,10 @@
  */
 
  #background {
- background-image: url(bg.jpg);
+ background-image: url(yes3.jpg);
  background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding-top: 60px;
+ background-size: 200% 200%;
+ padding-top: 10px;
  }
 
  td.texta textarea {
@@ -39,12 +39,16 @@
 	float: right;
 }
 
+.alignleft {
+	float: left;
+}
+
 .aligncenter {
 	text-align: center;
 }
 
 #background {
- background-image: url(bg.jpg);
+ background-image: url(yes3.jpg);
  background-repeat: no-repeat;
  background-size: 1365px 730px;
  }
@@ -152,7 +156,7 @@ td.ta textarea {
 }
 
 #sidebar {
-    float: right;
+    float: left;
     width: 30%;
 }
 
