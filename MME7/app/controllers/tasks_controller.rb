@@ -4,6 +4,7 @@ class TasksController < ApplicationController
     #Args : task params
     #returns: list of tasks
   def listTasks
+    
     @tasks = Task.where(:project_id=>params[:id])
   end
 
