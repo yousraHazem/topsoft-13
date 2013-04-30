@@ -10,19 +10,19 @@ class Community < ActiveRecord::Base
    validates_format_of :contact_info, :with => VALID_EMAIL_REGEX, :message => " هذ لبريد للكتروني غير صحيح"
    #validates_uniqueness_of :contact_info, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 
-   # May Atef Badr 22-0579
+   # Author: May Atef Badr 22-0579
    # This method takes the input the user types in the search field
    # and compares it with the titles of all communities
    # if the title matches the input it will list the results of the filtering
    # else it won't list anything
-   # args: community title
-   # returns: similar or community searched
+   # Args: community title
+   # Returns: similar or community searched
    
-	def self.search(search)
+	def search(search)
 		if search
-			find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
+			Community.find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
 		else 
-			find(:all)
+			Community.find(:all)
 		end
 	end
 

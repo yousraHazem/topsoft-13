@@ -1,22 +1,19 @@
-<table class="table">
+<table class="table table-striped">
+
   
-      <th>المجتمعات</th>
+    <th>
+      <div class="alignright">
+      المجتمعات
+      </div>
+    </th>
+    
 
     <% @communities.each do |community| %>
      <tr>
 
-       <td><%= link_to(community.title, {:action => 'show', :id => community.id}, :class => 'action show') %></td>
-
-       <td>
-           <%if community.is_dismissed != true && current_user.isAdmin == false %>
-               <td> 
-                    <li><%= link_to("تعدىل", {:action => 'edit', :id => community.id}) %><i class="icon-pencil"></i> </li>       
-               </td>
-               <td>
-                    <li><%= link_to("مسح", {:action => 'destroy', :id => community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %><i class="icon-remove"></i></li>
-               </td> 
-           <% end %> 
-       </td>           
+       <td><div class="alignright"><%= link_to(community.title, {:action => 'show', :id => community.id}, :class => 'action show') %></div></td>
+       
+       
      </tr>
     <%end%>
   </table>

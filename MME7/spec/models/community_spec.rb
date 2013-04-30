@@ -24,4 +24,10 @@ it "has a unique title" do
   community.should_not be_valid
 end
 
+it "should respond to (search)" do
+	community=FactoryGirl.create(:community)
+	community.should respond_to('search')
+	end
+
+ 
 end

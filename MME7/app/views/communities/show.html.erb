@@ -22,7 +22,7 @@
     
      <tr> 
         
-        <%if @community.is_dismissed != true  && current_user.isAdmin == true %>
+        <%if @community.is_dismissed != true && current_user.isAdmin == true   %>
           <th>يمكنك فعل:</th>
            <td>
             <li><%= link_to("تعدىل", {:action => 'edit', :id => @community.id}) %><i class="icon-pencil"></i> </li>
@@ -30,8 +30,7 @@
             </br>
             
             <li><%= link_to("مسح", {:action => 'destroy', :id => @community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %><i class="icon-remove"></i></li>
-          </br>
-          <li><%= link_to("المشروعات", {:action => 'listCommunityProject', :id => @community.id}) %><i class="icon-list"></i> </li>
+          
 
 
             </td>

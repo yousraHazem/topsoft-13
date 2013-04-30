@@ -15,7 +15,6 @@ describe CommunitiesController do
       community  = Community.create! valid_attributes
       puts community
       get :list, {}
-      #assigns(Community).should eq([community])
     end
   end
 
@@ -119,6 +118,18 @@ describe "POST create" do
         put :update, {:id =>community.to_param, :community => invalid_attributes}
         response.should render_template("edit")
     end
+    end
+  end
+
+  describe "DELETE LIST" do
+    
+    
+    it "dismiss community" do
+
+      community = Community.create! valid_attributes
+      delete :destroy, :id => community.id
+      response.should redirect_to("http://test.host/communities/show/1")
+   
     end
   end
 
