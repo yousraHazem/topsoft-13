@@ -10,7 +10,7 @@ include GroupUsersHelper
     # Args: group name
     # Returns: searched groups or simular group name/s
     def index
-        @groups=Group.search(params[:search])
+        @groups=Group.new.search(params[:search])
     end
    
 

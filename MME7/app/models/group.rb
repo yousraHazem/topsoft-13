@@ -42,11 +42,11 @@ class Group < ActiveRecord::Base
   # Args: group name
   # Returns: searched groups or simular group name/s
   
-  def self.search(search)
+  def search(search)
     if search
-      find(:all, :conditions => ['group_name LIKE ?',"%#{search}%"])
+      Group.find(:all, :conditions => ['group_name LIKE ?',"%#{search}%"])
     else 
-      find(:all)
+      Group.find(:all)
     end
   end
 
