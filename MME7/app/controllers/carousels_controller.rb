@@ -1,5 +1,6 @@
+#encoding: UTF-8
 class CarouselsController < ApplicationController
-layout "carousel"
+
 
 def index
 	@carousels = Carousel.where(:show => true)

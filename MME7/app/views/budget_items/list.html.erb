@@ -1,15 +1,9 @@
 <div class="style">
-<% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id],:class =>'pull-left'} ) %>
-
-
+<% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id]},:class =>'back' ) %>
 <form action="">
 <fieldset>
+<h2 class='title'>الميزانية <%= @total_budget %></h2>
 
-<h2>الميزانية <%= @total_budget %></h2>
-<br>
- <br>
- <br>
- <br> 
 <h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
 
 <h6><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
@@ -17,12 +11,15 @@
 </form>
 <% if loged_in? %>
 <% if isProjectCreator(@current_user,@project.id)%>
-<h4> <%= link_to("العناصر",{:action => 'new',:id=>params[:id] }) %>
-      </h4>
+<br>
+<br>
+<br>
+<br>
 <% if @items.blank? %>
 <p>There are no current budget items </p>
 <% end %>
 <div id="item-form" style="display:none;" >
+
 <%= form_for(:budget_item, :url=>{:action=>'create' , :id => params[:id] }) do |f| %>
 	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
 	<td><%= f.submit("حفظ") %></td>
@@ -30,6 +27,9 @@
 <% end %>
 <% end %>
 </div>
-</br></br>
+
 	<%= render 'viewAllBI', :locals => {'@items' => @items} %>
+	<br>
+	<h3> <%= link_to("إضافة عنصر",{:action => 'new',:id=>params[:id] } ,:class=>'btn pull-left') %>
+      </h3>
 </div>

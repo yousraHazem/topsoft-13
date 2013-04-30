@@ -24,9 +24,15 @@ td.text textarea{
 	padding-top:30px;
 }
 
+.back{
+	
+	margin-right: 800px;
+}
+
+link.hover{color:#ffffff;}
+
 .link{
 	color:#C6DEFF;
-	hover: #ffffff;
 }
 
  #background {
@@ -102,9 +108,7 @@ margin: 50px;
  margin: 20px;
  }
 
-.style {
-	margin: 20px;
-}
+
 
 .progress {
 	height: 29px;
@@ -138,20 +142,20 @@ td.ta textarea {
 
 .body{
 	color:#ffffff;
-	font:bold;
+	font-weight:bold;
 }
 
 .title{
 	padding-top: 30px;
+	font-weight: bold;
+	font-size: 200%;
+
 }
 .body2{
 	color:#ffffff;
-	font:bold;
+	font-weight:bold;
 }
 
-.item{
-padding-top: -100px;
-}
 
 .budgetsource{
 	

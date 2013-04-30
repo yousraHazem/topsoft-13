@@ -1,12 +1,15 @@
 
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
-<h2 class ="item">إنشاء عنصر مزانية</h2>
+<h2 class ="title">إنشاء عنصر مزانية</h2>
  	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project }) do |f| %>
  	<br>
  	<br>
  	<br>
-<table>
+ 	<br>
+ 	<br>
+ 	<br>
+<table class='table body'>
 	<tr>
 		<th><%= f.label(:Name , "إسم") %></th>
 			<td><%= f.text_field(:name)%></td>
@@ -14,7 +17,7 @@
 	</br>
 	<tr>
 		<th><%= f.label("تشغيل") %></th>
-			<td><%= f.check_box(:operational)%></td>
+			<td class ="checkbox inline"><%= f.check_box(:operational)%></td>
 	</tr>
 </br>
 
@@ -23,13 +26,12 @@
   		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
     </tr>
 
-	<tr> 
-		<td><%= f.hidden_field :project_id , :value=> @project %></td>
-	</tr>
+		<%= f.hidden_field :project_id , :value=> @project %>
+	
 </table>
 </br>
-	<p>
-		<td><%= f.submit("تسجيل") %></td>
+	<p class='btn btn-small'>
+		<%= f.submit("تسجيل") %>
 	</p>
 <% end %>
 
