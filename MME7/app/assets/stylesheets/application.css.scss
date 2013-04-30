@@ -15,6 +15,14 @@
  *= jquery.jscrollpane
  */
 
+ .field_with_errors .message {
+  display:inline;
+  color: white;
+  padding-left: 5px;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
 td.text textarea{
 	resize:vertical; height:70px;
 	resize:horizontal; width:400px;
