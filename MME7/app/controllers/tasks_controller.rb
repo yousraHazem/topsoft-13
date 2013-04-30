@@ -6,10 +6,22 @@
 		@tasks = Task.where(:project_id=>params[:id])
 	end
 
+# Author : Salma El -Ruby 22-4649
+  # Args : takes task_id 
+  # Returns : redirects to page with edited task 
+  # Explanation : this method edits task
+  def edit
+     @task_id = params[:task_id]
+     @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update_attributes(params[:task])
+  end
 
 
  
- respond_to :html, :json
   # Author : Salma El -Ruby 22-4649
   # Args : takes task_id , user_id , project_id
   # Returns : redirects to page with all members in project 
