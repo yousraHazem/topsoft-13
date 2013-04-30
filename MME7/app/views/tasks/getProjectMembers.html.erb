@@ -8,8 +8,6 @@
       <td> 
 
         <%= p.user.name %>
-        <% if loged_in? %>
-<% if isProjectCreator(@current_user,@project.id)%>
         <b> <%= link_to " X ", {:controller => 'users' ,:action => 'unassign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
          <br/>
       </td>
