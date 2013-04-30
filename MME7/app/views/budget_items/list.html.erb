@@ -9,8 +9,6 @@
 <h6><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
 </fieldset>
 </form>
-<% if loged_in? %>
-<% if isProjectCreator(@current_user,@project.id)%>
 <br>
 <br>
 <br>
@@ -19,17 +17,14 @@
 <p>There are no current budget items </p>
 <% end %>
 <div id="item-form" style="display:none;" >
-
-<%= form_for(:budget_item, :url=>{:action=>'create' , :id => params[:id] }) do |f| %>
-	<%= render(:partial=>'budget', :locals=>{:f=>f}) %>
-	<td><%= f.submit("حفظ") %></td>
-<% end %>
-<% end %>
-<% end %>
 </div>
 
 	<%= render 'viewAllBI', :locals => {'@items' => @items} %>
 	<br>
+	<% if loged_in? %>
+<% if isProjectCreator(@current_user,@project.id)%>
 	<h3> <%= link_to("إضافة عنصر",{:action => 'new',:id=>params[:id] } ,:class=>'btn pull-left') %>
       </h3>
+      <%end%>
+      <% end%>
 </div>
