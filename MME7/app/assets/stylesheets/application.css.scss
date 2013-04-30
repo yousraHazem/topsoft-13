@@ -25,6 +25,10 @@
 	resize:vertical; max-height:200px;
 }
 
+.body{
+	background-color: #FFFFFF;
+}
+
 
  .comments{
  background-color: #F0F0F0;
@@ -115,13 +119,11 @@ td.ta textarea {
 #floatMenu {  
 	position:relative;
 	top:10px;
-	left: 350px;  
+	left: 50px;  
 } 
 
 #floatMenu { 
 	width:250px;
-    margin-right:100px; 
-    margin-top:40px;    
 } 
 
  
@@ -161,7 +163,7 @@ td.ta textarea {
 }
 
 #content-wrap {
-    float: right;
+    float: center;
     width: 70%;
 }  
 

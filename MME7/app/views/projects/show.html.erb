@@ -1,7 +1,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="aligncenter">
-    <h1><%= @project.name %></h1> 
-</div> 
+    <h1><%= @project.name %></h1> <br>
+</div>
+
 <div class = "pull-left">
 <div id="sidebar">
   <td>
@@ -24,8 +25,10 @@
   <div id="content-wrap">
     <td>  
         <div class="project show">   
-          <div class="alignright">
-            <table class="table table-striped">
+          <div class="aligncenter">
+             <div class = "body">
+            <table class="table" >
+             
               <tr>
                 <th><div> تاريخ البداية</div></th>
                 <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
@@ -38,7 +41,9 @@
                 <th><div>تفاصيل المشروع</div></th>
                 <th><div id = "addMargin"><%= @project.description %></div></th>
               </tr>
+              
             </table>
+            </div>
           </div>
       </td>
   </div>
