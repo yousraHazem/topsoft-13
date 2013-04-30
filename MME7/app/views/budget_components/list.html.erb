@@ -1,6 +1,5 @@
 
-<% @page_title = "عنلصر الميزانية"%>
-  
+<% @page_title = "عنلصر الميزانية"%>  
 <p class="">
 <%= link_to("رجوع للقائمة", {:controller=>'budget_items',:action => 'list', :id=>params[:project_id] },:class => 'pull-left' ) %>
 </p>  
@@ -14,9 +13,6 @@
     </div>
   </h1>
 </div>
-
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -25,12 +21,12 @@
 <%= render(:partial => "table" )%> 
 </div>
 
-  <span class="h3"> 
-     <div>
-        <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
-          <%= link_to("اضافة",{:action=> 'new'  , :id=>@item , :project_id=> @project_id} , :id=>"create" , class: "btn btn-small pull-left") %> 
-        <% end %>
-     </div>
-  </span> 
+<span class="h3"> 
+   <div>
+      <% if(isProjectCreator(@current_user, @project_id ) == true) %> 
+        <%= link_to("اضافة",{:action=> 'new'  , :id=>@item , :project_id=> @project_id} , :id=>"create" , class: "btn btn-small pull-left") %> 
+      <% end %>
+   </div>
+</span> 
 
 
