@@ -15,6 +15,7 @@ gem 'bootstrap-sass'
 gem 'rspec-rails'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'client_side_validations'
 
 # group :test, :development do
 #   gem "rspec-rails", "~> 2.0"
@@ -22,7 +23,7 @@ gem 'geocoder'
 
 #gem 'simplecov'
 gem 'carrierwave'
-gem 'rmagick'
+#gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"

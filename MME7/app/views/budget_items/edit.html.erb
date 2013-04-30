@@ -6,7 +6,7 @@
 
 <div> 
 <h2 class='title'>تعديل عنصر الميزنية</h2>
-<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id }) do |f| %>
+<%= form_for( @budget_item , :as=>:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id } , :validate => true) do |f| %>
 <br>
 <br>
 <br>

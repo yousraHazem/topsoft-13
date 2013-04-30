@@ -2,34 +2,29 @@
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
 <h2 class ="title">إنشاء عنصر مزانية</h2>
- 	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project }) do |f| %>
+ 	<%= form_for(@budget_item , :as=>:budget_item, :url=>{:action=>'create' , :id => @project } , :validate => true) do |f| %>
  	<br>
  	<br>
  	<br>
  	<br>
  	<br>
  	<br>
-<table class='table body'>
-	<tr>
-		<th><%= f.label(:Name , "إسم") %></th>
-			<td><%= f.text_field(:name)%></td>
-	</tr>
-	</br>
-	<tr>
-		<th><%= f.label("تشغيل") %></th>
-			<td class ="checkbox inline"><%= f.check_box(:operational)%></td>
-	</tr>
-</br>
-
-    <tr id = "connect" >
-  		<th><%= f.label(:task_id, "المهمة")%></th>
-  		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
-    </tr>
-
-		<%= f.hidden_field :project_id , :value=> @project %>
+<dlclass='table body'>
 	
-</table>
-</br>
+		<dt><%= f.label(:Name , "إسم") %></dt>
+		<dd><%= f.text_field(:name)%></dd>
+	
+	
+		<dt><%= f.label("تشغيل") %></dt>
+		<dd class ="checkbox inline"><%= f.check_box(:operational)%></dd>
+
+
+   		<dt><%= f.label(:task_id, "المهمة")%></dt>
+  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
+    
+
+		<%= f.hidden_field :project_id , :value=> @project %>	
+</dl>
 	<p class='btn btn-small'>
 		<%= f.submit("تسجيل") %>
 	</p>
