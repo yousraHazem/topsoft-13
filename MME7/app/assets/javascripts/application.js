@@ -15,6 +15,17 @@
 //= require_tree .
 //= require bootstrap-datepicker
 
+$(function() {
+$('#ca-container').contentcarousel({
+    sliderSpeed     : 500,
+    sliderEasing    : 'easeOutExpo',
+    itemSpeed       : 500,
+    itemEasing      : 'easeOutExpo',
+    scroll          : 1 
+});  
+});
+
+
 
 $(function () {
   $('#budget_source_project_tokens').tokenInput('/projects.json', { 
@@ -107,11 +118,7 @@ $(document).ready(function(){
 });
 
 
-$(function() {
-    $("#new-item").click(function(){
-        $("#item-form").toggle("slow");
-    });
-});
+
 
 
 $(function() {

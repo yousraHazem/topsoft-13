@@ -1,7 +1,16 @@
-<%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'listProjects', :class => 'back link'} ) %>
-<h2>المهام</h2>
-
-   <table class="table table-striped">
+<%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'listProjects'}, :class => 'back' ) %>
+<br>
+<br>
+<h2 class="title">المهام</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <table class="table proj">
 
 	 	<% @tasks.each do |task| %>
 		 	<tr>

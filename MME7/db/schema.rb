@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
+ActiveRecord::Schema.define(:version => 20130426213436) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -57,9 +57,16 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
+
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+
   end
 
   create_table "comments", :force => true do |t|
@@ -128,6 +135,10 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "location"
   end
 
   create_table "receipts", :force => true do |t|

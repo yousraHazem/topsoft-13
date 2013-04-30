@@ -12,19 +12,57 @@
  *= require_self
  *= require_tree .
  *= require bootstrap-datepicker
+ *= jquery.jscrollpane
  */
 
+ .field_with_errors .message {
+  display:inline;
+  color: white;
+  padding-left: 5px;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+td.text textarea{
+	resize:vertical; height:70px;
+	resize:horizontal; width:400px;
+}
+
+.head {
+	padding-top:30px;
+}
+
+.back{
+	
+	margin-right: 800px;
+}
+
+link.hover{color:#ffffff;}
+
+.link{
+	color:#C6DEFF;
+}
+
  #background {
- background-image: url(bg.jpg);
+ background-image:url(yes3.png);
  background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding-top: 60px;
+ background-size: 1365px 950px;
+ padding: 10px;
+ height: 900px;
+ background-color:rgb(32,75,117);
  }
+
+
 
  td.texta textarea {
 	resize:vertical; max-height:200px;
 }
 
+
+div.style2{
+	
+	padding: 40px;
+}
 
  .comments{
  background-color: #F0F0F0;
@@ -43,15 +81,7 @@
 	text-align: center;
 }
 
-#background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- }
-
-
 .sources{
-	background-color: #F0F0F0 ;
 }
 
 .search {
@@ -69,6 +99,8 @@ margin: 50px;
 
  h1 , h2 , h3 , h4, h5 , h6 {
  color: #000066;
+ margin-right: 0px;
+ padding: 0 px;
  }
 
 
@@ -79,9 +111,7 @@ margin: 50px;
  margin: 20px;
  }
 
-.style {
-	margin: 20px;
-}
+
 
 .progress {
 	height: 29px;
@@ -89,7 +119,13 @@ margin: 50px;
 	 text-align: center;
 }
 
-.notice {text-align: center; background:#e6efc2;color:#264409;border-color:#c6d880; font-weight: bold; }
+.notice {
+text-align: center; 
+background:#e6efc2;
+color:#264409;
+border-color:#c6d880; 
+font-weight: bold; 
+}
 
 p.paragraph{
    font-weight: bold;
@@ -106,3 +142,56 @@ td.ta textarea {
 #show {
 	text-align: right;
 }
+
+.body{
+	color:#ffffff;
+	font-weight:bold;
+}
+
+.title{
+	padding-top: 30px;
+	font-weight: bold;
+	font-size: 200%;
+
+}
+.body2{
+	color:#ffffff;
+	font-weight:bold;
+}
+
+
+.budgetsource{
+	
+	padding-top: 40px;
+}
+
+.budgetsourcelist{
+	
+	padding-top: 100px;
+}
+
+.about{
+	text-align: justify;
+	color: #ffffff;
+
+}
+
+
+.title2{
+	font-weight: bold;
+	font-size: 200%;
+	color: #C6DEFF;
+}
+
+.kay{
+	
+	margin-left:90px;
+}
+
+margin2{
+	
+	padding:-200px;
+}
+
+
+

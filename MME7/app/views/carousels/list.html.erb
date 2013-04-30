@@ -1,0 +1,28 @@
+<% @page_title = "Recipts List"%>
+
+<div>
+	<h2>Carousel</h2>
+    
+	
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <table class ="table body">
+<tr>
+</tr>
+<% @carousels.each do |carousel|%>
+<tr>
+	<td><%= link_to(carousel.title, {:action=>'show' , :id => carousel.id} , :class => "link")%></td>	
+	<td><%= carousel.description %></td>
+	<td><%= link_to("Delete", {:action=>'destroy' , :id => carousel.id }, :confirm => "Are You sure You want to delete" , :class => "btn")%></td>
+</tr>
+
+<%end%>
+</table>
+<br>
+<p class = "pull-left"><%= link_to("New" ,{:action=>'new'}, class: "btn") %> <p>
+</div>

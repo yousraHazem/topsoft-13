@@ -1,0 +1,35 @@
+﻿<% @page_title = "Projects List" %>
+<div >
+ <h2 class="title">المشاريع</h2>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+    <table class="table proj">
+	 	<tr>
+	 		<th>المشروع</th>
+	 		<th>تاريخ البداية</th>
+	 		<th>تاريخ النهاىة</th>
+	 		<th>التفاصيل</th>
+	 		<th>uudjdj </th>
+	 	</tr>
+	 	<% @projects.each do |project| %>
+	 	<tr>
+	 		<td> <%= project.name %></td>
+	 		<td> <%= project.start_date %>   </td>
+	 		<td> <%= project.end_date %>     </td>
+	 		<td> <%= project.description %>  </td>
+			<td >
+			 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id} , :class=>"btn btn-mini") %>
+                <%= link_to("تعدىل", {:action => 'editProject', :id => project.id} , :class=>"btn btn-mini") %> 
+			 
+			</td>
+	 	</tr>
+	 	<% end %>
+    </table>
+
+    <p class ="pull-left"><%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn') %></p>
+</div>
+

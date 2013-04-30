@@ -2,14 +2,16 @@
 
 <br>
 <br>
-<br>
-
 <div class = "offset2">
 
 <div> 
-<h2>تعديل عنصر الميزنية</h2>
-<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id }) do |f| %>
-<table>
+<h2 class='title'>تعديل عنصر الميزنية</h2>
+<%= form_for( @budget_item , :as=>:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id } , :validate => true) do |f| %>
+<br>
+<br>
+<br>
+<br>
+<table class='table body'>
 	<tr>
 		<th><%= f.label(:Name ,"إسم") %></th>
 			<td><%= f.text_field(:name)%></td>
@@ -17,7 +19,7 @@
 </br>
 	<tr>
 		<th><%= f.label(:Operational ,"تشغيل")%></th>
-	    <td><%= f.check_box(:operational)%></td>
+	    <td class ="checkbox inline"><%= f.check_box(:operational)%></td>
 	</tr>
 </br>
     <tr id = "connect" >
@@ -27,8 +29,8 @@
 
 </table>
 </br>
-	<p>
-		<td><%= f.submit ("تسجيل") %></td>
+	<p class='btn btn-small'>
+		<%= f.submit ("تسجيل") %>
 	</p>
 <% end %>
 </div>

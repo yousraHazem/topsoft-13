@@ -4,9 +4,17 @@
 
 <div>
 	<%= form_for(:budget_source_project, :url=>{:action=>'create' , :id => @id}) do |f| %>
-	<h2>كمية المساهمة للمشروع</h2>
 
- <table>
+	<br>
+	<br>
+	<h2 class='title'>كمية المساهمة للمشروع</h2>
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+ <table class="table">
 <tr>
 	<th>مشروع</th>
 	<th>كيمة</th>
@@ -18,6 +26,6 @@
 </tr>
 <%end%>
 </table>
-<td><%= f.submit ("إحفظ") %></td>
+<td class="btn pull-left"><%= f.submit ("إحفظ") %></td>
 <% end %>
 </div>
