@@ -5,15 +5,20 @@
   <%= flash[:error] %>
 </div>
 <% if current_user %>
-<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+<p class="pull-left"><%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %></p>
 <% end %>
-
-<h2 class="aligncenter"><%= @group.group_name %></h2>
-</br>
-</br>
-
-  <table class="table table-hover" id="show">
-      <tr dir="rtl" lang="ar">وصف</tr>
+<br>
+<br>
+<h2 class="pull-right"><%= @group.group_name %></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <table class="table body" id="show">
+      <tr class="body">وصف</tr>
       <th style="text-align: center" ><%= @group.description %></th>
   </table>
 

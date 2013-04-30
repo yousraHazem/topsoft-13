@@ -70,6 +70,10 @@ class PostsController < ApplicationController
 	     respond_with @post
 	end
 
+	def post_url something
+		"test"
+	end
+
 	# Author Mariam Ismail
 	# deletes a post with its comments
 	# ARGS post_id
