@@ -64,7 +64,10 @@ describe BudgetSourcesController do
       	get :list
       	assigns(:sources).should eq([sources])
       end
-     end
+
+    end  
+
+
 
 	describe "PUT update" do
 		describe "with valid params" do
