@@ -1,0 +1,5 @@
+<% unless @nots.empty? %>
+$("#notification").prepend("<%=raw escape_javascript(render('notification')) %>");
+$("#count").text("<%= @count %>");
+// $(".notification-bubble").show();
+<% end %>

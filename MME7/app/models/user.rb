@@ -1,15 +1,9 @@
 #encoding: UTF-8
 class User < ActiveRecord::Base
-
-
-
  #Author: Donia Amer Shaarawy 22-0270
   #these are the attributes needed for a user also though are out valdiations that are need for the input of sign up 
   attr_accessible :address, :email, :name, :isAdmin, :phone_Nr, :username, :password, :password_confirmation
   has_secure_password
-
-
-
 
   has_many :posts
   has_many :comments
@@ -24,9 +18,16 @@ class User < ActiveRecord::Base
   has_many :groups , :through => :group_users 
 
 
-   has_many :task_users
+  has_many :task_users
   has_many :tasks , :through => :task_users
 
+
+  has_many :notification_users
+  has_many :notifications ,:through => :notification_users
+
+  before_save { |user| user.email = email.downcase }
+  before_save { |user| user.username = username.downcase }
+  before_save :create_remember_token
 
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
