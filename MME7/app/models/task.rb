@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class Task < ActiveRecord::Base
   attr_accessible :description , :project_id , :title , :assigned
   has_one :budget_item 

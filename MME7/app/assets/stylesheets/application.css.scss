@@ -14,11 +14,119 @@
  *= require bootstrap-datepicker
  */
 
+
+.field_with_errors .message {
+ display: inline;
+  color: #d9d9d9;
+  left: 200 px;
+  font-size: 15px;
+margin: 8px 10px;
+}
+
+ .link-source{
+ color: #99CCFF;
+ }
+
+ .source-projects {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+ padding: 10px;
+ }
+
+ .info1 {
+ margin-top: -50px;
+ margin-right: 700px;
+ }
+  .info2 {
+ margin-top: -30px;
+ margin-right: 700px;
+ }
+  .info3 {
+ margin-top: -30px;
+ margin-right: 700px;
+ }
+
+.bg {
+  border: 1px solid #d1d1d1;
+}
+
+.header-new {
+  padding-top: 30px;
+  margin-right: 90px;
+}
+
+#comp{
+  overflow: hidden
+}
+
+.component {
+  margin-top: 10%;
+}
+ .header {
+ padding-top: -30px;
+ font-family:("adobe arabic");
+ }
+ .pic{
+ position:absolute;
+ left: 66%;
+ top: 11.5%;
+ z-index:3
+ }
+
+  .pull {
+  margin: 225px;
+  color: #bbb;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  }
+
+  .kay {
+  padding: 0 !important;
+  height: 20px !important;
+  }
+
+  .no {
+ margin: 79px;
+  }
+  
+  .date {
+  color: #686868;
+  font-size: 9px;
+
+  }
+
+
+  .created {
+   font-size: 10px;
+  }
+
+  .image {
+  position:fixed;
+  top:120px;
+  right:767px;
+  }
+
+ .menu {
+    background: #f2f2f2;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px; 
+    display: block;
+    margin: 80px auto;
+}
+
  #background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding-top: 60px;
+ background-image: url(yes3.png);
+ background-repeat: repeat-x;
+ background-size: 1365px 950px;
+ padding: 10px;
+ height:900
+ 
  }
 
  td.texta textarea {
@@ -43,11 +151,7 @@
 	text-align: center;
 }
 
-#background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- }
+
 
 
 .sources{
@@ -57,6 +161,7 @@
 .search {
 	display: inline;
 	margin-right: 60px;
+  top:10px;
 }
 
 .contribution {
@@ -79,8 +184,8 @@ margin: 50px;
  margin: 20px;
  }
 
-.style {
-	margin: 20px;
+.style{
+  margin: 20px; 
 }
 
 .progress {
@@ -101,6 +206,10 @@ p.paragraph{
 td.ta textarea {
 	resize: vertical; max-height:200px;
 	resize:horizontal; max-width:400px;
+}
+
+.body{
+  color:#ffffff;
 }
 
 #show {

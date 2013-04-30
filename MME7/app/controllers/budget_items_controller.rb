@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BudgetItemsController < ApplicationController
   #Authored by Toka Omar  id:22-1925
   #Author :Yasmin Mahmoud 22-1787
