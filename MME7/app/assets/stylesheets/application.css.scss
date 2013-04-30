@@ -36,20 +36,15 @@ link.hover{color:#ffffff;}
 }
 
  #background {
- background-image:url(yes3.jpg);
+ background-image:url(yes3.png);
  background-repeat: no-repeat;
  background-size: 1365px 950px;
  padding: 10px;
  height: 900px;
+ background-color:rgb(32,75,117);
  }
 
- #back {
- background-image:url(yes3.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 950px;
- padding: 10px;
- height: 900px;
- }
+
 
  td.texta textarea {
 	resize:vertical; max-height:200px;
@@ -169,39 +164,26 @@ td.ta textarea {
 
 .about{
 	text-align: justify;
-	margin: 20px;
-	margin-right: 120px;
+	color: #ffffff;
 
 }
-.level{
-	
-	padding:-20px;
-}
+
 
 .title2{
-	padding-top: 30px;
 	font-weight: bold;
 	font-size: 200%;
 	color: #C6DEFF;
 }
-.aboutmargin{
-	margin-right: 120px;
-}
 
-.contact{
-
-	margin-top:-10px;
-}
-
-.text1{
-	margin-top:-360px;
-}
-
-.text2{
-	margin-top:-310px;
-}
-
-.text3{
+.kay{
 	
-	margin-top:-270px;
+	margin-left:90px;
 }
+
+margin2{
+	
+	padding:-200px;
+}
+
+
+
