@@ -3,9 +3,9 @@ class TasksController < ApplicationController
     # Author : Nayera Mohamed 22-3789 
     #Args : task params
     #returns: list of tasks
-	def listTasks
-		@tasks = Task.where(:project_id=>params[:id])
-	end
+  def listTasks
+    @tasks = Task.where(:project_id=>params[:id])
+  end
 
   #Author :salma el ruby 22-4649 
   # Args : task_id 
