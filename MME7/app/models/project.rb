@@ -3,7 +3,6 @@ class Project < ActiveRecord::Base
    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
    validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
-
     validate :validate_end_date_before_start_date
 
 
@@ -37,6 +36,7 @@ class Project < ActiveRecord::Base
     has_and_belongs_to_many :communities
     has_many :budget_source_projects , :dependent => :destroy
     has_many :budget_sources , :through => :budget_source_projects
+    has_many :galleries
     attr_reader :user_tokens
 
     def self.get_projectmembers(project_id)

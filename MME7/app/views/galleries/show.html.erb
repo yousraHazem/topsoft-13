@@ -1,0 +1,14 @@
+ <div>
+  <% @gallery.each do |photo| %>
+    <div>
+    <%= image_tag photo.photo_url(:thumb).to_s %>
+ 
+      <div>
+       <%= link_to(" تعديل   ", {:controller =>'galleries', :action =>'edit', :id => @project_id }, :class => 'action edit') %>
+      <b><%= link_to "X", {:controller =>'galleries',:action => 'destroy', :id => @project_id,:confirm => "هل تريد المسح؟"}, :class => 'action destroy' %></b>
+
+            </div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
