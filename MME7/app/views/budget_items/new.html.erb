@@ -1,4 +1,4 @@
-﻿
+
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 <div> 
 <h2>إنشاء عنصر مزانية</h2>
@@ -14,6 +14,12 @@
 			<td><%= f.check_box(:operational)%></td>
 	</tr>
 </br>
+
+    <tr id = "connect" >
+  		<th><%= f.label(:task_id, "المهمة")%></th>
+  		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
+    </tr>
+
 	<tr> 
 		<td><%= f.hidden_field :project_id , :value=> @project %></td>
 	</tr>

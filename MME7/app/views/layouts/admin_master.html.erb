@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<html dir="rtl">
+ <% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
+   <li class="offset10"> <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %></li><% end %>
+
+   <li class="offset10"> <%= link_to ("إنشاء مصدر ميزانية" , :controller => 'budget_sources' , :action => 'new')  %> </li>
+</div>
+<h1> مشرف</h1>
+ <% flash.each do |name, msg| %>
+ <%= content_tag :div, msg, :id => "flash_#{name}" %>
+ <% end %>
+ <div id="style">
+<%= yield %>
+
+</html>

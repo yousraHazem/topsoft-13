@@ -1,6 +1,5 @@
-﻿class BudgetComponentsController < ApplicationController
-
-  
+#encoding: UTF-8
+class BudgetComponentsController < ApplicationController
 	def index
      list
      render('list')
@@ -11,6 +10,7 @@
 		#Description: calculates progress bar percentage and gets all the budget components of a certain budget item 
 		#returns: a list of budget components
 		#Arguments: none
+		@current_user = current_user
 		@total = BudgetComponent.sum(:total, :conditions=>{:budget_item_id=>params[:id]})
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		@item = params[:id]
@@ -52,6 +52,7 @@
 	end
 
 	def edit
+
 		#authorized by: sarah ahmed id=22-1278
 		#Description: gets the budget component of the passed id and view its details in the edit form
 		#returns: none
@@ -99,7 +100,7 @@
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 
 		@budget_item.update_attributes(:total=>@total, :spent=>@spent)
-		
+
         redirect_to(:action=>'list',:id=> @item , :project_id=>params[:project_id])
 	end
 

@@ -1,4 +1,8 @@
 MME7::Application.routes.draw do
+  
+  get "password_resets/new"
+
+root :to => "home#index"
 
   #The priority is based upon order of creation:
 
@@ -19,11 +23,15 @@ MME7::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_in" => "admin#new", :as => "log_in"
+  match 'auth/:provider/callback', to: 'sessions#createFacebook'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroyFacebook', as: 'signout'
   root :to => "home#index"
  
   get "users/new"
   resources :users
   resources :sessions
+  resources :password_resets
 
 
   # The priority is based upon order of creation:
@@ -83,11 +91,8 @@ MME7::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
 
-
   match ':controller(/:action(/:id))(.:format)'
 
-
- 
 
 end
 

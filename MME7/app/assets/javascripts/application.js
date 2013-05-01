@@ -16,6 +16,16 @@
 //= require bootstrap-datepicker
 
 
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
+    preventDuplicates: true,
+    crossDomain: false , 
+    prePopulate: $('#budget_source_project_tokens').data('pre') , 
+    theme: 'facebook' , 
+    });
+});
+
+
 $(function() {
   $("#project_start_date").datepicker( { format:  "dd/mm/yyyy" } );
   $("#project_end_date").datepicker( { format: "dd/mm/yyyy" } );
@@ -102,6 +112,18 @@ $(function() {
         $("#item-form").toggle("slow");
     });
 });
+
+
+$(function() {
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#project_user_tokens").data("pre"),
+    preventDuplicates: true,
+    theme: "facebook"
+  });
+});
+
+
 
 // jQuery.ajaxSetup({
 //    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}

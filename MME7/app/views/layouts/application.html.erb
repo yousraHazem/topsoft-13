@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <html dir="rtl">
 <head>
 <title>MME7</title>
@@ -26,7 +27,14 @@
           <li class="text-info"><%= link_to "امشاريع" %></li>
           <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
             <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
-
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
         </ul>
       </div>
   </div>
@@ -38,16 +46,13 @@
   <div class="row"></div>
   <div class="span9"> </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
 
-<div id="style">
+
+<div>
 <%= yield %>
 </div>
 
 </div>
-  
 
 </body>
 </html>
