@@ -3,8 +3,13 @@
 <html>
 <head>
 <title>MME7 Admin</title>
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","style", "navi", :media=>"all" %>
- <%= javascript_include_tag "application","highcharts", "highcharts_init" , "jquery.tokeninput"%>
+ <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","style", "navi","style_light", :media=>"all" %>
+ <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
+ <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" , "jquery.tokeninput", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min","highcharts", "highcharts_init" %>
+ <title><%= yield :name %></title>
+ <title><%= yield :start_date %></title>
+ <title><%= yield :end_date %></title>
+ <title><%= yield :descritption %></title> 
  <%= csrf_meta_tags %>
 <script type="text/javascript">
 $(function(){
