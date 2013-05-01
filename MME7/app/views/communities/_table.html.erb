@@ -1,16 +1,75 @@
 <table class="table table-striped">
 
   <th>
-      <div class="alignright">
-      المجتمعات
+      <div class="alignright">        
+          المجتمعات    
       </div>
+
   </th>
-    
+
+  <th>
+      <div ></div>
+  </th>
+
+  <th>
+      <div ></div>   
+  </th>
+ <% if loged_in? && current_user.isAdmin == true%>
+      <th>
+          <div ></div>   
+      </th>
+
+      <th>
+          <div ></div>   
+      </th>
+    <%end%>
   <% @communities.each do |community| %>
      <tr>
       <td>
          <div class="alignright"><%= link_to(community.title, {:action => 'show', :id => community.id}, :class => 'action show') %></div>
       </td>
+      <% if loged_in? %>
+           <%if community.is_dismissed != true && current_user.isAdmin == true %>          
+               <td></td>
+               <td></td>
+                
+               <td class="aligncenter">
+                  <li><%= link_to("تعدىل", {:action => 'edit', :id => community.id}) %><i class="icon-pencil"></i> </li>              
+                </td>   
+                <td class="aligncenter">          
+                  <li><%= link_to("الغاء", {:action => 'destroy', :id => community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %><i class="icon-remove"></i></li>  
+                </td>
+
+                <%else%>      
+                <td></td>
+                <td></td>    
+            <%end%>
+
+      <%else%>      
+            <td></td>
+            <td></td>
+      <%end%> 
+
+        <% if loged_in? %>
+        <%if community.is_dismissed == true && current_user.isAdmin == true %>
+        <td class="aligncenter">
+        </td>
+        <td class="aligncenter">
+          <li>ملغي</li>
+        </td>
+        <%end%>
+        <%end%> 
+
+        
     </tr>
+
+    <tr>         
+       
+
+
+
+
+      </tr>
+
   <%end%>
 </table>
