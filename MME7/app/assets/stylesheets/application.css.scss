@@ -210,8 +210,7 @@ p.paragraph{
 }
 
 td.ta textarea {
-	resize: vertical; max-height:200px;
-	resize:horizontal; max-width:400px;
+	resize:horizontal; width:400px;
 }
 
 .body{
@@ -222,3 +221,6 @@ td.ta textarea {
 	text-align: right;
 }
 
+#wasf {
+	font-size: 30px;
+}
