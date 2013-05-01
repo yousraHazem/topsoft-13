@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class CommentsController < ApplicationController
 
   #Author Riham Gamal 22-3871
