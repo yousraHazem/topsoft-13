@@ -8,35 +8,28 @@
      <%= form_for @user do |f| %>
       <div class="reg_section personal_info">
       <h3>اسم</h3>
-      <%= f.text_field :name %>
+       <%= f.text_field :name %>
 
       <h3>Email</h3>
-      <input type="text" name="username" value="" placeholder="Email">
-      <%= tag :email  %> </input>
+      <%= f.text_field :email %>
 
       <h3>رقم الهاتف</h3>
-      <input type="text" name="username" value="" placeholder="رقم الهاتف">
-      <%= tag :phone_Nr %> </input>
+      <%= f.text_field :phone_Nr %>
     
-
       <h3>عنوان</h3>
-      <input type="text" name="username" value="" placeholder="عنوان">
-      <%= tag :address  %> </input>
-     
-
+      <%= f.text_field :address %>
+       
       <h3>اسم المستخدم</h3>
-      <input type="text" name="username" value="" placeholder="اسم المستخدم">
-      <%= tag :username  %> </input>
+      <%= f.text_field :username %>
      
 
       <div class="reg_section password">
       <h3>كلمة السر</h3>
-      <input type="password" name="password" value="" placeholder="كلمة السر">
-       <%= tag :password %></input>
+      <%= f.password_field :password %>
 
       <h3>تأكيد كلمة المرور</h3>
-      <input type="password" name="password" value="" placeholder="تأكيد كلمة المرور">
-       <%= tag :password_confirmation %></input>
+      <%= f.password_field :password_confirmation %>
+
       </div>
 
       <button class="btn btn-success" type="submit">إنضم</button>
@@ -46,41 +39,3 @@
   </div>
 
 </body>
-
-<h1>اشتراك</h1>
-
-<div>
-  <%= form_for @user do |f| %>
-    
-  <p>
-    <%= f.label :الاسم %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-   <p>
-    <label>رقم الهاتف</label> <br />
-    <%= f.text_field :phone_Nr %>
-  </p>
-   <p>
-    <%= f.label :عنوان%><br />
-    <%= f.text_field :address %>
-  </p>
-   <p>
-    <label>اسم المستخدم</label><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <label>كلمة السر</label><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <label>تأكيد كلمة المرور</label><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-   <button class="btn btn-success" type="submit">إنضم</button>
-
-  <%end%>
-</div>
