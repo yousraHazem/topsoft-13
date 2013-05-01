@@ -2,10 +2,18 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html dir="rtl">
 <head>
+
     <title>MME7</title>
      <%= stylesheet_link_tag  "application", "style_light",  "token-input" , "token-input-facebook" , :media => "all" %>
-     <%= javascript_include_tag  "application" ,  "jquery.tokeninput", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" , "jquery.tokeninput", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
+  <title><%= yield :name %></title>
+  <title><%= yield :start_date %></title>
+  <title><%= yield :end_date %></title>
+  <title><%= yield :descritption %></title>
      <%= csrf_meta_tags %>
+</head>
    <style type="text/css">
         .tooltip {
             width: 250px;
@@ -77,7 +85,7 @@
           <li class="notification-menu-item "><%= link_to "الاتصال بنا" %></li>
           <li class="notification-menu-item "><%= link_to "مجموعات" %></li>
           <li class="notification-menu-item "><%= link_to "المجتمعات" %></li>
-          <li class="notification-menu-item "><%= link_to "امشاريع" %></li>
+          <li class="notification-menu-item " id="not"><%= link_to ("امشاريع") %></li>
           <li class="notification-menu-item ">
           <%= link_to({:controller=>'home', :action=>'index'}) do %>
           <i class="icon-home"></i> الصفحة الرئيسية
@@ -98,6 +106,7 @@
       </div>
   </div>
 </div>
+<span class="pic" style="display:none;"><%= image_tag('list-pointer.png', :alt=>"Rails logo") %></span>
  <% if current_user %>
 <%  user =  current_user.id %>
 <div id="current-user" data-id="<%= user %>">
@@ -109,7 +118,7 @@
         </div>
 </div>
 <%end%>
-<div class="container">
+<div class="container body">
   <%= yield %>
 </div>
 </div>

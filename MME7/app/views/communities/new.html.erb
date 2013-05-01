@@ -1,11 +1,12 @@
+<%= error_messages_for(@community) %>
 <h1 class="text-center">انشاء المجتمع </h1>
 <%= link_to("<< الروجع إلى القائمة الرئيسية", {:action => 'list'}, :class => 'back-link') %>
 <div>  
-<%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
-<%= error_messages_for(@community) %>
+<%= form_for(@community , :as=>:community, :url => {:action => 'createCommunity'} , :validate=>true) do |t| %>
+
     <div>
       </br>
-        <table class="table table-striped" >
+        <table class="table" >
 
       <tr>
         <th>اسم المجتمع </th>

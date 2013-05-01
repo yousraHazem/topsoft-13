@@ -15,6 +15,7 @@ class BudgetComponentsController < ApplicationController
 		@spent = BudgetComponent.sum(:spent, :conditions=>{:budget_item_id=>params[:id]})
 		@item = params[:id]
 		@name = BudgetItem.find(@item).name
+		@project = Project.find(params[:project_id]).name
 		@project_id = params[:project_id]
 		@components = BudgetComponent.where(:budget_item_id=> params[:id])
 		counts = BudgetComponent.where(:budget_item_id=>params[:id], :status=>"اكتمل")
@@ -26,6 +27,16 @@ class BudgetComponentsController < ApplicationController
 		else
 			@percent = 100*count_size / all_size
 	    end
+	   # <div class="progress pull-left" id="progressouter">
+       #    <div class="bar" id="progress"></div>
+       #  </div>
+
+	end
+
+	def new
+		@component = BudgetComponent.new
+		@project_id = params[:project_id]
+		@item = params[:id]
 	end
 
 	def create

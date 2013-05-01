@@ -1,13 +1,17 @@
-//= require jquery
-//= require jquery_ujs
-//= require jquery.purr
-//= require best_in_place
-//= require_tree .
-//= require bootstrap-datepicker
+// //= require jquery
+// //= require jquery_ujs
+// //= require jquery.purr
+// //= require best_in_place
+// //= require_tree .
+// //= require bootstrap-datepicker
 
 $(function(){
     $(".notification-bubble").click(function(){
         $("#notify").toggle();
+
+        $(".pic").toggle();
+        // $(".notification-bubble").hide();
+
         $.ajax({
             url: "/notifications/read",
             type: "GET",
@@ -16,11 +20,11 @@ $(function(){
     });
 }); 
 
-// $(function(){
-//    $("#projects").click(function(){
-//         $("#notify").toggle();
-//   }); 
-// });
+// // $(function(){
+// //    $("#projects").click(function(){
+// //         $("#notify").toggle();
+// //   }); 
+// // });
 
 $(function(){
   if ($("#notification-list").length > 0 ) {
@@ -143,12 +147,18 @@ $("#progress").css('width',p+'%');
 $("#progress").html(p+'%');
 });
 
+
  $(function() {
     $("#create").click(function(){
         $("#comp").toggle("slow");
     });
 });
 
+// $(function() {
+//     $("#create").click(function(){
+//         $("#comp").toggle("slow");
+//     });
+// });
 
 
 
@@ -169,11 +179,11 @@ $(document).ready(function(){
 });
 
 
-$(function() {
-    $("#new-item").click(function(){
-        $("#item-form").toggle("slow");
-    });
-});
+// $(function() {
+//     $("#new-item").click(function(){
+//         $("#item-form").toggle("slow");
+//     });
+// });
 
 
 $(function () {
@@ -185,6 +195,6 @@ $(function () {
     });
 });
 
-$(function () {
-  $('#edit').popover();
-});
+// $(function () {
+//   $('#edit').popover();
+// });

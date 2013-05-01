@@ -17,13 +17,12 @@
           <% end %>
         </td>
         <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
+           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) do |f| %>
               <button type="submit">المهمات</button>
            <% end %>
         </td>
       </tr>
     </table>
-
 
 <div class="project show">
 
@@ -34,6 +33,7 @@
 <div>
   <table class="table table-hover" >
     <tr>
+   
       <td></i> تاريخ البداية</td>
       <td><%= @project.start_date %></td>
     </tr>   

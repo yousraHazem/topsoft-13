@@ -14,6 +14,67 @@
  *= require bootstrap-datepicker
  */
 
+
+.field_with_errors .message {
+ display: inline;
+  color: #d9d9d9;
+  left: 200 px;
+  font-size: 15px;
+margin: 8px 10px;
+}
+
+ .link-source{
+ color: #99CCFF;
+ }
+
+ .source-projects {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+ padding: 10px;
+ }
+
+ .info1 {
+ margin-top: -50px;
+ margin-right: 700px;
+ }
+  .info2 {
+ margin-top: -30px;
+ margin-right: 700px;
+ }
+  .info3 {
+ margin-top: -30px;
+ margin-right: 700px;
+ }
+
+.bg {
+  border: 1px solid #d1d1d1;
+}
+
+.header-new {
+  padding-top: 30px;
+  margin-right: 90px;
+}
+
+#comp{
+  overflow: hidden
+}
+
+.component {
+  margin-top: 10%;
+}
+ .header {
+ padding-top: -30px;
+ font-family:("adobe arabic");
+ }
+ .pic{
+ position:absolute;
+ left: 66%;
+ top: 11.5%;
+ z-index:3
+ }
+
   .pull {
   margin: 225px;
   color: #bbb;
@@ -32,6 +93,12 @@
   
   .date {
   color: #686868;
+  font-size: 9px;
+
+  }
+
+   .date2 {
+  color: #ffffff;
   font-size: 9px;
 
   }
@@ -60,10 +127,11 @@
 }
 
  #background {
- background-image: url(bg.jpg);
- background-repeat: no-repeat;
- background-size: 1365px 730px;
- padding: 20px;
+ background-image: url(yes3.png);
+ background-repeat: repeat-x;
+ background-size: 1365px 950px;
+ padding: 10px;
+ height:900;
  
  }
 
@@ -102,6 +170,7 @@
 .search {
 	display: inline;
 	margin-right: 60px;
+  top:10px;
 }
 
 .contribution {
@@ -124,8 +193,8 @@ margin: 50px;
  margin: 20px;
  }
 
-.style {
-	margin: 20px;
+.style{
+  margin: 20px; 
 }
 
 .progress {
@@ -148,14 +217,17 @@ td.ta textarea {
 	resize:horizontal; max-width:400px;
 }
 
+.body{
+  color:#ffffff;
+}
+
 #show {
 	text-align: right;
 }
 
+
 div.well{
 	width: 300px;
-
-
 }
 #eachcom{
 	background:#FAFAFA;

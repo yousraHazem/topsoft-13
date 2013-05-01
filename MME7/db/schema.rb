@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity",     :default => 0
+    t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -62,8 +62,24 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   end
 
   create_table "budget_sources_projects", :id => false, :force => true do |t|
+<<<<<<< HEAD
     t.integer "project_id"
     t.integer "budget_source_id"
+=======
+    t.integer "budget_source_id"
+    t.integer "project_id"
+  end
+
+  create_table "budgets", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.integer  "raised"
+    t.integer  "noot_raised"
+    t.integer  "spent"
+    t.integer  "not_spent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+>>>>>>> master
   end
 
   create_table "comments", :force => true do |t|
@@ -111,8 +127,15 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
 
   create_table "images", :force => true do |t|
     t.string   "image2"
+<<<<<<< HEAD
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+=======
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+>>>>>>> master
   end
 
   create_table "notification_users", :force => true do |t|
@@ -158,6 +181,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+    t.string   "photo"
   end
 
   create_table "receipts", :force => true do |t|
