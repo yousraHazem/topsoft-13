@@ -3,8 +3,8 @@
 <html>
 <head>
 <title>MME7 Admin</title>
- <%= stylesheet_link_tag "application","style", "navi", :media=>"all" %>
- <%= javascript_include_tag "application","highcharts", "highcharts_init" %>
+ <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","style", "navi", :media=>"all" %>
+ <%= javascript_include_tag "application","highcharts", "highcharts_init" , "jquery.tokeninput"%>
  <%= csrf_meta_tags %>
 <script type="text/javascript">
 $(function(){
@@ -28,8 +28,8 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; لوحة التحكم</div>
 				<ul id="home">
-					<li class="b1"><a class="icon view_page" href="">الصفحة الرئيسية</a></li>
-					<li class="b2"><a class="icon report" href="">تقارير</a></li>
+					<li class="b1"><a class="icon view_page" href=""><%= link_to "الصفحة الرئيسية", :controller => "admin", :action => "show", 
+					:id => current_user %></a></li>
 				</ul>
 			</div>
 			<div class="box">
@@ -42,27 +42,39 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; المجموعات</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="">جميع المجموعات</a></li>
-					<li class="b2"><a class="icon add_page" href="">مجموعة جديدة</a></li>
-					<li class="b2"><a class="icon category" href="">group Hierarchy </a></li>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المجموعات", :controller => "groups", :action => "index", 
+					:id => @groups %></a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مجموعة جديدة", :controller => "groups", :action => "new", 
+					:id => @groups %></a></li>
 				</ul>
 			</div>
 			<div class="box">
-				<div class="h_title">&#8250; community</div>
+				<div class="h_title">&#8250; مجتمع</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="">view cmmunities</a></li>
-					<li class="b2"><a class="icon add_page" href="">new community</a></li>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المجتمعات", :controller => "communities", :action => "list", 
+					:id => @communities %></a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مجتمع جديد", :controller => "communities", :action => "new", 
+					:id => @communities %></a></li>
 				</ul>
 			</div>
 			<div class="box">
 				<div class="h_title">&#8250; مشاريع</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="">جميع المشاريع</a></li>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المشاريع", :controller => "projects", :action => "listProjects",
+					:id => @projects %></a></li>
+
 					<li class="b2"><a class="icon add_page" href="">مشروع جديد</a></li>
 				</ul>
 			</div>
+			<div class="box">
+				<div class="h_title">&#8250; مصادر الميزانية</div>
+				<ul>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "اضافة مصدر جديد", :controller => "budget_sources", :action => "new",
+					:id => @budget_source %></a></li>
+				</ul>
+			</div>
 	    </div>
-	<div id="main">
+	<div id="main" dir="rtl">
     <div><%= yield %></div>
     </div>
 	<div id="footer">
