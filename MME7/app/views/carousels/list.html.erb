@@ -1,10 +1,6 @@
-<% @page_title = "Recipts List"%>
+
 
 <div>
-	<h2>Carousel</h2>
-    
-	
-
 <br>
 <br>
 <br>
@@ -18,11 +14,11 @@
 <tr>
 	<td><%= link_to(carousel.title, {:action=>'show' , :id => carousel.id} , :class => "link")%></td>	
 	<td><%= carousel.description %></td>
-	<td><%= link_to("Delete", {:action=>'destroy' , :id => carousel.id }, :confirm => "Are You sure You want to delete" , :class => "btn")%></td>
+	<td><%= link_to("إلغاء", {:action=>'destroy' , :id => carousel.id }, :confirm => "هل انت متاءكد نن الألغاء" , :class => "btn")%></td>
 </tr>
 
 <%end%>
 </table>
 <br>
-<p class = "pull-left"><%= link_to("New" ,{:action=>'new'}, class: "btn") %> <p>
+<p class = "pull-left"><%= link_to("إضافة جديد" ,{:action=>'new'}, class: "btn") %> <p>
 </div>

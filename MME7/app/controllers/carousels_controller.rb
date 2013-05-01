@@ -22,7 +22,7 @@ def index
 	def create 
 		@carousel = Carousel.new(params[:carousel])
 		if @carousel.save
-			redirect_to(:action => 'list')
+			redirect_to(:action => 'show' , :id=> @carousel.id)
 		else
 			render('new')
 	end
@@ -40,7 +40,7 @@ end
 		@carousel = Carousel.find(params[:id])
 		@project = params[:project_id]
 		if @carousel.update_attributes(params[:carousel])
-			redirect_to(:action => 'list')
+			redirect_to(:action => 'show' , :id=> @carousel.id)
 			
 		else
 			render('edit')

@@ -6,27 +6,27 @@
 	<br>
 	<table class="table body">
 <tr>
-<th><%= f.label(:Title)%></th>
+<th><%= f.label(:Title  ,"عنوان")%></th>
 <td><%= f.text_field(:title)%></td>
 </tr>
 </br>
 <tr>
-<th><%= f.label(:Description)%></th>
+<th><%= f.label(:Description ,"وصف")%></th>
 <td class = "text"><%= f.text_area(:description)%></td>
 </tr>
 </br>
 <tr>
-<th><%= f.label(:Project)%></th>
+<th><%= f.label(:Project , "المشروع")%></th>
 <td><%= f.select(:project_id, @projects.collect {|i| [i.name,i.id]},{:include_blank => true}) %></td>
 </tr>
 </br>
 <tr>
-<th><%= f.label(:News)%></th>
+<th><%= f.label(:News  ,"الصورة")%></th>
 <td><%= f.file_field(:news)%> <br> <br> <br></td>
 </tr>
 <tr>
 </br>
-<th><%= f.label(:Show)%></th>
+<th><%= f.label(:Show , "إظهار")%></th>
 <td class ="checkbox inline"><%= f.check_box(:show)%></td>
 </tr>
 </br>
@@ -35,7 +35,7 @@
 </table>
 </br>
 <p>
-<td class ='btn'><%= f.submit %></td>
+<td class ='btn'><%= f.submit ("إحفظ")%></td>
 </p>
 <% end %>
 </div>

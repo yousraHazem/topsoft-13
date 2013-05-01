@@ -24,8 +24,8 @@
 }
 
 td.text textarea{
-	resize:vertical; height:70px;
-	resize:horizontal; width:400px;
+	resize:vertical; height:80px;
+	resize:horizontal; width:210px;
 }
 
 .head {
@@ -37,7 +37,7 @@ td.text textarea{
 	margin-right: 800px;
 }
 
-link.hover{color:#ffffff;}
+.link:hover{color:#ffffff;}
 
 .link{
 	color:#C6DEFF;
@@ -134,7 +134,7 @@ p.paragraph{
      border: 30px solid white;
 }
 
-td.ta textarea {
+dt.ta textarea {
 	resize: vertical; max-height:200px;
 	resize:horizontal; max-width:400px;
 }
@@ -146,28 +146,19 @@ td.ta textarea {
 .body{
 	color:#ffffff;
 	font-weight:bold;
+	font-size: 100%;
 }
 
 .title{
-	padding-top: 30px;
+	padding-top: -20px;
 	font-weight: bold;
 	font-size: 200%;
+	font-family: Diwani ;
 
 }
 .body2{
 	color:#ffffff;
 	font-weight:bold;
-}
-
-
-.budgetsource{
-	
-	padding-top: 40px;
-}
-
-.budgetsourcelist{
-	
-	padding-top: 100px;
 }
 
 .about{
@@ -188,9 +179,10 @@ td.ta textarea {
 	margin-left:90px;
 }
 
-margin2{
+
+.nav{
 	
-	padding:-200px;
+	padding: 0px !important;
 }
 
 
