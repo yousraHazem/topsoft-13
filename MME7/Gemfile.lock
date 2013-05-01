@@ -33,9 +33,6 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
-    best_in_place (2.1.0)
-      jquery-rails
-      rails (~> 3.1)
     bootstrap-datepicker-rails (1.0.0.3)
       railties (>= 3.0)
     bootstrap-sass (2.3.1.0)
@@ -155,7 +152,6 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   bcrypt-ruby
-  best_in_place
   bootstrap-datepicker-rails
   bootstrap-sass
   carrierwave
