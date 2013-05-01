@@ -12,15 +12,9 @@ class CommunitiesController < ApplicationController
 # Returns: similar or wanted community
 
 def list
-		@communities= Community.new.search(params[:search])
+	@communities= Community.new.search(params[:search])
 end
 
-def listCommunityProject
-	#@comProjects = CommunityProjects.order("projects.name ASC")
-	@comProjects = CommunitiesProjectsJoin.find(:all, 
-   :conditions => {:community_id => @communities_projects.community.id}, 
-   :order => "projects.name ASC")
-end
 
 # Author: May Atef Badr 22-0579
 # this moethod shows a community with it's info and edit and delete button
@@ -28,7 +22,7 @@ end
 # Returns: community title, social profile info and contact info
 
 def show
-         @community = Community.find(params[:id])
+    @community = Community.find(params[:id])
 end
 
 def new
@@ -72,7 +66,6 @@ end
 # Retuns : returns nothing	
 def delete 
 	@community = Community.find(params[:id])
-
 end
 
 # Author: May Atef Badr 22-0579
@@ -81,10 +74,10 @@ end
 # Args: community  id
 # retuns: returns the community without the edit and delete links
 def destroy 
-		@community = Community.find(params[:id])
-		@community.is_dismissed = 'true'
-		@community.save
-		redirect_to :action => 'show', :id => @community.id
+	@community = Community.find(params[:id])
+	@community.is_dismissed = 'true'
+	@community.save
+	redirect_to :action => 'show', :id => @community.id
 end
 
 end

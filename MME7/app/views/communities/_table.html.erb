@@ -1,19 +1,16 @@
 <table class="table table-striped">
 
-  
-    <th>
+  <th>
       <div class="alignright">
       المجتمعات
       </div>
-    </th>
+  </th>
     
-
-    <% @communities.each do |community| %>
+  <% @communities.each do |community| %>
      <tr>
-
-       <td><div class="alignright"><%= link_to(community.title, {:action => 'show', :id => community.id}, :class => 'action show') %></div></td>
-       
-       
-     </tr>
-    <%end%>
-  </table>
+      <td>
+         <div class="alignright"><%= link_to(community.title, {:action => 'show', :id => community.id}, :class => 'action show') %></div>
+      </td>
+    </tr>
+  <%end%>
+</table>
