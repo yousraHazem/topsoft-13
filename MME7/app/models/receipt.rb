@@ -1,5 +1,4 @@
 #encoding: utf-8
->>>>>>> 5668558126871d92fff56e5fa0e1b1907e0ffa91
 class Receipt < ActiveRecord::Base
   attr_accessible :budget_component_id, :image , :name
 
