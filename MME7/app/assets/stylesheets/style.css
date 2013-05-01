@@ -128,40 +128,7 @@ a:hover{
 	line-height: 16px;
 	margin: 5px 15px;
 }
-/* STATS BLOCK */
 
-#main .stats .today, #main .stats .week{
-	float: left;
-	margin: 10px auto;
-	text-align: center;
-	text-shadow: #fff 1px 1px 0px;
-	width: 49%;
-}
-#main .stats .today{
-	border-right: 1px dashed #c0c0c0;
-}
-#main .stats h3{
-	color: #797777;
-	font-size: 12px;
-	margin-bottom: 5px;
-	text-transform: uppercase;
-}
-#main .stats .count{
-	color: #444444;
-	font-size: 23px;
-	font-weight: bold;
-}
-#main .stats .type{
-	font-size: 10px;
-	margin-bottom: 5px;
-	text-transform: uppercase;
-}
-
-table{ 
-	border-collapse: collapse; 
-	margin: 15px; 
-	width: 650px; 
-}
 /* FOOTER START */
 
 #footer{
