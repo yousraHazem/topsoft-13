@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
+ActiveRecord::Schema.define(:version => 20130430001738) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity",     :default => 0
+    t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
-    t.integer  "amount",           :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "amount",           :default => 0
   end
 
   create_table "budget_sources", :force => true do |t|
@@ -57,9 +57,36 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
+  create_table "budgets", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.integer  "raised"
+    t.integer  "noot_raised"
+    t.integer  "spent"
+    t.integer  "not_spent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+  end
+
+  create_table "characters", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.boolean  "gmaps"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "project_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -103,6 +130,49 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "community_id"
   end
 
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+  end
+
+  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id"
+
+  create_table "images", :force => true do |t|
+    t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.string   "location_name"
+    t.string   "phone_number"
+    t.string   "district"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
+    t.decimal  "lat",           :precision => 16, :scale => 13
+    t.decimal  "lng",           :precision => 16, :scale => 13
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
+
+  create_table "notification_users", :force => true do |t|
+    t.integer  "notification_id"
+    t.integer  "user_id"
+    t.boolean  "read",            :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "content"
+    t.string   "url"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.text     "content"
     t.integer  "group_id"
@@ -118,6 +188,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.boolean  "is_creator"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   create_table "projects", :force => true do |t|
@@ -128,7 +199,15 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+    t.string   "photo"
   end
+
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
+  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id"
 
   create_table "receipts", :force => true do |t|
     t.string   "name"
@@ -150,8 +229,8 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.integer  "project_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.string   "title"
     t.boolean  "assigned",    :default => false
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
@@ -165,6 +244,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

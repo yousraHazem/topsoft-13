@@ -14,7 +14,7 @@
            <% end %>  
           <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>  
           <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li> 
-          <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
+          <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
       </ul>
     </div>     
   </td> 
