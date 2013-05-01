@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
   before_save :create_remember_token
+   before_create { generate_token(:auth_token) }
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"
@@ -60,5 +61,19 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end 
+
+
+def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+  UserMailer.password_reset(self).deliver
+end
+
+def generate_token(column)
+  begin
+    self[column] = SecureRandom.urlsafe_base64
+  end while User.exists?(column => self[column])
+end
 
 end
