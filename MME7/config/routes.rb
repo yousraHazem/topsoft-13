@@ -15,6 +15,7 @@ root :to => "home#index"
   get "projects/newProject"
 
   get "posts/newPost"
+  get "budget_sources/list"
 
   get "home/index"
 
