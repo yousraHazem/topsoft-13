@@ -122,22 +122,5 @@ describe TasksController do
         end
     end
   end
-  describe "POST AssignTask" do
-    describe "with valid params" do
-      it "assigns a new task" do
-        expect {
-        post :create, {:task => valid_attributes}
-        }.to change(Task, :count).by(1)
-      end
-      it "assigns a newly created task as @task" do
-        post :create, {:task => valid_attributes}
-        assigns(:task).should be_a(Task)
-        assigns(:task).should be_persisted
-      end
-
-      it "redirects to the created task " do
-        post :create, {:task => valid_attributes}
-        response.should redirect_to("http://test.host/tasks/listTasks")
-      end
-    end
-end
+  
+end 
