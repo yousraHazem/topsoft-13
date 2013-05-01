@@ -2,10 +2,10 @@
 <div class="aligncenter">
     <h1><%= @project.name %></h1> 
 </div> 
-<div class = "alignleft">
- <div id="sidebar" class = "pull-left">
+<div class = "pull-left">
+ <div id="sidebar">
       <td>
-      <div id="floatMenu" class = "pull-left">  
+      <div id="floatMenu">  
          <ul> 
             <% if isProjectCreator(current_user.id, @project.id)%> 
             <li><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
