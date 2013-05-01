@@ -1,44 +1,47 @@
 <div  id="com">
-<%= error_messages_for(@comment) %>
-<% post.comments.each do |c| %>  
-<% if current_user %>  
-<% if isCommentCreator(current_user.id,c.id) == true %>
-<div class="speech-bubble" ><b id="uname">
-    <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
-       <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :project_id => @project.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %></span>
-    <%=c.name %></b></br>
-    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :project_id => @project.id} %>
- 
-    <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
-</i>
-</div></br>
-<%else%>
-</br>
-    <div class = "speech-bubble"><b id="uname">
-        <%=c.name %></b></br>
-        <%=c.comment%>
-        <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
-    </div></br>
-<% end %>
-<%else%>
-</br>
+    <%= error_messages_for(@comment) %>
+    <% post.comments.each do |c| %>  
+    <% if current_user %>  
+        <% if isCommentCreator(current_user.id,c.id) == true %>
+        <div class="speech-bubble" ><b id="uname">
+            <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
+                <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :project_id => @project.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %></span>
+                <%=c.name %></b></br>
+                <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :project_id => @project.id} %>
+     
+                <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
+            </i>
+        </div>
+
+        <%else%>
+        <div class = "speech-bubble"><b id="uname">
+            <%=c.name %></b></br>
+            <%=c.comment%>
+            <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
+        </div>
+
+        <% end %>
+    <%else%>
+    </br>
      <div class="speech-bubble"><b id="uname">
         <%=c.name %></b></br>
         <%=c.comment%>
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
-    </div></br>
-<% end %>
-<% end %>
+    </div>
 
-<% if current_user %>
-<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :project_id => @project.id, :user_id => current_user.id , :position=>position}, :html => {:id => "comment-form"}) do |f| %>
+    <% end %>
+    <% end %>
+
+    <% if current_user %>
+    <%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :project_id => @project.id, :user_id => current_user.id , :position=>position}, :html => {:id => "comment-form"}) do |f| %>
     <div class="speech-bubble-create">
-    <%= f.text_area (:comment), :placeholder =>"اضف تعليقك", "cols"=> 23, "rows"=> 2 %>
-    <%= f.hidden_field :post_id, :value => post.id%>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :name, :value => current_user.username %>
+        <%= f.text_area (:comment), :placeholder =>"اضف تعليقك", "cols"=> 23, "rows"=> 2 %>
+        <%= f.hidden_field :post_id, :value => post.id%>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :name, :value => current_user.username %>
     <button id="bcom" class="btn btn-small btn-primary" type="submit">إضافة تعليق</button>
     </div>
-<% end %>
-<% end %>  
+    <% end %>
+    <% end %> 
+
 </div>
