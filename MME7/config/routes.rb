@@ -12,6 +12,7 @@ root :to => "home#index"
   # get "posts/newPost"
 
   get "posts/editPost"
+  get "projects/newProject"
 
   get "posts/newPost"
 

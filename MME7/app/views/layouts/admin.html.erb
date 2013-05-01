@@ -65,15 +65,19 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; مشاريع</div>
 				<ul>
-					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المشاريع", :controller => "projects", :action => "listProjects",
-					:id => @projects %></a></li>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المشاريع", :controller => "projects", 
+					:action => "listProjects",:id => @projects %></a></li>
 
-					<li class="b2"><a class="icon add_page" href="">مشروع جديد</a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مشروع جديد", :controller => "projects", 
+					:action => "newProject",:id => @projects %></a></li>
 				</ul>
 			</div>
 			<div class="box">
 				<div class="h_title">&#8250; مصادر الميزانية</div>
 				<ul>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المشاريع", :controller => "budget_sources", 
+					:action => "list",:id => @sources %></a></li>
+
 					<li class="b2"><a class="icon add_page" href=""><%= link_to "اضافة مصدر جديد", :controller => "budget_sources", :action => "new",
 					:id => @budget_source %></a></li>
 				</ul>
