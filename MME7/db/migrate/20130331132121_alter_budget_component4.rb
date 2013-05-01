@@ -1,10 +1,10 @@
-class AlterBudgetComponent < ActiveRecord::Migration
+class AlterBudgetComponent4 < ActiveRecord::Migration
   def up
-  add_column :budget_components , :quantity_purchased, :integer, :default=>0
-  rename_column :budget_components , :quantity ,:total_quantity
+  #add_column :budget_components , :quantity_purchased, :integer, :default=>0
+  #rename_column :budget_components , :quantity ,:total_quantity
   end
 
   def down
-  rename_column :budget_components , :total_quantity, :quantity 
+  #rename_column :budget_components , :total_quantity, :quantity 
   end
 end
