@@ -1,0 +1,38 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<body lang="ar">
+<% if @items.blank? %>
+	<p> لا يوجد عناصر ميزانية حاليا</p>
+<% else %>
+	<p>عناصر الميزانية الحالية هي</p>
+	</br>
+<table class="table" summary="Subject List">
+ 	<tr class="header">
+ 		<th>اسم عنصر الميزانية</th>
+ 		<th>مجموع</th>
+ 		<th>ما الذي تم صرفه</th>
+ 		<% if loged_in? %>
+ 		<% if isProjectCreator(@current_user,@project.id)%>
+        <th>تعديل الميزانية</th>
+ 		<% end %>
+ 		<% end %>
+ 		<th>مشاهدة</th>
+ 	</tr>
+
+ 	<% @items.each do |item| %>
+		<tr id = "budget_item">
+ 		<td><%= item.name %></td>
+ 		<td><%= item.total %></td>
+ 		<td><%= item.spent %></td>
+ 		<% if loged_in? %>
+ 		<% if isProjectCreator(@current_user,@project.id)%>
+        <td class="actions">
+		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
+	    </td>
+	    <% end %> 
+	    <% end %>
+	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id}, :class=>"btn btn-small")%></td>
+ 		</tr>
+ 	<% end %>
+</table>
+<% end %>
+</body>

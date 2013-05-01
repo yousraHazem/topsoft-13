@@ -1,0 +1,54 @@
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<div class="aligncenter">
+    <h1><%= @project.name %></h1> 
+</div> 
+<td>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class = "aligncenter">
+  <div id="navcontainer">
+  <ul id="navlist">
+       <% if isProjectCreator(current_user.id, @project.id)%> 
+        <li id="active"><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
+        <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+      <% end %>
+      <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+      <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
+      <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+  </ul>
+  </div>
+</div>
+</td>
+</div>
+
+
+<div id="main-wrap">
+  <div id="content-wrap"> 
+    <td>
+      <h2>تعيين الأعضاء</h2> 
+      <% @members.each do |m| %>
+        <table class="table table-striped">    
+          <% if m.user_id != current_user.id %>        
+            <tr>
+              <td>
+                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}) %>
+              </td>         
+              <td>        
+                <% if m.is_creator == true %>
+                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id,         :user_id => m.user_id}, :class =>'btn btn-danger') %>
+                <% else %>     
+                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id,       :user_id => m.user_id}, :class =>'btn btn-primary') %>
+                <% end %>
+              </td>
+            </tr> 
+          <% end %>     
+        </table>
+      <% end %>
+    </td>
+  </div>
+</div>
+   
+       

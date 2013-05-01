@@ -1,17 +1,21 @@
-#encoding: utf-8
+#encoding: UTF-8
 class BudgetItemsController < ApplicationController
-
-# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table
-
+  #Authored by Toka Omar  id:22-1925
+  #Author :Yasmin Mahmoud 22-1787
+  #Inputs:project_id and Outputs:all  budgetitems 
+  #Returs: Array of Budget Items
 	def list 
-		@project =params[:id]
-		@items = BudgetItem.where(:project_id => @project)
-
+		@project =Project.find(params[:id])
+		if loged_in?
+		@current_user = current_user.id
+		@items = BudgetItem.find(:all,:conditions => {:project_id => params[:id]})
+	    else 
+	    @items = BudgetItem.find(:all,:conditions => {:operational =>true,:project_id => params[:id]})
+	    end 
 		# @total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:id]})
 		# @total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
 		#@project_name = Project.find(params[:id])
-		 @tasks = Task.find(:all,:conditions=>{:project_id=> 1, :assigned=>false})
-		
+		@tasks = Task.find(:all,:conditions=>{:project_id=>params[:id], :assigned=>false})
 		#@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
 	end 
 

@@ -11,38 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140510) do
-
+ActiveRecord::Schema.define(:version => 20130501164545) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
-    t.integer  "total"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.integer  "budget_item_id"
     t.integer  "spent"
     t.integer  "quantity_purchased", :default => 0
+    t.integer  "unit_price"
+    t.integer  "total"
+  end
 
+  create_table "budget_item_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "budget_item_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "budget_items", :force => true do |t|
     t.integer  "task_id"
-    t.integer  "budget_id"
     t.string   "name"
-    t.integer  "status"
     t.boolean  "operational"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "spent"
     t.integer  "project_id"
     t.integer  "total"
-  end
-
-  create_table "budget_items_users", :id => false, :force => true do |t|
-    t.integer "budget_item_id"
-    t.integer "user_id"
   end
 
   create_table "budget_source_projects", :force => true do |t|
@@ -60,13 +59,32 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
+  end
+
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -74,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -92,19 +111,46 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
   create_table "groups", :force => true do |t|
     t.string   "group_name",   :limit => 50
     t.text     "description"
-    t.string   "levels"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+    t.string   "ancestry"
+    t.integer  "level"
+  end
+
+  add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
+
+  create_table "images", :force => true do |t|
+    t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notification_users", :force => true do |t|
+    t.integer  "notification_id"
+    t.integer  "user_id"
+    t.boolean  "read",            :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "content"
+    t.string   "url"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "project_users", :force => true do |t|
@@ -120,7 +166,6 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
@@ -134,12 +179,20 @@ ActiveRecord::Schema.define(:version => 20130418140510) do
     t.string   "image"
   end
 
+  create_table "task_users", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tasks", :force => true do |t|
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "assigned"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "title"
+    t.boolean  "assigned",    :default => false
   end
 
   create_table "users", :force => true do |t|

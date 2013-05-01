@@ -11,10 +11,10 @@ module ProjectUsersHelper
     # Args : project id
     # returns : an array of memebers in a project
 	def get_projectmembers(project_id)
+		@projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
+  	end
 
- 	     @projectmembersid = ProjectUser.find(:all, :conditions => {:project_id => project_id })
-  end
-
+  	
  
 
 # Author :Yasmin Mahmoud 22-1787 This method checks if the current user is a creator of the project he is trying to access 	

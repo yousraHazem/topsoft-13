@@ -15,13 +15,13 @@ require 'spec_helper'
 	end 
 
 # Author: Sama Akram 22-555 validations test create group
-  before { @group = Group.new(group_name: "Group One", description: "blaaah blaaaah", levels: "parent") }
+  before { @group = Group.new(group_name: "Group One", description: "blaaah blaaaah") }
 
   subject { @group }
 
   it { should respond_to(:group_name) } 
   it { should respond_to(:description) }
-  it { should respond_to(:levels) }
+  #it { should respond_to(:levels) }
   
   it { should be_valid }
 
@@ -35,18 +35,18 @@ require 'spec_helper'
        group_with_same_name= @group.dup
        group_with_same_name.group_name = @group.group_name
        group_with_same_name.save
-  	end
-  	it { should_not be_valid }
+    end
+    it { should_not be_valid }
   end
 
   describe "when group description is not present" do
-	    before { @group.description = " " }
-	    it { should_not be_valid }
+      before { @group.description = " " }
+      it { should_not be_valid }
   end
 
-  describe "when group level is not present" do
-	    before { @group.levels = " " }
-	    it { should_not be_valid }
-  end
+  #describe "when group level is not present" do
+   #   before { @group.levels = " " }
+    #  it { should_not be_valid }
+#  end
 
 end

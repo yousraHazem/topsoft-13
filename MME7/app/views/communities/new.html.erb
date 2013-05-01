@@ -1,30 +1,20 @@
 <h1 class="text-center">انشاء المجتمع </h1>
 <%= link_to("<< الروجع إلى القائمة الرئيسية", {:action => 'list'}, :class => 'back-link') %>
-<div>  
-<%= form_for(:community, :url => {:action => 'createCommunity'}) do |t| %>
+<div> 
 <%= error_messages_for(@community) %>
+<%= form_for(@community, :as => :community, :url => {:action => 'createCommunity'}, :validate => true) do |t| %>
     <div>
-      </br>
-        <table class="table table-striped" >
+      </br></br></br></br>
+        <dt>اسم المجتمع </dt>
+        <dd><%= t.text_field(:title) %></dd>
+        <dt>وصف المجتمع</dt> 
+        <dd class="texta"><%= t.text_area :social_profile_info, "rows" => 4 %></dd>
 
-      <tr>
-        <th>اسم المجتمع </th>
-        <td><%= t.text_field(:title) %></td>
-      </tr>
-      <tr>
-        <th>وصف المجتمع</th> 
-        <td class="texta"><%= t.text_area(:social_profile_info) %></td>
-      </tr>
-
-      <tr>
-       <th>البريد الالكتروني </th>
-       <td><%= t.text_field(:contact_info) %></td>
-      </tr>
-
-    </table>
-  </div>
+       <dt>البريد الالكتروني </dt>
+       <dd><%= t.text_field(:contact_info) %></dd>
    <p class="text-right">
 <button class="btn btn-info" type="submit">تسجيل </button>
 </p>
   <% end %>
 </div>
+

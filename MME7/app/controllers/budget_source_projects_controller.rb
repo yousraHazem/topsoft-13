@@ -1,4 +1,4 @@
-#encoding: utf-8
+#encoding: UTF-8
 class BudgetSourceProjectsController < ApplicationController
 	
 	#Author Yasmin Mahmoud 22-1787 this method gets the budget source with a given id 
