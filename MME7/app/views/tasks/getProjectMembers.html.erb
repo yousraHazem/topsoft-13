@@ -1,0 +1,35 @@
+ <br/>
+  <br/>
+   <br/>
+    <br/>
+     <br/>
+<h4>تعيين العضو</h4>
+<h4>الأعضاء</h4>
+
+ <h4>الأعضاء المعينين لهذه المهمة :</h4>
+      
+  </tr>
+  <% @assignedppl.each do |p| %>
+    <tr>
+      <td> 
+
+        <%= p.user.name %>
+         <br/>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+  <h4>تعيين أعضاء جدد لهذه المهمة : </h4>
+  </tr>
+   <% @notassigned.each do |p| %> <br/>
+      <tr>
+        <td> <%= p.user.name %></td>
+        <td>
+          <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
+       </td>
+      </tr>
+    <% end %> 
+   
+       </td>
+      </tr>
+

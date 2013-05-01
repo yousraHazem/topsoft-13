@@ -1,7 +1,7 @@
 #encoding: UTF-8
 class Group < ActiveRecord::Base
-  attr_accessible :group_name , :description , :levels , :community_id
-
+  attr_accessible :group_name , :description , :level , :community_id, :parent_id
+  has_ancestry
   has_many :posts 
   has_many :groups_users 
   has_many :users, :through => :group_users
@@ -9,7 +9,6 @@ class Group < ActiveRecord::Base
   validates_presence_of :description, :message => "يرجى إملاء خانة الوصف"
   validates_presence_of :group_name, :message => "يرجى إملاء خانة اسم المجموعة"
   validates_uniqueness_of :group_name, :case_sensitive => false, :message => "هذا الإسم قد أستخدم من قبل"
-  validates_presence_of :levels, :message => "يرجى إملاء خانة مستوى المجموعة"
 
 	
   #Author: Donia Amer Shaarawy 22-0270 
