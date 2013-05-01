@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   #facebook account it takes his facebook email and passowrd and returns to the user page 
  def createFacebook
    
-    user = User.from_omniauth("omniauth.auth")
+    Useprovider = Useprovider.from_omniauth("omniauth.auth")
     session[:user_id] = user.id
     redirect_to @user, :notice => "logged in"
   end
