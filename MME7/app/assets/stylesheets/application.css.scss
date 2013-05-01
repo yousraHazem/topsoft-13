@@ -214,8 +214,7 @@ p.paragraph{
 }
 
 td.ta textarea {
-	resize: vertical; max-height:200px;
-	resize:horizontal; max-width:400px;
+	resize:horizontal; width:400px;
 }
 
 .body{
@@ -225,7 +224,6 @@ td.ta textarea {
 #show {
 	text-align: right;
 }
-
 
 
 #floatMenu {  
@@ -293,3 +291,7 @@ td.ta textarea {
   
 }
 
+
+#wasf {
+	font-size: 30px;
+}

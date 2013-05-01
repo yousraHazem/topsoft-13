@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(:version => 20130430001738) do
     t.integer  "total"
   end
 
+  create_table "budget_item_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "budget_item_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "budget_items", :force => true do |t|
     t.integer  "task_id"
     t.string   "name"
@@ -93,8 +100,10 @@ ActiveRecord::Schema.define(:version => 20130430001738) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
@@ -124,10 +133,10 @@ ActiveRecord::Schema.define(:version => 20130430001738) do
   create_table "groups", :force => true do |t|
     t.string   "group_name",   :limit => 50
     t.text     "description"
-    t.string   "levels"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+    t.integer  "level"
   end
 
   create_table "groups_users", :id => false, :force => true do |t|
@@ -177,9 +186,11 @@ ActiveRecord::Schema.define(:version => 20130430001738) do
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "project_users", :force => true do |t|
