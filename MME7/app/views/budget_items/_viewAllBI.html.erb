@@ -1,23 +1,68 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<style type="text/css">
+#one-column-emphasis
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 45px;
+    width: 480px;
+    text-align: left;
+    border-collapse: collapse;
+}
+#one-column-emphasis th
+{
+    font-size: 14px;
+    font-weight: normal;
+    padding: 12px 15px;
+    color: #039;
+}
+#one-column-emphasis td
+{
+    padding: 10px 15px;
+    color: #669;
+    border-top: 1px solid #e8edff;
+}
+.oce-first
+{
+    background: #d0dafd;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+}
+#one-column-emphasis tr:hover td
+{
+    color: #339;
+    background: #eff2ff;
+}
+</style>
+</head>
 <body dir="rtl" lang="ar">
 <% if @items.blank? %>
 	<p> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
 	<p>عناصر الميزانية الحالية هي</p>
-	</br>
-<table class="table" summary="Subject List">
+<table id="one-column-emphasis" summary="2007 Major IT Companies' Profit">
+	<colgroup>
+    	<col class="oce-first" />
+    </colgroup>
+    <thead>
  	<tr class="header">
- 		<th>اسم عنصر الميزانية</th>
- 		<th>مجموع</th>
- 		<th>ما الذي تم صرفه</th>
+ 		<th scope="col">اسم عنصر الميزانية</th>
+ 		<th scope="col">مجموع</th>
+ 		<th scope="col">ما الذي تم صرفه</th>
  		<% if loged_in? %>
  		<% if isProjectCreator(@current_user,@project.id)%>
-        <th>تعديل الميزانية</th>
+        <th scope="col">تعديل الميزانية</th>
  		<% end %>
  		<% end %>
- 		<th>مشاهدة</th>
+ 		<th scope="col">مشاهدة</th>
  	</tr>
-
+  </thead>
+    <tbody>
  	<% @items.each do |item| %>
 		<tr id = "budget_item">
  		<td><%= item.name %></td>
@@ -33,6 +78,8 @@
 	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%></td>
  		</tr>
  	<% end %>
+ 	</tbody>
 </table>
 <% end %>
 </body>
+</html>
