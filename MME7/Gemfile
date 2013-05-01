@@ -13,8 +13,7 @@ gem 'mail', '~> 2.5.3'
 gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
-gem 'omniauth-facebook'
-
+gem 'client_side_validations'
 # group :test, :development do
 #   gem "rspec-rails", "~> 2.0"
 # end
