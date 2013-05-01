@@ -10,7 +10,7 @@ let(:user){User.create(name: "Example User", email: "user@example.com", phone_Nr
 let(:post){Post.create(content: "dfdsfd0", :id =>1)}
 
   def valid_attributes
-   {:post_id => post.id , :user_id => user.id, :is_group => true}
+   {:post_id => post.id , :user_id => user.id, :is_group => true, :comment => "dfdfd"}
   end
  
   
@@ -26,7 +26,8 @@ describe "POST create" do
         expect {
         ApplicationController.any_instance.stub(:current_user).and_return(User.new)
         User.any_instance.stub(:id).and_return(1)
-         post :createComment, {:comment => valid_attributes}
+         User.any_instance.stub(:name).and_return(1)
+         put :createComment, {:comment => valid_attributes}
         }.to change(Comment, :count).by(1)
       end
 
@@ -39,7 +40,7 @@ describe "POST create" do
         notification.url="kdkd"
         notification.image="jdjd"
         notification.save
-        post :createComment, {:comment => valid_attributes}
+        put :createComment, {:comment => valid_attributes}
         assigns(:comment).should be_a(Comment)
         assigns(:comment).should be_persisted
       end
@@ -48,7 +49,7 @@ describe "POST create" do
         ApplicationController.any_instance.stub(:current_user).and_return(User.new)
         User.any_instance.stub(:id).and_return(1)
         User.any_instance.stub(:name).and_return(1)
-        post :createComment, {:comment => valid_attributes}
+        put :createComment, {:comment => valid_attributes}
         
         if(:is_group == false)
         response.should redirect_to(:controller => 'projects', :action => "show")
@@ -62,13 +63,13 @@ describe "POST create" do
   end
 
   # describe "DELETE destroy" do
-  #   it "destroys the requested project" do
+  #   it "destroys the requested post" do
   #     comment = Comment.create! valid_attributes
   #     expect {
   #       delete :destroyComment, {:comment_id => comment.to_param}
   #     }
   #   end
-  #     it "redirects to the projects list" do
+  #     it "redirects to the group or project show" do
   #      comment = Comment.create! valid_attributes
   #      delete :destroyComment, {:comment_id => comment.to_param}
   #       if(:is_group == false)
@@ -81,20 +82,20 @@ describe "POST create" do
   #   end
   # end
 
-  #    describe "PUT updatePost" do
+  #    describe "PUT updateComment" do
   #   describe "with valid params" do
-  #     it "updates the requested post" do
+  #     it "updates the requested comment" do
   #       comment = Comment.create! valid_attributes
   #       put :updateComment, {:id => comment.to_param, :comment => valid_attributes }
   #     end
 
-  #     it "assigns the requested post as @post" do
+  #     it "assigns the requested comment as @comment" do
   #       comment = Comment.create! valid_attributes
   #       put :updateComment, {:id => comment.to_param, :comment => valid_attributes}
   #       assigns(:comment).should eq(comment)
   #     end
 
-  #     it "redirects to the project page" do
+  #     it "redirects to the project page or group page" do
         
   #       comment = Comment.create! valid_attributes
   #       CommentsController.any_instance.stub(:comment_url).and_return("test")
