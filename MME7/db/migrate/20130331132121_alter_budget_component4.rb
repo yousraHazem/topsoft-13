@@ -5,6 +5,7 @@ class AlterBudgetComponent4 < ActiveRecord::Migration
   end
 
   def down
-  r#ename_column :budget_components , :total_quantity, :quantity 
+
+  #rename_column :budget_components , :total_quantity, :quantity 
   end
 end

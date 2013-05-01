@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427074104) do
+
+ActiveRecord::Schema.define(:version => 20130428221726) do
+
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -64,9 +66,20 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   create_table "budget_sources_projects", :id => false, :force => true do |t|
     t.integer "project_id"
     t.integer "budget_source_id"
+=======
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+>>>>>>> master
   end
 
   create_table "comments", :force => true do |t|
@@ -87,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
     t.text     "contact_info"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.boolean  "is_dismissed"
   end
 
   create_table "communities_projects", :id => false, :force => true do |t|
@@ -106,11 +118,14 @@ ActiveRecord::Schema.define(:version => 20130427074104) do
   create_table "groups", :force => true do |t|
     t.string   "group_name",   :limit => 50
     t.text     "description"
-    t.string   "levels"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+    t.string   "ancestry"
+    t.integer  "level"
   end
+
+  add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
 
   create_table "images", :force => true do |t|
     t.string   "image2"
