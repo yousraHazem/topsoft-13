@@ -16,7 +16,7 @@
     <i class="icon-plus icon-white"></i> 
     <% end %>  العناصر</h4>
 <% if @items.blank? %>
-<p>There are no current budget items </p>
+<p> لا يوجد عناصر ميزانية حاليا</p>
 <% end %>
 <div id="item-form" style="display:none;" >
 <%= form_for(:budget_item, :url=>{:action=>'create' , :id => params[:id] }) do |f| %>
