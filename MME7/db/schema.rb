@@ -11,10 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20130501164545) do
-
-
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -67,6 +64,11 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
+  end
+
   create_table "carousels", :force => true do |t|
     t.string   "title"
     t.string   "description"
@@ -75,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at",                    :null => false
     t.string   "news"
     t.integer  "project_id"
-
   end
 
   create_table "comments", :force => true do |t|
@@ -210,7 +211,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "profile"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
