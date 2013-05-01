@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   def current_user
    return @current_user = User.find(session[:user_id])  if session[:user_id]
   end
-  def current_user_auth
-  @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
-end
+
    helper_method :current_user, :current_user_auth
    include SessionsHelper
    #Author: Donia Amer Shaarawy 22-0270
