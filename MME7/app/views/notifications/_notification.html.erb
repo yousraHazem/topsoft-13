@@ -1,0 +1,62 @@
+<% unless @nots.empty? %>
+<% @nots.each do |t|%>
+<% url = t.notification.url %>
+<a href="<%= url %>" style="text-decoration: none;">
+<div class="<%= t.read == false ? 'notify notification-list-item-unread' : 'notify notification-list-item' %>" data-time="<%= t.created_at.to_i %>">
+
+<% if t.read == false%>
+
+	<% if t.notification.image.to_s == "edit budget"%>
+		<p><%= image_tag('edit.jpg', :alt=>"Rails logo") %> <%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i></p>
+	<% end %>
+	<% if t.notification.image.to_s == "create budget"%>
+		<p><%= image_tag('b.png', :alt=>"Rails logo") %> <%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i></p>
+	<% end %>
+	<% if t.notification.image.to_s == "delete budget"%>
+		<p><%= image_tag('del.png', :alt=>"Rails logo") %> <%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i></p>
+	<% end %>
+	<% if t.notification.image.to_s == "create project"%>
+		<p><%= image_tag('p.png', :alt=>"Rails logo") %> <%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i></p>
+	<% end %>
+	<% if t.notification.image.to_s == "post"%>
+		<p><%= image_tag('post.png', :alt=>"Rails logo") %> <%= t.notification.content %><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i></p>
+	<% end %>
+
+
+<%else%>
+
+	<% if t.notification.image.to_s == "edit budget"%>
+	<%= image_tag('edit.jpg', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "create budget"%>
+	<%= image_tag('b.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "delete budget"%>
+	<%= image_tag('del.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "create project"%>
+	<%= image_tag('p.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "post"%>
+	<%= image_tag('post.png', :alt=>"Rails logo") %>
+	<% end %>
+	<%= t.notification.content %><br><i class="date pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i>
+
+<%end%>
+
+</div>
+</a>	
+<%end%>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+

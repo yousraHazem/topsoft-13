@@ -3,11 +3,11 @@ require 'spec_helper'
 describe GroupsController do
 
   def valid_attributes
-   {:group_name => "put valid attributes", :description => "valid", :levels => "valid"}
+   {:group_name => "put valid attributes", :description => "valid"}
   end
   
   def invalid_attributes
-   {:group_name => "", :description => "", :levels => ""}
+   {:group_name => "", :description => ""}
   end
 
   def update_attributes

@@ -10,6 +10,7 @@
 </div>
 </br>
 
+
 <%= form_tag('groups/', :method => 'get',:id => "search",:remote => true) do %>  
       <p> 
           <%= text_field_tag :search, params[:search]%>
@@ -20,9 +21,5 @@
 <%end%>
 
 
-
-
-<br />
-
 <div id= "table"><%= render'table' %></div>
- 
+

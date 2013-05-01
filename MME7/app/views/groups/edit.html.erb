@@ -1,4 +1,4 @@
-<%= link_to("<< رجوع", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'show', :id => @group.id}, :class => 'back-link') %>
 </br>
 
   <div>
@@ -9,8 +9,8 @@
 	  
 	      <div id= "tableTwo"><%= render(:partial => 'tableTwo', :locals => {:f => f}) %><div>
 
-		  <p class="paragraph">
+		  </br>
 		      <button class="btn btn-info" type="submit">تسجيل</button>
-		  </p>
+		  
 	  <% end %>
 </div>

@@ -30,9 +30,12 @@ include GroupUsersHelper
         @group = Group.find(params[:id])
         @postlist = Group.getposts (params[:id])
     end
-
+    
+    # Author: Sama Akram
+    # groups hierarchy
+    # ARGS: parent_id
     def new
-        @group = Group.new
+        @group = Group.new(:parent_id => params[:parent_id])
     end
 
     # Author: Sama Akram 22-555

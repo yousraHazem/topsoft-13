@@ -4,44 +4,58 @@
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-
+</br>
 <div>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 </div>
-
 
 <h2 class="aligncenter"><%= @group.group_name %></h2>
 </br>
 </br>
 
-<table class="table table-hover" id="show">
-    <tr dir="rtl" lang="ar">وصف</tr>
+<table class="table" id="show">
+    <tr id="wasf" dir="rtl" lang="ar"> وصف: </tr>
     <th style="text-align: center" ><%= @group.description %></th>
 </table>
+</br>
+</br>
+<b text-align="center" ><%= render @group.parent if @group.parent %></b>
+</br>
+</br>
 
 <div>
 <% if current_user %>
 	<% if ifMember(@group.id, current_user.id) == false %>
-    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn btn-inverse') %>
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn span2') %>
     <% end %>
     <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
-    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn btn-inverse') %>               
+    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn span2') %>               
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
-    <%= link_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'action edit') %>
-    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn btn-danger') %>
+
+    <%= button_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'btn span2') %>
+    
+
+    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn span2') %>
+
     <% end %>
+	<% if ifMember(@group.id, current_user.id) == true &&  @group.level <= 2 %>	
+	<%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span2') %>
+	<% end %>
 <% end %>
 </div>
+</br>
+</br>
+</br>
 
-<div> 
+<span class="pull-left"> 
     <footer>
       <p>
         <b>أنشئت في</b>
         <%= @group.created_at %>
       </p>
     </footer>
-</div>
+</span>
 
 </div>
 
