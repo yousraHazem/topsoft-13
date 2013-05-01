@@ -11,11 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20130501164545) do
+
+
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at",                    :null => false
     t.string   "news"
     t.integer  "project_id"
+
   end
 
   create_table "comments", :force => true do |t|
