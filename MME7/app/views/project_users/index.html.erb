@@ -2,29 +2,29 @@
 <div class="aligncenter">
     <h1><%= @project.name %></h1> 
 </div> 
-<div class = "pull-left">
- <div id="sidebar">
-      <td>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-      <div id="floatMenu">  
-         <ul> 
-            <% if isProjectCreator(current_user.id, @project.id)%> 
-            <li><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
-             <li><%= link_to("تعديل المشروع", {:controller => 'projects', :action => 'editProject', :id=> @project.id}) %></li> 
-             <% end %>  
-            <li><%= link_to("قائمة المشاريع", {:controller => 'projects', :action => 'listProjects', :class => 'back link'})%></li>  
-            <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id}) %></li> 
-            <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'view',:id=> @project.id}) %></li>
-          </ul>  
-      </div> 
-    </td>
+<td>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class = "aligncenter">
+  <div id="navcontainer">
+  <ul id="navlist">
+       <% if isProjectCreator(current_user.id, @project.id)%> 
+        <li id="active"><%= link_to("صحفة المشروع", {:controller => 'projects',:action =>'show',:id=> @project.id}) %></li>
+        <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+      <% end %>
+      <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+      <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
+      <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+  </ul>
+  </div>
 </div>
+</td>
 </div>
-</div>
+
+
 <div id="main-wrap">
   <div id="content-wrap"> 
     <td>
