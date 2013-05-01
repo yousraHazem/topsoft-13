@@ -8,15 +8,12 @@
 <div>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
 </div>
-</br>
-</br>
-</br>
 
 <h2 class="aligncenter"><%= @group.group_name %></h2>
 </br>
 </br>
 
-<table class="table table-hover" id="show">
+<table class="table" id="show">
     <tr id="wasf" dir="rtl" lang="ar"> وصف: </tr>
     <th style="text-align: center" ><%= @group.description %></th>
 </table>

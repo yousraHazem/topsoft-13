@@ -50,16 +50,6 @@
             defaultCategory : 'general',
             anchor:'body',
             relativeImagePath:'notification_menu/images/',
-            serverSideSave:false,
-            serverSideGet:false,
-            serverSideGetNew:false,
-            serverSideDelete:false,
-            serverSideGetNewInterval:120000,
-            serverSideHandler:'sampleHandler.php',
-            serverSideSaveCommand:'save',
-            serverSideGetCommand:'get',
-            serverSideGetNewCommand:'get_new',
-            serverSideDeleteCommand:'delete',
             createCallback:function(notification){
             },
             deleteCallback:function(notification){

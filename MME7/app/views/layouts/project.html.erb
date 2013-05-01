@@ -2,9 +2,8 @@
 <html dir="rtl">
 <head>
   <title>MME7</title>
- <%= stylesheet_link_tag "application", "token-input-facebook", :media => "all" %>
-<%= javascript_include_tag  "jquery.tokeninput"  %>
-
+ <%= stylesheet_link_tag "application", "style_light" , "token-input-facebook", :media => "all" %>
+<%= javascript_include_tag  "jquery.tokeninput" ,"rails.validations", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "background">
@@ -35,6 +34,27 @@
   </div>
 </div>
 
+<% if current_user %>
+<ul class="ttw-notification-menu">
+    <li id="projects" class="notification-menu-item first-item"><a>Projects</a>
+      <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(current_user.id) %></span></li>
+    <li id="tasks" class="notification-menu-item"><a href="index.html#">Tasks</a></li>
+    <li id="messages" class="notification-menu-item"><a href="index.html#" >Messages</a></li>
+    <li id="clients" class="notification-menu-item last-item">
+        <a href="index.html#">Clients</a>
+    </li>
+</ul>
+<%  user =  current_user.id %>
+<div id="current-user" data-id="<%= user %>">
+<div id="notify"  class="notification-list-wrapper" style="top: 90px; left: 800px; display:none; opacity: 1;">
+        <span><%= link_to("all",{:controller => 'notifications', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
+        <div id = "notification">
+       <% @nots = notifications %>
+       <%= render(:partial => "notifications/notification" , :locals => {:@nots=> @nots})%>
+        </div>
+</div>
+
+<% end %>
 
 <div class="container">
 
@@ -55,16 +75,3 @@
 </body>
 </html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
-  <title><%= yield :name %></title>
-  <title><%= yield :start_date %></title>
-  <title><%= yield :end_date %></title>
-  <title><%= yield :descritption %></title>
-</head>
-</body>
-</html>

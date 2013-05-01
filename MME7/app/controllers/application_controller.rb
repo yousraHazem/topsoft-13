@@ -14,4 +14,6 @@ class ApplicationController < ActionController::Base
    log_out
    super
   end
+
+ 
 end

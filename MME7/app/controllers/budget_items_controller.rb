@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BudgetItemsController < ApplicationController
   #Authored by Toka Omar  id:22-1925
   #Author :Yasmin Mahmoud 22-1787
@@ -14,7 +15,7 @@ class BudgetItemsController < ApplicationController
 		# @total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:id]})
 		# @total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
 		#@project_name = Project.find(params[:id])
-		 @tasks = Task.find(:all,:conditions=>{:project_id=> 1, :assigned=>false})
+		@tasks = Task.find(:all,:conditions=>{:project_id=>params[:id], :assigned=>false})
 		#@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
 	end 
 

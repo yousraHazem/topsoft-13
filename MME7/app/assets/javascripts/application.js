@@ -15,6 +15,62 @@
 //= require_tree .
 //= require bootstrap-datepicker
 
+$(function(){
+    $(".notification-bubble").click(function(){
+        $("#notify").toggle();
+        $(".pic").toggle();
+        // $(".notification-bubble").hide();
+        $.ajax({
+            url: "/notifications/read",
+            type: "GET",
+            dataType: "script"
+        });
+    });
+}); 
+
+// $(function(){
+//    $("#projects").click(function(){
+//         $("#notify").toggle();
+//   }); 
+// });
+
+$(function(){
+  if ($("#notification-list").length > 0 ) {
+    $(".notification-bubble").hide();
+    $("#notify").hide();
+    setTimeout(updateList, 5000);
+  }
+});
+
+function updateList() {
+    var userid = $("#current-user").attr("data-id");  
+   if ($(".notification-list").length > 0) {
+    var after2 = $(".notification-list:first").attr("data-time");
+   } else {
+     var after2 = "0";
+   }
+    $.getScript("/notifications/list.js?userid=" + userid + "&after2=" + after2 )
+    setTimeout(updateList, 5000); 
+}
+
+
+$(function(){
+    setTimeout(updateNot, 5000);
+}); 
+
+function updateNot() {
+  var user_id = $("#current-user").attr("data-id");  
+   if ($(".notify").length > 0) {
+  var after = $(".notify:first").attr("data-time");
+   } else {
+  var after = "0";
+   }
+    $.getScript("/notifications.js?user_id=" + user_id + "&after=" + after)
+    setTimeout(updateNot, 5000); 
+}
+ 
+
+
 
 $(function () {
   $('#budget_source_project_tokens').tokenInput('/projects.json', { 
@@ -38,6 +94,7 @@ $(function(){
     return false;
   });
 });
+
 
 $(function() {
     $("#price, #total").keyup(function() {
@@ -66,12 +123,7 @@ $(function() {
     });
 });
 
-// $(function(){
-//   $("#search input").keyup(function (){
-//     $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
-//     return false;
-//   });
-// });
+
 
 $(function(){
     var p = $("#data").val();
@@ -80,11 +132,11 @@ $("#progress").html(p+'%');
 });
 
 
-$(function() {
-    $("#create").click(function(){
-        $("#comp").toggle("slow");
-    });
-});
+// $(function() {
+//     $("#create").click(function(){
+//         $("#comp").toggle("slow");
+//     });
+// });
 
 
 
@@ -125,25 +177,3 @@ $(function() {
 
 
 
-// jQuery.ajaxSetup({
-//    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-// })
-
-// $(function(){
-//     $('#budget-component-dialog').dialog({
-//         autoOpen: false,
-//         height: 500,
-//         width: 500,
-//         modal:true,
-//         buttons: {
-//            "Create" : function() {
-//             $("#component-form").submit();
-//             $(this).dialog('close')
-//            }
-//         }
-//     })
-
-//     $('#create').button().click(function(){
-//         $('#budget-component-dialog').dialog('open')
-//     })
-// });
