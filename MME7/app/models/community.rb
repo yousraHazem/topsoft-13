@@ -1,15 +1,12 @@
-# == Schema Information
-#
-# Table name: communities
-#
-#  id                  :integer          not null, primary key
-#  title               :string(255)
-#  social_profile_info :text
-#  contact_info        :text
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#
-
+#encoding: UTF-8
 class Community < ActiveRecord::Base
-   attr_accessible :title , :social_profile_info , :contact_info
+   attr_accessible :title , :social_profile_info , :contact_info ,:is_dismissed
+   has_many :groups, :dependent => :destroy
+   has_and_belongs_to_many :projects
+   validates_presence_of :title , :message => "يجب أن تدخل اسم "
+   validates_uniqueness_of :title, :message => "عفوا هذا الاسم قد استخدم من قبل "
+   validates_presence_of :social_profile_info, :message => "يجب أن تدخل وصف "
+   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+   validates_format_of :contact_info, :with => VALID_EMAIL_REGEX, :message => " هذ لبريد للكتروني غير صحيح"
+   #validates_uniqueness_of :contact_info, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 end

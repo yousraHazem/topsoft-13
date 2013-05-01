@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class AdminController < ApplicationController
 	layout "admin_master"
  def show 
@@ -8,4 +9,4 @@ class AdminController < ApplicationController
 	def new
 		@admin = User.new
   end
-end
+ end

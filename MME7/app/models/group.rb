@@ -1,23 +1,15 @@
-# == Schema Information
-#
-# Table name: groups
-#
-#  id           :integer          not null, primary key
-#  group_name   :string(50)
-#  description  :text
-#  levels       :string(255)
-#  created_at   :datetime         default => false
-#  updated_at   :datetime         not null
-#  community_id :integer
-#
-
+#encoding: UTF-8
 class Group < ActiveRecord::Base
-  attr_accessible :group_name , :description , :levels
+  attr_accessible :group_name , :description , :levels , :community_id
 
   has_many :posts 
-  has_and_belongs_to_many :users
-  has_many :group_users 
-  has_many :users , :through => :group_users
+  has_many :groups_users 
+  has_many :users, :through => :group_users
+  belongs_to :communities
+  validates_presence_of :description, :message => "يرجى إملاء خانة الوصف"
+  validates_presence_of :group_name, :message => "يرجى إملاء خانة اسم المجموعة"
+  validates_uniqueness_of :group_name, :case_sensitive => false, :message => "هذا الإسم قد أستخدم من قبل"
+  validates_presence_of :levels, :message => "يرجى إملاء خانة مستوى المجموعة"
 
 	
   #Author: Donia Amer Shaarawy 22-0270 
@@ -28,4 +20,8 @@ class Group < ActiveRecord::Base
    b = Group.getGroupMembers(group_id).collect(&:user_id)
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
+ 
+ 	def  self.getposts (g_id)
+	return Post.find(:all, :conditions => {:group_id =>g_id})
+  end
 end 

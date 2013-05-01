@@ -1,17 +1,20 @@
+#encoding: UTF-8
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  #Author: Donia Amer Shaarawy 22-0270
-  #it takes userid in a session and save it in a variable current_user returns current user id 
+  protect_from_forgery  
+   #Author: Donia Amer Shaarawy 22-0270
+   #it takes userid in a session and save it in a variable current_user returns current user id 
   def current_user
    return @current_user = User.find(session[:user_id])  if session[:user_id]
-   puts @current_user
   end
-  helper_method :current_user
-  include SessionsHelper
-  #Author: Donia Amer Shaarawy 22-0270
-  # Force signout to prevent CSRF (one-click attack or session riding) attacks
+  def current_user_auth
+  @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+end
+   helper_method :current_user, :current_user_auth
+   include SessionsHelper
+   #Author: Donia Amer Shaarawy 22-0270
+   # Force signout to prevent CSRF (one-click attack or session riding) attacks
   def handle_unverified_request
-    log_out
-    super
+   log_out
+   super
   end
 end

@@ -1,0 +1,27 @@
+<%= error_messages_for(@project) %>
+<table class="table table-striped" >
+ 	 <tr >
+ 		<th><%= "الاسم " %></th>
+ 		<td><%= f.text_field(:name) %></td>
+ 	 </tr>
+ 	 <tr >
+ 		<th><%=  "تاريخ البداية" %> </th>
+ 		<td><%= f.text_field :start_date %></td>
+ 	 </tr>
+ 	 <tr >
+ 		<th><%=  "تاريخ النهاىة" %> </th>
+ 		<td><%= f.text_field :end_date %></td>
+ 	 </tr>
+ 	 <tr>
+ 		<th><%=  "التفاصيل " %></th>
+ 		<td><%= f.text_field(:description) %></td>
+ 	 </tr>
+</table>
+<table>
+	<tr>
+	    <%= f.label :user_tokens, "إضافة أعضاء للمشروع" %><br />
+		<%= f.text_field :user_tokens, "data-pre" => @project.users.map(&:attributes).to_json %>
+ 	</tr>
+</table>
+
+  

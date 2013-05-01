@@ -28,26 +28,35 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    annotate (2.5.0)
-      rake
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (~> 3.1)
+    bootstrap-datepicker-rails (1.0.0.3)
+      railties (>= 3.0)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
     diff-lcs (1.2.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (4.1.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.1.0)
-      factory_girl (~> 4.1.0)
-      railties (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     hashie (2.0.3)
-    hike (1.2.1)
+    hike (1.2.2)
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -78,6 +87,8 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -102,6 +113,10 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.4)
+    ransack (0.7.2)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.13.1)
@@ -117,18 +132,16 @@ GEM
       rspec-mocks (~> 2.13.0)
     sass (3.2.7)
     sass-rails (3.2.6)
+      multi_json (~> 1.0)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    simplecov (0.7.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.7.1)
-    simplecov-html (0.7.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     sqlite3 (1.3.7-x86-mingw32)
     thor (0.17.0)
     tilt (1.3.6)
@@ -141,19 +154,22 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
-  annotate (= 2.5.0)
   bcrypt-ruby
+  best_in_place
+  bootstrap-datepicker-rails
   bootstrap-sass
-  factory_girl_rails (= 4.1.0)
+  carrierwave
+  coffee-rails (~> 3.2.1)
   jquery-rails
-  omniauth
+  mail (~> 2.5.3)
   omniauth-facebook
   rails (= 3.2.13)
-  rspec-rails (~> 2.0)
+  ransack
+  rspec-rails
   sass-rails (~> 3.2.3)
-  simplecov
   sqlite3
   uglifier (>= 1.0.3)
