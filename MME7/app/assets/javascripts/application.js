@@ -174,6 +174,3 @@ $(function() {
     theme: "facebook"
   });
 });
-
-
-

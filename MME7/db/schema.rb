@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity",     :default => 0
+    t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -42,11 +42,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.integer  "spent"
     t.integer  "project_id"
     t.integer  "total"
-  end
-
-  create_table "budget_items_users", :id => false, :force => true do |t|
-    t.integer "budget_item_id"
-    t.integer "user_id"
   end
 
   create_table "budget_source_projects", :force => true do |t|
@@ -119,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-    t.integer  "level"
     t.string   "ancestry"
+    t.integer  "level"
   end
 
   add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
