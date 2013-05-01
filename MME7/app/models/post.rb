@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class Post < ActiveRecord::Base
 
     attr_accessible :content , :group_id , :project_id , :user_id
@@ -7,7 +8,6 @@ class Post < ActiveRecord::Base
 
     
 	belongs_to :user  
-
 	belongs_to :project
 	belongs_to :group 
 
