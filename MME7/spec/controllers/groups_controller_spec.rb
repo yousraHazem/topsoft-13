@@ -10,11 +10,14 @@ describe GroupsController do
    {:group_name => "", :description => ""}
   end
 
+
   def update_attributes
     {:group_name => "groupOneOne", :description => "blaaaah blaah haaa", :levels => "child"}
   end
  
-  describe "GET new" do
+ 
+describe "GET new" do
+
     it "assigns a new group as @group" do
       get :new
       assigns(:group).should be_a_new(Group)

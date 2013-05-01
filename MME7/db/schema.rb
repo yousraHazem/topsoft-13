@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.integer  "total"
   end
 
-  create_table "budget_items_users", :id => false, :force => true do |t|
-    t.integer "budget_item_id"
-    t.integer "user_id"
-  end
-
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
@@ -62,6 +57,11 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "budget_sources_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "budget_source_id"
   end
 
   create_table "carousels", :force => true do |t|
