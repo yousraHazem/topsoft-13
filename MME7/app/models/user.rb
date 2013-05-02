@@ -42,11 +42,14 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :message => "يرجى احتيار سم المستخدم أحر"
   validates_uniqueness_of :username, :case_sensitive => false
 
+attr_reader :user_tokens   
+  def user_tokens=(ids)  
+    self.user_ids = ids.split(",")  
+  end
   #Author: Donia Amer Shaarawy 22-0270
   #this is a method so I could be able to use the remember token so we could remember our user returns the user 
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end   
-
 end

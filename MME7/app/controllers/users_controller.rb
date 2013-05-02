@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 end
 
 
- # Author : Salma El -Ruby 22-4649
+  # Author : Salma El -Ruby 22-4649
   # Args : takes task_id, project_id,user_id
   # Returns : task_id, project_id 
   # Explanation : this method assigns members to task , create a new task user 
@@ -54,6 +54,16 @@ end
   @taskuser.save
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
   end 
-  
+
+   def assign_bi
+  @budget_item_id = params[:budget_item_id]
+  @projectid = params[:id]
+  @userid = params[:user_id]
+  @BIuser =BudgetItemUser.new(:user_id => @userid , :budget_item_id => @budget_item_id)
+  @BIuser.save
+  puts"1"
+  redirect_to(:controller => 'budget_items' ,:action => 'getProjectMembers' ,:budget_item_id => @budget_item_id , :project_id => @projectid)
+  end
+
 end
 

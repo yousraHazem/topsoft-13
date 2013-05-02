@@ -62,18 +62,10 @@ class BudgetItemsController < ApplicationController
 		if !@oldtask.nil?
 		@tasks << @oldtask
 	    end
-	    @projectuser = ProjectUser.find(:all,:conditions => {:project_id => @project})
-	    @users = User.where("name like ?", "%#{params[:q]}%")  
-    	respond_to do |format|  
-     	format.html  
-     	format.json { render :json => @users.map(&:attributes) }  
-    	end
-
 	end
 
 
    # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown
-   # Author: Toka Abdelgabar 22-1925 , 
    # parameters: none , returns :none 
    # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table no returns or arguments 
 	def update
@@ -101,5 +93,17 @@ class BudgetItemsController < ApplicationController
 			render('edit')
 		end
 	end
-end
+	def getProjectMembers
+      @user = params[:user_id]
+      @budget_item_id = params[:budget_item_id]
+      @project_id = params[:project_id]
+      @assignedppl  = BudgetItemUser.find(:all, :conditions=>{:budget_item_id => @budget_item_id})
+      @assigned  = BudgetItemUser.find(:all,:select=> 'user_id', :conditions=>{:budget_item_id => @budget_item_id}).collect(&:user_id)
+      if @assigned.empty?
+        @notassigned = ProjectUser.where(:project_id => @project_id)  
+      else
+        @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)", @project_id , @assigned)
+      end
+  end
 
+end
