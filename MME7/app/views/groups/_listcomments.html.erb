@@ -7,26 +7,26 @@
     <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
     <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :group_id => @group.id}, :confirm => 'هل أنت متأكد?', :class => 'action delete') %></span>
     <%=c.name %></b></br>
-    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %>
+    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %><br>
     <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
 </i>
-</div></br>
+</div>
 
 <%else%>
 
     <div class = "speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-        <%=c.comment%>
+    <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
-    </div></br>
+    </div>
 <% end %>
 <%else%>
 
     <div class="speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-        <%=c.comment%>
+            <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
-    </div></br>
+    </div>
 <% end %>
 <% end %>
 

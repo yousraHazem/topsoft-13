@@ -11,14 +11,14 @@
 
   <%else%>
  <div class="triangle-isosceles">
-    <%= @post.content %>  
+    <%= breaking_word_wrap(@post.content, :line_width => 8) %>  
     <i id="username" class="under">:<%= @post.name %></i></br>
     <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(@post.created_at)%><i id="time"> ago</i></i>
     </div>
 <%end%>
   <%else%>
 
-    <%= @post.content %>  
+    <%= breaking_word_wrap(@post.content, :line_width => 8) %>   
     <i id="username" class="under">:<%= @post.name %></i></br>
     <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(@post.created_at)%><i id="time"> ago</i></i>
 <%end%>
@@ -40,7 +40,7 @@
 </br>
     <div class = "speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-        <%=c.comment%>
+        <%= breaking_word_wrap(c.comment, :line_width => 8) %>  
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
     </div></br>
 <% end %>
@@ -48,7 +48,7 @@
 </br>
      <div class="speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-        <%=c.comment%>
+        <%= breaking_word_wrap(c.comment, :line_width => 8) %>  
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(c.created_at)%><i id="time"> ago</i></i>
     </div></br>
 <% end %>

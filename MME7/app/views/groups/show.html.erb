@@ -56,11 +56,11 @@
   <% if isPostCreator(current_user.id,post.id ) == true %>
   <div class="triangle-isosceles">
     <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
-  <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد') %></span>
+            <i id="uname" class="under"><%= post.name %></i>
+            <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد') %></span></br>
 
-      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></i>
-      <i id="uname" class="under">:<%= post.name %></i></br>
-      <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+      <p id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></p></br> 
+    <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
 
   </p>
   
@@ -70,18 +70,18 @@
   <%else%>
   <p>
     <div class="triangle-isosceles">
-    <%= post.content %>  
-    <i id="uname" class="under">:<%= post.name %></i></br>
-    <i dir="ltr" id="time" class="pull-center"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+          <i id="uname" class="under"><%= post.name %></i></br>
+            <%= breaking_word_wrap(post.content, :line_width => 8) %></br> 
+    <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
   </div>
   </p>
   <%end%>
   <%else%>
   <p>
      <div class="triangle-isosceles">
-    <%= post.content %>  
-    <i id="uname" class="under">:<%= post.name %></i></br>
-    <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+          <i id="uname" class="under"><%= post.name %></i></br>
+    <%= breaking_word_wrap(post.content, :line_width => 8) %></br> 
+    <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
   </p>
   <%end%>
 </div>
