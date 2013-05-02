@@ -37,4 +37,12 @@ response.should redirect_to(:controller => 'sessions', :action => 'new')
 end
 end
 end
+describe "unassign task to member" do
+    it "destroys the requested task" do
+      @task = TaskUser.create!
+      expect {
+        delete :unassign, {:id => @task.to_param}
+      }.to change(TaskUser, :count).by(-1)
+    end
+end
 end

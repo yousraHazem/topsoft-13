@@ -1,14 +1,28 @@
+<%= form_for(:gallery, :url=>{:action=>'create' , :project_id => @project_id}) do |f| %>
+  <table>
+
+<tr>
+<th><%= f.label(:photo ,"الصور")%></th>
+<td><%= f.file_field(:photo)%></td>
+</tr>
+</br>
+<tr> 
+<td><%= f.hidden_field :project_id , :value=> @project_id %></td>
+</tr>
+</table>
+</br>
+<p>
+<td><%= f.submit ("إحفظ") %></td>
+</p>
+<% end %>
+
  <div>
   <% @gallery.each do |photo| %>
     <div>
     <%= image_tag photo.photo_url(:thumb).to_s %>
- 
-      <div>
-       <%= link_to(" تعديل   ", {:controller =>'galleries', :action =>'edit', :id => @project_id }, :class => 'action edit') %>
-      <b><%= link_to "X", {:controller =>'galleries',:action => 'destroy', :id => @project_id,:confirm => "هل تريد المسح؟"}, :class => 'action destroy' %></b>
-
+    <div>
+    <b><%= link_to "X", {:controller => 'galleries',:action => 'destroy',:id => photo.id ,:project_id => @project_id},:confirm => "هل تريد مسح المهمة ؟" %></b>
             </div>
     </div>
   <% end %>
-  <div class="clear"></div>
 </div>
