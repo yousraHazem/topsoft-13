@@ -5,7 +5,7 @@
     <section class="register">
      <h1>اشتراك</h1>
      <%= error_messages_for(@user) %> 
-     <%= form_for @user do |f| %>
+     <%= form_for @user, :validate => true do |f| %>
       <div class="reg_section personal_info">
       <h3>اسم</h3>
        <%= f.text_field :name %>

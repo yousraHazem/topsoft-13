@@ -5,7 +5,7 @@
       <% provide(:title, "Log in") %>
       <h1>تسجيل دخول</h1>
       
-    <%= form_tag sessions_path do %>
+    <%= form_tag sessions_path, :validate => true  do %>
       <div class="reg_section personal_info">
       <h3>اسم المستخدم</h3>
       <input type="text" name="username" value="" placeholder="اسم المستخدم">
