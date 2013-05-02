@@ -76,9 +76,9 @@ end
   def destroy
       @project = Project.find(params[:id])
       @projectid = Project.find(params[:id]).id
-      if @project.budgetSourceProject(@projectid) == true && @project.budgetItems(@projectid) == true
+      if @project.budgetItems(@projectid) == false
         Project.find(params[:id]).destroy
-        flash[:notice]= "project destroyed"
+        flash[:notice]= "تم حذف المشروع"
         redirect_to(:action => 'listProjects')
       else
         flash[:notice]= "الرجاء النظر الى الموارد المالىة"

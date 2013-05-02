@@ -61,11 +61,6 @@ class Project < ActiveRecord::Base
        @users = User.where("id NOT IN (?)" , b)
     end 
 
-
-    def budgetSourceProject(project_id)
-     @budgetSourceProject = BudgetSourceProject.where(:project_id => project_id , :amount => 0).exists?
-    end
-
     def budgetItems(project_id)
      @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?
     end
