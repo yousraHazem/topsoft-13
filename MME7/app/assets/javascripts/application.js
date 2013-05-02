@@ -175,6 +175,12 @@ $(function() {
   });
 });
 
+$(function(){
+    $("#search input").keyup(function(){
+        $.get($("#search").attr("action"),$("#search").serialize(), null, "script");
+        return false;
+    });
+});
 
 $(function() {
   $("#group_user_tokens").tokenInput("/users.json", {
