@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
 
     validate :validate_end_date_before_start_date
-
+    has_one :character
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date
