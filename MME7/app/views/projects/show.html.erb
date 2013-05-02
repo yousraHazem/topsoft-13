@@ -18,49 +18,49 @@
 <% if loged_in? %>
 <div class = "aligncenter">
   <div id="navcontainer">
-  <ul id="navlist">    
-       <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true%> 
-         <% if Date.today < @project.end_date %>
-          <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
-          <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+    <ul id="navlist">    
+         <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true%> 
+           <% if Date.today < @project.end_date %>
+            <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
+            <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+          <% end %>
         <% end %>
-      <% end %>
-      
-      <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
-      <% if Date.today < @project.end_date %>
-        <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
-        <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
-      <% end %>
-  </ul>
-  </div>
-</div>
-<br>
-<% end %>
-<div id="main-wrap">
-  <div id="content-wrap">
-    <td>  
-        <div class="project show">   
-          <div class="aligncenter">
-             <div class = "body">
-            <table class="table" >
-             <div class = "addColor">
-              <tr>
-                <th><div> تاريخ البداية</div></th>
-                <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
-              </tr>   
-              <tr >
-                <th><div>تاريخ النهاية</div></th>
-                <th><div  id = "addMargin"><%= @project.end_date %></div></th>
-              </tr>
-              <tr >
-                <th><div>تفاصيل المشروع</div></th>
-                <th><div id = "addMargin"><%= @project.description %></div></th>
-              </tr>
-              </div>
-            </table>
-            </div>
+        
+        <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+        <% if Date.today < @project.end_date %>
+          <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
+          <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+        <% end %>
+    </ul>
+    </div>
+    </div>
+    <br>
+    <% end %>
+    <div id="main-wrap">
+    <div id="content-wrap">
+      <td>  
+          <div class="project show">   
+            <div class="aligncenter">
+              <div class = "body">
+                <table class="table" >
+                 <div class = "addColor">
+                  <tr>
+                    <th><div> تاريخ البداية</div></th>
+                    <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
+                  </tr>   
+                  <tr >
+                    <th><div>تاريخ النهاية</div></th>
+                    <th><div  id = "addMargin"><%= @project.end_date %></div></th>
+                  </tr>
+                  <tr >
+                    <th><div>تفاصيل المشروع</div></th>
+                    <th><div id = "addMargin"><%= @project.description %></div></th>
+                  </tr>
+                  </div>
+                </table>
           </div>
-      </td>
+      </div>
+  </td>
 
 <% if loged_in? %>
 <%= @findMap %>
