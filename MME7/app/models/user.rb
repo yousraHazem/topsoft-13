@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :phone_Nr, :message => "هذا الرقم تم ادخاله من قبل"
 
   validates_presence_of :username, :message => "لا يوجد سم المستخدم"
-  validates_length_of :username, :maximum => 20, :message => "الحد الاقصى ٢٠ حرف"
+  validates_length_of :username, :maximum => 255, :message => "الحد الاقصى ٢٠ حرف"
   validates_uniqueness_of :username, :message => "يرجى احتيار سم المستخدم أحر"
   validates_uniqueness_of :username, :case_sensitive => false
 
@@ -58,8 +58,11 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["name"]
 
 
-
+      # Password confirmation
       user.email = auth.info.email
+      user.password = "iamapassword"
+      user.password_confirmation = "iamapassword"
+
 
 
 

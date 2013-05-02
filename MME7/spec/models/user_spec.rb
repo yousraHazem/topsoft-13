@@ -58,7 +58,7 @@ describe User, scope: true  do
   end
 
   context "when username is too long" do
-    before { @user.username = "a" * 21 }
+    before { @user.username = "a" * 256 }
     it { should_not be_valid }
   end
 
