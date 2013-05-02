@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'mail', '~> 2.5.3'
 
 
-#gem 'best_in_place'
+gem 'best_in_place'
 gem 'bootstrap-sass'
 gem 'rspec-rails'
 gem 'devise'
@@ -66,10 +66,6 @@ gem 'ransack'
 group :test, :development do
 end
 
-group :test do
-  gem 'faker'
-  gem 'guard-rspec'
-end
 #group :test do
  # gem 'faker'
   #gem 'capybara'
