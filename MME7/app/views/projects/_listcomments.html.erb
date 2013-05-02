@@ -6,6 +6,7 @@
         <div class="speech-bubble" ><b id="uname">
             <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
                 <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :project_id => @project.id}, :confirm => 'Are you sure you want to delete this comment?', :class => 'action delete') %></span>
+              
                 <%=c.name %></b></br>
                 <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :project_id => @project.id} %></br>
      
@@ -22,7 +23,7 @@
 
         <% end %>
     <%else%>
-    </br>
+    
      <div class="speech-bubble"><b id="uname">
         <%=c.name %></b></br>
         <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
@@ -39,7 +40,7 @@
         <%= f.hidden_field :post_id, :value => post.id%>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :name, :value => current_user.username %>
-    <button id="bcom" class="btn btn-small btn-primary" type="submit">إضافة تعليق</button>
+    <button id="bcom" class="btn btn-small btn-info" type="submit">إضافة تعليق</button>
     </div>
     <% end %>
     <% end %> 

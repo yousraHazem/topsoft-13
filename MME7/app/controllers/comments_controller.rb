@@ -16,11 +16,11 @@ class CommentsController < ApplicationController
     if (@comment.is_group == true)
 
           post_creator = Post.find(@comment.post_id).user_id
-          creator_name = Post.find(@comment.post_id).user.name
-          if current_user.id != post_creator
-          notification = Notification.create(:content=>"#{current_user.name}  كام بالتعليق على تعبيرك" , :url =>"/posts/showGroup/#{@comment.post_id}" , :image=>"post") 
-          NotificationUser.create(:user_id=>post_creator , :notification_id=> notification.id)
-          end   
+           creator_name = Post.find(@comment.post_id).user.name
+           if current_user.id != post_creator
+           notification = Notification.create(:content=>"#{current_user.name}  كام بالتعليق على تعبيرك" , :url =>"/posts/showGroup/#{@comment.post_id}" , :image=>"post") 
+           NotificationUser.create(:user_id=>post_creator , :notification_id=> notification.id)
+           end   
           
           comment_notification = Notification.create(:content=>"#{current_user.name}  كام بالتعليق على تعبير #{creator_name}" , :url =>"/posts/showGroup/#{@comment.post_id}" , :image=>"post") 
           @post = Post.find(@comment.post_id)
