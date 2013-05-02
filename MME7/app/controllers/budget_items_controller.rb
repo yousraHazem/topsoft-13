@@ -93,8 +93,26 @@ class BudgetItemsController < ApplicationController
 			render('edit')
 		end
 	end
+	
+	#Authored by Toka Omar  id:22-1925
+    #parameters: none , returns :none 
+	def assign_member 
+		@item = params[:item]
+		@project = params[:id]  
+		@budget_item  = BudgetItem.find(params[:item])
+		@users = User.where("name like ?" , "#{params[:q]}")
+    	respond_to do |format|  
+     	format.html  
+     	format.json { render :json => @users.map(&:attributes) }  
+    	end
+	end	
+
+    # Author : Toka Abdelgabar 22-1925
+    # Args : takes budget_item_id , user_id , project_id
+    # Returns : redirects to page with all members in project 
+    # Explanation : this method gets all members not assigned to this budget_item
 	def getProjectMembers
-      @user = params[:user_id]
+      @user_id = params[:user_id]
       @budget_item_id = params[:budget_item_id]
       @project_id = params[:project_id]
       @assignedppl  = BudgetItemUser.find(:all, :conditions=>{:budget_item_id => @budget_item_id})

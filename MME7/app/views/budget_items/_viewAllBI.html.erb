@@ -73,14 +73,14 @@
 		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
 	    </td>
 	    <td class="actions">
-	    <%= link_to("اعضاء العنصر", {:action=>'assign_member' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
+	    <%= link_to("الاعضاء autocomplete", {:action=>'assign_member' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
 	    </td>
 	    <td class="actions">
-	    <%= link_to(" أعداء 2", {:controller =>'budget_items', :action =>'getProjectMembers',:project_id => @project.id , :budget_item_id => item.id }, :class => 'btn btn-small') %>
+	    <%= link_to("الاعضاء", {:controller =>'budget_items', :action =>'getProjectMembers',:project_id => @project.id , :budget_item_id => item.id }, :class => 'btn btn-small') %>
 		</td>
 	    <% end %> 
 	    <% end %>
-	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id}, :class=>"btn btn-small")%></td>
+	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> @project.id}, :class=>"btn btn-small")%></td>
  		</tr>
  	<% end %>
  	</tbody>

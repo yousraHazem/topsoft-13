@@ -1,35 +1,73 @@
- <br/>
-  <br/>
-   <br/>
-    <br/>
-     <br/>
-<h4>تعيين العضو</h4>
-<h4>الأعضاء</h4>
-
- <h4>الأعضاء المعينين لهذه المهمة :</h4>
-      
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+#gradient-style
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  margin: 45px;
+  width: 480px;
+  text-align: left;
+  border-collapse: collapse;
+}
+#gradient-style th
+{
+  font-size: 13px;
+  font-weight: normal;
+  padding: 8px;
+  background: #b9c9fe url('table-images/gradhead.png') repeat-x;
+  border-top: 2px solid #d3ddff;
+  border-bottom: 1px solid #fff;
+  color: #039;
+}
+#gradient-style td
+{
+  padding: 8px; 
+  border-bottom: 1px solid #fff;
+  color: #669;
+  border-top: 1px solid #fff;
+  background: #e8edff url('table-images/gradback.png') repeat-x;
+}
+#gradient-style tfoot tr td
+{
+  background: #e8edff;
+  font-size: 12px;
+  color: #99c;
+}
+#gradient-style tbody tr:hover td
+{
+  background: #d0dafd url('table-images/gradhover.png') repeat-x;
+  color: #339;
+}
+</style>
+</head>
+<body lang="ar">
+  <h2>تعيين اعضاء للعنصر</h2>
+<table  id="gradient-style" summary="Meeting Results">
+    <thead>
+  <tr class="header">
+    <th scope="col">اعضاء العنصر</th>
+    <th scope="col">اعضاء لم يتم تعينهم</th>
   </tr>
-  <% @assignedppl.each do |p| %>
+  </thead>
+  <tbody>
+   <% @assignedppl.each do |p| %>
     <tr>
       <td> 
-
         <%= p.user.name %>
-         <br/>
-      </td>
-    </tr>
-  <% end %>
-  <tr>
-  <h4>تعيين أعضاء جدد لهذه المهمة : </h4>
-  </tr>
+      <%= link_to " X ", {:controller => 'users' ,:action => 'unassign_bi', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
+       </td>
+   <% end %>
+
    <% @notassigned.each do |p| %> <br/>
-      <tr>
-        <td> <%= p.user.name %></td>
-        <td>
-          <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign_bi', :id => @project_id , :budget_item_id => @budget_item_id , 
-            :user_id =>p.user_id} %></b>
+        <td> 
+          <%= p.user.name %>
+      <%= link_to "عين ", {:controller => 'users' ,:action => 'assign_bi', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
        </td>
-      </tr>
-    <% end %>
-   
-       </td>
-      </tr>
+    <% end %> 
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
