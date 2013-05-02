@@ -1,12 +1,27 @@
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<% if current_user %>
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+<% end %>
+<b text-align="center" ><%= render @group.parent if @group.parent %></b>
+<div>
+
+</div>
 <div>
 <div>
 <div class="flash">
   <%= flash[:notice] %>
   <%= flash[:error] %>
 </div>
-<% if current_user %>
-<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
-<% end %>
+
 <h2 class="aligncenter"><%= @group.group_name %></h2>
   </br>
   </br>
@@ -14,6 +29,28 @@
     <tr dir="rtl" lang="ar">وصف</tr>
     <th style="text-align: center" ><%= @group.description %></th>
   </table>
+
+  <% if current_user %>
+  <% if ifMember(@group.id, current_user.id) == false %>
+    <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn span2') %>
+    <% end %>
+    <% if ifMember(@group.id, current_user.id) == true && isGroupCreator(@group.id, current_user.id) != true %>
+    <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn span2') %>               
+    <% end %>
+    <% if isGroupCreator(@group.id, current_user.id) == true %>
+
+    <%= button_to("make creator", {:controller => 'group_users',:action =>'index',:id=> @group.id},:class => 'btn span2') %>
+
+    <%= button_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'btn span2') %>
+    
+
+    <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn span2') %>
+
+    <% end %>
+  <% if ifMember(@group.id, current_user.id) == true &&  @group.level <= 2 %> 
+  <%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span2') %>
+  <% end %>
+<% end %>
   <div>
     <% if current_user %>
     <% if ifMember(@group.id, current_user.id) == false %>
@@ -32,7 +69,7 @@
 <div>
   <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
-  <%= form_for(@post, :as => :post,  :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id},:validate=>true) do |f| %>
+  <%= form_for(:post,  :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}) do |f| %>
   <div class="triangle-create">
     <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
     <%= f.hidden_field :group_id, :value => @group.id%> 
@@ -51,7 +88,7 @@
       <%if isPostCreator(current_user.id,post.id ) == true %>
       <div class="triangle-isosceles">
         <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
-          <i id="uname" class="under"><%= post.name %></i><br>
+          <span id="uname" class="under pull-right"><%= post.name %></i><br>
           <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد؟') %></span>
           <span id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></span><br>
           <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
@@ -62,7 +99,7 @@
   <%else%>
   <p>
     <div class="triangle-isosceles">
-      <i id="uname" class="under"><%= post.name %></i>
+      <span id="uname" class="under pull-right"><%= post.name %></span></br>
       <%= breaking_word_wrap(post.content, :line_width => 8) %><br>
       <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
     </div>
@@ -71,7 +108,7 @@
   <%else%>
   <p>
     <div class="triangle-isosceles">
-      <i id="uname" class="under"><%= post.name %></i>
+      <span class="under pull=right"><%= post.name %></i></br>
       <%= breaking_word_wrap(post.content, :line_width => 8) %><br>
       <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
     </p>
@@ -80,6 +117,15 @@
   <%= render :partial => "listcomments", :locals => {:post => post, :position=>0} %>
   <%end%> 
 </div>
+
+<span class="pull-left"> 
+    <footer>
+      <p>
+        <b>أنشئت في</b>
+        <%= @group.created_at %>
+      </p>
+    </footer>
+</span>
 </div>
 </div>
 </div>  

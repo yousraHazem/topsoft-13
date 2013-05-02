@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
   #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # the user and returns a new record for a new user 
   def create
    @user = User.new(params[:user])
-    if @user.save
+     if @user.save
      flash[:success] = "مرحب بيك فى ؤمن االماء حيه"
      redirect_to :controller => 'sessions', :action => 'new'
     else
@@ -28,10 +28,11 @@ class UsersController < ApplicationController
     end
  end 
 
- # Author Riham Gamal 22-3871
+ 
+ # Author: May Badr 22-0579
  # The index method is used in  the autocomplete search
- # Arguments non 
- # Return all users 
+ # Args: name 
+ # Returns: the user typed
  def index
     @users = User.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|

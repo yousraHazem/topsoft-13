@@ -1,0 +1,92 @@
+<!DOCTYPE html >
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html>
+<head>
+<title>MME7 Admin</title>
+ <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook","style", "navi","style_light", :media=>"all" %>
+ <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
+ <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" , "jquery.tokeninput", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min","highcharts", "highcharts_init" %>
+ <title><%= yield :name %></title>
+ <title><%= yield :start_date %></title>
+ <title><%= yield :end_date %></title>
+ <title><%= yield :descritption %></title> 
+ <%= csrf_meta_tags %>
+<script type="text/javascript">
+$(function(){
+	$(".box .h_title").not(this).next("ul").hide("normal");
+	$(".box .h_title").not(this).next("#home").show("normal");
+	$(".box").children(".h_title").click( function() { $(this).next("ul").slideToggle(); });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+	<div id="header">
+		<div id="top">
+			<div class="left">
+				<p>Welcome, <strong> <% if current_user %><%= current_user.username %><% end %></strong> [<a href=""><%= link_to "خروج", log_out_path %></a>]</p>
+			</div>
+		</div>
+
+	<div id="content">
+		<div id="sidebar">
+			<div class="box">
+				<div class="h_title">&#8250; لوحة التحكم</div>
+				<ul id="home">
+					<li class="b1"><a class="icon view_page" href=""><%= link_to "الصفحة الرئيسية", :controller => "admin", :action => "show", 
+					:id => current_user %></a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; المستخدمين</div>
+				<ul>
+					<li class="b1"><a class="icon users" href="">جميع المستخدمين</a></li>
+					<li class="b2"><a class="icon add_user" href="">إضافة مستخدم جديد</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; المجموعات</div>
+				<ul>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المجموعات", :controller => "groups" %></a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مجموعة جديدة", :controller => "groups", :action => "new", 
+					:id => @groups %></a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; مجتمع</div>
+				<ul>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المجتمعات", :controller => "communities", :action => "list", 
+					:id => @communities %></a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مجتمع جديد", :controller => "communities", :action => "new", 
+					:id => @communities %></a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; مشاريع</div>
+				<ul>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع المشاريع", :controller => "projects", 
+					:action => "listProjects",:id => @projects %></a></li>
+
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "مشروع جديد", :controller => "projects", 
+					:action => "newProject",:id => @projects %></a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; مصادر الميزانية</div>
+				<ul>
+					<li class="b1"><a class="icon page" href=""><%= link_to "جميع مصادر الميزانية", :controller => "budget_sources", 
+					:action => "list",:id => @sources %></a></li>
+
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "اضافة مصدر جديد", :controller => "budget_sources", :action => "new",
+					:id => @budget_source %></a></li>
+				</ul>
+			</div>
+	    </div>
+	<div id="main" dir="rtl">
+    <div><%= yield %></div>
+    </div>
+	<div id="footer">
+	</div>
+</div>
+</body>
+</html>

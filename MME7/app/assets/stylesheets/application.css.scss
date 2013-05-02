@@ -141,6 +141,8 @@ margin: 8px 10px;
 }
 
 
+
+
  .comments{
  
  text-align: right;
@@ -157,11 +159,13 @@ margin: 8px 10px;
 	float: right;
 }
 
+.alignleft {
+	float: left;
+}
+
 .aligncenter {
 	text-align: center;
 }
-
-
 
 
 .sources{
@@ -214,8 +218,7 @@ p.paragraph{
 }
 
 td.ta textarea {
-	resize: vertical; max-height:200px;
-	resize:horizontal; max-width:400px;
+	resize:horizontal; width:400px;
 }
 
 .body{
@@ -420,3 +423,142 @@ margin-right: 370px;
 }
 
 
+
+#main-wrap > div { min-height: 450px; }
+
+
+#header,
+#footer {
+    min-height: 40px;
+}
+
+#main-wrap {
+	margin-top:60px;  
+    overflow: hidden;
+}
+
+
+#sidebar {
+    float: left;
+    width: 30%;
+}
+
+#content-wrap {
+    float: center;
+    width: 70%;
+}  
+
+#addMargin{
+	margin-right:50px;
+	margin-left:150px;
+} 
+
+#addMargin1{
+	margin-right:30px;
+	margin-left:30px;
+}
+
+.addColor{
+  
+}
+
+
+#wasf {
+	font-size: 30px;
+}
+
+#navcontainer
+{
+margin: 0;
+padding: 0 0 0 12px;
+}
+
+#navcontainer UL
+{
+list-style: none;
+margin: 0;
+padding: 0;
+border: none;
+}
+
+#navcontainer LI
+{
+display: block;
+margin: 0;
+padding: 0;
+float: left;
+width: auto;
+}
+
+#navcontainer A
+{
+color: #444;
+display: block;
+width: auto;
+text-decoration: none;
+background: #DDDDDD;
+margin: 0;
+padding: 2px 10px;
+border-left: 1px solid #fff;
+border-top: 1px solid #fff;
+border-right: 1px solid #aaa;
+}
+
+#navcontainer A:hover, #navcontainer A:active { background: #BBBBBB; }
+
+#navcontainer A.active:link, #navcontainer A.active:visited
+{
+position: relative;
+z-index: 102;
+background: #BBBBBB;
+font-weight: bold;
+}
+
+#subnav
+{
+position: relative;
+top: -1px;
+z-index: 101;
+margin: 0;
+padding: 0px 0 3px 0;
+background: #BBBBBB;
+border-top: 1px solid #fff;
+border-bottom: 1px solid #aaa;
+}
+
+#subnav UL
+{
+list-style: none;
+margin: 1px 0 0px 13px;
+padding: 0px;
+border-right: 1px solid #fff;
+border-left: 1px solid #aaa;
+}
+
+#subnav LI
+{
+position: relative;
+z-index: 102;
+display: block;
+margin: 0;
+padding: 0;
+float: left;
+width: auto;
+}
+
+#subnav A
+{
+color: #fff;
+display: block;
+width: auto;
+text-decoration: none;
+margin: 0;
+padding: 2px 12px 2px 10px;
+}
+
+#subnav A:hover, #subnav A:active { color: #444; }
+#subnav A.active:link, #subnav A.active:visited { color: #444; }
+#subnav BR, #navcontainer BR { clear: both; }
+ .white {
+ text-color: #ffffff
+ }

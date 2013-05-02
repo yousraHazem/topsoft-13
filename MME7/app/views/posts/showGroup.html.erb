@@ -12,7 +12,7 @@
 <div class="triangle-isosceles">
   <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
     <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => @post.id },:confirm => 'هل انتى متأكد') %> </span>  
-    <i id="uname" class="under"><%= @post.name %>:</i></br>
+    <span id="uname" class="under pull-right"><%= @post.name %>:</span></br>
     <i id="posteach"><%= best_in_place @post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>@post.id,:group_id => @group.id} %></i>
   </br><i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(@post.created_at)%><i id="time"> ago</i></i>
 </div>
@@ -20,13 +20,13 @@
 <%else%> 
 <div class="triangle-isosceles">
   <%= breaking_word_wrap(@post.content, :line_width => 8) %>    
-  <i id="username" class="under">:<%= @post.name %></i></br>
+  <span id="uname" class="under pull-right">:<%= @post.name %></span></br>
 </br> <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(@post.created_at)%><i id="time"> ago</i></i>
 </div>
 <%end%>
 <%else%>
 <%= breaking_word_wrap(@post.content, :line_width => 8) %>   
-<i id="username" class="under">:<%= @post.name %></i></br>
+<span id="uname" class="under pull-right">:<%= @post.name %></span></br>
 </br><i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(@post.created_at)%><i id="time"> ago</i></i>
 <%end%>
 <div  id="com">
