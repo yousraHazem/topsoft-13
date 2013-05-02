@@ -17,39 +17,9 @@
 <br>
 
 <% if loged_in? %>
-<%= @findMap %>
-      <% if @findMap == nil && isProjectCreator(current_user.id, @project.id)%>
-         <div class = "alignright">
-            <table>
-            <h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
-                <i class="icon-plus icon-white"></i> 
-                <% end %> add map </h4>
-
-            <div id="item-form" style="display:none;" >
-            <%= form_for(:character, :url =>  {:controller =>'characters', :action =>'create', :project_id=> @project.id}) do |f|%>
-            <div class="field">
-                <%= f.label :name %><br />
-                <%= f.text_field :name %>
-              </div>
-              <div class="field">
-                <%= f.label :address %><br />
-                <%= f.text_field :address %>
-              </div>
-                <button type="submit">add map</button>
-            <% end %>
-            </div>
-            </table>
-            </div>      
-      <% else %>
-            <% if isProjectCreator(current_user.id, @project.id)%>
-            <%= link_to("show map", {:controller => 'characters', :action=>'show', :id => @findMap})%>
-            <% end %>
-      <% end %>
-
 <div class = "aligncenter">
   <div id="navcontainer">
-  <ul id="navlist">
-    
+  <ul id="navlist">    
        <% if isProjectCreator(current_user.id, @project.id)%> 
          <% if Date.today < @project.end_date %>
           <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
@@ -93,5 +63,35 @@
             </div>
           </div>
       </td>
+
+
+<%= @findMap %>
+      <% if @findMap == nil && isProjectCreator(current_user.id, @project.id)%>
+         <div class = "alignright">
+            <table>
+            <h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
+                <i class="icon-plus icon-white"></i> 
+                <% end %>أضف خريطة </h4>
+
+            <div id="item-form" style="display:none;" >
+            <%= form_for(:character, :url =>  {:controller =>'characters', :action =>'create', :project_id=> @project.id}) do |f|%>
+            <div class="field">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.label :address %><br />
+                <%= f.text_field :address %>
+              </div>
+                <button type="submit">أضف خريطة </button>
+            <% end %>
+            </div>
+            </table>
+            </div>      
+      <% else %>
+            <% if isProjectCreator(current_user.id, @project.id)%>
+            <%= button_to("أضف خريطة ", {:controller => 'characters', :action=>'show', :id => @findMap},      class:  "btn btn-success")%>
+            <% end %>
+      <% end %>
   </div>
 </div>
