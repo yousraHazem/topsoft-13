@@ -1,3 +1,4 @@
+
 class CreateBudgetSourceProjects3 < ActiveRecord::Migration
 #   def change
 #     create_table :budget_source_projects do |t|
@@ -7,4 +8,5 @@ class CreateBudgetSourceProjects3 < ActiveRecord::Migration
 #       t.timestamps
 #     end
 #   end
+
 end
