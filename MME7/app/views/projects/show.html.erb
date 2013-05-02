@@ -14,13 +14,12 @@
 <!-- AddThis Button END -->
 <br>
 <br>
-<br>
 
 <% if loged_in? %>
 <div class = "aligncenter">
   <div id="navcontainer">
   <ul id="navlist">    
-       <% if isProjectCreator(current_user.id, @project.id)%> 
+       <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true%> 
          <% if Date.today < @project.end_date %>
           <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
           <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
@@ -37,7 +36,6 @@
 </div>
 <br>
 <% end %>
-
 <div id="main-wrap">
   <div id="content-wrap">
     <td>  
@@ -64,7 +62,7 @@
           </div>
       </td>
 
-
+<% if loged_in? %>
 <%= @findMap %>
       <% if @findMap == nil && isProjectCreator(current_user.id, @project.id)%>
          <div class = "alignright">
@@ -89,9 +87,11 @@
             </table>
             </div>      
       <% else %>
-            <% if isProjectCreator(current_user.id, @project.id)%>
-            <%= button_to("أضف خريطة ", {:controller => 'characters', :action=>'show', :id => @findMap},      class:  "btn btn-success")%>
-            <% end %>
+            <%= button_to("الخريطة ", {:controller => 'characters', :action=>'show', :id => @findMap},      class:  "btn btn-success")%>
       <% end %>
   </div>
 </div>
+<% end %>
+
+
+
