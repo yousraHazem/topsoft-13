@@ -32,7 +32,14 @@
     <%= button_to("ترك المجموعة",{:controller => 'group_users', :action =>'leave', :id => @group.id}, :class => 'btn span2') %>               
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
+
+    <%= button_to("make creator", {:controller => 'group_users',:action =>'index',:id=> @group.id},:class => 'btn span2') %>
+
+    <%= button_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'btn span2') %>
+    
+
     <%= button_to("حذف المجموعة", {:action => 'destroy', :id => @group.id}, :helper => GroupUsersHelper, :confirm => 'هل أنت متأكد؟', :class => 'btn span2') %>
+
     <% end %>
 	<% if ifMember(@group.id, current_user.id) == true &&  @group.level <= 2 %>	
 	<%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span2') %>
