@@ -1,25 +1,24 @@
 
 <p class="pull-right"></p>
 <% @sources.last(5).each do |source| %>
+<div>
     <h4>
-    	<i class="icon-tint"> </i> 
-    	<%= source.amount%> <%= source.name %> 
-        <span class="pull-left"> <%= link_to(" مشروع #{source.budget_source_projects.size} ",{:action=>'show', :source_id=> source.id}, :class=>"pull-left" )%>
+        <i class="icon-tint"> </i> 
+        <%= source.amount%> <%= source.name %> 
+         <% if source.budget_source_projects.size > 5 %>
+        <span class="pull-left"> <%= link_to(" مشروع #{source.budget_source_projects.size} ",{:action=>'show', :source_id=> source.id}, :class=>"pull-left link-source" )%><%end%>
         </span>
     </h4>
-    <div class="sources">
+    <div>
         <% if source.budget_source_projects.size != 0 %>
-			<% source.budget_source_projects.each do |s| %> 
-				<%= link_to("#{s.project.name}",{:controller=>"projects",:action=>'show',:id=>s.project_id})%>  
-			<span class="amount"> قيمة المالية :<%= s.amount %>
-			</span>
-	    	<br> <br>
-	    	<%end%> 
-	    	<hr>
-	    <%else%>
-	    	لا  يوجد مساهامات حتى الان <br><br> 
-	    <%end%>
-	</div>
+            <% source.budget_source_projects.each do |s| %> 
+            <span class="link-source">مشروع </span><%= link_to("#{s.project.name}",{:controller=>"projects",:action=>'show',:id=>s.project_id} , :class=>"link-source")%>  
+            <span class="amount"> قيمة المالية :<%= s.amount %></span>
+            <br> <br>
+            <%end%> 
+        <%else%>
+            لا  يوجد مساهامات حتى الان <br><br> 
+        <%end%>
+    </div>
+ </div><hr>
 <%end%> 
-
-

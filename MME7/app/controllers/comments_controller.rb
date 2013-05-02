@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class CommentsController < ApplicationController
 
   #Author Riham Gamal 22-3871
@@ -58,7 +59,7 @@ class CommentsController < ApplicationController
   # def list 
   #   @comment = Comment.all
   #  end
-	
+
   # Salma El -Ruby 22-4649
   # deletes comments
   def delete

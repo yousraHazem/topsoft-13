@@ -1,5 +1,4 @@
-
-<table  class="table pagination" id="table-components">
+<table  class="table" id="table-components">
 	<tr class="header">
 		<th>إسم</th>
 		<th>سعر الوحدة</th>
@@ -12,7 +11,7 @@
 
     <% @components.each do |component|%>
     <tbody>
-    <tr class="<%= component.status == "اكتمل" ? 'info' : 'warning' %>">
+    <tr class="">
 	<td><%= component.name %></td>
 	<td><%= component.unit_price %></td>
 	<td><%= component.quantity_purchased %></td>
@@ -34,4 +33,3 @@
     </tbody>
     <%end%>
 </table>
-

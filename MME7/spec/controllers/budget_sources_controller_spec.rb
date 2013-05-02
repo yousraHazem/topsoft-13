@@ -40,6 +40,7 @@ describe BudgetSourcesController do
 
 			end
 		end
+<<<<<<< HEAD
 
 		describe "with invalid params" do
 			it "assigns a newly created but unsaved budget_source as @budget_source" do
@@ -58,13 +59,40 @@ describe BudgetSourcesController do
 	end
 
 
+=======
+
+		describe "with invalid params" do
+			it "assigns a newly created but unsaved budget_source as @budget_source" do
+				BudgetSource.any_instance.stub(:save).and_return(false)
+				post :create, {:budget_source => invalid_attributes}
+				assigns(:budget_source).should be_a_new(BudgetSource)
+		    end
+
+
+			it "renders the 'new' template" do
+				BudgetSource.any_instance.stub(:save).and_return(false)
+				post :create, {:budget_source => invalid_attributes}
+				response.should render_template("new")
+			end
+		end
+	end
+
+
+>>>>>>> master
 	describe "GET list" do
       it "assigns all sources as @sources" do
       	sources = BudgetSource.create! valid_attributes
       	get :list
       	assigns(:sources).should eq([sources])
       end
+<<<<<<< HEAD
      end
+=======
+
+    end  
+
+
+>>>>>>> master
 
 	describe "PUT update" do
 		describe "with valid params" do

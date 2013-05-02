@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class SessionsController < ApplicationController
   #Author: Donia Amer Shaarwy
   #takes in the username and password to do the login method 
@@ -35,6 +35,3 @@ class SessionsController < ApplicationController
     redirect_to @user, :notice => "تسجيل الدخول!"
   end
 end
-
-
-

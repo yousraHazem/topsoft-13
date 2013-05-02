@@ -1,33 +1,24 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<div class="flash">
-  <%= flash[:notice] %>
-  <%= flash[:error] %>
-</div>
 
-   
+
+
+  
 <div>
   <% if current_user %>
-<%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
-<% end %>
+          <%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
+  <% end %>
 </div>
+</br>
 
 
-<table>
-  <tr>
-    <th>اسم المجموعة</th>
-  </tr>
+<%= form_tag('groups', :method => 'get',:id => "search",:remote => true) do %>  
+      <p> 
+          <%= text_field_tag :search, params[:search]%>
+          
+      <i class="icon-search"></i>
+    
+      </p>  
+<%end%>
 
-  <% if @groups %>
-  <% @groups.each do |group| %>
-  <tr>
 
- 
-    <td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<% end %>
+<div id= "table"><%= render'table' %></div>

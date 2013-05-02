@@ -1,6 +1,5 @@
 MME7::Application.routes.draw do
   
-  get "password_resets/new"
 
 root :to => "home#index"
 
@@ -9,13 +8,13 @@ root :to => "home#index"
 
   get "comments/editComment"
 
-  # get "posts/editPost"
-  # get "comments/newComment"
-  # get "posts/newPost"
+
 
   get "posts/editPost"
+  get "projects/newProject"
 
   get "posts/newPost"
+  get "budget_sources/list"
 
   get "home/index"
 
@@ -23,15 +22,18 @@ root :to => "home#index"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_in" => "admin#new", :as => "log_in"
+
   match 'auth/:provider/callback', to: 'sessions#createFacebook'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'log_out'
+
   root :to => "home#index"
  
   get "users/new"
   resources :users
   resources :sessions
-  resources :password_resets
+ 
+
 
 
   # The priority is based upon order of creation:

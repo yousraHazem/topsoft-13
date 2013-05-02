@@ -8,7 +8,7 @@ module GroupsHelper
  def getGroupMembers(group_id)
 
  # groupmembersid = GroupUser.find(:user_id, :conditions => {:group_id => group_id})
- groupmembersid = GroupUser.find(:all,:select => "user_id",:conditions=>{:group_id => group_id}).collect(&:user_id) 	
+ groupmembersid = GroupUser.find(:all,:select => "user_id",:conditions=>{:group_id => group_id}).collect(&:user_id)   
 
  end
 
@@ -25,5 +25,12 @@ module GroupsHelper
 
    return notGroupUser = User.where("id NOT IN (?)" , b)
   end 
-
+  
+  # Author: Sama Akram
+  # ARGS: groups and returns each group + an array of its subgroups (children)
+  def nested_groups(groups)
+    groups.map do |group, sub_groups|
+      render(group) + content_tag(:div, nested_groups(sub_groups), :class => "nested_groups")
+    end.join.html_safe
+  end
 end

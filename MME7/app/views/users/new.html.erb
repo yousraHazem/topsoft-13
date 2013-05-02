@@ -1,39 +1,41 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Sign up</title>
-<h1>اشتراك</h1>
-<%= error_messages_for(@user) %>
-<div>
-  <%= form_for @user do |f| %>
-    
-  <p>
-    <%= f.label :الاسم %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-   <p>
-    <label>رقم الهاتف</label> <br />
-    <%= f.text_field :phone_Nr %>
-  </p>
-   <p>
-    <%= f.label :عنوان%><br />
-    <%= f.text_field :address %>
-  </p>
-   <p>
-    <label>اسم المستخدم</label><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <label>كلمة السر</label><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <label>تأكيد كلمة المرور</label><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-   <button class="btn btn-success" type="submit">إنضم</button>
+<%= stylesheet_link_tag  "stylelogin", :media => "all" %>
+<body>
+  <div class="container">
+    <section class="register">
+     <h1>اشتراك</h1>
+     <%= error_messages_for(@user) %> 
+     <%= form_for @user, :validate => true do |f| %>
+      <div class="reg_section personal_info">
+      <h3>اسم</h3>
+       <%= f.text_field :name %>
 
-  <%end%>
-</div>
+      <h3>Email</h3>
+      <%= f.text_field :email %>
+
+      <h3>رقم الهاتف</h3>
+      <%= f.text_field :phone_Nr %>
+    
+      <h3>عنوان</h3>
+      <%= f.text_field :address %>
+       
+      <h3>اسم المستخدم</h3>
+      <%= f.text_field :username %>
+     
+
+      <div class="reg_section password">
+      <h3>كلمة السر</h3>
+      <%= f.password_field :password %>
+
+      <h3>تأكيد كلمة المرور</h3>
+      <%= f.password_field :password_confirmation %>
+
+      </div>
+
+      <button class="btn btn-success" type="submit">إنضم</button>
+    <% end %>
+
+    </section>
+  </div>
+
+</body>

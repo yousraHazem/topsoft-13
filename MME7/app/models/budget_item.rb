@@ -9,6 +9,7 @@ class BudgetItem < ActiveRecord::Base
   has_and_belongs_to_many :users
   belongs_to :project
 
-   validates_presence_of :name , :message => "يرجى أدخال الأسم"
+  validates_presence_of :name , :message => "يرجى أدخال الأسم"
    
+
 end

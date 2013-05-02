@@ -15,6 +15,7 @@
 	 		<td> <%= project.start_date %>   </td>
 	 		<td> <%= project.end_date %>     </td>
 	 		<td> <%= project.description %>  </td>
+<<<<<<< HEAD
 			<td >
 			 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
 			</td >
@@ -26,3 +27,22 @@
     </table>
 </div>
 
+=======
+
+	 		<td >
+			 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
+			</td >
+	 		
+			
+			<td >
+			   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
+			</td>
+			<td >
+			   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}) %><i class="icon-remove"></i> </li>
+			</td>
+			
+	 	</tr>
+	 	<% end %>
+    </table>
+</div>
+>>>>>>> master

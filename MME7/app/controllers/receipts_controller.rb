@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ReceiptsController < ApplicationController
 
 	# Author :Yasmin Mahmoud 22-1787 , Method list shows all the budgetitems in the table with the given budget item id 
@@ -44,6 +45,3 @@ end
 
 		end
 	end
-
-
-end

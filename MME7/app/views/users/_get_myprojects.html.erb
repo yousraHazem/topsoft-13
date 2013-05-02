@@ -4,22 +4,18 @@
 </head>
 
 <body dir="rtl" lang="ar">
-<h1>المشروعات</h1>
+<h3>ماشروعاتي</h3>
 <% if @projectusers.blank? %>
-	<p>ليس لديك أي مشروعات حاليا</p>
-<% else %>
-	<p>ماشرعاتك الحالية</p>
+  <p>ليس لديك أي مشروعات حاليا</p>
 <% end %>
 <table>
   <tr>
-    <th>اسم المشروع</th>
     <th>المشروع</th>
   </tr>
 
 <% @projectusers.each do |project_user| %>
   <tr>
-    <td id ="project_name"><%= project_user.project.name %></td>
-    <td><%= link_to("ذهاب للمشروع",:controller => 'projects',:action=>'show', :id=> project_user.project_id) %></td>
+    <td id ="project_name"><%= link_to(project_user.project.name,:controller => 'projects',:action=>'show', :id=> project_user.project_id) %></td>
   </tr>
 <% end %>
 </table>
