@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
+    validates_presence_of :end_date , :message => "please enter end"
+    validates_presence_of :start_date, :message => "please enter start"
     validate :validate_end_date_before_start_date
     def validate_end_date_before_start_date
         if end_date && start_date
@@ -17,14 +19,11 @@ class Project < ActiveRecord::Base
     def validate_start_date_before_current_date
         @current_date = Date.today
         if start_date && @current_date
-           if start_date < @current_date
+            if start_date < @current_date
                 errors.add(:start_date,"تاريخ البداىة لا ىجب ان ىكون قبل تاريخ الىوم")              
             end
         end
     end
-
-
-
     has_many :posts
     has_many :tasks 
     has_and_belongs_to_many :users
@@ -40,14 +39,12 @@ class Project < ActiveRecord::Base
         @projectmembersid = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => project_id }).collect(&:user_id)
     end
 
-   
     # Author Riham Gamal 22-3871
     # Arguments users ids 
     # Return the users with the input ids
     def user_tokens=(ids)
       self.user_ids = ids.split(",")
     end
-
 
     #Author: Donia Amer Shaarawy 22-0270 
     #getMembersNotInProject takes in a paramater project id and then goes to the user table and find all the users that 
@@ -57,8 +54,6 @@ class Project < ActiveRecord::Base
        b = ProjectUser.find(:all, :select => "user_id", :conditions => {:project_id => params[:id] }).collect(&:user_id)
        @users = User.where("id NOT IN (?)" , b)
     end 
-
-
 
     def budgetItems(project_id)
      @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?
