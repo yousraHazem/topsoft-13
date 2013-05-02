@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.integer  "total"
   end
 
+  create_table "budget_items_users", :id => false, :force => true do |t|
+    t.integer "budget_item_id"
+    t.integer "user_id"
+  end
+
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
@@ -57,11 +62,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
   end
 
   create_table "carousels", :force => true do |t|
@@ -83,8 +83,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.boolean  "is_group",   :default => false
     t.string   "name"
   end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -114,8 +112,8 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-    t.string   "ancestry"
     t.integer  "level"
+    t.string   "ancestry"
   end
 
   add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
@@ -206,6 +204,8 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "profile"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
