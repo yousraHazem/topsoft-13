@@ -30,6 +30,7 @@
       <% if Date.today < @project.end_date %>
         <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
         <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+        <li><%= link_to("ألبوم ", {:controller => 'galleries' ,:action => 'show', :project_id => @project.id}) %></li>
       <% end %>
   </ul>
   </div>

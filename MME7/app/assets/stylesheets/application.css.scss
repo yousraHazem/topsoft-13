@@ -13,7 +13,7 @@
  *= require_tree .
  *= require bootstrap-datepicker
  */
-
+ 
 
 .field_with_errors .message {
  display: inline;
@@ -139,6 +139,9 @@ margin: 8px 10px;
 	resize:vertical; max-height:200px;
 }
 
+.tasks{
+ text-align: right;
+ }
 
 
 
@@ -225,6 +228,13 @@ td.ta textarea {
 	text-align: right;
 }
 
+#desc{
+	margin: 20px;
+}
+.description {
+margin: 20px;
+	
+}
 
 
 #main-wrap > div { min-height: 450px; }
