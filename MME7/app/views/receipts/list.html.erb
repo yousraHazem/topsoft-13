@@ -1,16 +1,8 @@
 <% @page_title = "Recipts List"%>
 
 <div>
-	<br>
-	<br>
-	<h2 class='title'>إيصالات</h2>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
- <table class = "table body">
+	<h2>إيصالات</h2>
+ <table class = "table">
 <tr>
 	<th>إسم</th>
 	<th>ألأيصال</th>
@@ -20,7 +12,7 @@
 	<td><%= receipt.name %></td>	
 	<td><%= image_tag receipt.image_url(:thumb).to_s %></td>
 	<% if(isProjectCreator(@current_user, @project_id ) == true) %>
-	<td><%= link_to("تعديل", {:action=>'edit', :id=>receipt.id , :project_id=> @project_id} , :class=>'link')%></td>
+	<td><%= link_to("تعديل", {:action=>'edit', :id=>receipt.id , :project_id=> @project_id})%></td>
 	<% end %>
 </tr>
 

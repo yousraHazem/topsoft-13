@@ -1,29 +1,20 @@
-<% provide(:title, "Log in") %>
-<br>
-<br>
-<h1 class='title'>تسجيل دخول</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<%= form_tag sessions_path do %>
-  <p class='body'>
-    <label>اسم المستخدم</label><br />
-    <%= text_field_tag :username, params[:username] %>
-  </p>
-  <p class='body'>
-    <label>كلمة السر</label><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "دخول" %></p>
-<% end %>
+<%= stylesheet_link_tag  "stylelogin", :media => "all" %>
 
-    <p class='body'>مستخدم جديد؟ <%= link_to "اشترك الآن", sign_up_path , :class => 'link' %></p>
+  <div class="container">
+    <section class="register">
+      <% provide(:title, "Log in") %>
+      <h1>تسجيل دخول</h1>
+      
+    <%= form_tag sessions_path do %>
+     
+      <h3>اسم المستخدم</h3>
+      <%= text_field_tag :username, params[:username] %>
+ 
+      <h3>كلمة السر</h3>
+      <%= password_field_tag :password %>
+
+      <p class="submit"><%= submit_tag "دخول" %></p>
+    <% end %>
+     <h3>مستخدم جديد؟ <%= link_to "اشترك الآن", sign_up_path %></h3>
+    </section>
   </div>
-</div>
-
-
-
-
-

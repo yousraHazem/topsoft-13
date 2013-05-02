@@ -1,16 +1,8 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @receipt}) %>
 <div> 
-	<br>
-	<br>
-	<h2 class='title'>تعديل الأيصال</h2>
+	<h2>تعديل الأيصال</h2>
 	<%= form_for(:receipt, :url=>{:action=>'update' , :id => @receipt.id , :project_id=> @project_id}) do |f| %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<table class="table body">
+<table>
 
 	<tr>
 		<th><%= f.label(:Name ,"إسم")%></th>
@@ -22,8 +14,8 @@
 	</tr>
 </table>
 </br>
-	<p class='btn btn-small'>
-	<%= f.submit ("إحفظ")%>
+	<p>
+			<td><%= f.submit ("إحفظ")%></td>
 	</p>
 <% end %>
 </div>

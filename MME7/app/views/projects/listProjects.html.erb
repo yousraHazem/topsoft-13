@@ -1,19 +1,13 @@
-﻿<% @page_title = "Projects List" %>
+<% @page_title = "Projects List" %>
 <div >
- <h2 class="title">المشاريع</h2>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
-    <table class="table proj">
+ <h2>المشاريع</h2>
+ <%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
+    <table class="table table-striped">
 	 	<tr>
 	 		<th>المشروع</th>
 	 		<th>تاريخ البداية</th>
 	 		<th>تاريخ النهاىة</th>
 	 		<th>التفاصيل</th>
-	 		<th>uudjdj </th>
 	 	</tr>
 	 	<% @projects.each do |project| %>
 	 	<tr>
@@ -22,14 +16,13 @@
 	 		<td> <%= project.end_date %>     </td>
 	 		<td> <%= project.description %>  </td>
 			<td >
-			 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id} , :class=>"btn btn-mini") %>
-                <%= link_to("تعدىل", {:action => 'editProject', :id => project.id} , :class=>"btn btn-mini") %> 
-			 
+			 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
+			</td >
+			<td >
+			   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
 			</td>
 	 	</tr>
 	 	<% end %>
     </table>
-
-    <p class ="pull-left"><%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn') %></p>
 </div>
 

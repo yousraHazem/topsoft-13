@@ -6,7 +6,6 @@ class Project < ActiveRecord::Base
 
     validate :validate_end_date_before_start_date
 
-
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date
@@ -30,7 +29,6 @@ class Project < ActiveRecord::Base
 
     has_many :posts
     has_many :tasks 
-    has_many :carousels
     has_and_belongs_to_many :users
     has_one :budget 
     has_many :project_users

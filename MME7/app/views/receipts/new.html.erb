@@ -1,15 +1,8 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @receipt}) %>
 <div> 
-	<h2 class='title'>أنشاء إيصال</h2>
+	<h2>أنشاء إيصال</h2>
 	<%= form_for(:receipt, :url=>{:action=>'create' , :id => @id , :project_id=> @project_id}) do |f| %>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<table class="table body">
+	<table>
 
 <tr>
 <th><%= f.label(:Name ,"إسم")%></th>
@@ -20,13 +13,13 @@
 <td><%= f.file_field(:image)%></td>
 </tr>
 </br>
-
-<%= f.hidden_field :budget_component_id , :value=> @id %>
-
+<tr> 
+<td><%= f.hidden_field :budget_component_id , :value=> @id %></td>
+</tr>
 </table>
 </br>
-<p class='btn btn-small'>
-<%= f.submit ("إحفظ") %>
+<p>
+<td><%= f.submit ("إحفظ") %></td>
 </p>
 <% end %>
 </div>

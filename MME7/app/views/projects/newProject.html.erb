@@ -1,20 +1,11 @@
 <% @page_title ="تكوين مشروع" %>
-<%= link_to("ارجع الي القاءمة", {:action => 'listProjects'} , :class => 'back' ) %>
+<%= link_to("ارجع الي القاءمة", {:action => 'listProjects'} ) %>
 <div >
-	<br>
     <h2>كون مشروع</h2>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <%= form_for(:project, :url => {:action => 'createProject'}) do |f| %>
+    <%= form_for(@project,:as => :project, :url => {:action => 'createProject'}, :validate => true) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %>
  	<div >
- 		<br>
- 	  <button class="btn btn-small" type="submit">تكوين</button>
+ 	  <button class="btn btn-large btn-primary" type="submit">تكوين</button>
  	</div>
  	<% end %>     
 </div>

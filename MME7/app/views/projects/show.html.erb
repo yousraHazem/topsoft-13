@@ -1,47 +1,60 @@
-      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <table>
-      <tr>
-        <td>
-          <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
-              <button type="submit">قائمة المشاريع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
-              <button type="submit">ميزانية المشروع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
-              <button type="submit">تعديل المشروع</button>
-          <% end %>
-        </td>
-        <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'view',:id=> @project.id}) do |f| %>
-              <button type="submit">المهمات</button>
-           <% end %>
-        </td>
-      </tr>
-    </table>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<br>
+
+<h1 class = "aligncenter"><%= @project.name %></h1>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_pinterest_pinit"></a>
+<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=silencing"></script>
+<!-- AddThis Button END -->
+<br>
+<br>
+<br>
+<div class = "aligncenter">
+  <div id="navcontainer">
+  <ul id="navlist">
+       <% if isProjectCreator(current_user.id, @project.id)%> 
+        <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
+        <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+      <% end %>
+      <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+      <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
+      <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+  </ul>
+  </div>
+</div>
+<br>
 
 
-<div class="project show">
-<div class="aligncenter">
-<h1><%= @project.name %></h1> 
-</div>    
-<div class="alignright">
-  <table class="table table-hover" align="right">
-    <tr>
-      <td></i> تاريخ البداية</td>
-      <td><%= @project.start_date %></td>
-    </tr>   
-    <tr >
-      <td>تاريخ النهاية</td>
-      <td><%= @project.start_date %></td>
-    </tr>
-    <tr >
-      <td></i>تفاصيل المشروع</td>
-      <td><%= @project.description %></td>
-    </tr>
-  </table>
+<div id="main-wrap">
+  <div id="content-wrap">
+    <td>  
+        <div class="project show">   
+          <div class="aligncenter">
+             <div class = "body">
+            <table class="table" >
+             <div class = "addColor">
+              <tr>
+                <th><div> تاريخ البداية</div></th>
+                <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
+              </tr>   
+              <tr >
+                <th><div>تاريخ النهاية</div></th>
+                <th><div  id = "addMargin"><%= @project.end_date %></div></th>
+              </tr>
+              <tr >
+                <th><div>تفاصيل المشروع</div></th>
+                <th><div id = "addMargin"><%= @project.description %></div></th>
+              </tr>
+              </div>
+            </table>
+            </div>
+          </div>
+      </td>
+  </div>
 </div>
