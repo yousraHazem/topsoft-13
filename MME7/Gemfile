@@ -19,10 +19,10 @@ gem 'client_side_validations'
 # group :test, :development do
 #   gem "rspec-rails", "~> 2.0"
 # end
-
+gem 'gmaps4rails'
 #gem 'simplecov'
 gem 'carrierwave'
-gem 'rmagick'
+#gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"

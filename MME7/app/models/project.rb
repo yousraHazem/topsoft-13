@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
     validates_presence_of :end_date , :message => " تاريخ نهاية"
     validates_presence_of :start_date, :message => " تاريخ البدء"
     validate :validate_end_date_before_start_date
+    has_one :character
 
     # Author : Nayera Mohamed 22-3789 , this method checks if the end date is earlier than the start date
     def validate_end_date_before_start_date
