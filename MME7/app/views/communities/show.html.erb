@@ -34,7 +34,21 @@
             </td>
 
         <%end%> 
-      <%end%>        
+      <%end%>  
+
+      <% if loged_in? %>
+        <%if @community.is_dismissed == true && current_user.isAdmin == true %>
+        <td class="aligncenter">
+        </td>
+        <td class="aligncenter">
+          <li>ملغي</li>
+        </td>
+        <%end%>
+        <%end%>       
+      </tr>
+
+      <tr>
+
       </tr>
      
   </table>

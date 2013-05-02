@@ -5,23 +5,24 @@
     </script>
   </head>
   <body>
-    <h1>مجموعتي </h1>
+</br>
+</br>
+</br>
       <% if @groupusers.blank? %>
-       <p>لم يكن لديك أي مجموعة</p>
+       <p>ليس لديك أي مجموعة حتى الآن</p>
       <% else %>
-        <h2>قائمة مجموعات من: <%= @user.name %> </h2>
+        <h3>مجموعاتي</h3>
         <table>
           <tr>
-           <th>اسم المجموعة</th>
-           <th>مجموعة رابط</th>
+           <th>المجموعة</th>
           </tr>
           <% end %>
             <% @groupusers.each do |group_user| %>
               <tr>
-                <td id ="group_name"><%= group_user.group.name %></td>
-               <td><%= link_to("view this group",:controller => 'groups',:action=>'show', :id=> group_user.id) %></td>
+                <td id ="group_name"><%= link_to(group_user.group.group_name,:controller => 'groups',:action=>'show', :id=> group_user.group_id) %></td>
               </tr>
            <% end %>
         </table>
+	</br></br>
  </body>
 </html>

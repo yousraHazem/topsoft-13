@@ -7,6 +7,7 @@ class Community < ActiveRecord::Base
    validates_uniqueness_of :title, :message => "عفوا هذا الاسم قد استخدم من قبل "
    validates_presence_of :social_profile_info, :message => "يجب أن تدخل وصف "
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+   validates_presence_of :contact_info, :message => "يجب أن تدخل لبريد للكتروني"
    validates_format_of :contact_info, :with => VALID_EMAIL_REGEX, :message => " هذ لبريد للكتروني غير صحيح"
    #validates_uniqueness_of :contact_info, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 
