@@ -56,14 +56,14 @@
     <tr>
       <td> 
         <%= p.user.name %>
-      <%= link_to " X ", {:controller => 'users' ,:action => 'unassign_bi', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
+      <%= link_to " X ", {:controller => 'budget_item_users' ,:action => 'unassign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
        </td>
    <% end %>
 
    <% @notassigned.each do |p| %> <br/>
         <td> 
           <%= p.user.name %>
-      <%= link_to "عين ", {:controller => 'users' ,:action => 'assign_bi', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
+      <%= link_to "عين ", {:controller => 'budget_item_users' ,:action => 'assign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
        </td>
     <% end %> 
     </tr>

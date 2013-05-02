@@ -12,13 +12,13 @@ gem 'mail', '~> 2.5.3'
 
 gem 'best_in_place'
 gem 'bootstrap-sass'
-gem 'rspec-rails'
+#gem 'rspec-rails'
 gem 'devise'
 gem 'client_side_validations'
 
-# group :test, :development do
-#   gem "rspec-rails", "~> 2.0"
-# end
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
 
 #gem 'simplecov'
 gem 'carrierwave'
