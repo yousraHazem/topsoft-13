@@ -41,19 +41,25 @@ describe ProjectsController do
     describe "with valid params" do
       it "creates a new project" do
         expect {
+          ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+          Project.any_instance.stub(:id).and_return(1)
           post :createProject, {:project => valid_attributes}
         }.to change(Project, :count).by(1)
       end
 
       it "assigns a newly created project as @project" do
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        Project.any_instance.stub(:id).and_return(1)
         post :createProject, {:project => valid_attributes}
         assigns(:project).should be_a(Project)
         assigns(:project).should be_persisted
       end
 
       it "redirects to the created project" do
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        Project.any_instance.stub(:id).and_return(1)
         post :createProject, {:project => valid_attributes}
-        response.should redirect_to("http://test.host/projects/show")
+        response.should redirect_to("http://test.host/projects/show/1")
       end
     end
 
@@ -125,5 +131,3 @@ describe ProjectsController do
     end
   end
 end
-
-
