@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
 
   #Author Riham Gamal id = 22-3871
   #Arguments project.id
+  # it gets also the map of that project
   #return non
   def show
   @project = Project.find(params[:id])

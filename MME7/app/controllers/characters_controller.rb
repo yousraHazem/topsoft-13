@@ -1,7 +1,10 @@
 #encoding: utf-8
 class CharactersController < ApplicationController
 
-	# GET /characters/new
+	# Author: Riham Gamal 22-3871
+  # Arguments non
+  # Return new character
+  # GET /characters/new
   # GET /characters/new.json
   def new
     @character = Character.new
@@ -12,6 +15,9 @@ class CharactersController < ApplicationController
     end
   end
 
+  # Author: Riham Gamal 22-3871
+  # Arguments non
+  # Return new character
   # POST /characters
   # POST /characters.json
   def create
@@ -29,7 +35,10 @@ class CharactersController < ApplicationController
     end
   end
 
-   # GET /characters/1
+  # Author: Riham Gamal 22-3871
+  # Arguments character id
+  # Return the character with the specified id
+  # GET /characters/1
   # GET /characters/1.json
   def show
     @character = Character.find(params[:id])
