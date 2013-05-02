@@ -104,6 +104,7 @@ $(function(){
   });
 });
 
+
 $(function() {
     $("#price, #total").keyup(function() {
         var p = $("#price").val();
@@ -131,12 +132,7 @@ $(function() {
     });
 });
 
-// $(function(){
-//   $("#search input").keyup(function (){
-//     $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
-//     return false;
-//   });
-// });
+
 
 $(function(){
     var p = $("#data").val();
@@ -184,6 +180,14 @@ $(function() {
   });
 });
 
+
+$(function(){
+    $("#search input").keyup(function(){
+        $.get($("#search").attr("action"),$("#search").serialize(), null, "script");
+        return false;
+    });
+});
+
 $(function() {
   $("#group_user_tokens").tokenInput("/users.json", {
     crossDomain: false,
@@ -203,25 +207,3 @@ $(function(){
 
 
 
-// jQuery.ajaxSetup({
-//    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-// })
-
-// $(function(){
-//     $('#budget-component-dialog').dialog({
-//         autoOpen: false,
-//         height: 500,
-//         width: 500,
-//         modal:true,
-//         buttons: {
-//            "Create" : function() {
-//             $("#component-form").submit();
-//             $(this).dialog('close')
-//            }
-//         }
-//     })
-
-//     $('#create').button().click(function(){
-//         $('#budget-component-dialog').dialog('open')
-//     })
-// });

@@ -33,6 +33,9 @@
     <% end %>
     <% if isGroupCreator(@group.id, current_user.id) == true %>
 
+
+    <%= button_to("make creator", {:controller => 'group_users',:action =>'index',:id=> @group.id},:class => 'btn span2') %>
+
     <%= button_to("تعديل", {:action => 'edit', :id => @group.id},:helper => GroupUsersHelper, :class => 'btn span2') %>
     
 

@@ -15,15 +15,17 @@
  *= jquery.jscrollpane
  */
 
- .field_with_errors .message {
-  display:inline;
-  color: white;
-  padding-left: 5px;
+
+
+.field_with_errors .message {
+ display: inline;
+  color: #d9d9d9;
+  left: 200 px;
   font-size: 15px;
-  margin-right: 20px;
+margin: 8px 10px;
 }
 
-.link-source{
+ .link-source{
  color: #99CCFF;
  }
 
@@ -48,7 +50,8 @@
  margin-right: 700px;
  }
 
- .bg {
+
+.bg {
   border: 1px solid #d1d1d1;
 }
 
@@ -70,9 +73,9 @@
  }
  .pic{
  position:absolute;
- left: 66%;
- top: 11.5%;
- z-index:3
+ left: 67%;
+ top: 9.6%;
+ z-index:3;
  }
 
   .pull {
@@ -153,6 +156,7 @@ td.text textarea{
  padding: 10px;
  height: 900px;
  background-color:rgb(32,75,117);
+
  }
 
 
@@ -180,6 +184,10 @@ div.style2{
 	float: right;
 }
 
+.alignleft {
+	float: left;
+}
+
 .aligncenter {
 	text-align: center;
 }
@@ -190,6 +198,7 @@ div.style2{
 .search {
 	display: inline;
 	margin-right: 60px;
+  top:10px;
 }
 
 .contribution {
@@ -214,7 +223,9 @@ margin: 50px;
  margin: 20px;
  }
 
-
+.style{
+  margin: 20px; 
+}
 
 .progress {
 	height: 29px;
@@ -237,9 +248,17 @@ p.paragraph{
      border: 30px solid white;
 }
 
+
 dt.ta textarea {
 	resize: vertical; max-height:200px;
 	resize:horizontal; max-width:400px;
+}
+td.ta textarea {
+	resize:horizontal; width:400px;
+}
+
+.body{
+  color:#ffffff;
 }
 
 #show {
@@ -286,6 +305,48 @@ dt.ta textarea {
 .nav{
 	
 	padding: 0px !important;
+
+}
+
+#main-wrap > div { min-height: 450px; }
+
+
+#header,
+#footer {
+    min-height: 40px;
+}
+
+#main-wrap {
+	margin-top:60px;  
+    overflow: hidden;
+}
+
+
+#sidebar {
+    float: left;
+    width: 30%;
+}
+
+#content-wrap {
+    float: center;
+    width: 70%;
+}  
+
+#addMargin{
+	margin-right:50px;
+	margin-left:150px;
+} 
+
+#addMargin1{
+	margin-right:30px;
+	margin-left:30px;
+}
+
+
+
+
+#wasf {
+	font-size: 30px;
 }
 
 #navcontainer
@@ -382,7 +443,5 @@ padding: 2px 12px 2px 10px;
 #subnav BR, #navcontainer BR { clear: both; }
  .white {
  text-color: #ffffff
+
  }
-
-
-
