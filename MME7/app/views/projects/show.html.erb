@@ -77,11 +77,11 @@
             <div id="item-form" style="display:none;" >
             <%= form_for(:character, :url =>  {:controller =>'characters', :action =>'create', :project_id=> @project.id}) do |f|%>
             <div class="field">
-                <%= f.label :name %><br />
+                <%= "الاسم" %><br />
                 <%= f.text_field :name %>
               </div>
               <div class="field">
-                <%= f.label :address %><br />
+                <%= "العنوان" %><br />
                 <%= f.text_field :address %>
               </div>
                 <button type="submit">أضف خريطة </button>
