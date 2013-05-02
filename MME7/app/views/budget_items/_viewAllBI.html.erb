@@ -45,20 +45,20 @@
 <body dir="rtl" lang="ar">
 <% if @items.blank? %>
 <% else %>
-<table  id="gradient-style" summary="Meeting Results">
+<table class="table">
     <thead>
  	<tr class="header">
- 		<th scope="col">اسم عنصر الميزانية</th>
- 		<th scope="col">مجموع</th>
- 		<th scope="col">تم صرفه</th>
+ 		<th>اسم عنصر الميزانية</th>
+ 		<th>مجموع</th>
+ 		<th>تم صرفه</th>
  		<% if loged_in? %>
  		<% if isProjectCreator(@current_user,@project.id)%>
-        <th scope="col">تعديل الميزانية</th>
-        <th scope="col">اعضاء العنصر</th>
-        <th scope="col">اعضاء العنصر</th>
+        <th>تعديل الميزانية</th>
+        <th>اعضاء العنصر</th>
+        <th>اعضاء العنصر</th>
  		<% end %>
  		<% end %>
- 		<th scope="col">مشاهدة</th>
+ 		<th>مشاهدة</th>
  	</tr>
   </thead>
     <tbody>
