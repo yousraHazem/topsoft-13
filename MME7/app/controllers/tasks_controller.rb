@@ -3,9 +3,9 @@ class TasksController < ApplicationController
     # Author : Nayera Mohamed 22-3789 
     #Args : task params
     #returns: list of tasks
-	def listTasks
-		@tasks = Task.where(:project_id=>params[:id])
-	end
+  def listTasks
+    @tasks = Task.where(:project_id=>params[:id])
+  end
 
   #Author :salma el ruby 22-4649 
   # Args : task_id 
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       @user = params[:user_id]
       @task_id = params[:task_id]
       @project_id = params[:project_id]
-      @assignedppl  = TaskUser.find(:all, :conditions=>{:task_id=>@task_id})
+      @assignedppl  = TaskUser.find(:all, :conditions =>{:task_id=>@task_id})
       @assigned  = TaskUser.find(:all,:select=> 'user_id', :conditions=>{:task_id=>@task_id}).collect(&:user_id)
       if @assigned.empty?
         @notassigned = ProjectUser.where(:project_id => @project_id)  
