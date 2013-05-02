@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
    validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
+    validates_presence_of :start_date, :message => "رجاء أدخل تاريخ بداية"
+    validates_presence_of :end_date, :message => "من فضلك ادخل تاريخ نهاية"
 
     validate :validate_end_date_before_start_date
 
