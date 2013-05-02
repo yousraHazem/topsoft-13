@@ -4,7 +4,7 @@ describe BudgetItemUsersController do
 	 def valid_attributes
       {:budget_item_id => 1 , :user_id => 1}
    end
- describe "POST assign" do
+ describe "POST assign{BIuser =>valid_attributes}" do
     describe "with valid params" do
       it "creates a new budget_item" do
         expect {

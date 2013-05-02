@@ -1,73 +1,25 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<style type="text/css">
-#gradient-style
-{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 12px;
-  margin: 45px;
-  width: 480px;
-  text-align: left;
-  border-collapse: collapse;
-}
-#gradient-style th
-{
-  font-size: 13px;
-  font-weight: normal;
-  padding: 8px;
-  background: #b9c9fe url('table-images/gradhead.png') repeat-x;
-  border-top: 2px solid #d3ddff;
-  border-bottom: 1px solid #fff;
-  color: #039;
-}
-#gradient-style td
-{
-  padding: 8px; 
-  border-bottom: 1px solid #fff;
-  color: #669;
-  border-top: 1px solid #fff;
-  background: #e8edff url('table-images/gradback.png') repeat-x;
-}
-#gradient-style tfoot tr td
-{
-  background: #e8edff;
-  font-size: 12px;
-  color: #99c;
-}
-#gradient-style tbody tr:hover td
-{
-  background: #d0dafd url('table-images/gradhover.png') repeat-x;
-  color: #339;
-}
-</style>
-</head>
+
 <body lang="ar">
   <h2>تعيين اعضاء للعنصر</h2>
-<table  id="gradient-style" summary="Meeting Results">
-    <thead>
+<table  class="table">
   <tr class="header">
-    <th scope="col">اعضاء العنصر</th>
-    <th scope="col">اعضاء لم يتم تعينهم</th>
+    <th >اعضاء العنصر</th>
+    <th >اعضاء لم يتم تعينهم</th>
   </tr>
-  </thead>
-  <tbody>
-   <% @assignedppl.each do |p| %>
-    <tr>
-      <td> 
-        <%= p.user.name %>
-      <%= link_to " X ", {:controller => 'budget_item_users' ,:action => 'unassign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
-       </td>
-   <% end %>
-
-   <% @notassigned.each do |p| %> <br/>
-        <td> 
-          <%= p.user.name %>
+  <tr>
+    <td> 
+      <% @assignedppl.each do |p| %>
+      <%= p.user.name %>
+      <%= link_to " X ", {:controller => 'budget_item_users' ,:action => 'unassign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %> 
+      <% end %>
+    </td>
+    <td>
+      <% @notassigned.each do |p| %> </br>
+      <%= p.user.name %>
       <%= link_to "عين ", {:controller => 'budget_item_users' ,:action => 'assign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
-       </td>
-    <% end %> 
-    </tr>
-  </tbody>
+      <% end %> 
+    </td>
+  </tr> 
 </table>
 </body>
-</html>

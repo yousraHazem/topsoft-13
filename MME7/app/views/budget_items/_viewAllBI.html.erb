@@ -1,52 +1,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<style type="text/css">
-#gradient-style
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	margin: 45px;
-	width: 480px;
-	text-align: left;
-	border-collapse: collapse;
-}
-#gradient-style th
-{
-	font-size: 13px;
-	font-weight: normal;
-	padding: 8px;
-	background: #b9c9fe url('table-images/gradhead.png') repeat-x;
-	border-top: 2px solid #d3ddff;
-	border-bottom: 1px solid #fff;
-	color: #039;
-}
-#gradient-style td
-{
-	padding: 8px; 
-	border-bottom: 1px solid #fff;
-	color: #669;
-	border-top: 1px solid #fff;
-	background: #e8edff url('table-images/gradback.png') repeat-x;
-}
-#gradient-style tfoot tr td
-{
-	background: #e8edff;
-	font-size: 12px;
-	color: #99c;
-}
-#gradient-style tbody tr:hover td
-{
-	background: #d0dafd url('table-images/gradhover.png') repeat-x;
-	color: #339;
-}
-</style>
-</head>
 <body dir="rtl" lang="ar">
 <% if @items.blank? %>
 <% else %>
 <table class="table">
-    <thead>
  	<tr class="header">
  		<th>اسم عنصر الميزانية</th>
  		<th>مجموع</th>
@@ -60,8 +16,6 @@
  		<% end %>
  		<th>مشاهدة</th>
  	</tr>
-  </thead>
-    <tbody>
  	<% @items.each do |item| %>
 		<tr id = "budget_item">
  		<td><%= item.name %></td>
@@ -83,8 +37,7 @@
 	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> @project.id}, :class=>"btn btn-small")%></td>
  		</tr>
  	<% end %>
- 	</tbody>
 </table>
 <% end %>
 </body>
-</html>
+
