@@ -30,16 +30,9 @@ class SessionsController < ApplicationController
   #this creates the page for the user that login with his 
   #facebook account it takes his facebook email and passowrd and returns to the user page 
  def createFacebook
-    user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to root_url
-  end
-
-#Donia Amer Shaarawy 22-0270 
-#sgin out of facebook and the site 
-  def destroyFacebook
-    session[:user_id] = nil
-    redirect_to root_url, :notice => "logged out"
+    @user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = @user.id
+    redirect_to @user, :notice => "تسجيل الدخول!"
   end
 end
 

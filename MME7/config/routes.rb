@@ -25,7 +25,7 @@ root :to => "home#index"
   get "log_in" => "admin#new", :as => "log_in"
   match 'auth/:provider/callback', to: 'sessions#createFacebook'
   match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroyFacebook', as: 'signout'
+  match 'signout', to: 'sessions#destroy', as: 'log_out'
   root :to => "home#index"
  
   get "users/new"

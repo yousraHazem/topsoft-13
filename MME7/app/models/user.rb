@@ -20,8 +20,6 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :message => " هذ لبريد للكتروني غير صحيح"
   validates_uniqueness_of :email, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 
- # validates_uniqueness_of :phone_Nr, :message => "هذا الرقم تم ادخاله من قبل"
-
   validates_presence_of :username, :message => "لا يوجد سم المستخدم"
   validates_length_of :username, :maximum => 255, :message => "الحد الاقصى ٢٠ حرف"
   validates_uniqueness_of :username, :message => "يرجى احتيار سم المستخدم أحر"
@@ -40,44 +38,20 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end 
+     #Author: Donia Amer Shaarawy 22-0270
+     #takes in all the args for a user from facebook and returs a record for this facebook user
       def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-
-
-
+      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
-
-
-
-
       user.uid = auth["uid"]
-
-
-
-
       user.name = auth["info"]["name"]
-
-
-      # Password confirmation
       user.email = auth.info.email
       user.password = "iamapassword"
       user.password_confirmation = "iamapassword"
-
-
-
-
-    user.username = auth.info.email
-
-
-    user.address = auth.info.location
-
-
+      user.username = auth.info.email
+      user.address = auth.info.location
       user.oauth_token = auth.credentials.token
-
-
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-
-      
       user.save!
     end
   end  
