@@ -3,9 +3,11 @@ class Project < ActiveRecord::Base
     attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
     validates_presence_of :name, :message => "يجب اضافة اسم"
     validates_uniqueness_of :name, :message => "لقض تم اخثيار هذا  ااسم من قبل"
-    validates_presence_of :end_date , :message => "please enter end"
-    validates_presence_of :start_date, :message => "please enter start"
+    validates_presence_of :end_date , :message => "من فضلك ادخل تاريخ نهاية"
+    validates_presence_of :start_date, :message => "من فضلك ادخل تاريخ البدء"
     validate :validate_end_date_before_start_date
+
+    # Author : Nayera Mohamed 22-3789 , this method checks if the end date is earlier than the start date
     def validate_end_date_before_start_date
         if end_date && start_date
              if end_date < start_date
