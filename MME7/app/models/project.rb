@@ -35,6 +35,7 @@ class Project < ActiveRecord::Base
     has_and_belongs_to_many :communities
     has_many :budget_source_projects , :dependent => :destroy
     has_many :budget_sources , :through => :budget_source_projects
+    has_many :galleries
     attr_reader :user_tokens
 
     def self.get_projectmembers(project_id)
