@@ -1,47 +1,43 @@
 <div  id="com">
-<%= error_messages_for(@comment) %>
-<% post.comments.each do |c| %> 
-<% if current_user %>   
-<% if isCommentCreator(current_user.id,c.id) == true %>
-<div class="speech-bubble" ><b id="uname">
-    <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
-    <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :group_id => @group.id}, :confirm => 'هل أنت متأكد?', :class => 'action delete') %></span>
-    <%=c.name %></b></br>
-    <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %><br>
-    <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
-</i>
-</div>
-
-<%else%>
-
+    <%= error_messages_for(@comment) %>
+    <% post.comments.each do |c| %> 
+    <%if current_user %>   
+    <%if isCommentCreator(current_user.id,c.id) == true %>
+    <div class="speech-bubble" ><b id="uname">
+        <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعليقك للتعديل ">
+            <span class="pull-left"><%= link_to("x", {:controller => 'comments', :action => 'destroyComment', :comment_id => c.id, :group_id => @group.id}, :confirm => 'هل أنت متأكد?', :class => 'action delete') %></span>
+            <%=c.name %></b></br>
+            <%=best_in_place c, :comment, :path => {:controller => 'comments', :action=>'updateComment', :id=> c.id, :post_id => :post_id, :group_id => @group.id} %><br>
+            <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
+        </i>
+    </div>
+    <%else%>
     <div class = "speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-    <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
+        <%=breaking_word_wrap(c.comment, :line_width => 8) %></br>
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
     </div>
-<% end %>
-<%else%>
-
+    <%end%>
+    <%else%>
     <div class="speech-bubble"><b id="uname">
         <%=c.name %></b></br>
-            <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
+        <%= breaking_word_wrap(c.comment, :line_width => 8) %></br>
         <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i>
     </div>
-<% end %>
-<% end %>
-
-<% if current_user %>
-<% if ifMember(params[:id],current_user.id)==true %>
-<%= form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :group_id => @group.id, :user_id => current_user.id, :position=>position}, :html => {:id => "comment-form"}) do |f| %>
-<div class="speech-bubble-create">
-    <%= f.text_area (:comment), :placeholder =>"اضف تعليقك", "cols"=> 23, "rows"=> 2 %>
-    <%= f.hidden_field :post_id, :value => post.id%>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :is_group, :value => 'true' %>
-    <%= f.hidden_field :name, :value => current_user.username %>
-    <button id="bcom" class="btn btn-small btn-info" type="submit">إضافة تعليق</button>
-</div>
+    <%end%>
+    <%end%>
+    <%if current_user %>
+    <%if ifMember(params[:id],current_user.id)==true %>
+    <%=form_for(:comment, :url => {:controller => 'comments',:action => 'createComment', :post_id => post.id, :group_id => @group.id, :user_id => current_user.id, :position=>position}, :html => {:id => "comment-form"}) do |f| %>
+    <div class="speech-bubble-create">
+        <%= f.text_area (:comment), :placeholder =>"اضف تعليقك", "cols"=> 23, "rows"=> 2 %>
+        <%= f.hidden_field :post_id, :value => post.id%>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :is_group, :value => 'true' %>
+        <%= f.hidden_field :name, :value => current_user.username %>
+        <button id="bcom" class="btn btn-small btn-info" type="submit">إضافة تعليق</button>
+    </div>
+    <%end%>
 <%end%>
-<% end %>
-<% end %>  
+<%end%>  
 </div>

@@ -62,47 +62,47 @@ describe "POST create" do
     end  
   end
 
-  # describe "DELETE destroy" do
-  #   it "destroys the requested post" do
-  #     comment = Comment.create! valid_attributes
-  #     expect {
-  #       delete :destroyComment, {:comment_id => comment.to_param}
-  #     }
-  #   end
-  #     it "redirects to the group or project show" do
-  #      comment = Comment.create! valid_attributes
-  #      delete :destroyComment, {:comment_id => comment.to_param}
-  #       if(:is_group == false)
-  #        response.should redirect_to(:controller => 'projects', :action => "show")
-  #       end
-  #       if(:is_group ==true)
-  #        response.should redirect_to(:controller => 'groups', :action => "show")
-  #       end
+  describe "DELETE destroy" do
+    it "destroys the requested post" do
+      comment = Comment.create! valid_attributes
+      expect {
+        delete :destroyComment, {:comment_id => comment.to_param}
+      }
+    end
+      it "redirects to the group or project show" do
+       comment = Comment.create! valid_attributes
+       delete :destroyComment, {:comment_id => comment.to_param}
+        if(:is_group == false)
+         response.should redirect_to(:controller => 'projects', :action => "show")
+        end
+        if(:is_group ==true)
+         response.should redirect_to(:controller => 'groups', :action => "show")
+        end
         
-  #   end
-  # end
+    end
+  end
 
-  #    describe "PUT updateComment" do
-  #   describe "with valid params" do
-  #     it "updates the requested comment" do
-  #       comment = Comment.create! valid_attributes
-  #       put :updateComment, {:id => comment.to_param, :comment => valid_attributes }
-  #     end
+     describe "PUT updateComment" do
+    describe "with valid params" do
+      it "updates the requested comment" do
+        comment = Comment.create! valid_attributes
+        put :updateComment, {:id => comment.to_param, :comment => valid_attributes }
+      end
 
-  #     it "assigns the requested comment as @comment" do
-  #       comment = Comment.create! valid_attributes
-  #       put :updateComment, {:id => comment.to_param, :comment => valid_attributes}
-  #       assigns(:comment).should eq(comment)
-  #     end
+      it "assigns the requested comment as @comment" do
+        comment = Comment.create! valid_attributes
+        put :updateComment, {:id => comment.to_param, :comment => valid_attributes}
+        assigns(:comment).should eq(comment)
+      end
 
-  #     it "redirects to the project page or group page" do
+      it "redirects to the project page or group page" do
         
-  #       comment = Comment.create! valid_attributes
-  #       CommentsController.any_instance.stub(:comment_url).and_return("test")
-  #       put :updateComment, {:id => comment.to_param, :comment => valid_attributes}
+        comment = Comment.create! valid_attributes
+        CommentsController.any_instance.stub(:comment_url).and_return("test")
+        put :updateComment, {:id => comment.to_param, :comment => valid_attributes}
        
-  #      response.should redirect_to( "http://test.hosttest")
-  #     end
-  #   end
-  # end
+       response.should redirect_to( "http://test.hosttest")
+      end
+    end
+  end
 end

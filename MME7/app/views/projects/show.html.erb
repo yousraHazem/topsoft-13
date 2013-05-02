@@ -1,106 +1,97 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <table>
+<table>
+  <tr>
+    <td>
+      <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
+      <button type="submit">قائمة المشاريع</button>
+      <% end %>
+    </td>
+    <td>
+      <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
+      <button type="submit">ميزانية المشروع</button>
+      <% end %>
+    </td>
+    <td>
+      <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
+      <button type="submit">تعديل المشروع</button>
+      <%end%>
+    </td>
+    <td>
+      <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) do |f| %>
+      <button type="submit">المهمات</button>
+      <%end%>
+    </td>
+  </tr>
+</table>
+<div class="project show">
+  <div class="aligncenter">
+    <h1><%= @project.name %></h1> 
+  </div>    
+  <div>
+    <table class="table table-hover" >
       <tr>
-        <td>
-          <%= form_for(:project, :url =>  {:action => 'listProjects', :class => 'back link'}) do |f| %>
-              <button type="submit">قائمة المشاريع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:controller => 'budget_items',:action => 'list', :id => @project.id}) do |f| %>
-              <button type="submit">ميزانية المشروع</button>
-           <% end %>
-        </td>
-        <td>
-          <%= form_for(:project, :url => {:action => 'editProject', :id=> @project.id}) do |f| %>
-              <button type="submit">تعديل المشروع</button>
-          <% end %>
-        </td>
-        <td>
-           <%= form_for(:project, :url =>  {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) do |f| %>
-              <button type="submit">المهمات</button>
-           <% end %>
-        </td>
+        <td></i> تاريخ البداية</td>
+        <td><%= @project.start_date %></td>
+      </tr>   
+      <tr>
+        <td>تاريخ النهاية</td>
+        <td><%= @project.start_date %></td>
+      </tr>
+      <tr>
+        <td></i>تفاصيل المشروع</td>
+        <td><%= @project.description %></td>
       </tr>
     </table>
-
-<div class="project show">
-
-<div class="aligncenter">
-<h1><%= @project.name %></h1> 
-</div>    
-
-<div>
-  <table class="table table-hover" >
-    <tr>
-   
-      <td></i> تاريخ البداية</td>
-      <td><%= @project.start_date %></td>
-    </tr>   
-    <tr >
-      <td>تاريخ النهاية</td>
-      <td><%= @project.start_date %></td>
-    </tr>
-    <tr >
-      <td></i>تفاصيل المشروع</td>
-      <td><%= @project.description %></td>
-    </tr>
-  </table>
-</div>
-
+  </div>
   <div>
-
     <% if current_user %>
-   <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id} ) do |f| %>
-
+    <%= form_for(:post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id} ) do |f| %>
     <div class="triangle-create">
-     <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
-        <%= f.hidden_field :project_id, :value => @project.id%> 
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :name, :value => current_user.username %>
-         <%= f.hidden_field :is_group, :value => 'false' %>
+      <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
+      <%= f.hidden_field :project_id, :value => @project.id%> 
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :name, :value => current_user.username %>
+      <%= f.hidden_field :is_group, :value => 'false' %>
     </table> 
     <span class="pull-left"><button class="btn btn-info" type="submit">نشر التعبير</button></span>
   </div>
-        <% end %>
-    <% end %>
-
- <div id = "allpostsborder">
-  <p>
-    <div id="posts">
- <% @project.posts.each do |post| %>
-  <% if current_user %>
-  <% if isPostCreator(current_user.id,post.id ) == true %>
-   <div class="triangle-isosceles">
-    <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
+  <% end %>
+  <% end %>
+  <div id = "allpostsborder">
+    <p>
+      <div id="posts">
+        <%@project.posts.each do |post| %>
+        <%if current_user %>
+        <%if isPostCreator(current_user.id,post.id ) == true %>
+        <div class="triangle-isosceles">
+          <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
             <i id="uname" class="under"><%= post.name %></i>
             <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل أنت متأكد') %></span></br>
-      <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i></br>
-       <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
-    </i>
-    </div>
-  </p>
-  <%else%>
-   <div class="triangle-isosceles">
-    <i id="uname" class="under"><%= post.name %></i></br>
-    <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
-    <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
-  </div>
-  <%end%>
-  <%else%>
-   <div class="triangle-isosceles">
+            <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i></br>
+            <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+          </i>
+        </div>
+      </p>
+      <%else%>
+      <div class="triangle-isosceles">
         <i id="uname" class="under"><%= post.name %></i></br>
-    <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
-
-     <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
-<%end%>
+        <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
+        <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+      </div>
+      <%end%>
+      <%else%>
+      <div class="triangle-isosceles">
+        <i id="uname" class="under"><%= post.name %></i></br>
+        <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
+        <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+        <%end%>
+      </div>
+      <%= render :partial => "listcomments", :locals => {:post => post , :position=>0} %>
+      <%end%>
+    </div>
+  </b>
+</b>    
 </div>
- <%= render :partial => "listcomments", :locals => {:post => post , :position=>0} %>
-  <%end%>
 </div>
-    </b>
-    </b>    
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
+</div>
