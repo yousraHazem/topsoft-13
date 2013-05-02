@@ -13,7 +13,7 @@
  *= require_tree .
  *= require bootstrap-datepicker
  */
-
+ 
 
 .field_with_errors .message {
  display: inline;
@@ -139,6 +139,9 @@ margin: 8px 10px;
 	resize:vertical; max-height:200px;
 }
 
+.tasks{
+ text-align: right;
+ }
 
 
 
@@ -225,6 +228,14 @@ td.ta textarea {
 	text-align: right;
 }
 
+#desc{
+	margin: 20px;
+}
+.description {
+margin: 20px;
+	
+}
+
 
 #main-wrap > div { min-height: 450px; }
 
@@ -234,11 +245,11 @@ td.ta textarea {
     min-height: 40px;
 }
 
-
 #main-wrap {
 	margin-top:60px;  
     overflow: hidden;
 }
+
 
 #sidebar {
     float: left;
@@ -361,3 +372,6 @@ padding: 2px 12px 2px 10px;
 #subnav A:hover, #subnav A:active { color: #444; }
 #subnav A.active:link, #subnav A.active:visited { color: #444; }
 #subnav BR, #navcontainer BR { clear: both; }
+ .white {
+ text-color: #ffffff
+ }

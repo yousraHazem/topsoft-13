@@ -22,13 +22,15 @@ gem 'client_side_validations'
 
 #gem 'simplecov'
 gem 'carrierwave'
-gem "rmagick", "~> 2.13.2", :require => 'RMagick'
+gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
  #gem 'annotate', '2.5.0'
 
 gem 'factory_girl_rails', '4.1.0'
+
+
 #gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
