@@ -33,11 +33,16 @@ class ProjectsController < ApplicationController
   # Author : Nayera Mohamed 22-3789 
   # Args : project params
   # returns :creates a new project 
+  #Author : Donia Amer Shaarawy 22-0270
+  #altered and added a community id and will add the realationship 
+  #returns the community and its projects 
   def createProject
       @project=Project.new(params[:project])
       if @project.save
-         @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
+         @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true') 
          @projectuser.save
+         @communitiesProjects = CommunitiesProjectsJoin.new(:project_id => @project.id, :community_id => @project.community_id )
+         @communitiesProjects.save
          flash[:notice]= "project created"
 
          @members = User.all
