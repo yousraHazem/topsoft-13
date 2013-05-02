@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20130501164545) do
-
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -114,33 +112,11 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-    t.integer  "level"
     t.string   "ancestry"
+    t.integer  "level"
   end
 
   add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
-
-  create_table "images", :force => true do |t|
-    t.string   "image2"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "notification_users", :force => true do |t|
-    t.integer  "notification_id"
-    t.integer  "user_id"
-    t.boolean  "read",            :default => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-  end
-
-  create_table "notifications", :force => true do |t|
-    t.string   "content"
-    t.string   "url"
-    t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "images", :force => true do |t|
     t.string   "image2"
@@ -228,7 +204,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "profile"
     t.string   "image"
   end
 
