@@ -14,51 +14,89 @@
 <!-- AddThis Button END -->
 <br>
 <br>
-<br>
+
+<% if loged_in? %>
 <div class = "aligncenter">
   <div id="navcontainer">
-  <ul id="navlist">
-       <% if isProjectCreator(current_user.id, @project.id)%> 
-         <% if Date.today < @project.end_date %>
-          <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
-          <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+    <ul id="navlist">    
+         <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true%> 
+           <% if Date.today < @project.end_date %>
+            <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
+            <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+          <% end %>
         <% end %>
-      <% end %>
-      <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
-      <% if Date.today < @project.end_date %>
-        <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
-        <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
-      <% end %>
-  </ul>
+        
+        <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+        <% if Date.today < @project.end_date %>
+          <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
+          <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
+          <li><%= link_to("ألبوم ", {:controller => 'galleries' ,:action => 'show', :project_id => @project.id}) %></li>
+        <% end %>
+    </ul>
   </div>
 </div>
 <br>
-
-
-<div id="main-wrap">
-  <div id="content-wrap">
-    <td>  
-        <div class="project show">   
-          <div class="aligncenter">
-             <div class = "body">
-            <table class="table" >
-             <div class = "addColor">
-              <tr>
-                <th><div> تاريخ البداية</div></th>
-                <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
-              </tr>   
-              <tr >
-                <th><div>تاريخ النهاية</div></th>
-                <th><div  id = "addMargin"><%= @project.end_date %></div></th>
-              </tr>
-              <tr >
-                <th><div>تفاصيل المشروع</div></th>
-                <th><div id = "addMargin"><%= @project.description %></div></th>
-              </tr>
-              </div>
-            </table>
-            </div>
+<% end %>
+    <div id="main-wrap">
+    <div id="content-wrap">
+      <td>  
+          <div class="project show">   
+            <div class="aligncenter">
+              <div class = "body">
+                <table class="table" >
+                 <div class = "addColor">
+                  <tr>
+                    <th><div> تاريخ البداية</div></th>
+                    <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
+                  </tr>   
+                  <tr >
+                    <th><div>تاريخ النهاية</div></th>
+                    <th><div  id = "addMargin"><%= @project.end_date %></div></th>
+                  </tr>
+                  <tr >
+                    <th><div>تفاصيل المشروع</div></th>
+                    <th><div id = "addMargin"><%= @project.description %></div></th>
+                  </tr>
+                  </div>
+                </table>
           </div>
-      </td>
+      </div>
+  </td>
+  </ul>
+ 
+
+<% if loged_in? %>
+<%= @findMap %>
+      <% if @findMap == nil && isProjectCreator(current_user.id, @project.id)%>
+         <div class = "alignright">
+            <table>
+            <h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
+                <i class="icon-plus icon-white"></i> 
+                <% end %>أضف خريطة </h4>
+
+            <div id="item-form" style="display:none;" >
+            <%= form_for(:character, :url =>  {:controller =>'characters', :action =>'create', :project_id=> @project.id}) do |f|%>
+            <div class="field">
+                <%= "الاسم" %><br />
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= "العنوان" %><br />
+                <%= f.text_field :address %>
+              </div>
+                <button type="submit">أضف خريطة </button>
+            <% end %>
+            </div>
+            </table>
+            </div>      
+      <% else %>
+            <%= button_to("الخريطة ", {:controller => 'characters', :action=>'show', :id => @findMap},      class:  "btn btn-success")%>
+      <% end %>
   </div>
 </div>
+<% end %>
+ </div>
+</div>
+
+
+

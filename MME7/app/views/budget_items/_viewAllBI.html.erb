@@ -27,9 +27,6 @@
 		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
 	    </td>
 	    <td class="actions">
-	    <%= link_to("الاعضاء autocomplete", {:action=>'assign_member' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
-	    </td>
-	    <td class="actions">
 	    <%= link_to("الاعضاء", {:controller =>'budget_items', :action =>'getProjectMembers',:project_id => @project.id , :budget_item_id => item.id }, :class => 'btn btn-small') %>
 		</td>
 	    <% end %> 

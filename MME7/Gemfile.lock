@@ -66,6 +66,7 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    gmaps4rails (1.5.6)
     hike (1.2.2)
     i18n (0.6.1)
     journey (1.0.4)
@@ -163,6 +164,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails (= 4.1.0)
+  gmaps4rails
   jquery-rails
   mail (~> 2.5.3)
   rails (= 3.2.13)
