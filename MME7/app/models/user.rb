@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :message => " هذ لبريد للكتروني غير صحيح"
   validates_uniqueness_of :email, :case_sensitive => false, :message => "يرجى احتيار ايميل أحر"
 
-  validates_uniqueness_of :phone_Nr, :message => "هذا الرقم تم ادخاله من قبل"
+ # validates_uniqueness_of :phone_Nr, :message => "هذا الرقم تم ادخاله من قبل"
 
   validates_presence_of :username, :message => "لا يوجد سم المستخدم"
   validates_length_of :username, :maximum => 255, :message => "الحد الاقصى ٢٠ حرف"
