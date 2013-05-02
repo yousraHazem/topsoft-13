@@ -1,9 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-
 <style type="text/css">
 #gradient-style
 {
@@ -43,7 +40,6 @@
 	background: #d0dafd url('table-images/gradhover.png') repeat-x;
 	color: #339;
 }
-
 </style>
 </head>
 <body dir="rtl" lang="ar">
@@ -76,7 +72,7 @@
 	    </td>
 	    <% end %> 
 	    <% end %>
-	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id,:name=>item.name}, :class=>"btn btn-small")%></td>
+	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id}, :class=>"btn btn-small")%></td>
  		</tr>
  	<% end %>
  	</tbody>

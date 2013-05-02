@@ -1,17 +1,32 @@
 require 'spec_helper'
-# Author : Nayera Mohamed 22-3789
+
+ def valid_attributes
+    {:project_id => 1, :user_id => 1, :is_creator => true}
+  end
+
+  def invalid_attributes
+   {:project_id => 'a', :user_id => 'a', :is_creator => 'a'}
+  end
+
+
+
 describe ProjectUsersController do
-
-it"should return list of members in a project" do
-	project = Project.new(:project_name => "proj1", :start_date  => "7/8/2013", :end_date => "7/8/2014" , :description => "blablablablablabla")
-	project.save
-	projectid = project.id
-	projectuser = ProjectUser.new(:project_id => 1 , :user_id => 1, :is_creator => false)
-	projectuser.save
-	projectuser = ProjectUser.new(:project_id => 1 , :user_id => 2, :is_creator => false)
-	projectuser.save
-	projectuser.getProjectmembers(projectid)
-end
-   
-
-end
+	describe "POST promoteMembers" do
+		describe "with valid params" do
+		    it "promotes a project user to be a project creatot" do
+		      @user = ProjectUser.create!
+		      u = ProjectUser.should_receive(:find).and_return(@user)
+		      put :promoteMembers, {:id => u.to_param}
+			  redirect_to(:controller => 'project_users', :action => 'index')
+    		end
+		end
+		describe "with invalid params" do
+		    it "promotes a project user to be a project creatot" do
+		      @user = ProjectUser.create!
+		      u = ProjectUser.should_receive(:find).and_return(@user)
+		      put :promoteMembers, {:id => u.to_param}
+			  redirect_to(:controller => 'projects', :action => 'show')
+    		end
+		end
+  	end
+end	

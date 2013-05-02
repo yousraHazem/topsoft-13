@@ -12,7 +12,5 @@ class BudgetItem < ActiveRecord::Base
   def user_tokens=(ids)  
     self.user_ids = ids.split(",")  
   end  
-
-   validates_presence_of :name , :message => "يرجى أدخال الأسم"
-  
+  validates_presence_of :name , :message => "يرجى أدخال الأسم"
 end

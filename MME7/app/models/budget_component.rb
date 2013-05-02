@@ -9,11 +9,11 @@ class BudgetComponent < ActiveRecord::Base
 
 validates :name, :presence => {:message => "يجب ادخال الاسم" } 
 validates_numericality_of :unit_price, :greater_than => 0,
-                        :allow_blank => false 
+                        :allow_blank => false, :message => "يرجى إدخال رقم صحيح"
 validates_numericality_of :quantity_purchased, :greater_than => 0,
-                        :allow_blank => false
+                        :allow_blank => false, :message => "يرجى إدخال رقم صحيح"
 validates_numericality_of :total_quantity, :greater_than => 0,
-                        :allow_blank => false
+                        :allow_blank => false, :message => "يرجى إدخال رقم صحيح"
 validates_numericality_of :quantity_purchased, :less_than_or_equal_to => :total_quantity,
                         :if => Proc.new { |o| !o.total_quantity.nil? } ,
                         :message => "الكمية المشتراة يجب الا تزيد عن  مجموع الكمية المحدد"

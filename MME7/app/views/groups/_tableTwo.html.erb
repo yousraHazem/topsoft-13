@@ -1,0 +1,30 @@
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+
+ <table  >
+  <tr>
+      <th>أسم المجموعة</th>
+      <td><%= f.text_field :group_name %></td>
+  </tr>
+  
+  <tr>
+      <th>وصف عن المجموعة</th>
+      <td class="texta"><%= f.text_area(:description) %></td>
+  </tr>
+ 
+  <tr>
+      <th>مستوة المجموعة</th>
+      <td><%= f.text_field :level %></td>
+  </tr>
+
+  <table>
+  <tr>
+      <%= f.label :user_tokens, "إضافة أعضاء للمجموعة" %><br />
+    <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json %>
+  </tr>
+</table>
+
+  </table>
+
+
+
