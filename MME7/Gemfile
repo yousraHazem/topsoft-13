@@ -22,7 +22,7 @@ gem 'client_side_validations'
 
 #gem 'simplecov'
 gem 'carrierwave'
-#gem 'rmagick'
+gem "rmagick", "~> 2.13.2", :require => 'RMagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
