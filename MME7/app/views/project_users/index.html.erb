@@ -1,5 +1,6 @@
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="aligncenter">
+  <% if loged_in? %>
     <h1><%= @project.name %></h1> 
 </div> 
 <td>
@@ -40,9 +41,9 @@
               </td>         
               <td>        
                 <% if m.is_creator == true %>
-                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-danger') %>
+                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id,           :user_id => m.user_id}, :class =>'btn btn-danger') %>
                 <% else %>     
-                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id,         :user_id => m.user_id}, :class =>'btn btn-primary') %>
                 <% end %>
               </td>
             </tr> 
@@ -51,6 +52,7 @@
       <% end %>
     </td>
   </div>
+   <% end %>
 </div>
    
        
