@@ -1,50 +1,126 @@
-<!DOCTYPE html>
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html dir="rtl">
 <head>
-<title>MME7</title>
- <%= stylesheet_link_tag "application", "token-input" , "token-input-facebook", :media=>"all" %>
- <%= javascript_include_tag "application", "jquery.tokeninput" , "rails.validations"%>
-  <%= csrf_meta_tags %>
+
+    <title>MME7</title>
+     <%= stylesheet_link_tag  "application", "style_light",  "token-input" , "token-input-facebook" , :media => "all" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", :media => "all" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" , "jquery.tokeninput", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
+  <title><%= yield :name %></title>
+  <title><%= yield :start_date %></title>
+  <title><%= yield :end_date %></title>
+  <title><%= yield :descritption %></title>
+     <%= csrf_meta_tags %>
+</head>
+   <style type="text/css">
+        .tooltip {
+            width: 250px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background: #444;
+            border: 1px solid #090909;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            position: absolute;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            color:#fff;
+            padding:12px 24px;
+            line-height:18px;
+        }
+
+        .tooltip:after {
+            content: '';
+            position: absolute;
+            border-color: transparent  #444 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+
+        .tooltip:before {
+            content: '';
+            position: absolute;
+            border-color:   transparent #090909 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        
+        body{
+            background: transparent url(images/bg.png) repeat 0 0 scroll;
+        }
+
+        .ttw-notification-menu{
+                width: 276px;
+        }
+</style>
 </head>
 <body id = "background">
-  <div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      
+
+  <div class="navbar navbar">
+  <div class="navbar-inner kay">    
       <div class="nav-collapse">
-        <ul class="nav">
+        <ul class="nav pull-right" >
+          <% if current_user %>
+          <li id="projects" class="notification-menu-item first-item"><a>اشعارات</a>
+          <span id="count" class="notification-bubble" style="background-color: rgb(245, 108, 126); display: inline;"><%= notification_count(current_user.id) %></span></li><%end%>
+          <li class="notification-menu-item "><%= link_to "الاتصال بنا" %></li>
+          <li class="notification-menu-item "><%= link_to "مجموعات" %></li>
+          <li class="notification-menu-item "><%= link_to "المجتمعات" %></li>
+          <li class="notification-menu-item " id="not"><%= link_to ("امشاريع") %></li>
+          <li class="notification-menu-item ">
+          <%= link_to({:controller=>'home', :action=>'index'}) do %>
+          <i class="icon-home"></i> الصفحة الرئيسية
+          <% end %>
 
-          <li  class="text-info"><%= link_to "Home"%></li>
-          <li class="text-info"><%= link_to "About Us" %></li>
-          <li class="text-info"><%= link_to "الاتصال بنا" %></li>
-          <li class="text-info"><%= link_to "مجموعات" %></li>
-          <li class="text-info"><%= link_to "المجتمعات" %></li>
-          <li class="text-info"><%= link_to "امشاريع" %></li>
-          <li  class="text-info"><% if current_user %><%= current_user.username %>.<li class="offset10"><%= link_to "خروج", log_out_path %></li><% else %>
-            <%= link_to "اشتراك", sign_up_path , :id=>"signup" %> </li><li><%= link_to " دخول", log_in_path , :id=>"signin" %><% end %>
-
+          </li>
+          <li  class="text-info">
+        </ul>
+        <ul class="nav pull-left">
+            <% if current_user %>
+            <li><%= link_to "خروج", log_out_path %></li>
+            <% else %>
+            <li><%= link_to "اشتراك", sign_up_path , :id=>"signup" %></li><li><%= link_to " دخول", log_in_path , :id=>"signin" %>
+            </li>
+            <% end %>
+          </li>
         </ul>
       </div>
   </div>
 </div>
-
-
-<div class="container">
-
-  <div class="row"></div>
-  <div class="span9"> </div>
-
-
-
-<div>
-<%= yield %>
+<span class="pic" style="display:none;"><%= image_tag('list-pointer.png', :alt=>"Rails logo") %></span>
+ <% if current_user %>
+<%  user =  current_user.id %>
+<div id="current-user" data-id="<%= user %>">
+<div id="notify"  class="notification-list-wrapper" style="top: 90px; left: 800px; display:none; opacity: 1;">
+        <span><%= link_to("all",{:controller => 'notifications', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
+        <div id = "notification">
+       <% @nots = notifications %>
+       <%= render(:partial => "notifications/notification" , :locals => {:@nots=> @nots})%>
+        </div>
 </div>
-
+<%end%>
+<div class="container body">
+  <%= yield %>
+</div>
 </div>
 
 </body>

@@ -1,4 +1,4 @@
-#encoding: utf-8
+#encoding: UTF-8
 class Project < ActiveRecord::Base
    attr_accessible  :name , :start_date , :end_date , :description, :user_tokens  
    validates_presence_of :name, :message => "يجب اضافة اسم"
@@ -63,9 +63,6 @@ class Project < ActiveRecord::Base
     end 
 
 
-    def budgetSourceProject(project_id)
-     @budgetSourceProject = BudgetSourceProject.where(:project_id => project_id , :amount => 0).exists?
-    end
 
     def budgetItems(project_id)
      @budgetItems = BudgetItem.where(:project_id => project_id , :total => 0).exists?

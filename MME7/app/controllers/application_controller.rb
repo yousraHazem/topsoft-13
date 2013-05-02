@@ -1,6 +1,19 @@
 #encoding: UTF-8
 class ApplicationController < ActionController::Base
   protect_from_forgery  
+   layout :resolve_layout
+
+   def resolve_layout
+    if current_user
+      if current_user.isAdmin
+        "admin"
+      else 
+        "application"
+      end
+    else 
+      "application"
+    end
+    end
    #Author: Donia Amer Shaarawy 22-0270
    #it takes userid in a session and save it in a variable current_user returns current user id 
   def current_user
@@ -14,4 +27,6 @@ class ApplicationController < ActionController::Base
    log_out
    super
   end
+
+ 
 end

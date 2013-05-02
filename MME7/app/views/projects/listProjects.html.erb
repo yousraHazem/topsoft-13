@@ -2,10 +2,10 @@
 <div >
  <h2>المشاريع</h2>
  <% if loged_in? %>
-  <% if current_user.isAdmin == true %>
-	 <%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
+	 <% if current_user.isAdmin == true %>
+	 	<%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
+	 <% end %>
   <% end %>
- <% end %>
     <table class="table table-striped">
 	 	<tr>
 	 		<th>المشروع</th>
@@ -19,21 +19,21 @@
 	 		<td> <%= project.start_date %>   </td>
 	 		<td> <%= project.end_date %>     </td>
 	 		<td> <%= project.description %>  </td>
-				<td >
+            <% if loged_in? %>
+		 		<td >
 				 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
 				</td >
-			 <% if loged_in? %>
-				<% if isProjectCreator(current_user.id, project.id) %>
+			  <% if current_user.isAdmin == true || isProjectCreator(current_user.id, project.id) %>
 					<td >
 					   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
 					</td>
 					<td >
 					   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}) %><i class="icon-remove"></i> </li>
 					</td>
-				<% end %>
 			  <% end %>
+			<% end %>
+			
 	 	</tr>
 	 	<% end %>
     </table>
 </div>
-
