@@ -24,7 +24,7 @@ gem 'omniauth'
 
 #gem 'simplecov'
 gem 'carrierwave'
-gem 'rmagick'
+#gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
