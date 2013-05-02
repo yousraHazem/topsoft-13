@@ -84,8 +84,6 @@ ActiveRecord::Schema.define(:version => 20130501164545) do
     t.string   "name"
   end
 
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
-
   create_table "communities", :force => true do |t|
     t.string   "title"
     t.text     "social_profile_info"

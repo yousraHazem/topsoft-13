@@ -30,6 +30,15 @@
     <dt dir="rtl" lang="ar">وصف *</dt>
     <dd dir="rtl" class = "ta"><%= f.text_area :description, "cols" => 40, "rows" => 6 %></dd>
 
+
+
+  <table>
+  <tr>
+      <%= f.label :user_tokens, "إضافة أعضاء للمجموعة" %><br />
+    <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json %>
+  </tr>
+</table>
+
   <div>
     <span class="pull-left"><button class="btn btn-info" type="submit">إنشاء المجموعة</button><span>
   </div>
