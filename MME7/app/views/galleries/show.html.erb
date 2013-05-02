@@ -15,10 +15,9 @@
 <td><%= f.submit ("إحفظ") %></td>
 </p>
 <% end %>
-
- <div>
-  <% @gallery.each do |photo| %>
+ <% @gallery.each do |photo| %>
     <div>
+ <div>
     <%= image_tag photo.photo_url(:thumb).to_s %>
     <div>
     <b><%= link_to "X", {:controller => 'galleries',:action => 'destroy',:id => photo.id ,:project_id => @project_id},:confirm => "هل تريد مسح المهمة ؟" %></b>

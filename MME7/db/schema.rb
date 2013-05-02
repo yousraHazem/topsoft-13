@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501100432) do
+ActiveRecord::Schema.define(:version => 20130501164545) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20130501100432) do
     t.integer  "quantity_purchased", :default => 0
     t.integer  "unit_price"
     t.integer  "total"
+  end
+
+  create_table "budget_item_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "budget_item_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "budget_items", :force => true do |t|
@@ -57,12 +64,24 @@ ActiveRecord::Schema.define(:version => 20130501100432) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "carousels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "show",        :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "news"
+    t.integer  "project_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
@@ -99,14 +118,33 @@ ActiveRecord::Schema.define(:version => 20130501100432) do
   create_table "groups", :force => true do |t|
     t.string   "group_name",   :limit => 50
     t.text     "description"
-    t.string   "levels"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
+    t.string   "ancestry"
+    t.integer  "level"
   end
+
+  add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
 
   create_table "images", :force => true do |t|
     t.string   "image2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notification_users", :force => true do |t|
+    t.integer  "notification_id"
+    t.integer  "user_id"
+    t.boolean  "read",            :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "content"
+    t.string   "url"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -115,9 +153,11 @@ ActiveRecord::Schema.define(:version => 20130501100432) do
     t.text     "content"
     t.integer  "group_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.boolean  "is_group",   :default => false
+    t.string   "name"
   end
 
   create_table "project_users", :force => true do |t|
@@ -174,6 +214,7 @@ ActiveRecord::Schema.define(:version => 20130501100432) do
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

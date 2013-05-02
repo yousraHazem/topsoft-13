@@ -1,26 +1,24 @@
 
 <%= error_messages_for(@component) %>
 <div id="budget-component-dialog">
- <table>
-    <tr>
-	  <th ><%= f.label(:name, "الاسم:")%></th>
-	  <td><%= f.text_field(:name, :id=>"name") %></td>
-    </tr>
+ <dl>
+    
+	  <dt ><%= f.label(:name, "الاسم:")%></dt>
+	  <dd><%= f.text_field(:name, :id=>"name") %></dd>
+   
+	  <dt><%= f.label(:unit_price , "سعر الوحدة ")%></dt>
+	  <dd><%= f.text_field(:unit_price, :id=>"price") %></dd>
 
-    <tr>
-	  <th><%= f.label(:unit_price , "سعر الوحدة ")%></th>
-	  <td><%= f.text_field(:unit_price, :id=>"price") %></td>
-    </tr>
 
-    <tr>
-	  <th><%= f.label(:quantity_purchased , "الكمية المشتراة" )%></th>
-	  <td><%= f.text_field(:quantity_purchased, :id=>"qty") %></td>
-    </tr>
+  
+	  <dt><%= f.label(:quantity_purchased , "الكمية المشتراة" )%></dt>
+	  <dd><%= f.text_field(:quantity_purchased, :id=>"qty") %></dd>
+   
 
-    <tr>
-	  <th><%= f.label(:total_quantity , "اجمالى الكمية ")%></th>
-	  <td><%= f.text_field(:total_quantity, :id=>"total") %></td>
-    </tr>
+   
+	  <dt><%= f.label(:total_quantity , "اجمالى الكمية ")%></dt>
+	  <dd><%= f.text_field(:total_quantity, :id=>"total") %></dd>
+  
 
     <tr>	
 	  <td><%= f.hidden_field :budget_item_id , :value=>@item %></td>
@@ -37,7 +35,7 @@
     <tr>
 	  <td><%= f.hidden_field :spent , :id=>"spent" %></td>
     </tr>
- </table> 
+ </dl> 
 </div>
 
 

@@ -6,6 +6,15 @@ def valid_attributes
  { name: "Example User", email: "user@example.com", phone_Nr: "123456788", isAdmin: false,
   address: "nr st distric city", username: "username", password: "password", password_confirmation: "password" }
 end
+describe "POST assignTask" do
+    describe "with valid params" do
+      it "creates a new task" do
+        expect {
+        post :assign
+        }.to change(TaskUser, :count).by(1)
+    end 
+  end 
+end 
 describe "GET show" do
 it "assigns the requested user as @user " do
 user = User.create! valid_attributes
@@ -36,13 +45,5 @@ post :create, {:user => valid_attributes}
 response.should redirect_to(:controller => 'sessions', :action => 'new')
 end
 end
-end
-describe "unassign task to member" do
-    it "destroys the requested task" do
-      @task = TaskUser.create!
-      expect {
-        delete :unassign, {:id => @task.to_param}
-      }.to change(TaskUser, :count).by(-1)
-    end
 end
 end

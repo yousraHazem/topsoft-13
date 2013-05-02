@@ -1,0 +1,22 @@
+<% @notifications.each do |t|%>
+<% url = t.notification.url %>
+<a href="<%= url %>" style="text-decoration: none;">
+<div class="<%= t.read == false ? 'notification-list unread' : 'notification-list read' %>"  data-time="<%= t.created_at.to_i %>"> <% if t.notification.image.to_s == "edit budget"%>
+	<%= image_tag('edit.jpg', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "create budget"%>
+	<%= image_tag('b.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "delete budget"%>
+	<%= image_tag('del.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "create project"%>
+	<%= image_tag('p.png', :alt=>"Rails logo") %>
+	<% end %>
+	<% if t.notification.image.to_s == "post"%>
+	<%= image_tag('post.png', :alt=>"Rails logo") %>
+	<% end %>
+<%= t.notification.content %><i class="date2 pull-left" dir="ltr"><%= time_ago_in_words(t.created_at)%><i> ago </i></i><br><br><br>
+</div> 
+</a> 
+<%end%>

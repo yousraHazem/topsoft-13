@@ -1,0 +1,38 @@
+<%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'listProjects', :class => 'back link'} ) %>
+ <h2>المهام</h2>
+<table class="table table-striped">
+	 <br/>
+	  <br/>
+	   <br/>
+	    <br/>
+	     <br/>
+	<% @tasks.each do |task| %>
+	<tr>
+		<td>  <div class = "alignright"><%= task.description %> </div>
+	   <% if isProjectCreator(current_user.id,params[:id]) == true %>
+
+		<%= link_to(" تعيين عضو لمهمة   ", {:controller =>'tasks', :action =>'getProjectMembers', :project_id => @project_id , :task_id => task.id }, :class => 'action getProjectMembers') %>
+		<%= link_to("-  تعديل  -", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %>
+		<b><%= link_to "X", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
+		<% end %>
+	    </td>
+	</tr>
+	<% end %>
+  <% if isProjectCreator(current_user.id,params[:id]) == true %>
+<div>
+	<%= form_for(:task, :url => {:action => 'create',:project_id => @project_id}) do |f| %>
+	<table>
+		<tr>
+			<h2>إضافة مهمة جديدة</h2>
+			<th id= "desc">تفاصيل المهمة</th>
+			<td><%= f.text_area :description ,"rows" => 4, "cols" => 30 %></td>
+		</tr>
+		<tr><%= f.hidden_field :project_id , :value=> @project_id %></tr>
+    </table>
+	<div>  
+		<%= submit_tag("إضافة") %>
+	</div>
+    <% end %>
+   <% end %>
+    </table>
+</div>	 	
