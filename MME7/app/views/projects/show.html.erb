@@ -49,12 +49,14 @@
 <div class = "aligncenter">
   <div id="navcontainer">
   <ul id="navlist">
+    
        <% if isProjectCreator(current_user.id, @project.id)%> 
          <% if Date.today < @project.end_date %>
           <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
           <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
         <% end %>
       <% end %>
+      
       <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
       <% if Date.today < @project.end_date %>
         <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
