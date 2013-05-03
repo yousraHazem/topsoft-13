@@ -1,12 +1,18 @@
 <% @page_title = "Projects List" %>
 <div >
- <h2>المشاريع</h2>
+ <h2 class="title">المشاريع</h2>
  <% if loged_in? %>
 	 <% if current_user.isAdmin == true %>
-	 	<%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
+	 	<%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn') %>
 	 <% end %>
   <% end %>
-    <table class="table table-striped">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <table class="table body">
 	 	<tr>
 	 		<th>المشروع</th>
 	 		<th>تاريخ البداية</th>
@@ -15,20 +21,14 @@
 	 	</tr>
 	 	<% @projects.each do |project| %>
 		 	<tr>
-		 		<td> <%= project.name %></td>
+		 		<td> <%= link_to("#{project.name}", {:action => 'show', :id => project.id} , :class=>"link") %></td>
 		 		<td> <%= project.start_date %>   </td>
 		 		<td> <%= project.end_date %>     </td>
 		 		<td> <%= project.description %>  </td>
 	            <% if loged_in? %>
-			 		<td >
-					 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
-					</td >
 				  <% if current_user.isAdmin == true || isProjectCreator(current_user.id, project.id) %>
-				        	<td >
-							   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
-							</td>
 						<td >
-						   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}) %><i class="icon-remove"></i> </li>
+						   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}, :class=>"link") %><i class="icon-remove"></i> </li>
 						</td>
 				  <% end %>
 				<% end %>

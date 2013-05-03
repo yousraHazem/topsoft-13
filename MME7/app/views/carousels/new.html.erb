@@ -1,7 +1,8 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @carousel}) %>
 <div> 
 	<%= form_for(:carousel, :url=>{:action=>'create'}) do |f| %>
-	
+	<br>
+	<br>
 	<table class="table body">
 <tr>
 <th><%= f.label(:Title ,"عنوان")%></th>
@@ -13,7 +14,10 @@
 <td class = "text"><%= f.text_area(:description)%></td>
 </tr>
 </br>
-
+<tr>
+<th><%= f.label(:Project , "المشروع")%></th>
+<td><%= f.select(:project_id, @projects.collect {|i| [i.name,i.id]},{:include_blank => true}) %></td>
+</tr>
 </br>
 <tr>
 <th><%= f.label(:News ,"الصورة")%></th>

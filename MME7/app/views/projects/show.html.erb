@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <br>
 
-<h1 class = "aligncenter"><%= @project.name %></h1>
+<h1 class = "title"><%= @project.name %></h1><br><br>
 
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
@@ -16,65 +16,31 @@
 <br>
 
 <% if loged_in? %>
-<div class = "aligncenter">
-  <div id="navcontainer">
-    <ul id="navlist">    
+     <div class ="row">  
+      <div class="span2 group">
          <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true%> 
            <% if Date.today < @project.end_date %>
-            <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
-            <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+            <span id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id} , :class => 'btn span2') %></span><br><br>
+            <span><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}, :class => 'btn span2') %></span><br><br>
           <% end %>
         <% end %>
         
-        <li><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'})%></li>
+        <span><%= link_to("قائمة المشاريع", {:action => 'listProjects', :class => 'back link'}, :class => 'btn span2')%></span><br><br>
         <% if Date.today < @project.end_date %>
-          <li><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id})  %></li>
-          <li><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id}) %></li>
-          <li><%= link_to("ألبوم ", {:controller => 'galleries' ,:action => 'show', :project_id => @project.id}) %></li>
-        <% end %>
-    </ul>
-  </div>
-</div>
-<br>
-<% end %>
-    <div id="main-wrap">
-    <div id="content-wrap">
-      <td>  
-          <div class="project show">   
-            <div class="aligncenter">
-              <div class = "body">
-                <table class="table" >
-                 <div class = "addColor">
-                  <tr>
-                    <th><div> تاريخ البداية</div></th>
-                    <th><div id = "addMargin" class = "alignleft"><%= @project.start_date %></div></th>
-                  </tr>   
-                  <tr >
-                    <th><div>تاريخ النهاية</div></th>
-                    <th><div  id = "addMargin"><%= @project.end_date %></div></th>
-                  </tr>
-                  <tr >
-                    <th><div>تفاصيل المشروع</div></th>
-                    <th><div id = "addMargin"><%= @project.description %></div></th>
-                  </tr>
-                  </div>
-                </table>
-          </div>
-      </div>
-  </td>
-  </ul>
- 
+          <span><%= link_to("ميزانية المشروع", {:controller => 'budget_items',:action => 'list', :id => @project.id},:class => 'btn span2')  %></span><br><br>
+          <span><%= link_to("مهمات المشروع", {:controller =>'tasks', :action =>'listTasks',:id=> @project.id},:class => 'btn span2') %></span><br><br>
+          <span><%= link_to("ألبوم ", {:controller => 'galleries' ,:action => 'show', :project_id => @project.id},:class => 'btn span2') %></span>
+        <% end %> <br> <br>
 
-<% if loged_in? %>
-<%= @findMap %>
+        <% if loged_in? %>
+      
       <% if @findMap == nil && isProjectCreator(current_user.id, @project.id)%>
-         <div class = "alignright">
-            <table>
-            <h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
-                <i class="icon-plus icon-white"></i> 
-                <% end %>أضف خريطة </h4>
-
-            <div id="item-form" style="display:none;" >
+         
+            
+            <span> <%= link_to("#",:id=>"new-item" , class: 'btn span2') do %>أضف خريطة 
+                
+                <% end %></span>
+            <div id="item-form" class= "toggle" style="display:none; " >
             <%= form_for(:character, :url =>  {:controller =>'characters', :action =>'create', :project_id=> @project.id}) do |f|%>
             <div class="field">
                 <%= "الاسم" %><br />
@@ -86,17 +52,63 @@
               </div>
                 <button type="submit">أضف خريطة </button>
             <% end %>
-            </div>
-            </table>
-            </div>      
+            </div>   
       <% else %>
-            <%= button_to("الخريطة ", {:controller => 'characters', :action=>'show', :id => @findMap},      class:  "btn btn-success")%>
+            <%= link_to("الخريطة ", {:controller => 'characters', :action=>'show', :id => @findMap}, :class => 'btn span2')%>
       <% end %>
-  </div>
+<% end %>
 
+  
+<br>
 </div>
 <% end %>
+<div class="span7 group2">
+  
+      <td>     
+                <dl class="body" >
+                
+                    <dt> تاريخ البداية: <%= @project.start_date %></dt><br>
+                   
+               
+                    <dt>تاريخ النهاية: <%= @project.end_date %></dt><br>
+                
+                    <dt style="text-align:justify;">تفاصيل المشروع: <%= @project.description %> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+            
+                </dl>
+             
+    </td>
+  </div>
  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
  <% if current_user %>
     <%= form_for(@post, :as => :post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}, :validate=>true ) do |f| %>
     <div class="triangle-create">
@@ -105,17 +117,17 @@
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :name, :value => current_user.username %>
       <%= f.hidden_field :is_group, :value => 'false' %>
-    </table> 
     <span class="pull-left"><button class="btn btn-info" type="submit">نشر التعبير</button></span>
   </div>
   <% end %>
-  <% end %>
+<% end %>
+
+
  <div id = "allpostsborder">
-    <p>
       <div id="posts">
-        <%@project.posts.each do |post| %>
-        <%if current_user %>
-        <%if isPostCreator(current_user.id,post.id ) == true %>
+  <%@project.posts.each do |post| %>
+    <%if current_user %>
+      <%if isPostCreator(current_user.id,post.id ) == true %>
         <div class="triangle-isosceles">
           <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
             <span id="uname" class="under pull-right"><%= post.name %></span>
@@ -124,31 +136,32 @@
             <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
           </i>
         </div>
-      </p>
+
+      
       <%else%>
+
       <div class="triangle-isosceles">
         <span id="uname" class="under pull-right"><%= post.name %></span></br>
         <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
         <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
       </div>
+
       <%end%>
-      <%else%>
+
+  <%else%>
       <div class="triangle-isosceles">
        <span id="uname" class="under pull-right"><%= post.name %></span></br>
         <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
         <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
-        <%end%>
       </div>
+  <%end%>
+      
       <%= render :partial => "listcomments", :locals => {:post => post , :position=>0} %>
-      <%end%>
+<%end%>
     </div>
   </b>
 </b>    
 </div>
-</div>
-</div>
-</div>
-<br>
-</div>
+
 
 

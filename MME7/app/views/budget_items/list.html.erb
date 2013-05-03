@@ -1,31 +1,32 @@
 <div class="style">
-<% @page_title="Budget Item"%><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id]},:class =>'back' ) %>
+
 <form action="">
 <fieldset>
-<h2 class='title'>الميزانية <%= @total_budget %></h2>
+<h2 class='title'>الميزانية <h2>
+<h6  class="info7"><i class="icon-tint"></i>اسم المشروع: <%= @project.name %></h6> 
+<span><%= link_to("رجوع الى المشروع", {:controller=>'projects',:action => 'show', :id=>params[:project_id]},:class => 'pull-left' ) %></span>
 
+<h6 class="info4"><i class="icon-tint"></i>االجمالى: <%= @total_budget %></h6>
 
-<h6><i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
+<h6  class="info5"> <i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
 
-<h6><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
+<h6  class="info6"><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
+
 </fieldset>
 </form>
 <br>
 <br>
-<br>
-<br>
 <% if @items.blank? %>
-<p>There are no current budget items </p>
 <% end %>
-<div id="item-form" style="display:none;" >
-</div>
-
-	<%= render 'viewAllBI', :locals => {'@items' => @items} %>
-	<br>
 	<% if loged_in? %>
 <% if isProjectCreator(@current_user,@project.id)%>
-	<h3> <%= link_to("إضافة عنصر",{:action => 'new',:id=>params[:id] } ,:class=>'btn pull-left') %>
+	<h3> <%= link_to("إضافة عنصر",{:action => 'new',:id=>@project.id } ,:class=>'btn pull-left') %>
       </h3>
       <%end%>
       <% end%>
+<div id="item-form" style="display:none;" >
+</div>
+<br>
+	<%= render 'viewAllBI', :locals => {'@items' => @items} %>
+	<br>
 </div>

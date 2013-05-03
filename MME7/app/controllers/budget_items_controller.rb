@@ -5,6 +5,7 @@ class BudgetItemsController < ApplicationController
   #Inputs:project_id and Outputs:all  budgetitems 
   #Returs: Array of Budget Items
 	def list 
+		
 		@project =Project.find(params[:id])
 		if loged_in?
 		@current_user = current_user.id
@@ -12,17 +13,18 @@ class BudgetItemsController < ApplicationController
 	    else 
 	    @items = BudgetItem.find(:all,:conditions => {:operational =>true,:project_id => params[:id]})
 	    end 
-		# @total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:id]})
-		# @total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
+		@total_budget = BudgetItem.sum(:total , :conditions => {:project_id => params[:id]})
+		@total_spent = BudgetItem.sum(:spent , :conditions => {:project_id => params[:id]})
 		#@project_name = Project.find(params[:id])
 
 		@tasks = Task.find(:all,:conditions=>{:project_id=>params[:id], :assigned=>false})
 
-		#@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
+		@raised = BudgetSourceProject.sum(:amount , :conditions =>{:project_id => params[:id]})
 	end 
 
 # Author :Yasmin Mahmoud 22-1787 , Method new takes the id of the project and generates a new instanse of the budgetitem no returns or arguments 
 	def new 
+		@project_name = Project.find(params[:id]).name
 		@project = params[:id]
 		@budget_item  = BudgetItem.new
 		@tasks = Task.find(:all,:conditions=>{:project_id=> params[:id], :assigned=>false})
@@ -56,6 +58,7 @@ class BudgetItemsController < ApplicationController
 	# Author :Yasmin Mahmoud 22-1787 , Method edit finds the budgetitem with the id taken from the params 
     # Author: Sarah Ahmed 22-1278 , gets the tasks that aren't assigned to any item and adds to it the previously selected one
 	def edit
+		@project_name = Project.find(params[:id]).name
 		@item = params[:item]
 		@project = params[:id]  
 		@budget_item  = BudgetItem.find(params[:item])

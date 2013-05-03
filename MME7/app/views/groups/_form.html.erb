@@ -15,7 +15,7 @@
 </br>
 
 <%= form_for(@group, :as => :group, :url => {:action => 'create'}, :validate => true) do |f| %>
-   <div >
+   <div class="body">
      <%= f.hidden_field :parent_id %>
      <% if @group.is_root? %>
      <%= f.hidden_field :level, :value => 1 %>
@@ -35,7 +35,7 @@
 
 
 
-  <table>
+  <table class="body">
   <tr>
       <%= f.label :user_tokens, "إضافة أعضاء للمجموعة" %><br />
     <%= f.text_field :user_tokens, "data-pre" => @group.users.map(&:attributes).to_json %>

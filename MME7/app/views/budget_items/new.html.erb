@@ -1,15 +1,13 @@
 
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+<%= link_to("رجوع الى القاءمة",{:action=> 'list'  ,:id=> @project} ,:class =>"back") %> 
 <div> 
-<h2 class ="title">إنشاء عنصر مزانية</h2>
+<h3 class = "head"><%= @project_name %></h3> 
+<h5 class ="title">إنشاء عنصر مزانية</h5>
  	<%= form_for(@budget_item , :as=>:budget_item, :url=>{:action=>'create' , :id => @project } , :validate => true) do |f| %>
  	<br>
  	<br>
- 	<br>
- 	<br>
- 	<br>
- 	<br>
-<dlclass='table body'>
+<dl class='table body'>
 	
 		<dt><%= f.label(:Name , "إسم") %></dt>
 		<dd><%= f.text_field(:name)%></dd>
