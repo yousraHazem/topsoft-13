@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
   <title>jQuery UI Accordion - Default functionality</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
   <script>
@@ -109,8 +109,8 @@
       <%if isPostCreator(current_user.id,post.id ) == true %>
       <div class="triangle-isosceles">
         <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
-          <span id="uname" class="under pull-right"><%= post.name %></span><br>
-          <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد؟') %></span>
+          <span id="uname" class="under pull-right"><%= post.name %></span>
+          <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :group_id => @group.id, :post_id => post.id },:confirm => 'هل أنت متأكد؟') %></span></br>
           <span id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:group_id => @group.id} %></span><br>
           <i dir="ltr" id="time" class="pull-left"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></i></i>
         </p>
