@@ -2,11 +2,27 @@
 <% provide(:title, @user.name) %>
 	<div>
 		<h1>
-     	 <%= gravatar_for @user %>
+     	  <%= image_tag @user.image_url(:thumb).to_s %>
        	 <%= @user.name %>
    		 </h1>
 	</div>
 <span class="span4 "><%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %></span>
 <span class="span6 "><%= render 'get_myprojects', :locals => {'@projectusers' => @project_users} %></span>
+
+<% if current_user.id == @user.id %>
+	<h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>
+		<i class="icon-plus icon-white"></i> 
+	<% end %>اضف صورة شخصية</h4>
+	<div id="item-form" style="display:none;">
+		<%= form_for(:user, :url => {:action => 'addImage', :id => @user.id}, :html => {:multipart => true}) do |f| %>
+		 <p>
+		    <%= f.file_field :image %>
+		 </p>
+		 <div>
+			<button class="btn btn-large btn-primary" type="submit">اختيار</button>
+	     </div>
+	    <% end %>
+	</div>
+<% end %>
 
 
