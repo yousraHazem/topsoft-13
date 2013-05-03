@@ -1,6 +1,6 @@
 MME7::Application.routes.draw do
   
-root :to => "home#index"
+root :to => "carousels#index"
 
   #The priority is based upon order of creation:
 
