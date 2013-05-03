@@ -23,12 +23,12 @@ a:hover{
 }
 .wrap{
 	margin: 0 auto;
-	width: 900px;
+	width: 1200px;
 }
 
 #header #top{
 	height: 34px;
-	padding: 14px 20px 0 20px;
+	padding: 14px 10px 0 20px;
 }
 #header #top p{
 	text-shadow: #000 0px 1px 1px;
@@ -66,7 +66,7 @@ a:hover{
 	cursor: pointer;
 	font-size: 11px;
 	font-weight: normal;
-	height: 22px;
+	height: 20px;
 	padding: 7px 0 0 15px;
 	text-shadow: #0E0E0E 0px 1px 1px;
 }
@@ -95,7 +95,8 @@ a:hover{
 #content #main{
 	float: right;
 	margin: 0 0 12px 0;
-	width: 680px;
+	width: 990px;
+	background: #B0C4DE;
 }
 
 #content #main ul, #content #main ol{
@@ -103,12 +104,6 @@ a:hover{
 	margin: 0 0 0 35px;
 }
 
-#main .full_w{
-	background: #ffffff;
-	border: 1px solid #DCDDE1;
-	color: #848484;
-	margin: 0 0 20px 0;
-}
 #main .full_w .h_title, #main .half_w .h_title{
 	background: url(bg_box_head.jpg) repeat-x;
 	color: #bebebe;
@@ -127,23 +122,6 @@ a:hover{
 #main .full_w p{
 	line-height: 16px;
 	margin: 5px 15px;
-}
-
-/* FOOTER START */
-
-#footer{
-	background: url(bg_top.jpg) repeat-x top center;
-	border-top: 2px solid #404345;
-	color: #939393;
-	float: left;
-	margin: 0 auto;
-	padding: 8px 20px;
-	text-shadow: #111111 0px 1px 1px;
-	width: 860px;
-}
-#footer a{
-	color: #939393;
-	font-weight: bold;
 }
 
 /* HELPERS START */

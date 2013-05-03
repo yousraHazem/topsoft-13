@@ -28,7 +28,7 @@ $(function(){
 				<p>Welcome, <strong> <% if current_user %><%= current_user.username %><% end %></strong> [<a href=""><%= link_to "خروج", log_out_path %></a>]</p>
 			</div>
 		</div>
-
+    </div>
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
@@ -83,14 +83,10 @@ $(function(){
 				</ul>
 			</div>
 	    </div>
-	<div id="main" dir="rtl">
-    <%= yield %>
-    </div>
-	<div id="footer">
+	    <div id="main" dir="rtl">
+	    	<%= yield %>
+	    </div>
 	</div>
 </div>
-<footer>
-  <%= yield :scripts %>
-</footer>
 </body>
 </html>
