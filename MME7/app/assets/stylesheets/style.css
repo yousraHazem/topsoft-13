@@ -23,7 +23,7 @@ a:hover{
 }
 .wrap{
 	margin: 0 auto;
-	width: 900px;
+	width: 1200px;
 }
 
 #header #top{
@@ -95,7 +95,8 @@ a:hover{
 #content #main{
 	float: right;
 	margin: 0 0 12px 0;
-	width: 680px;
+	width: 990px;
+	background: #B0C4DE;
 }
 
 #content #main ul, #content #main ol{
@@ -103,12 +104,6 @@ a:hover{
 	margin: 0 0 0 35px;
 }
 
-#main .full_w{
-	background: #ffffff;
-	border: 1px solid #DCDDE1;
-	color: #848484;
-	margin: 0 0 20px 0;
-}
 #main .full_w .h_title, #main .half_w .h_title{
 	background: url(bg_box_head.jpg) repeat-x;
 	color: #bebebe;
