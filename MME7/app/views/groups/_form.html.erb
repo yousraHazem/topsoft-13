@@ -7,24 +7,27 @@
 <h2 class = 'text-center'>إنشاء مجموعة</h2>
 </br>
 </br>
+</br>
+</br>
 <b text-align="center" ><%= render @group.parent if @group.parent %></b>
+
 </br>
 </br>
 
 <%= form_for(@group, :as => :group, :url => {:action => 'create'}, :validate => true) do |f| %>
    <div >
-	   <%= f.hidden_field :parent_id %>
-	   <% if @group.is_root? %>
-	   <%= f.hidden_field :level, :value => 1 %>
-	   <% end %>
-	   <% if @group.parent %>
-	   <% if @group.parent.level == 1 %>
-	   <%= f.hidden_field :level, :value => 2 %>
-	   <% end %>
-	   <% if @group.parent.level == 2 %>
-	   <%= f.hidden_field :level, :value => 3 %>
-	   <% end %> 
-	   <% end %>   
+     <%= f.hidden_field :parent_id %>
+     <% if @group.is_root? %>
+     <%= f.hidden_field :level, :value => 1 %>
+     <% end %>
+     <% if @group.parent %>
+     <% if @group.parent.level == 1 %>
+     <%= f.hidden_field :level, :value => 2 %>
+     <% end %>
+     <% if @group.parent.level == 2 %>
+     <%= f.hidden_field :level, :value => 3 %>
+     <% end %> 
+     <% end %>   
     <dt>اسم المجموعة *</th>
     <dd><%= f.text_field :group_name %></dd>
     <dt dir="rtl" lang="ar">وصف *</dt>
