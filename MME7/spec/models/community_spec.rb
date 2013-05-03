@@ -25,7 +25,7 @@ describe Community do
     end
 
     it "should respond to (search)" do
-    	community=FactoryGirl.create(:community)
-    	community.should respond_to('search')
-    	end
+      community=FactoryGirl.create(:community)
+      community.should respond_to('search')
+      end
 end

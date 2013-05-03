@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-	def error_messages_for(object)
-		render(:partial=>'shared/error_messages', :locals=>{:object=> object})
-	end
+  def error_messages_for(object)
+    render(:partial=>'shared/error_messages', :locals=>{:object=> object})
+  end
 
-	def flash_message
+  def flash_message
   types = { :notice => 'success', :alert => 'error', :info => 'info' }
   flash.inject("") do |sum, message|
     content_tag :div, :class => "alert alert-#{types[message[0]]}" do
