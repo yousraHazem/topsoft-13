@@ -23,6 +23,7 @@
            <% if Date.today < @project.end_date %>
             <li id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id}) %></li>
             <li><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}) %></li>
+            <li><%= link_to("الغاء", {:action => 'destroy', :id => @project.id}) %></i> </li>
           <% end %>
         <% end %>
         

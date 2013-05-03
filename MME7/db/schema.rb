@@ -114,13 +114,6 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.integer "project_id"
   end
 
-  create_table "galleries", :force => true do |t|
-    t.string   "photo"
-    t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "group_users", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
@@ -190,7 +183,7 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
->>>>>>> master
+
   end
 
   create_table "receipts", :force => true do |t|
