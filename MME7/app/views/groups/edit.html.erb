@@ -1,8 +1,13 @@
-<%= link_to("<< رجوع", {:action => 'show', :id => @group.id}, :class => 'back-link') %>
-</br>
+<%= link_to("رجوع", {:action => 'show', :id => @group.id}, :class => 'back') %>
 
   <div>
-	  <h2> تعديل المجموعة</h2>
+	  <h2 class ="title"> تعديل المجموعة</h2>
+</br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 	  <%= form_for(:group, :url => {:action => 'update', :id => @group.id}) do |f| %>
 	  <%= error_messages_for(@group) %>

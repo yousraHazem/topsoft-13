@@ -1,5 +1,12 @@
 <%= form_for(:gallery, :url=>{:action=>'create' , :project_id => @project_id}) do |f| %>
-  <table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <table class="body">
 
 <tr>
 <th><%= f.label(:photo ,"الصور")%></th>
@@ -20,7 +27,7 @@
  <div>
     <%= image_tag photo.photo_url(:thumb).to_s %>
     <div>
-    <b><%= link_to "X", {:controller => 'galleries',:action => 'destroy',:id => photo.id ,:project_id => @project_id},:confirm => "هل تريد مسح المهمة ؟" %></b>
+    <b><%= link_to "X", {:controller => 'galleries',:action => 'destroy',:id => photo.id ,:project_id => @project_id},:confirm => "هل تريد مسح الصورة ؟" %></b>
             </div>
     </div>
   <% end %>

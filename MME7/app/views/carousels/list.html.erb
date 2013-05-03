@@ -1,0 +1,25 @@
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <table class ="table body">
+<tr>
+</tr>
+<% @carousels.each do |carousel|%>
+<tr>
+	<td><%= link_to(carousel.title, {:action=>'show' , :id => carousel.id} , :class => "link")%></td>	
+	<td style ="text-align: center;"><%= carousel.description %></td>
+	<td><%= link_to("إلغاء", {:action=>'destroy' , :id => carousel.id }, :confirm => "هل انت متاءكد نن الألغاء" , :class => "btn")%></td>
+</tr>
+
+<%end%>
+</table>
+<br>
+<p class = "pull-left"><%= link_to("إضافة جديد" ,{:action=>'new'}, class: "btn") %> <p>
+</div>

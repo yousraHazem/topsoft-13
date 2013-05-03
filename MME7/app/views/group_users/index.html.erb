@@ -20,9 +20,9 @@
           </th>              
           <td>             
             <% if m.isCreator == true %>
-            <%= link_to("أدمن للمجموعة",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-danger  ') %>
+            <%= link_to("أدمن للمجموعة",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn') %>
             <% else %>     
-              <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+              <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn') %>
             <% end %>  
           </td>
         </tr> <br>  

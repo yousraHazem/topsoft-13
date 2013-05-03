@@ -5,7 +5,6 @@
 <% end %>
 <h1>المجتمعات </h1>
 <% if loged_in? %>	
-<br><br><br>
 	<%if current_user.isAdmin == true %>
 	<%= button_to("اضف مجتمع جديد ", {:action => 'new'}, :class => 'btn btn-inverse') %>
 	<%end%> 

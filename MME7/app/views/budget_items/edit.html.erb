@@ -1,33 +1,32 @@
 <%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
 
-<br>
-<br>
-<br>
 
-<div class = "offset2">
+	<%= link_to("رجوع الى القاءمة",{:action=> 'list'  ,:id=> @project} ,:class =>"back") %> 
 
-<div> 
-<h2>تعديل عنصر الميزنية</h2>
-<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id }) do |f| %>
-<table>
-	<tr>
-		<th><%= f.label(:Name ,"إسم") %></th>
-			<td><%= f.text_field(:name)%></td>
-	</tr>
+
+<h3 class = "head"><%= @project_name %></h3> 
+<h5 >تعديل عنصر الميزنية</h5>
+
+<%= form_for( @budget_item , :as=>:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project , :task_id=>@task_id } , :validate => true) do |f| %>
+<br>
+<br>
+<dl class ='body'>
+	
+		<dt><%= f.label(:Name ,"إسم") %></dt>
+			<dd><%= f.text_field(:name)%></dd>
+	
+		<dt><%= f.label(:Operational ,"تشغيل")%></dt>
+	    <dd class ="checkbox inline"><%= f.check_box(:operational)%></dd>
+
+  		<dt><%= f.label(:task_id, "المهمة")%></dt>
+  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.description,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
+   
+
+
 </br>
-	<tr>
-		<th><%= f.label(:Operational ,"تشغيل")%></th>
-	    <td><%= f.check_box(:operational)%></td>
-	</tr>
-</br>
-    <tr id = "connect" >
-  		<th><%= f.label(:task_id, "المهمة")%></th>
-  		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
-    </tr>
+	<p class='btn btn-small'>
+		<%= f.submit ("تسجيل") %>
 
-</table>
-	<p>
-		<td><%= f.submit ("تسجيل") %></td>
 	</p>
 <% end %>
 </div>
