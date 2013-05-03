@@ -3,16 +3,20 @@
   <%= flash[:notice] %>
 </div>
 <% end %>
-<h1 class="text-center">المجتمعات </h1>
-<% if loged_in? %>
-<%if current_user.isAdmin == true %>
-<%= button_to("اضف مجتمع جديد ", {:action => 'new'}, :class => 'btn btn-inverse') %>
-<%end%> 
-<%end%> 
+<h1>المجتمعات </h1>
+<% if loged_in? %>	
+<br><br><br>
+	<%if current_user.isAdmin == true %>
+	<%= button_to("اضف مجتمع جديد ", {:action => 'new'}, :class => 'btn btn-inverse') %>
+	<%end%> 
+
+<%end%>
+
 <%= form_tag('list', :method => 'get',:id => "search",:remote => true) do %>  
 <p> 
   <%= text_field_tag :search, params[:search]%>
   <i class="icon-search"></i>
 </p>  
 <%end%>
+
 <div id= "table"><%= render'table' %></div>
