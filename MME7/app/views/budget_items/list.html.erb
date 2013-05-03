@@ -10,7 +10,7 @@
 
 <h6  class="info5"> <i class="icon-tint"></i>اجمالى المدفوع: <%= @total_spent %></h6>
 
-<h6  class="info6"><i class="icon-tint"></i>الاموال المجموعة: <%= @raised %></h6>
+<h6><i class="icon-tint"></i><%= link_to("الاموال المجموعة:", {:controller => 'budget_source_projects' , :action => 'sourceproject' , :project_id => @project})%><%= @raised %> </h6>
 
 </fieldset>
 </form>

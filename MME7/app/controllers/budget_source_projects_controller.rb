@@ -22,6 +22,12 @@ class BudgetSourceProjectsController < ApplicationController
 		else
 	redirect_to(:controller => 'budget_sources', :action => 'list')
 	end
-		end
+end
+
+#Yasmin Mahmoud this method gets all the budget sources of a certain project #arguments: none , :return: list of all budget sources of a project
+	def sourceproject
+	@budget_sources = BudgetSourceProject.where(:project_id => params[:project_id])
+	@project = Project.find(params[:project_id])
+  end
 	
 end
