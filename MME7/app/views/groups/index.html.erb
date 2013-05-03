@@ -1,8 +1,9 @@
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
+<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+</div>
 
-
-  
 <div>
   <% if current_user %>
           <%= link_to("إنشاء مجموعة جديدة", {:action => 'new'}, :class => 'action new') %>
@@ -10,13 +11,12 @@
 </div>
 </br>
 
-
 <%= form_tag('groups', :method => 'get',:id => "search",:remote => true) do %>  
       <p> 
           <%= text_field_tag :search, params[:search]%>
           
-  		<i class="icon-search"></i>
-  	
+      <i class="icon-search"></i>
+    
       </p>  
 <%end%>
 
