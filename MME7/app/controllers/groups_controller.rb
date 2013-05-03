@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class GroupsController < ApplicationController
 include GroupUsersHelper
+
     # Author: Sama Akram 22-555, it gets all groups ordered alphabetically by group name
     # returns Group.all ordered by name
     # update May
@@ -29,6 +30,7 @@ include GroupUsersHelper
         @group_id = params[:id]
         @group = Group.find(params[:id])
         @postlist = Group.getposts (params[:id])
+        @position = 0
     end
     
     # Author: Sama Akram

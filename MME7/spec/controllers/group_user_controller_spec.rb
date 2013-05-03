@@ -9,17 +9,23 @@ describe "POST create" do
     describe "with valid params" do
       it "creates a new group user" do
         expect {
+          ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+          User.any_instance.stub(:id).and_return(1)
           post :join, {:groupuser => valid_attributes}
         }.to change(GroupUser, :count).by(1)
       end
 
       it "assigns a newly created groupuser as @groupuser" do
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        User.any_instance.stub(:id).and_return(1)
         post :join, {:groupuser => valid_attributes}
         assigns(:newuser).should be_a(GroupUser)
         assigns(:newuser).should be_persisted
       end
 
       it "redirects to the group show" do
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        User.any_instance.stub(:id).and_return(1)
         post :join, {:groupuser => valid_attributes}
         response.should redirect_to(:controller => 'groups',:action => "show")
       end
@@ -37,11 +43,15 @@ describe "POST create" do
         member = GroupUser.new(:user_id => userid, :group_id =>groupid,  :isCreator => true )
         member.save
         expect {
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        User.any_instance.stub(:id).and_return(1)
         delete :leave, {:id => member.to_param}
       }.to change(GroupUser, :count).by(0)
       end
 
       it "redirects to the group show" do
+        ApplicationController.any_instance.stub(:current_user).and_return(User.new)
+        User.any_instance.stub(:id).and_return(1)
         post :leave, {:groupuser => valid_attributes}
         response.should redirect_to(:controller => 'groups',:action => "show")
       end

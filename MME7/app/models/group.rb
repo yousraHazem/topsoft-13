@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :level , :community_id, :parent_id, :user_tokens
   has_ancestry
 
-  has_many :posts 
+  has_many :posts, :order => 'created_at DESC' 
   has_many :group_users 
   has_many :users, :through => :group_users
   belongs_to :communities
@@ -31,8 +31,8 @@ class Group < ActiveRecord::Base
        @users = User.where("id NOT IN (?)" , b)
     end 
  
- 	def  self.getposts (g_id)
-	return Post.find(:all, :conditions => {:group_id =>g_id})
+  def  self.getposts (g_id)
+  return Post.find(:all, :conditions => {:group_id =>g_id})
   end
 
   # Author: May Atef Badr 22-0579

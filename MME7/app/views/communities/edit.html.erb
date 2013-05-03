@@ -1,26 +1,18 @@
-<%= link_to("<< روجوع", {:action => 'list'}, :class => 'back-link') %>
-<div>
-<%= form_for(:community, :url => {:action => 'update', :id => @community.id}) do |t| %>
-<%= error_messages_for(@community) %>
-    <table class="table table-striped" >
-      <tr>
-        <th>اسم المجتمع</th>
-        <td><%= t.text_field(:title) %></td>
-      </tr>
-
-      <tr>
-        <th>وصف عن المجتمع</th> 
-     <td class="texta"><%= t.text_area(:social_profile_info) %></td>
-      </tr>
-
-      <tr>
-        <th>البريد الالكتروني </th> 
-        <td><%= t.text_field(:contact_info) %></td>
-      </tr>
-
-    </table>
-    <p class="paragraph">
-<button class="btn btn-info" type="submit">تسجيل</button>
-    </p>
+<h1 class="text-center">انشاء المجتمع </h1>
+<%= link_to("<< الروجع إلى القائمة الرئيسية", {:action => 'list'}, :class => 'back-link') %>
+<div> 
+  <%= error_messages_for(@community) %>
+  <%= form_for(@community, :as => :community, :url => {:action => 'update'}, :validate => true) do |t| %>
+  <div>
+  </br></br></br></br>
+  <dt>اسم المجتمع </dt>
+  <dd><%= t.text_field(:title) %></dd>
+  <dt>وصف المجتمع</dt> 
+  <dd class="texta"><%= t.text_area :social_profile_info, "rows" => 4 %></dd>
+  <dt>البريد الالكتروني </dt>
+  <dd><%= t.text_field(:contact_info) %></dd>
+  <p class="text-right">
+    <button class="btn btn-info" type="submit">تسجيل </button>
+  </p>
   <% end %>
 </div>
