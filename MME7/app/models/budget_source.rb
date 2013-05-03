@@ -19,3 +19,4 @@ end
     self.project_ids = ids.split(",")
   end
 end
+

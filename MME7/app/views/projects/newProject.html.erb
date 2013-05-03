@@ -2,7 +2,6 @@
 <%= link_to("ارجع الي القاءمة", {:action => 'listProjects'} ) %>
 <div >
     <h2>كون مشروع</h2>
-
     <%= form_for(@project,:as => :project, :url => {:action => 'createProject'}, :validate => true) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %>
  	<div >

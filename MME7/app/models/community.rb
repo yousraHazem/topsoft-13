@@ -19,13 +19,13 @@ class Community < ActiveRecord::Base
    # Args: community title
    # Returns: similar or community searched
    
-   def search(search)
-      if search
-         Community.find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
-      else 
-         Community.find(:all)
-      end
-   end
+	def search(search)
+		if search
+			Community.find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
+		else 
+			Community.find(:all)
+		end
+	end
 
 
 

@@ -26,5 +26,7 @@ class ApplicationController < ActionController::Base
   def handle_unverified_request
    log_out
    super
-  end 
+  end
+
+ 
 end

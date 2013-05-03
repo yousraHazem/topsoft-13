@@ -1,17 +1,17 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="full_w">
-  <div class="h_title">الملف الشخصي</div>
-  <% provide(:title, @admin.name) %>
-  <div>
-    <h1>
-       <%= gravatar_for @admin %>
-         <%= @admin.name %>
-      </h1>
-      <div class="clear"></div>
-      <div><strong>المعلومات الشخصية</strong></div>
-      <div class="clear"></div>
-      <div>البريد البريد الإلكتروني:<%= @admin.email %></div>
-      <div>عنوان:<%= @admin.address %></div>
-      <div>رقم التليفون:<%= @admin.phone_Nr %></div>
-  </div>
+	<div class="h_title">الملف الشخصي</div>
+	<% provide(:title, @admin.name) %>
+	<div>
+		<h1>
+     	 <%= gravatar_for @admin %>
+       	 <%= @admin.name %>
+   		</h1>
+   		<div class="clear"></div>
+   		<div><strong>المعلومات الشخصية</strong></div>
+   		<div class="clear"></div>
+   		<div>البريد البريد الإلكتروني:<%= @admin.email %></div>
+   		<div>عنوان:<%= @admin.address %></div>
+   		<div>رقم التليفون:<%= @admin.phone_Nr %></div>
+	</div>
 </div>

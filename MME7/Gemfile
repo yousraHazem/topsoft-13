@@ -15,8 +15,6 @@ gem 'bootstrap-sass'
 #gem 'rspec-rails'
 gem 'devise'
 gem 'client_side_validations'
-gem 'omniauth-facebook'
-gem 'omniauth'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

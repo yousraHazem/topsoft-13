@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class BudgetSourceProjectsController < ApplicationController
-
+	
 	#Author Yasmin Mahmoud 22-1787 this method gets the budget source with a given id 
 	#parameters :none
 	#returns : none
@@ -23,5 +23,5 @@ class BudgetSourceProjectsController < ApplicationController
 	redirect_to(:controller => 'budget_sources', :action => 'list')
 	end
 		end
-
+	
 end

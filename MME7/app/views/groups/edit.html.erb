@@ -6,11 +6,11 @@
 
 	  <%= form_for(:group, :url => {:action => 'update', :id => @group.id}) do |f| %>
 	  <%= error_messages_for(@group) %>
-
+	  
 	      <div id= "tableTwo"><%= render(:partial => 'tableTwo', :locals => {:f => f}) %><div>
 
 		  </br>
 		      <button class="btn btn-info" type="submit">تسجيل</button>
-
+		  
 	  <% end %>
 </div>

@@ -7,37 +7,37 @@ def list
     #description : searches for all the budget sources , or specific ones if specified in the serach textbox
     #returns: list of budget sources 
     #arguments: none
-  @sources = BudgetSource.search(params[:search])
+	@sources = BudgetSource.search(params[:search])
 end
 
 def show
-  @source = BudgetSource.find(params[:source_id])
+	@source = BudgetSource.find(params[:source_id])
 end
 #Author :yasmin Mahmoud This method creates a new instance of budget source and it has no arguments and return nothing 
-  def new
-    @budget_source = BudgetSource.new
-  end
+	def new
+		@budget_source = BudgetSource.new
+	end
 
 #Author :yasmin Mahmoud 22-1787 This method creates a  budget source with the parametres given from the user and it has no returns
-  def create 
-    @budget_source = BudgetSource.new(params[:budget_source])
-    if @budget_source.save
+	def create 
+		@budget_source = BudgetSource.new(params[:budget_source])
+		if @budget_source.save
     @project = BudgetSourceProject.where(:budget_source_id => @budget_source.id)
     if @project.size == 0
       redirect_to(:action => 'list')
     else
         redirect_to(:controller => 'budget_source_projects' , :action => 'addamount' , :id => @budget_source.id)
         end 
-    else
-      render('new')
-    end
-  end
+		else
+			render('new')
+		end
+	end
 #Author :yasmin Mahmoud 22-1787 This method finds budget source with a given id and it has no arguments and return nothing 
-  def edit
+	def edit
     @budget_source = BudgetSource.find(params[:id])
-    end
+  	end
 #Author :yasmin Mahmoud This method updates a budget source with the parametres given from the user and it has no returns
-    def update
+  	def update
       @budget_source = BudgetSource.find(params[:id])
     if @budget_source.update_attributes(params[:budget_source])
       @project = BudgetSourceProject.where(:budget_source_id => @budget_source.id)
@@ -52,7 +52,7 @@ end
     end
   end
 #Author :yasmin Mahmoud 22-1787 This method finds budget source with a given id and it has no arguments and return nothing 
-    def delete
+  	def delete
       @budget_source = BudgetSource.find(params[:id])
     end
     #Author :yasmin Mahmoud  22-1787 This method deletes a budget source it has no returns

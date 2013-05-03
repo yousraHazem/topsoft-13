@@ -26,12 +26,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "تسجيل الخروج!"
   end
-  #Donia Amer Shaarawy 22-0270
-  #this creates the page for the user that login with his 
-  #facebook account it takes his facebook email and passowrd and returns to the user page 
- def createFacebook
-    @user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = @user.id
-    redirect_to @user, :notice => "تسجيل الدخول!"
-  end
 end
+
+

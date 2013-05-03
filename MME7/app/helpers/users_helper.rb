@@ -7,9 +7,9 @@ module UsersHelper
       gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
       image_tag(gravatar_url, alt: user.name, class: "gravatar")
     end
-  def isAdmin(current_user)
-    User.where(:id => current_user, :isAdmin => true).exists?
-  end
+	def isAdmin(current_user)
+		User.where(:id => current_user, :isAdmin => true).exists?
+	end
 
   def getName(user_id)
     u =  User.find(user_id).name
