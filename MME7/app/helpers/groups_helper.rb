@@ -8,7 +8,7 @@ module GroupsHelper
  def getGroupMembers(group_id)
 
  # groupmembersid = GroupUser.find(:user_id, :conditions => {:group_id => group_id})
- groupmembersid = GroupUser.find(:all,:select => "user_id",:conditions=>{:group_id => group_id}).collect(&:user_id) 	
+ groupmembersid = GroupUser.find(:all,:select => "user_id",:conditions=>{:group_id => group_id}).collect(&:user_id)   
 
  end
 

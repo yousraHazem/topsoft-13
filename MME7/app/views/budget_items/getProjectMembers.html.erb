@@ -1,0 +1,25 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<body lang="ar">
+  <h2>تعيين اعضاء للعنصر</h2>
+<table  class="table">
+  <tr class="header">
+    <th >اعضاء العنصر</th>
+    <th >اعضاء لم يتم تعينهم</th>
+  </tr>
+  <tr>
+    <td> 
+      <% @assignedppl.each do |p| %>
+      <%= p.user.name %>
+      <%= link_to " X ", {:controller => 'budget_item_users' ,:action => 'unassign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %> 
+      <% end %>
+    </td>
+    <td>
+      <% @notassigned.each do |p| %> </br>
+      <%= p.user.name %>
+      <%= link_to "عين ", {:controller => 'budget_item_users' ,:action => 'assign', :id => @project_id , :budget_item_id => @budget_item_id , :user_id =>p.user_id} %>
+      <% end %> 
+    </td>
+  </tr> 
+</table>
+</body>
