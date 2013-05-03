@@ -1,5 +1,6 @@
 MME7::Application.routes.draw do
   
+
 root :to => "home#index"
 
   #The priority is based upon order of creation:
@@ -7,9 +8,7 @@ root :to => "home#index"
 
   get "comments/editComment"
 
-  # get "posts/editPost"
-  # get "comments/newComment"
-  # get "posts/newPost"
+
 
   get "posts/editPost"
   get "projects/newProject"
@@ -23,11 +22,18 @@ root :to => "home#index"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_in" => "admin#new", :as => "log_in"
+
+  match 'auth/:provider/callback', to: 'sessions#createFacebook'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'log_out'
+
   root :to => "home#index"
  
   get "users/new"
   resources :users
   resources :sessions
+ 
+
 
 
   # The priority is based upon order of creation:
