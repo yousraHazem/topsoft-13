@@ -17,6 +17,9 @@
 <br>
 <br>
 <% if @items.blank? %>
+
+<p> لا يوجد عناصر ميزانية حاليا</p>
+
 <% end %>
 	<% if loged_in? %>
 <% if isProjectCreator(@current_user,@project.id)%>

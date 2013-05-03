@@ -14,7 +14,7 @@
 <% @carousels.each do |carousel|%>
 <tr>
 	<td><%= link_to(carousel.title, {:action=>'show' , :id => carousel.id} , :class => "link")%></td>	
-	<td><%= carousel.description %></td>
+	<td style ="text-align: center;"><%= carousel.description %></td>
 	<td><%= link_to("إلغاء", {:action=>'destroy' , :id => carousel.id }, :confirm => "هل انت متاءكد نن الألغاء" , :class => "btn")%></td>
 </tr>
 

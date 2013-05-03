@@ -1,4 +1,4 @@
- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <div class="title">
   <% if loged_in? %>
     <h1><%= @project.name %></h1> 
@@ -32,14 +32,16 @@
         <table class="table table-striped">    
 
             <tr>
-               <td>
-                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id} , :class=>"name") %>
+              <td>
+                <% @user = User.find(m.user_id)%>
+                <%= image_tag @user.image_url(:thumb).to_s %>
+                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}, {:style=>'color:#FFFFFF;', :class => "css_class"}) %>
               </td>         
-              <td>        
+              <td>   
                 <% if m.is_creator == true %>
-                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-danger') %>
+                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn') %>
                 <% else %>     
-                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn') %>
                 <% end %>
               </td>
             </tr> 
@@ -61,4 +63,3 @@
 
 <% end %>
    
-       

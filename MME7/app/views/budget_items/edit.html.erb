@@ -22,9 +22,11 @@
   		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.description,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
    
 
+
 </br>
 	<p class='btn btn-small'>
 		<%= f.submit ("تسجيل") %>
+
 	</p>
 <% end %>
 </div>

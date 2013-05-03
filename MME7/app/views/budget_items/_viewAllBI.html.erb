@@ -1,21 +1,22 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<body lang="ar">
 <% if @items.blank? %>
 	<p class='body'> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
 	<p class='body'>عناصر الميزانية الحالية هي :</p>
+
 <table class="table">
  	<tr class="header">
  		<th>اسم عنصر الميزانية</th>
  		<th>مجموع</th>
- 		<th>ما الذي تم صرفه</th>
+ 		<th>تم صرفه</th>
  		<% if loged_in? %>
  		<% if isProjectCreator(@current_user,@project.id)%>
         <th>تعديل الميزانية</th>
+        <th>اعضاء العنصر</th>
+        <th>اعضاء العنصر</th>
  		<% end %>
  		<% end %>
  	</tr>
-
  	<% @items.each do |item| %>
 		<tr id = "budget_item">
  		<td><%= link_to(item.name, {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id}, :class=>"link")%></td>
@@ -26,11 +27,12 @@
         <td class="actions">
 		<%= link_to("تعديل", {:action=>'edit' , :item=>item.id , :id => item.project_id} ,:class=>"btn btn-small")%>
 	    </td>
+	    <td class="actions">
+	    <%= link_to("الاعضاء", {:controller =>'budget_items', :action =>'getProjectMembers',:project_id => @project.id , :budget_item_id => item.id }, :class => 'btn btn-small') %>
+		</td>
 	    <% end %> 
 	    <% end %>
-	    
  		</tr>
  	<% end %>
 </table>
 <% end %>
-</body>

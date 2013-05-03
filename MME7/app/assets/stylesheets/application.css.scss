@@ -130,7 +130,7 @@ margin: 8px 10px;
  .pic{
  position:absolute;
  left: 67%;
- top: 9.6%;
+ top: 9%;
  z-index:3;
  }
 
@@ -698,3 +698,29 @@ padding: 2px 12px 2px 10px;
  .white {
  text-color: #ffffff
  }
+
+ .veiwProject{
+  background-color: #E6E6E6;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.datesP{
+  color: #08088A;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.veiwguestProject{
+  background-color: #E6E6E6;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+
+}

@@ -51,8 +51,8 @@ end
   @projectid = params[:id]
   TaskUser.where(:user_id => @userid ,:task_id => @task_id ).destroy_all
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
+end 
 
- end 
   # Author : Salma El -Ruby 22-4649
   # Args : takes task_id, project_id,user_id
   # Returns : task_id, project_id 
@@ -65,6 +65,19 @@ end
   @taskuser.save
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
   end 
+
+# Author Riham Gamal 22-3871
+# Arguments: user.id
+# Return update the user attributes (image)
+def addImage
+   @user = User.find(params[:id])
+   @user.update_attributes(params[:user])
+   if @user.save
+    redirect_to  :action => 'show', :id => params[:id]
+   else 
+    render "new"
+  end
+end  
   
 end
 

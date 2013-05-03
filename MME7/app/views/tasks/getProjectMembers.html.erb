@@ -12,7 +12,8 @@
   <% @assignedppl.each do |p| %>
     <tr class ="body">
       <td> 
-
+        <% @user = User.find(p.user.id)%>
+        <%= image_tag @user.image_url(:thumb).to_s %>
         <%= p.user.name %>
         <b> <%= link_to " X ", {:controller => 'users' ,:action => 'unassign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
          <br/>
@@ -24,6 +25,8 @@
   </tr>
    <% @notassigned.each do |p| %> <br/>
       <tr>
+         <% @user = User.find(p.user.id)%>
+        <%= image_tag @user.image_url(:thumb).to_s %>
         <td> <%= p.user.name %></td>
         <td>
           <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>

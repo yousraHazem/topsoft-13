@@ -202,6 +202,28 @@ $(document).ready(function(){
     });
 });
 
+$(function() {
+    $("#new-item").click(function(){
+        $("#item-form").toggle("slow");
+    });
+});
+
+
+$(function () {
+  $('#budget_source_project_tokens').tokenInput('/projects.json', { 
+    preventDuplicates: true,
+    crossDomain: false , 
+    prePopulate: $('#budget_source_project_tokens').data('pre') , 
+    theme: 'facebook' , 
+    });
+});
+
+$(function () {  
+  $('#budget_item_user_tokens').tokenInput('/users.json', { crossDomain: false,prePopulate: $('#budget_item_user_tokens').data('pre'),  
+    theme: 'facebook'  
+  });  
+});  
+
 
 $(function(){
     $("#search input").keyup(function(){
