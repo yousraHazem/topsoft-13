@@ -195,6 +195,11 @@ $(function () {
     });
 });
 
+$(function () {  
+  $('#budget_item_user_tokens').tokenInput('/users.json', { crossDomain: false,prePopulate: $('#budget_item_user_tokens').data('pre'),  
+    theme: 'facebook'  
+  });  
+});  
 $(function(){
     $("#search input").keyup(function(){
         $.get($("#search").attr("action"),$("#search").serialize(), null, "script");
