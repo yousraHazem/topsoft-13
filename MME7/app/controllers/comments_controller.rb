@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class CommentsController < ApplicationController
 
+
   # Author: Sama Akram
   # creates a new comment and redirect to group/project path
   # ARGS: comment.comment, comment.group_id or comment.project_id, comment.is_group,

@@ -12,9 +12,14 @@ class ProjectsController < ApplicationController
 
   #Author Riham Gamal id = 22-3871
   #Arguments project.id
+  # it gets also the map of that project
   #return non
   def show
-    @project = Project.find(params[:id])
+  @project = Project.find(params[:id])
+  @char = Character.where(:project_id => @project)
+  @char.each  do |c|
+    @findMap = c.id
+  end
   end
 
   # Author : Nayera Mohamed 22-3789 
@@ -37,8 +42,17 @@ class ProjectsController < ApplicationController
   def createProject
       @project=Project.new(params[:project])
       if @project.save
+         @userFound = ProjectUser.where(:project_id => @project.id , :user_id => current_user.id).exists?
+         if @userFound == false
          @projectuser = ProjectUser.new(:project_id => @project.id , :user_id => current_user.id , :is_creator => 'true')
          @projectuser.save
+         else
+         @user = ProjectUser.where(:project_id => @project.id , :user_id => current_user.id)
+         @thisUser = @user.first
+         @thisUser.is_creator = true
+         @thisUser.save
+         end 
+
          flash[:notice]= "project created"
 
          @members = User.all
@@ -113,13 +127,14 @@ class ProjectsController < ApplicationController
   def destroy
       @project = Project.find(params[:id])
       @projectid = Project.find(params[:id]).id
-      if @project.budgetSourceProject(@projectid) == true && @project.budgetItems(@projectid) == true
+      if @project.budgetItems(@projectid) == false
         Project.find(params[:id]).destroy
-        flash[:notice]= "project destroyed"
+        flash[:notice]= "تم حذف المشروع"
         redirect_to(:action => 'listProjects')
       else
         flash[:notice]= "الرجاء النظر الى الموارد المالىة"
-        redirect_to(:action => 'listProjects')
+        redirect_to(:controller=>'budget_items', :action => 'list' , :id=> @projectid)
+
       end  
   end
    
