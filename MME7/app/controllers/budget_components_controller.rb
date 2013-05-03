@@ -63,7 +63,7 @@ class BudgetComponentsController < ApplicationController
             current_id = current_user.id
             @members.each do |member|
 	            if 	member.user_id == current_id
-	             
+
 	            else
 	            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
 	            end
@@ -90,7 +90,7 @@ class BudgetComponentsController < ApplicationController
 		@old_unit_price = @component.unit_price
 		@old_quantity_purchased = @component.quantity_purchased
 		@old_total_quantity = @component.total_quantity
-	
+
 	end
 
 	def update
@@ -127,7 +127,7 @@ class BudgetComponentsController < ApplicationController
 
 
 		    if((@old_name.to_s == @new_name.to_s) && (@old_unit_price.to_i == @new_unit_price.to_i ) && (@old_quantity_purchased.to_i == @new_quantity_purchased.to_i) && (@old_total_quantity.to_i != @new_total_quantity.to_i)) 
-		    
+
 			    notification = Notification.create(:content=>"#{current_user.name} قام بتعديل اجمالى الكمية لعنصر '#{@component.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_components/list/#{@item}?name=try2&project_id=#{@project_id}" , :image=>"edit budget") 
 	            @members.each do |member|
 		            if 	member.user_id == current_id     
