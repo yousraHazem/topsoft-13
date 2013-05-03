@@ -1,19 +1,9 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
-//= require bootstrap-datepicker
+// //= require jquery
+// //= require jquery_ujs
+// //= require jquery.purr
+// //= require best_in_place
+// //= require_tree .
+// //= require bootstrap-datepicker
 
 $(function() {
 $('#ca-container').contentcarousel({
@@ -28,8 +18,10 @@ $('#ca-container').contentcarousel({
 $(function(){
     $(".notification-bubble").click(function(){
         $("#notify").toggle();
+
         $(".pic").toggle();
         // $(".notification-bubble").hide();
+
         $.ajax({
             url: "/notifications/read",
             type: "GET",
@@ -44,11 +36,11 @@ $(function() {
     });
 }); 
 
-// $(function(){
-//    $("#projects").click(function(){
-//         $("#notify").toggle();
-//   }); 
-// });
+// // $(function(){
+// //    $("#projects").click(function(){
+// //         $("#notify").toggle();
+// //   }); 
+// // });
 
 $(function(){
   if ($("#notification-list").length > 0 ) {
@@ -96,19 +88,50 @@ $(function () {
     });
 });
 
+jQuery.fn.submitWithAjax = function() {
+  this.submit(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+    return false;
+  })
+  return this;
+};
+
+$(document).ready(function (){
+     $('#post-form').submit(function (){
+       $.post($(this).attr('action'), $(this).serialize(), null, "script");
+       return false;
+     });
+   });
+
 
 $(function() {
+  $("#project_user_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+    prePopulate: $("#project_user_tokens").data("pre"),
+    theme: "facebook"
+  });
+});
+
+
+$(document).ready(function(){
+$("#comment-form").submit(function(){
+$.comment($(this).attr("action"),$(this).serialize(),null, "script");
+return false;
+});
+});
+
+ $(function() {
   $("#project_start_date").datepicker( { format:  "dd/mm/yyyy" } );
   $("#project_end_date").datepicker( { format: "dd/mm/yyyy" } );
 });
 
-
-$(function(){
+ $(function(){
  $("#Budget-serach input").keyup(function (){
     $.get($("#Budget-serach").attr("action"), $("#Budget-serach").serialize(), null, "script");
     return false;
   });
 });
+
 
 
 $(function() {
@@ -119,7 +142,7 @@ $(function() {
     });
 });
 
-$(function() {
+ $(function() {
     $("#total, #qty").keyup(function() {
         var p = $("#total").val();
         var q = $("#qty").val();
@@ -130,13 +153,15 @@ $(function() {
     });
 });
 
-$(function() {
+
+ $(function() {
     $("#price, #qty").keyup(function() {
         var p = $("#price").val();
         var q = $("#qty").val();
         $("#spent").val(q * p);
     });
 });
+
 
 
 
@@ -147,12 +172,17 @@ $("#progress").html(p+'%');
 });
 
 
+ $(function() {
+    $("#create").click(function(){
+        $("#comp").toggle("slow");
+    });
+});
+
 // $(function() {
 //     $("#create").click(function(){
 //         $("#comp").toggle("slow");
 //     });
 // });
-
 
 
 
@@ -162,7 +192,6 @@ $(function() {
     });
 });
 
-
 $(document).ready(function(){
     $('#check').change(function(){
         if(this.checked)
@@ -171,19 +200,6 @@ $(document).ready(function(){
             $('#connect').hide();
 
     });
-});
-
-
-
-
-
-$(function() {
-  $("#project_user_tokens").tokenInput("/users.json", {
-    crossDomain: false,
-    prePopulate: $("#project_user_tokens").data("pre"),
-    preventDuplicates: true,
-    theme: "facebook"
-  });
 });
 
 
@@ -202,8 +218,6 @@ $(function() {
     prePopulate: $('#group_user_tokens').data('pre')
   });
 });
-
-
 
 
 
