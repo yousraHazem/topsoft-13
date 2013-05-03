@@ -1,32 +1,30 @@
 
 ﻿<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+<%= link_to("رجوع الى القاءمة",{:action=> 'list'  ,:id=> @project} ,:class =>"back") %> 
 <div> 
-<h2>إنشاء عنصر مزانية</h2>
- 	<%= form_for(:budget_item, :url=>{:action=>'create' , :id => @project }) do |f| %>
-<table>
-	<tr>
-		<th><%= f.label(:Name , "إسم") %></th>
-			<td><%= f.text_field(:name)%></td>
-	</tr>
-	</br>
-	<tr>
-		<th><%= f.label("تشغيل") %></th>
-			<td><%= f.check_box(:operational)%></td>
-	</tr>
-</br>
+<h3 class = "head"><%= @project_name %></h3> 
+<h5 class ="title">إنشاء عنصر مزانية</h5>
+ 	<%= form_for(@budget_item , :as=>:budget_item, :url=>{:action=>'create' , :id => @project } , :validate => true) do |f| %>
+ 	<br>
+ 	<br>
+<dl class='table body'>
+	
+		<dt><%= f.label(:Name , "إسم") %></dt>
+		<dd><%= f.text_field(:name)%></dd>
+	
+	
+		<dt><%= f.label("تشغيل") %></dt>
+		<dd class ="checkbox inline"><%= f.check_box(:operational)%></dd>
 
-    <tr id = "connect" >
-  		<th><%= f.label(:task_id, "المهمة")%></th>
-  		<td><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></td>
-    </tr>
 
-	<tr> 
-		<td><%= f.hidden_field :project_id , :value=> @project %></td>
-	</tr>
-</table>
-</br>
-	<p>
-		<td><%= f.submit("تسجيل") %></td>
+   		<dt><%= f.label(:task_id, "المهمة")%></dt>
+  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.description,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
+    
+
+		<%= f.hidden_field :project_id , :value=> @project %>	
+</dl>
+	<p class='btn btn-small'>
+		<%= f.submit("تسجيل") %>
 	</p>
 <% end %>
 

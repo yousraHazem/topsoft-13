@@ -1,10 +1,14 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
  
 <div class="post edit">
-  <h2>تعديل مهمة </h2>
-
+  <h2 class ="title">تعديل مهمة </h2>
+<br>
+<br>
+<br>
+<br>
+<br>
   <%= form_for(:task, :url => {:action => 'update', :id =>params[:id], :project_id => params[:project_id]}) do |f| %>
-    <table>
+    <table class="body">
       <tr>
         <th>المهمة</th>
         <td><%= f.text_field(:description) %></td>

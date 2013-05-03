@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 		if (@post.is_group == true)
             group_name = Group.find(@post.group_id).group_name
 	        @members = GroupUser.where(:group_id => @post.group_id)
-	        notification = Notification.create(:content=>"#{current_user.name}  كام بنشر تعبير جديد بمجموعة '#{group_name}'" , :url =>"/groups/show/#{@post.group_id}" , :image=>"post") 
+	        notification = Notification.create(:content=>"#{current_user.name}  قام بنشر تعبير جديد بمجموعة '#{group_name}'" , :url =>"/groups/show/#{@post.group_id}" , :image=>"post") 
 	        current_id = current_user.id
 	        @members.each do |member|
 	          if 	
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 	    if (@post.is_group == false)   
 	        project_name = Project.find(@post.project_id).name
 	        @members = ProjectUser.where(:project_id => @post.project_id)
-	        notification = Notification.create(:content=>"#{current_user.name}  كام بنشر تعبير جديد بمشروع '#{project_name}'" , :url =>"/projects/show/#{@post.project_id}" , :image=>"post") 
+	        notification = Notification.create(:content=>"#{current_user.name}  قام بنشر تعبير جديد بمشروع '#{project_name}'" , :url =>"/projects/show/#{@post.project_id}" , :image=>"post") 
 	        current_id = current_user.id
 	        @members.each do |member|
 	          if 	

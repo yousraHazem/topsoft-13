@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
+
   end
 
   create_table "receipts", :force => true do |t|
@@ -229,12 +230,12 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "profile"
     t.string   "image"
+    t.string   "profile"
     t.string   "provider"
-    t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "uid"
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
