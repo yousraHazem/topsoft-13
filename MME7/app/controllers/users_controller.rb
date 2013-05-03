@@ -51,8 +51,8 @@ end
   @projectid = params[:id]
   TaskUser.where(:user_id => @userid ,:task_id => @task_id ).destroy_all
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
+end 
 
- end 
   # Author : Salma El -Ruby 22-4649
   # Args : takes task_id, project_id,user_id
   # Returns : task_id, project_id 
@@ -65,5 +65,4 @@ end
   @taskuser.save
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
   end 
-  
 end

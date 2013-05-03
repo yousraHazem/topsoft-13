@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity"
+    t.integer  "total_quantity",     :default => 0
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-    t.string   "ancestry"
     t.integer  "level"
+    t.string   "ancestry"
   end
 
   add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
@@ -187,10 +187,10 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "is_frozen",    :default => false
-    t.integer  "community_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "is_frozen",   :default => false
+>>>>>>> master
   end
 
   create_table "receipts", :force => true do |t|
