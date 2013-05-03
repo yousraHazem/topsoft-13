@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502122312) do
+
+ActiveRecord::Schema.define(:version => 20130428131212) do
+
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
@@ -63,12 +65,7 @@ ActiveRecord::Schema.define(:version => 20130502122312) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
-  end
-
+  
   create_table "carousels", :force => true do |t|
     t.string   "title"
     t.string   "description"
