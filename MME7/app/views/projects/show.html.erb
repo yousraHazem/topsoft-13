@@ -96,7 +96,58 @@
 </div>
 <% end %>
  </div>
+ <% if current_user %>
+    <%= form_for(@post, :as => :post, :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}, :validate=>true ) do |f| %>
+    <div class="triangle-create">
+      <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
+      <%= f.hidden_field :project_id, :value => @project.id%> 
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :name, :value => current_user.username %>
+      <%= f.hidden_field :is_group, :value => 'false' %>
+    </table> 
+    <span class="pull-left"><button class="btn btn-info" type="submit">نشر التعبير</button></span>
+  </div>
+  <% end %>
+  <% end %>
+ <div id = "allpostsborder">
+    <p>
+      <div id="posts">
+        <%@project.posts.each do |post| %>
+        <%if current_user %>
+        <%if isPostCreator(current_user.id,post.id ) == true %>
+        <div class="triangle-isosceles">
+          <i id="edit" data-container='body' data-placement='top' data-trigger="hover" data-html="true" data-toggle="tooltip" title="انقر تعبيرك للتعديل ">
+            <span id="uname" class="under pull-right"><%= post.name %></span>
+            <span class="pull-left"><%= link_to("x", {:controller => 'posts', :action => 'destroyPost', :project_id => @project.id, :post_id => post.id },:confirm => 'هل أنت متأكد؟') %></span></br>
+            <i id="posteach"><%= best_in_place post, :content, :path => {:controller => 'posts', :action=>'updatePost', :id=>post.id,:project_id => @project.id} %></i></br>
+            <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+          </i>
+        </div>
+      </p>
+      <%else%>
+      <div class="triangle-isosceles">
+        <span id="uname" class="under pull-right"><%= post.name %></span></br>
+        <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
+        <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+      </div>
+      <%end%>
+      <%else%>
+      <div class="triangle-isosceles">
+       <span id="uname" class="under pull-right"><%= post.name %></span></br>
+        <%= breaking_word_wrap(post.content, :line_width => 8) %> </br> 
+        <span class="pull-left"><i dir="ltr" id="time"><%= time_ago_in_words(post.created_at)%><i id="time"> ago</i></span></i>
+        <%end%>
+      </div>
+      <%= render :partial => "listcomments", :locals => {:post => post , :position=>0} %>
+      <%end%>
+    </div>
+  </b>
+</b>    
 </div>
-
+</div>
+</div>
+</div>
+<br>
+</div>
 
 
