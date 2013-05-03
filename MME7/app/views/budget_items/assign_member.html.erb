@@ -1,0 +1,20 @@
+<%= render(:partial => 'shared/error_messages' , :locals => {:object => @budget_item}) %>
+
+<br>
+<div class = "offset2">
+
+<div> 
+<h2>اعضاء   <%=@budget_item.name%></h2> 
+<%= form_for(:budget_item, :url=>{:action=>'update' , :item => @budget_item.id , :id => @project }) do |f| %>
+<p>  
+    <%= f.label :user_tokens, "اضف/حذف أشخاص" %><br />  
+    <%= f.text_field :user_tokens , "data-pre" => @budget_item.users.map(&:attributes).to_json%>   
+</p>
+</br>
+	<p>
+		<td><%= f.submit ("تسجيل") %></td>
+	</p>
+<% end %>
+</div>
+
+
