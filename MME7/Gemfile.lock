@@ -33,6 +33,9 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (~> 3.1)
     bootstrap-datepicker-rails (1.0.0.3)
       railties (>= 3.0)
     bootstrap-sass (2.3.1.0)
@@ -118,6 +121,10 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     pry (0.9.12-x86-mingw32)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -152,6 +159,7 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -201,6 +209,7 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   bcrypt-ruby
+  best_in_place
   bootstrap-datepicker-rails
   bootstrap-sass
   carrierwave
@@ -217,6 +226,7 @@ DEPENDENCIES
   omniauth-facebook
   rails (= 3.2.13)
   ransack
+  rmagick
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3

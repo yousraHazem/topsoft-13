@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
   attr_accessible :group_name , :description , :level , :community_id, :parent_id, :user_tokens
   has_ancestry
 
-  has_many :posts 
+  has_many :posts, :order => 'created_at DESC' 
   has_many :group_users 
   has_many :users, :through => :group_users
   belongs_to :communities

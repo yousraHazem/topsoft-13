@@ -27,7 +27,9 @@ class Project < ActiveRecord::Base
             end
         end
     end
-    has_many :posts
+
+
+    has_many :posts, :order => 'created_at DESC'
     has_many :tasks 
     has_and_belongs_to_many :users
     has_one :budget 
