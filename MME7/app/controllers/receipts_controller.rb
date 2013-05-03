@@ -45,6 +45,3 @@ end
 
 		end
 	end
-
-
-end

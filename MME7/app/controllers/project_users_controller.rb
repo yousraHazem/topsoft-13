@@ -26,6 +26,6 @@ class ProjectUsersController < ApplicationController
 		else
 			redirect_to(:controller => 'projects', :action => 'show', :id => params[:project_id])
 		end				
-					
+
 	end
 end	

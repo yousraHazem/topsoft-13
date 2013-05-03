@@ -1,12 +1,12 @@
 <h1 class="search"><%= image_tag('budget-sources.png', :alt=>"Rails logo") %></h1>
 <%= form_tag( 'list', :method => 'get', :id=>"Budget-serach", :class=>"pull-left" ,  :remote=>true) do %>
-	<div class="input-append">
- 	<%= text_field_tag :search, params[:search] , :class=>"span2" , :id=>"appendedInputButton" , :placeholder=>"بحث" , :type=>"text" %>
-  	<button class="btn" type="submit">
-  		<i class="icon-search"></i>
-  	</button>
-  	</div>
+  <div class="input-append">
+  <%= text_field_tag :search, params[:search] , :class=>"span2" , :id=>"appendedInputButton" , :placeholder=>"بحث" , :type=>"text" %>
+    <button class="btn" type="submit">
+      <i class="icon-search"></i>
+    </button>
+    </div>
 <% end %>
 <div  class="contribution" id="sources-table">
- 	<%= render 'table' %>
+  <%= render 'table' %>
 </div>
