@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :comments
   belongs_to :task
   belongs_to :group
-  has_and_belongs_to_many :budget_items
   has_many :project_users
   has_many :projects , :through => :project_users
 
@@ -20,7 +19,8 @@ class User < ActiveRecord::Base
 
   has_many :task_users
   has_many :tasks , :through => :task_users
-
+  has_many :budget_item_users
+  has_many :budget_items, :through => :budget_item_users
 
   has_many :notification_users
   has_many :notifications ,:through => :notification_users
@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
   before_save :create_remember_token
-
 
   validates_presence_of :name, :message => "لا يوجد هذا الاسم"
   validates_length_of :name, :maximum => 50, :message => "إسم يجب تكون ٥٠ احرف"
@@ -43,11 +42,14 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :message => "يرجى احتيار سم المستخدم أحر"
   validates_uniqueness_of :username, :case_sensitive => false
 
+attr_reader :user_tokens   
+  def user_tokens=(ids)  
+    self.user_ids = ids.split(",")  
+  end
   #Author: Donia Amer Shaarawy 22-0270
   #this is a method so I could be able to use the remember token so we could remember our user returns the user 
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end   
-
 end
