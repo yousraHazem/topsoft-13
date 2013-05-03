@@ -3,9 +3,15 @@
 <br>
 <h2> المشروع: <%= @project.name %></h2>
 
+<br>
+<br>
+<br>
+<br>
+
 <% @budget_sources.each do |budget_source| %>
     <h4>
     	<i class="icon-tint"> </i> 
-    	 <%= budget_source.budget_source.amount%> : <%= budget_source.budget_source.name %> 
+    	 <%= budget_source.budget_source.amount%> : <%= budget_source.budget_source.name %> <br>
+    	 <br>
     </h4>
 <%end%> 

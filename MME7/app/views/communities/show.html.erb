@@ -1,29 +1,45 @@
-<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+<%= link_to("<< رجوع", {:action => 'list'}, :class => 'back-link') %>
+<h2>المجتمع</h2>
+<div class="alignright">
+  <table class="table table-hover" align="right"  >
+   <tr>
+    <th>اسم المجتمع:</th>
+    <td><%= @community.title %></td>
+  </tr>
+  <tr>
+    <th>وصف عن المجتمع:</th>
+    <td><%= @community.social_profile_info %></td>
+     </tr>
+     <tr>
+      <th>البريد الالكتروني: </th>
+      <td><%= @community.contact_info  %></td>
+    </tr>
+    <tr>    
+      <%if loged_in? %>     
+      <%if @community.is_dismissed != true && current_user.isAdmin == true %>
+      <th>يمكنك فعل:</th>
+      <td>
+        <li><%= link_to("تعدىل", {:action => 'edit', :id => @community.id}) %><i class="icon-pencil"></i> </li>            
+      </br>              
+      <li><%= link_to("الغاء", {:action => 'destroy', :id => @community.id}, :confirm => "هل انت متأكد؟", :class => 'action delete') %><i class="icon-remove"></i></li>  
+    </td>
+    <%end%> 
+    <%end%>  
+    <% if loged_in? %>
+        <%if @community.is_dismissed == true && current_user.isAdmin == true %>
+        <td class="aligncenter">
+        </td>
+        <td class="aligncenter">
+          <li>ملغي</li>
+        </td>
+        <%end%>
+        <%end%>       
+      </tr>
 
-<div>
-  <h2>Show Community</h2>
+      <tr>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <td><%= @Community.title %></td>
-    </tr>
-    <tr>
-      <th>social_profile_info</th>
-      <td><%= @Community.social_profile_info %></td>
-    </tr>
-    <tr>
-      <th>contact_info</th>
-      <td><%= @Community.contact_info  %></td>
-    </tr>
-    <tr>
-      <th>Created</th>
-      <td><%= @Community.created_at %></td>
-    </tr>
-    <tr>
-      <th>Updated</th>
-      <td><%= @Community.updated_at %></td>
-    </tr>
+      </tr>
+     
   </table>
-  
 </div>
+  

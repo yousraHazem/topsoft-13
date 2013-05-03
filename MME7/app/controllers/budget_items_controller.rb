@@ -58,7 +58,6 @@ class BudgetItemsController < ApplicationController
 		@item = params[:item]
 		@project = params[:id]  
 		@budget_item  = BudgetItem.find(params[:item])
-
 		@tasks = Task.find(:all,:conditions=>{:project_id=> 1 , :assigned=>false })
 		@task_id = @budget_item.task_id
 		@oldtask = Task.find_by_id(@task_id)
@@ -68,7 +67,7 @@ class BudgetItemsController < ApplicationController
 	end
 
 
-   # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown 
+   # Author: Sarah Ahmed 22-1278 , updates the selected task from the dropdown
    # parameters: none , returns :none 
    # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table no returns or arguments 
 	def update
@@ -89,12 +88,42 @@ class BudgetItemsController < ApplicationController
 			task = Task.find_by_id(taskid)
 			task.update_attributes(:assigned=>true)
 			end
-
 			redirect_to(:action => 'list', :id => @project)
 
 		else
+
 			render('edit')
 		end
 	end
-end
+	
+	#Authored by Toka Omar  id:22-1925
+    #parameters: none , returns :none 
+	def assign_member 
+		@item = params[:item]
+		@project = params[:id]  
+		@budget_item  = BudgetItem.find(params[:item])
+		@users = User.where("name like ?" , "#{params[:q]}")
+    	respond_to do |format|  
+     	format.html  
+     	format.json { render :json => @users.map(&:attributes) }  
+    	end
+	end	
 
+    # Author : Toka Abdelgabar 22-1925
+    # Args : takes budget_item_id , user_id , project_id
+    # Returns : redirects to page with all members in project 
+    # Explanation : this method gets all members not assigned to this budget_item
+	def getProjectMembers
+      @user_id = params[:user_id]
+      @budget_item_id = params[:budget_item_id]
+      @project_id = params[:project_id]
+      @assignedppl  = BudgetItemUser.find(:all, :conditions=>{:budget_item_id => @budget_item_id})
+      @assigned  = BudgetItemUser.find(:all,:select=> 'user_id', :conditions=>{:budget_item_id => @budget_item_id}).collect(&:user_id)
+      if @assigned.empty?
+        @notassigned = ProjectUser.where(:project_id => @project_id)  
+      else
+        @notassigned = ProjectUser.where("project_id = ? AND user_id NOT IN (?)", @project_id , @assigned)
+      end
+  end
+
+end

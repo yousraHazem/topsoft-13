@@ -1,0 +1,36 @@
+<div class = "aligncenter">
+   <% if loged_in? %>
+    <h2><%= @group.group_name %></h2>   
+</div>
+<div id="main-wrap">
+  <div id="content-wrap">     
+    <br>
+    <br>
+    <br>
+    <% @members.each do |m| %>
+      <table class="table">  
+        <% if m.user_id != current_user.id %>        
+        <tr>      
+          <th class = "right">
+            <td>
+               <% @user = User.find(m.user_id)%>
+                <%= image_tag @user.image_url(:thumb).to_s %>
+              <p class = "white"><%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}, {:style=>'color:#FFFFFF;', :class => "css_class"}) %></p>
+            </td>          
+          </th>              
+          <td>             
+            <% if m.isCreator == true %>
+            <%= link_to("أدمن للمجموعة",{:action => 'promoteMembers', :group_id=> @group.id,   :user_id => m.user_id}, :class =>'btn btn-danger  ') %>
+            <% else %>     
+              <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :group_id=> @group.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+            <% end %>  
+          </td>
+        </tr> <br>  
+        <% end %>    
+      </table>
+    <% end %>
+  </div> 
+</div>
+<% end %>   
+
+

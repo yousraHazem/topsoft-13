@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class = "pull-center"><h2><%= @character.project.name %></h2></div>
+<table>
+  <tr>
+    <b><%= "العنوان:  " %></b>
+    <b><%= @character.address %></b>
+  </tr>
+</table>
+
+<%= link_to("المشروع", {:controller => 'projects',:action => 'show', :id => @character.project_id } ) %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= gmaps4rails(@json) %>

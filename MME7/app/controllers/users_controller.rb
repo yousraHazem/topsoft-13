@@ -1,4 +1,4 @@
-#encoding: UTF-8
+#encoding: utf-8
 class UsersController < ApplicationController
   #Author: Donia Amer Shaarawy 22-0270
   #show is a method that takes in  the user.id and returns the groupUser record, where its user.id = current_user.id
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # the user and returns a new record for a new user 
   def create
    @user = User.new(params[:user])
-    if @user.save
+     if @user.save
      flash[:success] = "مرحب بيك فى ؤمن االماء حيه"
      redirect_to :controller => 'sessions', :action => 'new'
     else
@@ -28,10 +28,11 @@ class UsersController < ApplicationController
     end
  end 
 
- # Author Riham Gamal 22-3871
+ 
+ # Author: May Badr 22-0579
  # The index method is used in  the autocomplete search
- # Arguments non 
- # Return all users 
+ # Args: name 
+ # Returns: the user typed
  def index
     @users = User.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|
@@ -39,13 +40,24 @@ class UsersController < ApplicationController
     format.json { render :json => @users.map(&:attributes) }
   end
 end
-
-
- # Author : Salma El -Ruby 22-4649
+  #Author : Salma El -Ruby 22-4649
   # Args : takes task_id, project_id,user_id
   # Returns : task_id, project_id 
   # Explanation : this method assigns members to task , create a new task user 
-   def assign
+
+ def unassign 
+  @task_id = params[:task_id]
+  @userid = params[:user_id]
+  @projectid = params[:id]
+  TaskUser.where(:user_id => @userid ,:task_id => @task_id ).destroy_all
+  redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
+end 
+
+  # Author : Salma El -Ruby 22-4649
+  # Args : takes task_id, project_id,user_id
+  # Returns : task_id, project_id 
+  # Explanation : this method assigns members to task , create a new task user 
+  def assign
   @task_id = params[:task_id]
   @projectid = params[:id]
   @userid = params[:user_id]
@@ -53,6 +65,19 @@ end
   @taskuser.save
   redirect_to(:controller => 'tasks' ,:action => 'getProjectMembers' ,:task_id => @task_id , :project_id => @projectid)
   end 
+
+# Author Riham Gamal 22-3871
+# Arguments: user.id
+# Return update the user attributes (image)
+def addImage
+   @user = User.find(params[:id])
+   @user.update_attributes(params[:user])
+   if @user.save
+    redirect_to  :action => 'show', :id => params[:id]
+   else 
+    render "new"
+  end
+end  
   
 end
 

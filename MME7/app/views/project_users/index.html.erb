@@ -1,0 +1,38 @@
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<div class="aligncenter">
+  <% if loged_in? %>
+    <h1><%= @project.name %></h1> 
+</div> 
+ <%= link_to("للمشروع",{:controller => 'projects',:action => 'show', :id=> @project.id}) %>
+<div id="main-wrap">
+  <div id="content-wrap"> 
+    <td>
+      <h2>تعيين الأعضاء</h2> 
+      <% if isProjectCreator(current_user.id, @project.id) || current_user.isAdmin == true %> 
+      <% @members.each do |m| %>
+        <table class="table">    
+          <% if m.user_id != current_user.id %>        
+            <tr>
+              <td>
+                <% @user = User.find(m.user_id)%>
+                <%= image_tag @user.image_url(:thumb).to_s %>
+                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}, {:style=>'color:#FFFFFF;', :class => "css_class"}) %>
+              </td>         
+              <td>        
+                <% if m.is_creator == true %>
+                   <%= link_to("أدمن للمشروع",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-danger') %>
+                <% else %>     
+                   <%= link_to("ترقية إلى أدمن",{:action => 'promoteMembers', :project_id=> @project.id, :user_id => m.user_id}, :class =>'btn btn-primary') %>
+                <% end %>
+              </td>
+            </tr> 
+          <% end %>     
+        </table>
+      <% end %>
+      <% end %>
+    </td>
+  </div>
+   <% end %>
+</div>
+   
+       
