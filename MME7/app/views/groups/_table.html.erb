@@ -1,15 +1,27 @@
-<table>
-  <tr>
-    <th>اسم المجموعة</th>
-  </tr>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-  <% if @groups %>
-  <% @groups.each do |group| %>
-    	<tr> 
-    		<td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
-		</tr>
-	<% end %>
-	<% end %>
-</table>
+
+<div>
+<% @groups.each do |g| %>
+<% if g.is_root? %>
+<ul>
+<li><%= link_to(g.group_name, {:action => 'show', :id => g.id}, :class => 'action show') %><ul>
+<% g.children.each do |gg|%>
+<li id="child1"><%= link_to(gg.group_name, {:action => 'show', :id => gg.id}, :class => 'action show') %><ul>
+<% gg.children.each do |ggg|%>
+<li id="child2"><%= link_to(ggg.group_name, {:action => 'show', :id => ggg.id}, :class => 'action show') %>
+<% end %>
+</ul></li>
+<% end %>
+</ul></li></ul>
+<% end %>
+<% end %>
+</div>
+
 
 
