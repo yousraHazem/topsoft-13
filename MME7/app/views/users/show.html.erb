@@ -6,8 +6,8 @@
        	 <%= @user.name %>
    		 </h1>
 	</div>
-<%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %>
-<%= render 'get_myprojects', :locals => {'@projectusers' => @project_users} %>
+<span class="span4 "><%= render 'getMyGroups', :locals => {'@groupusers' => @group_users} %></span>
+<span class="span6 "><%= render 'get_myprojects', :locals => {'@projectusers' => @project_users} %></span>
 
 <% if current_user.id == @user.id %>
 	<h4> <%= link_to("#",:id=>"new-item" , class: "btn btn-success") do %>

@@ -1,5 +1,7 @@
 
-<% if current_user %>
+
+
+ <% if current_user %>
 <%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'back') %>
 <% end %>
 <div>
@@ -28,6 +30,8 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
   </div>
+</br>
+
   <div class="span2 group">
   <% if current_user %>
   <% if ifMember(@group.id, current_user.id) == false %>
@@ -50,6 +54,20 @@
   <%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span2') %>
   <% end %>
 <% end %>
+<span class="span7 pull-right"><%= form_for(:groupuser, :url => {:action => 'getGroupMembers(@group.id)'}) do |f| %>
+    <div id="accordion">
+      <% @groupmembers = GroupUser.find(:all, :conditions => {:group_id => @group.id}) %>
+      <h3>أعضاء المجموعة</h3>
+    <div>
+    <% @groupmembers.each do |member| %>
+      <ul>
+        <li><%= link_to(member.user.name, {:controller=>'users', :action=>'show', :id => member.user.id}) %></li>
+      </ul>
+    <% end %>
+    </div>
+<% end %>
+  </div>
+</span>
 </div>
 </div>
 
@@ -60,6 +78,9 @@
 <br>
 <br>
 <br>
+
+
+</br></br></br>
 <br>
 <br>
 <br>

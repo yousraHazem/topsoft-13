@@ -40,7 +40,7 @@ include GroupUsersHelper
         @group = Group.new(:parent_id => params[:parent_id])
     end
 
-    # Author: Sama Akram 22-555
+     # Author: Sama Akram 22-555
     # As a system/admin/member I can create a group issue #157 
     # creates new group and if saved into db it creates a new record in GroupUser
     # with currend user_id & and current group_id then sets att. isCreator = true since he's the creator
@@ -48,9 +48,16 @@ include GroupUsersHelper
         @group = Group.new(params[:group])
         @current_user = current_user
         if @group.save
-            @groupuser = GroupUser.new(:group_id => @group.id, :user_id => @current_user.id )
-            @groupuser.isCreator = 'true'
-            @groupuser.save
+          @userFound = GroupUser.where(:group_id => @group.id , :user_id => current_user.id).exists?
+          if @userFound == false
+          @groupuser = GroupUser.new(:group_id => @group.id , :user_id => current_user.id , :isCreator => 'true')
+          @groupuser.save
+          else
+          @user = GroupUser.where(:group_id => @group.id , :user_id => current_user.id)
+          @thisUser = @user.first
+          @thisUser.isCreator = true
+          @thisUser.save
+          end
             flash[:notice] = "تم انشاء المجتمع بنجاح"
             redirect_to :action => 'show', :id => @group.id
         else

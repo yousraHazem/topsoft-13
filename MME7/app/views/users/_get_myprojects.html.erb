@@ -2,21 +2,26 @@
 <head dir="rtl">
  <title> My Project List </title>
 </head>
-
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 <body dir="rtl" lang="ar">
-<h3>ماشروعاتي</h3>
-<% if @projectusers.blank? %>
-	<p>ليس لديك أي مشروعات حاليا</p>
-<% end %>
+	<h3>ماشروعاتي</h3>
+	<% if @projectusers.blank? %>
+	<p>ليس لديك أي مشروع حتى الآن</p>
+<% else %>
 <table>
-  <tr>
-    <th>المشروع</th>
-  </tr>
+	<tr>
+		<th>المشروع</th>
+	</tr>
 
 <% @projectusers.each do |project_user| %>
   <tr>
     <td id ="project_name"><%= link_to(project_user.project.name,:controller => 'projects',:action=>'show', :id=> project_user.project_id) %></td>
   </tr>
 <% end %>
+<% end %>
 </table>
-</body>
