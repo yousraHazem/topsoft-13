@@ -1,0 +1,74 @@
+
+<div id="ca-container" class="ca-container">
+    <div class="ca-nav">
+        <span class="ca-nav-prev">Previous</span>
+        <span class="ca-nav-next">Next</span>
+    </div>
+    <div class="ca-wrapper"> 
+          <% @carousels.each do |carousel|%>
+        <div class="ca-item">
+            <div class="ca-item-main">
+                <div class="ca-icon">
+                    <%= image_tag carousel.news_url(:thumb).to_s %>
+                </div>
+                    <a href="#" class="ca-more">more...</a>
+            </div>
+            
+            <div class="ca-content-wrapper">
+                <div class="ca-content">
+                    <h6><%= carousel.title %></h6>
+                    <a href="#" class="ca-close"></a>
+                    <div class="ca-content-text">
+                        <p><%= carousel.description %></p>
+                    </div>
+                    <ul>
+                        <% @projectid = carousel.project_id%>
+                        <% if !@projectid.nil? %>
+                        <li><%= link_to("Read More", {:controller => 'projects', :action=>'show' ,:id=> carousel.project_id})%></li>
+                        <% end%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+   <% end %>
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+ <div class="row margin2">
+      <div class="span4 offset1 about">
+        <span class="title2">إنجازات</span>
+        <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+      <div class="span4 offset1 about para">
+        <span class="title2">و من الماء الحياه</span>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+</div>
+
+
+
+<br>
+<br>
+<br>
+<div class=" about2 container body offset2 span5 level pull-left" dir="rtl">
+
+</div>
+
+<div>
+
+</div>

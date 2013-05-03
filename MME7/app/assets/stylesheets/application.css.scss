@@ -12,8 +12,43 @@
  *= require_self
  *= require_tree .
  *= require bootstrap-datepicker
+ *= jquery.jscrollpane
  */
+
+ .name {
+ position:absolute;
+ right:70px;
+ }
  
+ .p{
+margin-right :100px;
+
+ }
+
+.head{
+  margin-top :-40px;
+}
+
+.group{
+  position:absolute;
+  right: 190px;
+}
+
+.group2{
+  position:absolute;
+  right: 440px;
+}
+
+.toggle{
+postion: absolute;
+right:100px;
+}
+
+.tl{
+  
+  margin-right:40px;
+  margin-top:-10px;
+}
 
 .field_with_errors .message {
  display: inline;
@@ -36,17 +71,41 @@ margin: 8px 10px;
  }
 
  .info1 {
- margin-top: -50px;
+ margin-top: -80px;
  margin-right: 700px;
  }
   .info2 {
- margin-top: -30px;
+ margin-top: -40px;
  margin-right: 700px;
  }
   .info3 {
- margin-top: -30px;
+ margin-top: -40px;
  margin-right: 700px;
  }
+
+  .info7 {
+ margin-top: -70px;
+ margin-right: 700px;
+ }
+
+ .linkback{
+
+ margin-left: 100px;
+ }
+
+ .info4 {
+ margin-top: -0px;
+ margin-right: 700px;
+ }
+  .info5 {
+ margin-top: -0px;
+ margin-right: 700px;
+ }
+  .info6 {
+ margin-top: -0px;
+ margin-right: 700px;
+ }
+
 
 .bg {
   border: 1px solid #d1d1d1;
@@ -70,9 +129,9 @@ margin: 8px 10px;
  }
  .pic{
  position:absolute;
- left: 66%;
- top: 11.5%;
- z-index:3
+ left: 67%;
+ top: 9%;
+ z-index:3;
  }
 
   .pull {
@@ -126,15 +185,37 @@ margin: 8px 10px;
     margin: 80px auto;
 }
 
+td.text textarea{
+	resize:vertical; height:80px;
+	resize:horizontal; width:210px;
+}
+
+.head {
+	padding-top:30px;
+}
+
+.back{
+	
+	margin-right: 800px;
+}
+
+.link:hover{color:#ffffff;}
+
+.link{
+	color:#C6DEFF;
+}
+
  #background {
- background-image: url(yes3.png);
- background-repeat: repeat-x;
+ background-image:url(yes3.png);
+ background-repeat: no-repeat;
  background-size: 1365px 950px;
  padding: 10px;
- height:900;
- background-color: rgb(32,75,117);
- 
+ height: 900px;
+ background-color:rgb(32,75,117);
+
  }
+
+
 
  td.texta textarea {
 	resize:vertical; max-height:200px;
@@ -144,7 +225,10 @@ margin: 8px 10px;
  text-align: right;
  }
 
-
+div.style2{
+	
+	padding: 40px;
+}
 
  .comments{
  
@@ -170,9 +254,7 @@ margin: 8px 10px;
 	text-align: center;
 }
 
-
 .sources{
-	background-color: #F0F0F0 ;
 }
 
 .search {
@@ -185,12 +267,14 @@ margin: 8px 10px;
 	margin : 20px;
 }
  .amount {
-
-margin: 50px;
+position:absolute;
+right: 600px;
  }
 
  h1 , h2 , h3 , h4, h5 , h6 {
  color: #000066;
+ margin-right: 0px;
+ padding: 0 px;
  }
 
 
@@ -211,7 +295,13 @@ margin: 50px;
 	 text-align: center;
 }
 
-.notice {text-align: center; background:#e6efc2;color:#264409;border-color:#c6d880; font-weight: bold; }
+.notice {
+text-align: center; 
+background:#e6efc2;
+color:#264409;
+border-color:#c6d880; 
+font-weight: bold; 
+}
 
 p.paragraph{
    font-weight: bold;
@@ -220,18 +310,35 @@ p.paragraph{
      border: 30px solid white;
 }
 
+
+dt.ta textarea {
+	resize: vertical; max-height:200px;
+	resize:horizontal; max-width:400px;
+}
 td.ta textarea {
 	resize:horizontal; width:400px;
-}
-
-.body{
-  color:#ffffff;
 }
 
 #show {
 	text-align: right;
 }
 
+.body{
+	color:#ffffff;
+	font-size: 100%;
+}
+
+.title{
+	padding-top: -20px;
+	font-weight: bold;
+  font-style: italic;
+	font-size: 200%;
+
+}
+.body2{
+	color:#ffffff;
+	font-weight:bold;
+}
 #desc{
 	margin: 20px;
 }
@@ -240,6 +347,29 @@ margin: 20px;
 	
 }
 
+.about{
+	text-align: justify;
+	color: #ffffff;
+
+}
+
+
+.title2{
+	font-weight: bold;
+	font-size: 200%;
+	color: #C6DEFF;
+}
+
+.kay{
+	
+	margin-left:0px;
+}
+
+
+.nav{
+	
+
+}
 div.well{
 	width: 300px;
 }
@@ -366,7 +496,7 @@ margin-right: 370px;
    position:relative;
    padding:20px;
    margin:1em 0 3em;
-   margin-right: 15em;
+   margin-right: 17em;
    margin-left: 15em;
    color:#000;
    background:#E6E6FA;
@@ -432,8 +562,6 @@ margin-right: 370px;
     border-bottom-color:rgba(0,0,0,0.095);
 }
 
-
-
 #main-wrap > div { min-height: 450px; }
 
 
@@ -468,9 +596,7 @@ margin-right: 370px;
 	margin-left:30px;
 }
 
-.addColor{
-  
-}
+
 
 
 #wasf {

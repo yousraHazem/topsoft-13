@@ -1,11 +1,16 @@
-<h4>تعيين العضو</h4>
-<h4>الأعضاء</h4>
 
+<h4 class ="title">تعيين العضو</h4>
+
+<br>
+<br>
+<br>
+<br>
+<br>
  <h4>الأعضاء المعينين لهذه المهمة :</h4>
       
   </tr>
   <% @assignedppl.each do |p| %>
-    <tr>
+    <tr class ="body">
       <td> 
         <% @user = User.find(p.user.id)%>
         <%= image_tag @user.image_url(:thumb).to_s %>
@@ -15,7 +20,7 @@
       </td>
     </tr>
   <% end %>
-  <tr>
+  <tr class ="body">
   <h4>تعيين أعضاء جدد لهذه المهمة : </h4>
   </tr>
    <% @notassigned.each do |p| %> <br/>

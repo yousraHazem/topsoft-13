@@ -1,10 +1,10 @@
 
 <% if current_user %>
-<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'btn btn-link') %>
+<%= link_to("الرجوع إلى قائمة المجموعات", {:action => 'index'}, :class => 'back') %>
 <% end %>
 <div>
 
-<h2 class="aligncenter"><%= @group.group_name %></h2>
+<h2 class="title"><%= @group.group_name %></h2>
 </br>
 </br>
 </br>
@@ -12,11 +12,23 @@
 
 <b text-align="center" ><%= render @group.parent if @group.parent%></b>
 </br>
-  <table class="table" id="show">
-    <tr dir="rtl" lang="ar">وصف</tr>
-    <th style="text-align: center" ><%= @group.description %></th>
-  </table>
-
+  <div class ="row body">
+    <div class="span7 group2">
+    <dt dir="rtl" lang="ar" class="tl">وصف</dt>
+    <dd style="text-align: justify" ><%= @group.description %> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+  </div>
+  <div class="span2 group">
   <% if current_user %>
   <% if ifMember(@group.id, current_user.id) == false %>
     <%= button_to("اشترك معنا ",{:controller => 'group_users', :action =>'join', :id => @group.id, :user_id => current_user.id}, :class => 'btn span2') %>
@@ -38,12 +50,31 @@
   <%= button_to("إنشاء مجموعة فرعية", {:action =>'new', :parent_id => @group.id}, :class => 'btn span2') %>
   <% end %>
 <% end %>
-</br>
-</br>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div>
   <% if current_user %>
   <% if ifMember(params[:id],current_user.id)==true %>
   <%= form_for(:post,  :url => {:controller => 'posts',:action => 'createPost', :id => params[:id], :user_id => current_user.id}) do |f| %>
+
   <div class="triangle-create">
     <td class="cin"><%= f.text_area (:content),:placeholder =>"أضف تعبيرك ", "cols"=> 40, "rows"=> 3 %></td>
     <%= f.hidden_field :group_id, :value => @group.id%> 
