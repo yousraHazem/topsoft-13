@@ -3,7 +3,7 @@
 <html dir="rtl">
 <head>
 <title>MME7</title>
- <%= stylesheet_link_tag "application", "style_light", "token-input" , "token-input-facebook" ,"style1", "jquery.jscrollpane", :media=>"all" %>
+ <%= stylesheet_link_tag "application", "style_light", "token-input" , "token-input-facebook" , 'gmaps4rails',"style1", "jquery.jscrollpane", :media=>"all" %>
  <%= javascript_include_tag "application", "rails.validations" , "jquery.tokeninput" , "jquery.contentcarousel" , "jquery.easing.1.3" , "jquery.mousewheel", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
 
   <title><%= yield :name %></title>
@@ -11,8 +11,8 @@
   <title><%= yield :end_date %></title>
   <title><%= yield :descritption %></title>
 
-  <%= csrf_meta_tags %>
-
+     <%= csrf_meta_tags %>
+     <%= yield :head %>
 </head>
 <style type="text/css">
         .tooltip {
@@ -127,4 +127,7 @@
 </div>
 
 </body>
+<footer>
+  <%= yield :scripts %>
+</footer>
 </html>

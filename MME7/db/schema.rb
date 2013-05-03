@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130426213436) do
 
 
+
   create_table "budget_components", :force => true do |t|
     t.string   "name"
     t.integer  "total_quantity"
@@ -76,6 +77,17 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
 
   end
 
+  create_table "characters", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.boolean  "gmaps"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "project_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -85,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
     t.boolean  "is_group",   :default => false
     t.string   "name"
   end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "communities", :force => true do |t|
     t.string   "title"
@@ -98,6 +112,13 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
   create_table "communities_projects", :id => false, :force => true do |t|
     t.integer "community_id"
     t.integer "project_id"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "photo"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "group_users", :force => true do |t|
@@ -169,10 +190,8 @@ ActiveRecord::Schema.define(:version => 20130426213436) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
-    t.string   "location"
+
+    t.string   "photo"
   end
 
   create_table "receipts", :force => true do |t|

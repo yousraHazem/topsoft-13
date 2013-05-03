@@ -36,6 +36,12 @@ $(function(){
             dataType: "script"
         });
     });
+});
+
+$(function() {
+    $("#new-item").click(function(){
+        $("#item-form").toggle("slow");
+    });
 }); 
 
 // $(function(){
@@ -197,12 +203,6 @@ $(function() {
   });
 });
 
-$(function(){
-    $("#search input").keyup(function(){
-        $.get($("#search").attr("action"),$("#search").serialize(), null, "script");
-        return false;
-    });
-});
 
 
 

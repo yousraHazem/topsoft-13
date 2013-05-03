@@ -1,4 +1,4 @@
-<%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'listProjects', :class => 'back link'} ) %>
+<%= link_to("ارجع الي القاءمة", {:controller => 'projects',:action => 'show', :id=>@project,:class => 'back link'} ) %>
  <h2>المهام</h2>
 <table class="table table-striped">
 	 <br/>
@@ -11,13 +11,14 @@
 		<td>  <div class = "alignright"><%= task.description %> </div>
 	   <% if isProjectCreator(current_user.id,params[:id]) == true %>
 
-		<%= link_to(" تعيين عضو لمهمة   ", {:controller =>'tasks', :action =>'getProjectMembers', :project_id => @project_id , :task_id => task.id }, :class => 'action getProjectMembers') %>
-		<%= link_to("-  تعديل  -", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %><b><%= link_to "X", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
+		<%= link_to(" أعضاء المهمة ", {:controller =>'tasks', :action =>'getProjectMembers', :project_id => @project_id , :task_id => task.id }, :class => 'action getProjectMembers') %>
+		<%= link_to("-  تعديل  -", {:action => 'edit', :id => task.id ,:project_id => params[:id] }, :class => 'action edit') %>
+		<b><%= link_to "X", {:action => 'destroy', :id => task.id ,:project_id => params[:id]},:confirm => "هل تريد مسح المهمة ؟" %></b>
 		<% end %>
 	    </td>
 	</tr>
 	<% end %>
-
+  <% if isProjectCreator(current_user.id,params[:id]) == true %>
 <div>
 	<%= form_for(:task, :url => {:action => 'create',:project_id => @project_id}) do |f| %>
 	<table>
@@ -32,5 +33,6 @@
 		<%= submit_tag("إضافة") %>
 	</div>
     <% end %>
+   <% end %>
     </table>
 </div>	 	

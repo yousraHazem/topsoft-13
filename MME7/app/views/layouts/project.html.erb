@@ -4,10 +4,11 @@
   <title>MME7</title>
 
  
- <%= stylesheet_link_tag "application", "style_light" , "token-input-facebook", :media => "all" %>
+ <%= stylesheet_link_tag "application", "style_light" , "token-input-facebook", 'gmaps4rails', :media => "all" %>
 <%= javascript_include_tag  "jquery.tokeninput" ,"rails.validations", "jquery-ui-1.8.14.custom.min.js" , "ttw-notification-menu" , "ttw-notification-menu.min" %>
 
   <%= csrf_meta_tags %>
+  <%= yield :head %>
  <script language="javascript" src="jquery.js"></script>  
 <script language="javascript" src="jquery.dimensions.js"></script>  
 </head>
@@ -82,5 +83,8 @@
   
 
 </body>
+<footer>
+  <%= yield :scripts %>
+</footer>
 </html>
 
