@@ -1,6 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <% if @items.blank? %>
+	<p class='body'> لا يوجد عناصر ميزانية حاليا</p>
 <% else %>
+	<p class='body'>عناصر الميزانية الحالية هي :</p>
+
 <table class="table">
  	<tr class="header">
  		<th>اسم عنصر الميزانية</th>
@@ -13,11 +16,10 @@
         <th>اعضاء العنصر</th>
  		<% end %>
  		<% end %>
- 		<th>مشاهدة</th>
  	</tr>
  	<% @items.each do |item| %>
 		<tr id = "budget_item">
- 		<td><%= item.name %></td>
+ 		<td><%= link_to(item.name, {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> item.project_id}, :class=>"link")%></td>
  		<td><%= item.total %></td>
  		<td><%= item.spent %></td>
  		<% if loged_in? %>
@@ -30,7 +32,6 @@
 		</td>
 	    <% end %> 
 	    <% end %>
-	    <td><%= link_to("مشاهدة", {:controller=>'budget_components',:action=>'list',:id=>item.id ,:project_id=> @project.id}, :class=>"btn btn-small")%></td>
  		</tr>
  	<% end %>
 </table>
