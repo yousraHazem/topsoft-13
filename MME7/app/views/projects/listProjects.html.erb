@@ -1,39 +1,69 @@
+
 <% @page_title = "Projects List" %>
 <div >
- <h2>المشاريع</h2>
- <% if loged_in? %>
-	 <% if current_user.isAdmin == true %>
+<h2>المشاريع</h2>
+<br><br>
+<% if loged_in? %>
+	<% if current_user.isAdmin == true %>
 	 	<%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
-	 <% end %>
-  <% end %>
-    <table class="table table-striped">
-	 	<tr>
-	 		<th>المشروع</th>
-	 		<th>تاريخ البداية</th>
-	 		<th>تاريخ النهاىة</th>
-	 		<th>التفاصيل</th>
-	 	</tr>
+	<% end %>
+<% end %>	
+
+<% x=0 %>
+<br><br><br><br>
+	<table >
 	 	<% @projects.each do |project| %>
-		 	<tr>
-		 		<td> <%= project.name %></td>
-		 		<td> <%= project.start_date %>   </td>
-		 		<td> <%= project.end_date %>     </td>
-		 		<td> <%= project.description %>  </td>
-	            <% if loged_in? %>
-			 		<td >
-					 	<%= link_to("مشاهدة", {:action => 'show', :id => project.id}) %>
-					</td >
-				  <% if current_user.isAdmin == true || isProjectCreator(current_user.id, project.id) %>
-				        	<td >
-							   <li><%= link_to("تعدىل", {:action => 'editProject', :id => project.id}) %><i class="icon-pencil"></i> </li>
-							</td>
-						<td >
-						   <li><%= link_to("الغاء", {:action => 'destroy', :id => project.id}) %><i class="icon-remove"></i> </li>
+		 	<% if loged_in? %>
+				<% if x %3 == 0 %>
+				 	<tr>
+				 	    <td>
+						 	<div class="veiwProject" style="margin-right: 0px; width: 200px; height:150px;"class="thumbnail">
+								 <br><%= link_to(project.name, {:action => 'show', :id => project.id}) %><br><br>
+								 	<span class = "datesP">
+								 		تاريخ بداية: <%=  project.start_date %><br><br>
+								 		تاريخ انتهاء: <%=  project.end_date %><br>
+									</span>
+							</div>
 						</td>
-				  <% end %>
-				<% end %>
-				
-		 	</tr>
-	 	<% end %>
-    </table>
+				<%end%>
+				<%if x %3 == 2 %>
+					<td>
+						<div class="veiwProject" style="margin-right: 200px; width: 200px; height:150px;"class="thumbnail" >
+							<br><%= link_to(project.name, {:action => 'show', :id => project.id}) %><br><br>
+							 	<span class = "datesP">
+							 		تاريخ بداية:<%= project.start_date %><br><br>
+							 		تاريخ انتهاء:<%= project.end_date %><br>
+							 	<span>
+						</div><br>
+					</td></tr>
+			    <%end%>
+			<% else %>
+			    <br><br>
+	            <% if x %3 == 0 %>
+				 	<tr>
+				 	    <td>
+						 	<div class="veiwguestProject" style="margin-right: 0px; width: 200px; height:150px;"class="thumbnail">
+								<br> <%= project.name %><br><br>
+								 	<span class = "datesP">
+								 		تاريخ بداية: <%=  project.start_date %><br><br>
+								 		تاريخ انتهاء: <%=  project.end_date %><br>
+									</span>
+							</div>
+						</td>
+				<%end%>
+				<%if x %3 == 2 %>
+					<td>
+						<div class="veiwguestProject" style="margin-right: 200px; width: 200px; height:150px;"class="thumbnail"  >
+							 <br><%= project.name %><br><br>
+							 	<span class = "datesP">
+							 		تاريخ بداية:<%= project.start_date %><br><br>
+							 		تاريخ انتهاء:<%= project.end_date %><br>
+							 	<span>
+						</div><br>
+					</td></tr>
+			    <%end%>
+			<% end %>
+		 <% x=x+1 %>
+	 	<% end %>    
+	</table>
 </div>

@@ -25,6 +25,7 @@ end
 gem 'gmaps4rails'
 #gem 'simplecov'
 gem 'carrierwave'
+gem "rmagick", "~> 2.13.2", :require => 'RMagick'
 #gem 'rmagick'
 gem 'bootstrap-datepicker-rails'
 
