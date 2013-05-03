@@ -2,11 +2,8 @@
 <%= link_to("ارجع الي القاءمة", {:action => 'listProjects'} ) %>
 <div >
     <h2>كون مشروع</h2>
-<<<<<<< HEAD
-    <%= form_for(:project, :url => {:action => 'createProject'}) do |f| %>
-=======
+
     <%= form_for(@project,:as => :project, :url => {:action => 'createProject'}, :validate => true) do |f| %>
->>>>>>> master
     <%= render(:partial => "form", :locals => {:f => f}) %>
  	<div >
  	  <button class="btn btn-large btn-primary" type="submit">تكوين</button>

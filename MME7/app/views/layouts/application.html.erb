@@ -102,8 +102,9 @@
             </li>
             <% end %>
             <div id="user_nav">
-            <% if current_user %>
-          <% else %>
+  <% if current_user %>
+    
+  <% else %>
   <a href="/auth/facebook" class="btn btn-info"><i class="icon-white icon-user"></i> Facebook Login</a>
   <% end %>
 </div>
@@ -130,9 +131,9 @@
 </div>
 
 </body>
+
+</html>
 <footer>
   <%= yield :scripts %>
 </footer>
-
 </html>
-
