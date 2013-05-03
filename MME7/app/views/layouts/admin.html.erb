@@ -28,14 +28,15 @@ $(function(){
 				<p>Welcome, <strong> <% if current_user %><%= current_user.username %><% end %></strong> [<a href=""><%= link_to "خروج", log_out_path %></a>]</p>
 			</div>
 		</div>
-
+    </div>
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
 				<div class="h_title">&#8250; لوحة التحكم</div>
 				<ul id="home">
-					<li class="b1"><a class="icon view_page" href=""><%= link_to "الصفحة الرئيسية", :controller => "admin", :action => "show", 
-					:id => current_user %></a></li>
+					<li class="b1"><a class="icon view_page" href=""><%= link_to "الصفحة الرئيسية", :controller => "admin", :action => "show", :id => current_user %></a></li>
+					<li class="b1"><a class="icon view_page" href=""><%= link_to "الصفحة الرئيسية", :controller => "carousels", :action => "list" %></a></li>
+					<li class="b2"><a class="icon add_page" href=""><%= link_to "صفحة رئيسية جديدة", :controller => "carousels", :action => "new" %></a></li>
 				</ul>
 			</div>
 			<div class="box">
@@ -83,10 +84,9 @@ $(function(){
 				</ul>
 			</div>
 	    </div>
-	<div id="main" dir="rtl">
-    <%= yield %>
-    </div>
-	<div id="footer">
+	    <div id="main" dir="rtl">
+	    	<%= yield %>
+	    </div>
 	</div>
 </div>
 <footer>
