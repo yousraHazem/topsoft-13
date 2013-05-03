@@ -26,6 +26,20 @@ class TasksController < ApplicationController
     # Update the object
     if @task.update_attributes(params[:task])
       # If update succeeds, redirect to the list action
+
+      project_name = Project.find(@task.project_id).name
+      @members = ProjectUser.where(:project_id =>@task.project_id)
+      notification = Notification.create(:content=>"#{current_user.name}  قام بتعديل مهمة '#{@task.description}' لمشروع '#{project_name}'." , :url =>"/tasks/listTasks/#{@task.project_id}" , :image=>"create project") 
+      current_id = current_user.id
+      @members.each do |member|
+        if  member.user_id == current_id
+         
+        else
+        NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
+        end
+      end
+
+
       redirect_to(:action => 'listTasks', :id => params[:project_id])
     else
       # If save fails, redisplay the form so user can fix problems
@@ -69,7 +83,19 @@ class TasksController < ApplicationController
     @task=Task.new(params[:task])
     @task.project_id = params[:project_id]
      if @task.save
-     
+
+      project_name = Project.find(@project_id).name
+      @members = ProjectUser.where(:project_id => params[:project_id])
+      notification = Notification.create(:content=>"#{current_user.name}  قام بانشاء مهمة جديدة '#{@task.description}' لمشروع '#{project_name}'." , :url =>"/tasks/listTasks/#{@project_id}" , :image=>"create project") 
+      current_id = current_user.id
+      @members.each do |member|
+        if  member.user_id == current_id
+         
+        else
+        NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
+        end
+      end
+
    redirect_to(:controller => 'tasks',:action => 'listTasks', :id => params[:project_id])
       else
          render('create')

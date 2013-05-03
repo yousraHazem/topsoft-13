@@ -37,6 +37,19 @@ class BudgetItemsController < ApplicationController
 		@project = params[:id]
 		@budget_item  = BudgetItem.new(params[:budget_item])
 		if @budget_item.save
+
+
+			project_name = Project.find(@project).name
+            @members = ProjectUser.where(:project_id => params[:id])
+            notification = Notification.create(:content=>"#{current_user.name}  قام بانشاء ميزانية جديدة '#{@budget_item.name}' لمشروع '#{project_name}'." , :url =>"/budget_items/list/#{@project}" , :image=>"create budget") 
+            current_id = current_user.id
+            @members.each do |member|
+	            if 	member.user_id == current_id
+	             
+	            else
+	            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
+	            end
+            end
             
             taskid = @budget_item.task_id
 			if !taskid.nil?
@@ -82,6 +95,20 @@ class BudgetItemsController < ApplicationController
 		@task_id = params[:task_id]
 
 		if @budget_item.update_attributes(params[:budget_item])
+
+
+			project_name = Project.find(@project).name
+            @members = ProjectUser.where(:project_id => params[:id])
+            current_id = current_user.id
+
+
+		    notification = Notification.create(:content=>"#{current_user.name} قام بتعديل ميزانية '#{@budget_item.name}' التابع لمشروع '#{project_name}'" , :url =>"/budget_items/list/#{@project}" , :image=>"edit budget") 
+            @members.each do |member|
+	            if 	member.user_id == current_id     
+	            else
+	            NotificationUser.create(:user_id=>member.user_id , :notification_id=> notification.id)
+	            end
+            end
 
 			if !@task_id.nil?
 	        @old_task = Task.find(@task_id)

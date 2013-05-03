@@ -19,7 +19,7 @@
 	    <dd class ="checkbox inline"><%= f.check_box(:operational)%></dd>
 
   		<dt><%= f.label(:task_id, "المهمة")%></dt>
-  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
+  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.description,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
    
 
 </br>

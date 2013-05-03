@@ -18,7 +18,7 @@
 
 
    		<dt><%= f.label(:task_id, "المهمة")%></dt>
-  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.title,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
+  		<dd><%= f.select(:task_id, @tasks.collect {|i| [i.description,i.id]},{:include_blank => true} ,:id=>"drop-down") %></dd>
     
 
 		<%= f.hidden_field :project_id , :value=> @project %>	
