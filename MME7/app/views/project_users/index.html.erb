@@ -29,13 +29,13 @@
       <% @members.each do |m| %>
 
           <% if m.user_id != current_user.id %>
-        <table class="table table-striped">    
+        <table class="table">    
 
             <tr>
               <td>
                 <% @user = User.find(m.user_id)%>
                 <%= image_tag @user.image_url(:thumb).to_s %>
-                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}, {:style=>'color:#FFFFFF;', :class => "css_class"}) %>
+                <%= link_to(m.user.name,{:controller => 'users', :action => 'show', :id => m.user_id}, {:style=>'color:#FFFFFF;', :class => "css_class link"}) %>
               </td>         
               <td>   
                 <% if m.is_creator == true %>

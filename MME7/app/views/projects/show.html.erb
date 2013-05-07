@@ -12,6 +12,8 @@
 <!-- AddThis Button END -->
 <br>
 <br>
+<br>
+<br>
 
 <% if loged_in? %>
      <div class ="row">  
@@ -20,7 +22,7 @@
            <% if Date.today < @project.end_date %>
             <span id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id} , :class => 'btn span2') %></span><br><br>
             <span><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}, :class => 'btn span2') %></span><br><br>
-
+            <span><%= link_to("الغاء المشروع", {:action => 'destroy', :id=> @project.id}, :class => 'btn span2') %></span><br><br>
           <% end %>
         <% end %>
         
