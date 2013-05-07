@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502182550) do
+ActiveRecord::Schema.define(:version => 20130502122312) do
 
   create_table "budget_components", :force => true do |t|
     t.string   "name"
-    t.integer  "total_quantity",     :default => 0
+    t.integer  "total_quantity"
     t.string   "status",             :default => "Pending"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.integer  "total"
   end
 
-  create_table "budget_items_users", :id => false, :force => true do |t|
-    t.integer "budget_item_id"
-    t.integer "user_id"
-  end
-
   create_table "budget_source_projects", :force => true do |t|
     t.integer  "budget_source_id"
     t.integer  "project_id"
@@ -62,11 +57,6 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.integer  "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "budget_sources_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "budget_source_id"
   end
 
   create_table "carousels", :force => true do |t|
@@ -137,8 +127,8 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "community_id"
-    t.integer  "level"
     t.string   "ancestry"
+    t.integer  "level"
   end
 
   add_index "groups", ["ancestry"], :name => "index_groups_on_ancestry"
@@ -192,7 +182,6 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_frozen",   :default => false
-
   end
 
   create_table "receipts", :force => true do |t|
@@ -225,20 +214,12 @@ ActiveRecord::Schema.define(:version => 20130502182550) do
     t.string   "phone_Nr"
     t.string   "address"
     t.string   "username"
-    t.boolean  "isAdmin",                :default => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.boolean  "isAdmin",         :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "image"
-    t.string   "profile"
-    t.string   "provider"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.string   "uid"
-    t.string   "auth_token"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

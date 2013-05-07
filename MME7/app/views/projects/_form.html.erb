@@ -1,4 +1,4 @@
-<dl>
+<dl class ="body">
 	<dt><%= "الاسم " %></dt>
 	<dd><%= f.text_field(:name) %></dd>
 
@@ -13,8 +13,8 @@
 	<dt><%=  "التفاصيل " %></dt>
 	<dd><%= f.text_field(:description) %></dd>
 </dl>
-<table>
-	<tr>
+<table class ="body">
+	<tr class ="body">
 	    <%= f.label :user_tokens, "إضافة أعضاء للمشروع" %><br />
 		<%= f.text_field :user_tokens, "data-pre" => @project.users.map(&:attributes).to_json %>
  	</tr>

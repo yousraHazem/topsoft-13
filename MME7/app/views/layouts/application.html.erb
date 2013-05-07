@@ -89,7 +89,7 @@
 
           <li class="notification-menu-item " id="not"><%= link_to("مصادر الميزانية ",{ :controller=>"budget_sources" , :action=>'list'} , :class=>"pull-left")%>
 </li>
-          <li class="notification-menu-item " id="not"><%= link_to(" المشاريع",{ :controller=>"communities" , :action=>'list'})%></li>
+          <li class="notification-menu-item " id="not"><%= link_to(" المشاريع",{ :controller=>"projects" , :action=>'listProjects'})%></li>
           <li class="notification-menu-item ">
 
           <%= link_to({:controller=>'carousels', :action=>'index'}) do %>
