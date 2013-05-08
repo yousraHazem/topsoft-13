@@ -109,7 +109,7 @@
 	top:5px;
 	text-align:left;
 	z-index:10000;
-	overflow:hidden;
+	overflow:auto;
 }
 .ca-content{
 	width:500px;
@@ -117,11 +117,11 @@
 }
 .ca-content-text{
 	font-size: 14px;
-	font-style: italic;
 	font-family: "Georgia","Times New Roman",serif;
 	margin:10px 20px;
 	padding:10px 20px;
 	line-height:24px;
+
 }
 .ca-content-text p{
 	padding-bottom:5px;

@@ -1,12 +1,15 @@
-<table class ="body">
+<table>
   <tr>
-    <th>اسم المجموعة</th>
+    <th class="body">اسم المجموعة</th>
   </tr>
-
+<br>
+<br>
+<br>
+<br>
   <% if @groups %>
   <% @groups.each do |group| %>
     	<tr> 
-    		<td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show') %></td>
+    		<td><%= link_to(group.group_name, {:action => 'show', :id => group.id}, :class => 'action show link') %></td>
 		</tr>
 	<% end %>
 	<% end %>

@@ -12,6 +12,8 @@
 <!-- AddThis Button END -->
 <br>
 <br>
+<br>
+<br>
 
 <% if loged_in? %>
      <div class ="row">  
@@ -20,7 +22,7 @@
            <% if Date.today < @project.end_date %>
             <span id="active"><%= link_to("إضافة مشرف", {:controller => 'project_users',:action =>'index',:id=> @project.id} , :class => 'btn span2') %></span><br><br>
             <span><%= link_to("تعديل المشروع", {:action => 'editProject', :id=> @project.id}, :class => 'btn span2') %></span><br><br>
-
+            <span><%= link_to("الغاء المشروع", {:action => 'destroy', :id=> @project.id}, :class => 'btn span2') %></span><br><br>
           <% end %>
         <% end %>
         
@@ -71,17 +73,7 @@
                
                     <dt>تاريخ النهاية: <%= @project.end_date %></dt><br>
                 
-                    <dt style="text-align:justify;">تفاصيل المشروع: <%= @project.description %> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+                    <dt style="text-align:justify;">تفاصيل المشروع: <%= @project.description %></dd>
             
                 </dl>
              

@@ -4,7 +4,7 @@
     <script type="text/javascript">
     </script>
   </head>
-  <body>
+  <body class="body">
 </br>
 </br>
 </br>
@@ -14,12 +14,11 @@
         <h3>مجموعاتي</h3>
         <table>
           <tr>
-           <th>المجموعة</th>
           </tr>
           <% end %>
             <% @groupusers.each do |group_user| %>
               <tr>
-                <td id ="group_name"><%= link_to(group_user.group.group_name,:controller => 'groups',:action=>'show', :id=> group_user.group_id) %></td>
+                <td id ="group_name"><%= link_to(group_user.group.group_name,{:controller => 'groups',:action=>'show', :id=> group_user.group_id} , :class=> "link") %></td>
               </tr>
            <% end %>
         </table>

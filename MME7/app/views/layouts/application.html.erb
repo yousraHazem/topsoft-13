@@ -89,7 +89,7 @@
 
           <li class="notification-menu-item " id="not"><%= link_to("مصادر الميزانية ",{ :controller=>"budget_sources" , :action=>'list'} , :class=>"pull-left")%>
 </li>
-          <li class="notification-menu-item " id="not"><%= link_to(" المشاريع",{ :controller=>"communities" , :action=>'list'})%></li>
+          <li class="notification-menu-item " id="not"><%= link_to(" المشاريع",{ :controller=>"projects" , :action=>'listProjects'})%></li>
           <li class="notification-menu-item ">
 
           <%= link_to({:controller=>'carousels', :action=>'index'}) do %>
@@ -118,7 +118,7 @@
  <% if current_user %>
 <%  user =  current_user.id %>
 <div id="current-user" data-id="<%= user %>">
-<div id="notify"  class="notification-list-wrapper" style="top: 77px; left: 800px; display:none; opacity: 1;">
+<div id="notify"  class="notification-list-wrapper" style="position:absolute; top: 77px; left: 700px; display:none; opacity: 1;">
         <span><%= link_to("all",{:controller => 'notifications', :action=>'all'} , :class=>"pull" , :id=>'all-link') %></span>
         <div id = "notification">
        <% @nots = notifications %>
