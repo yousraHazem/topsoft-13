@@ -4,7 +4,7 @@ class CarouselsController < ApplicationController
 # Author : yasmin mahmoud this method gets all the values with show is true #no arguments or return 
 def index
 	@carousels = Carousel.where(:show => true)
-	end
+end
 
 #Author: yasmin mahmoud lis all the carousels no arugments or return 
 	def list
@@ -33,9 +33,9 @@ end
 # Author :Yasmin Mahmoud 22-1787 , Method edit finds the carousel with the id taken from the params 
 
 	def edit  
-	@carousel = Carousel.find(params[:id])
-	@project = @carousel.project_id
-	@projects = Project.all
+		@carousel = Carousel.find(params[:id])
+		@project = @carousel.project_id
+		@projects = Project.all
 	end
 # Author :Yasmin Mahmoud 22-1787 , Method update takes attributes from the edit form and updates the table takes to returns 
 	def update

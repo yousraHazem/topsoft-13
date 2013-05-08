@@ -24,10 +24,10 @@
   <h4>تعيين أعضاء جدد لهذه المهمة : </h4>
   </tr>
    <% @notassigned.each do |p| %> <br/>
-      <tr>
+      <tr class ="body">
          <% @user = User.find(p.user.id)%>
         <%= image_tag @user.image_url(:thumb).to_s %>
-        <td> <%= p.user.name %></td>
+        <td class ="body"> <%= p.user.name %></td>
         <td>
           <b> <%= link_to "  عين ", {:controller => 'users' ,:action => 'assign', :id => @project_id , :task_id => @task_id , :user_id =>p.user_id} %></b>
        </td>
