@@ -3,7 +3,8 @@
   <%= flash[:notice] %>
 </div>
 <% end %>
-<h1>المجتمعات </h1>
+
+<h2 class="search">المجتمعات </h2>
 <% if loged_in? %>	
 	<%if current_user.isAdmin == true %>
 	<%= button_to("اضف مجتمع جديد ", {:action => 'new'}, :class => 'btn btn-inverse') %>
@@ -11,11 +12,20 @@
 
 <%end%>
 
-<%= form_tag('list', :method => 'get',:id => "search",:remote => true) do %>  
-<p> 
-  <%= text_field_tag :search, params[:search]%>
-  <i class="icon-search"></i>
-</p>  
+<%= form_tag('list', :method => 'get',:id => "search" , :class=>"pull-left",:remote => true) do %>  
+<div class="input-append">
+  <%= text_field_tag :search, params[:search] , :class=>"span2" , :id=>"appendedInputButton" , :placeholder=>"بحث" , :type=>"text" %>
+    <button class="btn" type="submit">
+  	<i class="icon-search"></i>
+  	</button>
+</div> 
 <%end%>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div id= "table"><%= render'table' %></div>

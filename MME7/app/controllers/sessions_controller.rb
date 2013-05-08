@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       if @user.isAdmin?
        redirect_to(:controller=>'admin',:action=>'show' ,:id=> @user.id)
       else
-       redirect_to @user, :notice => "تسجيل الدخول!"
+       redirect_to(:controller => "carousels", :action => "index")
       end 
     else
      flash[:error] = 'غير صالحة اسم المستخدم / كلمة السر'

@@ -2,13 +2,11 @@
 <% @page_title = "Projects List" %>
 <div >
 <h2>المشاريع</h2>
-<br><br>
 <% if loged_in? %>
 	<% if current_user.isAdmin == true %>
 	 	<%= link_to("كون مشروع",{:action => 'newProject'}, :class =>'btn btn-primary') %>
 	<% end %>
 <% end %>	
-
 <% x=0 %>
 <br><br><br><br>
 	<table >
@@ -43,7 +41,7 @@
 				 	<tr>
 				 	    <td>
 						 	<div class="veiwguestProject" style="margin-right: 0px; width: 200px; height:150px;"class="thumbnail">
-								<br> <%= project.name %><br><br>
+								<br><%= link_to(project.name, {:action => 'show', :id => project.id}) %><br><br>
 								 	<span class = "datesP">
 								 		تاريخ بداية: <%=  project.start_date %><br><br>
 								 		تاريخ انتهاء: <%=  project.end_date %><br>
@@ -54,7 +52,7 @@
 				<%if x %3 == 2 %>
 					<td>
 						<div class="veiwguestProject" style="margin-right: 200px; width: 200px; height:150px;"class="thumbnail"  >
-							 <br><%= project.name %><br><br>
+							 <br><%= link_to(project.name, {:action => 'show', :id => project.id}) %><br><br>
 							 	<span class = "datesP">
 							 		تاريخ بداية:<%= project.start_date %><br><br>
 							 		تاريخ انتهاء:<%= project.end_date %><br>
